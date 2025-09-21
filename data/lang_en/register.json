@@ -1,0 +1,9 @@
+{
+	"home": "<i class=\"fa-solid fa-house\"></i> Home",
+	"login": "<i class=\"fa-solid fa-user-plus\"></i> Log in",
+	"microsoftSignup": "<i class=\"fa-brands fa-microsoft\"></i> <span>Sign up with Microsoft</span>",
+	"googleSignup": "<i class=\"fa-brands fa-google\"></i> <span>Sign up with Google</span>",
+	"animated": "Sign up",
+	"language-btn": "Change language",
+	"title": "Sign up"
+}
