@@ -1,0 +1,130 @@
+h4 {
+	margin-top: 25px;
+}
+
+.nav-link:hover {
+	color: aqua;
+	text-shadow: 0 0 5px aqua;
+	transform: scale(1.1) rotate(4deg);
+}
+
+.container {
+	position: relative;
+	display: flex;
+	width: 100vw;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+
+.lessonDialog {
+	margin-top: 30px;
+	width: 400px;
+	height: 0px;
+	background-color: #f39237;
+	border-radius: 8px;
+	transition: background-color 100ms ease;
+}
+
+.activityDialog {
+	background-color: #06b6d4;
+}
+
+.row {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.row > * {
+	display: flex;
+	flex-direction: row;
+}
+
+.lessonBtn {
+	width: 80px;
+	height: 80px;
+	font-size: 32px;
+	border-radius: 80px;
+	background-color: #f39237;
+	color: white;
+	border-width: 0;
+	box-shadow: 0 10px 0 0 #9a4a00;
+	transition: transform 100ms ease-in, box-shadow 100ms ease-in;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 10px;
+	z-index: 3;
+}
+
+.lessonBtn i {
+	position: static;
+}
+
+.lessonBtn:hover {
+	transform: translateY(2px);
+	box-shadow: 0 8px 0 0 #9a4a00;
+}
+
+.lessonBtn:active {
+	transform: translateY(10px);
+	box-shadow: 0 0 0 0 #9a4a00;
+}
+
+.activityBtn {
+	background-color: #06b6d4;
+	box-shadow: 0 10px 0 0 #005cac;
+}
+
+.activityBtn:hover {
+	box-shadow: 0 8px 0 0 #005cac;
+}
+
+.activityBtn:active {
+	transform: translateY(10px);
+	box-shadow: 0 0 0 0 #005cac;
+}
+
+#lessonHeader {
+	font-size: 18px;
+	margin-bottom: 25px;
+	text-transform: uppercase;
+	font-weight: 900;
+	text-shadow: 0 0 4px black;
+	text-align: center;
+}
+
+.enterLessonBtn {
+	width: 100px;
+	padding: 8px;
+	border: 0;
+	border-radius: 5px;
+	color: #9a4a00;
+	box-shadow: 0 10px 0 0 #9a4a00;
+	font-weight: 900;
+	transition: transform 100ms ease-in, box-shadow 100ms ease-in;
+}
+
+.enterLessonBtn:hover {
+	transform: translateY(2px);
+	box-shadow: 0 8px 0 0 #9a4a00;
+}
+
+.enterLessonBtn:active {
+	transform: translateY(10px);
+	box-shadow: 0 0 0 0 #9a4a00;
+}
+
+.enterActivityBtn {
+	color: #005cac;
+	box-shadow: 0 10px 0 0 #005cac;
+}
+
+.enterActivityBtn:hover {
+	box-shadow: 0 8px 0 0 #005cac;
+}
+
+.enterActivityBtn:active {
+	box-shadow: 0 0 0 0 #005cac;
+}

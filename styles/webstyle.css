@@ -1,0 +1,119 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'JetBrains Mono', Consolas, monospace;
+}
+
+:root {
+	--link-transition: color 800ms ease, transform 500ms ease, text-shadow 800ms ease;
+}
+
+body {
+	background-color: #1A1B27;
+	color: white;
+	z-index: 1;
+	overflow-x: hidden;
+}
+
+@property --color-stop-1 {
+	syntax: '<color>';
+	initial-value: #1a1b27;
+	inherits: false;
+}
+
+@property --color-stop-2 {
+	syntax: '<color>';
+	initial-value: #3c3069;
+	inherits: false;
+}
+
+.gradient {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: linear-gradient(var(--color-stop-1), var(--color-stop-2));
+	z-index: 0;
+	pointer-events: none;
+
+	transition: --color-stop-1 800ms ease, --color-stop-2 800ms ease;
+}
+
+.navbar {
+	background-color: black;
+	padding: 30px;
+}
+
+.navbar-brand {
+	font-weight: 900;
+	font-size: 28px;
+	color: #EC4899;
+	text-shadow: 0 0 1px #EC4899;
+	transition: var(--link-transition);
+	cursor: pointer;
+}
+
+.navbar-brand:hover {
+	color: #06B6D4;
+	text-shadow: 0 0 5px #06B6D4;
+	transform: scale(1.1) rotate(-5deg);
+}
+
+.collapse {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.nav-item {
+	width: 200px;
+	text-align: right;
+}
+
+.nav-link {
+	color: white;
+	text-shadow: 0 0 0 white;
+	transition: var(--link-transition);
+}
+
+#language-btn {
+	position: fixed;
+	width: 40px;
+	height: 40px;
+	bottom: 20px;
+	right: 20px;
+	border-radius: 4px;
+	border: 2px white solid;
+	background-color: #3c3069;
+	color: white;
+	transition: background-color 500ms ease, transform 500ms ease, color 500ms ease;
+}
+
+#language-btn:hover {
+	color: black;
+	background-color: white;
+	transform: scale(1.2); 
+}
+
+::-webkit-scrollbar {
+	width: 16px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: #ffffff10;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgb(169, 169, 169);
+	border-radius: 8px;
+	transition: background-color 500ms ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: white;
+}
+
+@media screen and (max-width: 1200px) {
+	.collapse {
+		justify-content: flex-start;
+	}
+}

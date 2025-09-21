@@ -1,0 +1,76 @@
+#animated {
+	margin-bottom: 25px;
+}
+
+.nav-link:hover {
+	color: aqua;
+	text-shadow: 0 0 5px aqua;
+	transform: scale(1.1) rotate(4deg);
+}
+
+.container {
+	display: flex;
+	width: 100vw;
+	height: 70vh;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.loginBtn {
+	padding: 8px;
+	margin: 10px;
+	width: 300px;
+	background-color: #240964;
+	color: white;
+	border-radius: 5px;
+	border: 1px solid white;
+	transition: background-color 400ms ease, color 250ms ease,
+		transform 100ms ease-in, box-shadow 100ms ease-in;
+	box-shadow: 0 10px 0 0 rgba(0, 0, 0, 0.5);
+}
+
+.loginBtn span,
+.loginBtn i {
+	color: rgba(255, 255, 255, 0.5);
+	position: relative;
+	transition: 500ms;
+}
+
+.loginBtn span::after {
+	content: "\00bb";
+	position: absolute;
+	top: -2px;
+	right: -20px;
+	opacity: 0;
+	transition: 500ms;
+}
+
+.loginBtn:hover {
+	background-color: #421c9c;
+}
+
+.loginBtn:hover span {
+	color: white;
+	padding-right: 25px;
+}
+
+.loginBtn:hover i {
+	color: white;
+}
+
+.loginBtn:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+
+.loginBtn:active {
+	background-color: white;
+	transform: translateY(10px);
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+}
+
+.loginBtn:active span,
+.loginBtn:active i {
+	color: black;
+}
