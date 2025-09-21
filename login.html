@@ -13,8 +13,9 @@
 			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="styles/index.css" />
-		<title>JuniorDevs</title>
+		<link rel="stylesheet" href="styles/webstyle.css" />
+		<link rel="stylesheet" href="styles/login.css" />
+		<title>Login</title>
 	</head>
 	<body>
 		<script
@@ -24,7 +25,7 @@
 		></script>
 
 		<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-			<a class="navbar-brand" href="#">JuniorDevs</a>
+			<a class="navbar-brand">CriticalCode</a>
 			<button
 				class="navbar-toggler"
 				type="button"
@@ -45,18 +46,50 @@
 			>
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="index.html"
-							><i class="fa-solid fa-house"></i> Home</a
+						<a class="nav-link" href="index.html" id="home"
+							><i class="fa-solid fa-house"></i> Trang chủ</a
 						>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="register.html">
-							<i class="fa-solid fa-user-plus"></i> Register
+						<a class="nav-link" href="register.html" id="signup">
+							<i class="fa-solid fa-user-plus"></i> Đăng ký
 						</a>
 					</li>
 				</ul>
 			</div>
 		</nav>
+
+		<div class="gradient"></div>
+
+		<div class="container">
+			<h1 id="animated" data-value="Đăng nhập">Đăng nhập</h1>
+			<button
+				type="button"
+				title="Microsoft Login"
+				id="microsoftLogin"
+				class="loginBtn"
+				onclick="window.location.href = 'home.html';"
+			>
+				<i class="fa-brands fa-microsoft"></i>
+				<span>Đăng nhập bằng Microsoft</span>
+			</button>
+			<button
+				type="button"
+				title="Google Login"
+				id="googleLogin"
+				class="loginBtn"
+				onclick="window.location.href = 'home.html';"
+			>
+				<i class="fa-brands fa-google"></i>
+				<span>Đăng nhập bằng Google</span>
+			</button>
+		</div>
+
+		<button id="language-btn" title="Thay đổi ngôn ngữ" type="button">
+			<i class="fa-solid fa-globe"></i>
+		</button>
+
+		<script src="scripts/lang/language_login.js"></script>
+		<script src="scripts/hackerEffect.js"></script>
 	</body>
 </html>
-
