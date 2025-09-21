@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="styles/webstyle.css" />
+		<link rel="stylesheet" href="styles/lesson.css" />
+		<link rel="stylesheet" href="styles/prism.css" />
+		<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
+		<title>CriticalCode Lesson</title>
+	</head>
+	<body>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+			crossorigin="anonymous"
+		></script>
+		<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+			<a href="home.html" title="Back" class="nav-link" id="back"
+				><i class="fa-solid fa-xmark"></i
+			></a>
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent"
+				data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div
+				class="collapse navbar-collapse test"
+				id="navbarSupportedContent"
+			>
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item progress-nav-item">
+						<div id="progress">
+							<div id="bar"></div>
+						</div>
+					</li>
+					<li class="nav-item logo-item">
+						<img
+							id="logo-img"
+							src="images/logo.png"
+							alt="logo"
+							class="img-fluid logo-responsive"
+						/>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="gradient"></div>
+		<div class="parent">
+			<div id="lesson-content"></div>
+			<div class="container" id="code-container">
+				<div class="inl-block">
+					<button id="runBtn" title="Run" type="button">
+						<i class="fa-solid fa-play"></i>
+					</button>
+					<button
+						id="stopBtn"
+						title="Stop"
+						type="button"
+						disabled="true"
+					>
+						<i class="fa-solid fa-stop"></i>
+					</button>
+				</div>
+
+				<div class="code-editor-wrap" id="codeEditor">
+					<textarea
+						id="editor"
+						class="codeEdit"
+						spellcheck="false"
+						tabindex="0"
+						style="width: 500px; height: 300px; resize: none"
+						title="Code Area"
+						autocomplete="off"
+						autocorrect="off"
+						autocapitalize="off"
+					></textarea>
+					<pre
+						class="codeEdit line-numbers"
+						style="width: 500px; height: 300px; margin-top: 10px"
+					><code id="highlight" class="language-py"></code></pre>
+				</div>
+				<div id="output" title="Output" contenteditable="false"></div>
+			</div>
+		</div>
+		<script src="scripts/prism.js"></script>
+		<script src="scripts/lesson.js"></script>
+	</body>
+</html>
