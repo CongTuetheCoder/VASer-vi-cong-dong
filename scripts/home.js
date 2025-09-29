@@ -55,35 +55,69 @@ const createButtons = (unit, lessonsArrange, lessonsData) => {
 					enterLessonBtn.innerHTML =
 						'<i class="fa-solid fa-spinner fa-spin-pulse"></i>';
 					const headerText = dialog.childNodes[0].innerHTML;
-					const idx = String(button.dataset.idx);
 
-					const storeData = () => {
-						const lang = localStorage.getItem("lang");
-						const code = lessonsData[idx]["code" + lang];
-						const correctOutputs =
-							lessonsData[idx]["correct" + lang];
+					fetch("data/lessons.json")
+						.then((response) => {
+							if (!response.ok) {
+								console.error(
+									`HTTP error: Status: ${response.status}`
+								);
+							}
+							return response.json();
+						})
+						.then((data) => {
+							const storeData = () => {
+								const lang = localStorage.getItem("lang");
+								const isActivity =
+									headerText.indexOf("Thực hành") !== -1 ||
+									headerText.indexOf("Practice") !== -1;
 
-						const lessonID = headerText.split(" ")[1].slice(0, -1);
+								const lessonID = headerText
+									.split(" ")
+									[
+										1 + Number(lang == "vi" && isActivity)
+									].slice(0, -1);
 
-						sessionStorage.setItem("lesson", headerText);
-						sessionStorage.setItem(
-							"filledcode",
-							JSON.stringify(code)
-						);
-						sessionStorage.setItem(
-							"correct",
-							JSON.stringify(correctOutputs)
-						);
-						sessionStorage.setItem("lessonID", lessonID);
-					};
+								let chapter, lesson;
+								chapter = lessonID.split(".")[0];
 
-					for (let time = 0; time < 1000; time += 50) {
-						setTimeout(storeData, time); // fallback
-					}
+								if (!isActivity)
+									lesson = lessonID.split(".")[1];
+								else
+									lesson =
+										data.lessonsData[
+											chapter
+										].length.toString();
 
-					setTimeout(() => {
-						window.location.href = "lesson.html";
-					}, 1000);
+								const code =
+									data.lessons[chapter][lesson][
+										"code" + lang
+									];
+								const correctOutputs =
+									data.lessons[chapter][lesson][
+										"correct" + lang
+									];
+
+								sessionStorage.setItem("lesson", headerText);
+								sessionStorage.setItem(
+									"filledcode",
+									JSON.stringify(code)
+								);
+								sessionStorage.setItem(
+									"correct",
+									JSON.stringify(correctOutputs)
+								);
+								sessionStorage.setItem("lessonID", lessonID);
+							};
+
+							for (let time = 0; time < 1000; time += 50) {
+								setTimeout(storeData, time); // fallback
+							}
+
+							setTimeout(() => {
+								window.location.href = "lesson.html";
+							}, 1000);
+						});
 				});
 
 				dialog.appendChild(lessonHeader);
