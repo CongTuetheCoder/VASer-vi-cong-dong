@@ -2,13 +2,13 @@
 	"section1": "Topic 1: Introduction to Python",
 	"section2": "Topic 2: Loops and Conditionals",
 	"section3": "Topic 3: Storing Multiple Values",
-	"section4": "Topic 4: Subroutines",
+	"section4": "Topic 4: Functions and Program Decomposition",
 
 	"lesson11": "Lesson 1.1: First Program",
 	"lesson12": "Lesson 1.2: Storing Information",
 	"lesson13": "Lesson 1.3: Doing Math in Python",
 	"lesson14": "Lesson 1.4: Fetching and Converting Data",
-	"lesson15": "Practice 1: Adding Two Numbers",
+	"lesson15": "Practice 1: Simple Calculation Program",
 
 	"lesson21": "Lesson 2.1: For Loops",
 	"lesson22": "Lesson 2.2: While Loops",
@@ -21,11 +21,10 @@
 	"lesson33": "Lesson 3.3: Sorting Lists",
 	"lesson34": "Practice 3: Shopping Program",
 
-	"lesson41": "Lesson 4.1: Creating subroutines",
-	"lesson42": "Lesson 4.2: Passing arguments",
-	"lesson43": "Lesson 4.3: Functions returning values",
-	"lesson44": "Lesson 4.4: Variable Scopes",
-	"lesson45": "Practice 4: DIY Calculator",
+	"lesson41": "Lesson 4.1: Defining and calling functions",
+	"lesson42": "Lesson 4.2: Parameters and return values",
+	"lesson43": "Lesson 4.3: Variable Scopes",
+	"lesson44": "Practice 4: Calculating perimeters and areas",
 
 	"profile": "<i class=\"fa-solid fa-circle-user\"></i> Profile",
 	"language-btn": "Change language"
