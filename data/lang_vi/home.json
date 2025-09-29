@@ -2,13 +2,13 @@
 	"section1": "Chủ đề 1: Giới thiệu về Python",
 	"section2": "Chủ đề 2: Vòng lặp và lệnh điều kiện",
 	"section3": "Chủ đề 3: Lưu trữ nhiều giá trị",
-	"section4": "Chủ đề 4: Chương trình con",
+	"section4": "Chủ đề 4: Hàm và chia nhỏ chương trình",
 
 	"lesson11": "Bài 1.1: Chương trình đầu tiên",
 	"lesson12": "Bài 1.2: Lưu trữ thông tin",
 	"lesson13": "Bài 1.3: Làm toán trong Python",
 	"lesson14": "Bài 1.4: Lấy và đổi dữ liệu",
-	"lesson15": "Thực hành 1: Cộng hai số",
+	"lesson15": "Thực hành 1: Chương trình tính toán cơ bản",
 
 	"lesson21": "Bài 2.1: Vòng lặp for",
 	"lesson22": "Bài 2.2: Vòng lặp while",
@@ -21,11 +21,10 @@
 	"lesson33": "Bài 3.3: Sắp xếp danh sách",
 	"lesson34": "Thực hành 3: Chương trình mua sắm",
 
-	"lesson41": "Bài 4.1: Tạo chương trình con",
-	"lesson42": "Bài 4.2: Truyền tham số",
-	"lesson43": "Bài 4.3: Hàm trả về giá trị",
-	"lesson44": "Bài 4.4: Phạm vi biến",
-	"lesson45": "Thực hành 4: Máy tính đơn giản",
+	"lesson41": "Bài 4.1: Khai báo và gọi hàm",
+	"lesson42": "Bài 4.2: Truyền tham số và trả về kết quả",
+	"lesson43": "Bài 4.3: Phạm vi biến",
+	"lesson44": "Thực hành 4: Tính chu vi, diện tích",
 
 	"profile": "<i class=\"fa-solid fa-circle-user\"></i> Trang cá nhân",
 	"language-btn": "Thay đổi ngôn ngữ"
