@@ -1,9 +1,28 @@
 // Setup
 const lessonContainer = document.getElementById("lesson-content");
 const codeContainer = document.getElementById("code-container");
+const body = document.getElementsByTagName("body")[0];
+const lesson = sessionStorage.getItem("lesson");
+
 lessonContainer.style.height = codeContainer.style.height;
 
-const lesson = sessionStorage.getItem("lesson");
+const COLOURS = {
+	base: {
+		dark: "#1a1b27",
+		base: "#3c3069",
+		light: "#bca9f2",
+	},
+	correct: {
+		dark: "#1a271a",
+		base: "#30694c",
+		light: "#88e1b3",
+	},
+	wrong: {
+		dark: "#271a1a",
+		base: "#693030",
+		light: "#d97a7a",
+	},
+};
 
 if (lesson === null) window.location.href = "home.html";
 else document.title = lesson;
@@ -16,9 +35,12 @@ const lessonID = sessionStorage.getItem("lessonID");
 
 const activities = codeList.length;
 
+const jsonURL = "https://68ce57d06dc3f350777eb8f9.mockapi.io/content";
+const backupURL = "data/content.json";
+
 // Fetch content
 function updateContent() {
-	fetch("https://68ce57d06dc3f350777eb8f9.mockapi.io/content")
+	fetch(backupURL)
 		.then((response) => {
 			if (!response.ok) {
 				console.error(`HTTP error: Status: ${response.status}`);
@@ -39,6 +61,7 @@ function updateContent() {
 
 				let elem = `<${type}`;
 				if (type === "div") elem += ' class="div-code"';
+				else if (type === "i") elem += ' style="color: #00000080"';
 
 				elem += `>${element.body}</${type}>`;
 				lessonContainer.innerHTML += elem;
@@ -141,13 +164,19 @@ async function runPython() {
 		});
 }
 
-function changeBgGradient(col1 = "#1a1b27", col2 = "#3c3069") {
+function changeBgGradient(property = "base") {
 	const gradient = document.getElementsByClassName("gradient")[0];
+	const col1 = COLOURS[property].dark;
+	const col2 = COLOURS[property].base;
+
 	gradient.style.setProperty("--color-stop-1", col1);
 	gradient.style.setProperty("--color-stop-2", col2);
 }
 
-function changeLessonGradient(col1 = "#bca9f2ff", col2 = "#3c3069") {
+function changeLessonGradient(property = "base") {
+	const col1 = COLOURS[property].light;
+	const col2 = COLOURS[property].base;
+
 	lessonContainer.style.setProperty("--bg-stop-1", col1);
 
 	const spans = lessonContainer.querySelectorAll("span");
@@ -162,7 +191,7 @@ function changeLessonGradient(col1 = "#bca9f2ff", col2 = "#3c3069") {
 }
 
 function step() {
-	const percentage = Math.round(((lessonCounter + 1) / activities) * 100);
+	const percentage = ((lessonCounter + 1) / activities) * 100;
 	const bar = document.getElementById("bar");
 	bar.style.setProperty("--progress-width", `${percentage}%`);
 }
@@ -171,6 +200,8 @@ function validateOutput(output, pattern) {
 	const normalize = (str) => str.replace(/\r\n/g, "\n").trim();
 	const outLines = normalize(output).split("\n");
 	const userInputs = [];
+	const vars = {};
+	const skipTypes = ["reference", "var"];
 
 	let index = 0;
 
@@ -181,15 +212,80 @@ function validateOutput(output, pattern) {
 
 			const input = line.slice(pat.text.length).trim();
 			userInputs.push(input);
+
+			if (pat.captureAs) vars[pat.captureAs] = input;
 			return true;
 		}
 
 		if (pat.type === "dynamic") {
-			return line.startsWith(pat.text);
+			if (!line.startsWith(pat.text)) return false;
+			if (pat.captureAs) vars[pat.captureAs] = line;
+			return true;
 		}
 
 		if (pat.type === "static") {
 			return line === pat.text;
+		}
+
+		if (pat.type === "regex") {
+			const re = new RegExp(pat.pattern);
+			const m = line.match(re);
+
+			if (m === null) return false;
+
+			const captured = m[1] !== undefined ? m[1] : m[0];
+
+			if (pat.captureAs) {
+				if (pat.captureOnce && vars[pat.captureAs] !== undefined) {
+					if (
+						String(vars[pat.captureAs]).trim() !==
+						String(captured).trim()
+					) {
+						return false; // different -> fail
+					}
+				} else {
+					if (Array.isArray(pat.captureAs)) {
+						pat.captureAs.forEach((name, i) => {
+							vars[name] = m[i + 1];
+						});
+					} else vars[pat.captureAs] = captured;
+				}
+			}
+			return true;
+		}
+
+		if (pat.type === "reference") {
+			const refVal = vars[pat.name];
+			const args = Array.isArray(pat.from)
+				? pat.from.map((v) => vars[v])
+				: [vars[pat.from]];
+			if (refVal === undefined || args === undefined) return false;
+
+			let expected = args;
+			if (pat.transform) {
+				try {
+					// Wrap in function so `x` is available
+					const f = new Function(
+						"args",
+						`return (${pat.transform})(...args);`
+					);
+					expected = f(args);
+				} catch (e) {
+					console.error("Transform failed:", e);
+					return false;
+				}
+			}
+
+			return refVal == expected;
+		}
+
+		if (pat.type === "var") {
+			const pythonVal = Sk.globals[pat.name];
+			const value = Sk.ffi.remapToJs(pythonVal);
+
+			if (pat.captureAs) vars[pat.captureAs] = value;
+
+			return true;
 		}
 
 		return false;
@@ -242,8 +338,11 @@ function validateOutput(output, pattern) {
 					}
 				}
 			} else {
-				if (idx >= lines.length || !matchLine(lines[idx], pattern))
+				if (skipTypes.includes(pattern.type)) idx--;
+				if (idx >= lines.length || !matchLine(lines[idx], pattern)) {
+					console.log("failed at pattern", pattern);
 					return -1;
+				}
 				idx++;
 			}
 		}
@@ -266,8 +365,8 @@ document.getElementById("runBtn").addEventListener("click", async () => {
 	let timeout;
 
 	if (validateOutput(outputText, correctOutputs[lessonCounter])) {
-		changeBgGradient("#1a271a", "#30694c");
-		changeLessonGradient("#88e1b3", "#30694c");
+		changeBgGradient("correct");
+		changeLessonGradient("correct");
 		timeout = 2500;
 		step();
 
@@ -310,11 +409,13 @@ document.getElementById("runBtn").addEventListener("click", async () => {
 					'<i class="fa-solid fa-arrow-left fa-beat"></i>';
 				backArrow.style.color = "aqua";
 				backArrow.style.textShadow = "0 0 5px aqua";
+
+				document.getElementById("runBtn").disabled = false;
 			}
 		}, 3500);
 	} else {
-		changeBgGradient("#271a1a", "#693030");
-		changeLessonGradient("#d97a7a", "#693030");
+		changeBgGradient("wrong");
+		changeLessonGradient("wrong");
 		timeout = 1250;
 
 		setTimeout(() => {
