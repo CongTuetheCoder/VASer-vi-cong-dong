@@ -1,0 +1,1807 @@
+[
+	{
+		"1.1": [
+			[
+				{
+					"type": "i",
+					"body": "Chào mừng bạn đến với Python!"
+				},
+				{
+					"body": "Python là một ngôn ngữ lập trình mạnh mẽ và đa mục đích."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Lệnh đầu tiên bạn sẽ học là hàm <span class=\"inl-code\">print()</span>. Nó được dùng để xuất giá trị ra màn hình console."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy bắt đầu hành trình lập trình của chúng ta bằng cách in ra <span class=\"inl-code\">'Xin chào, Python!'</span> trên console!"
+				},
+				{
+					"body": "Hãy gõ <span class=\"inl-code\">print(\"Xin chào, Python!\")</span> vào trình soạn thảo và chạy nó."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Ở đây, vì <span class=\"inl-code\">Xin chào, Python!</span> là một chuỗi văn bản, nên nó cần được đặt trong dấu nháy đơn hoặc nháy kép."
+				}
+			],
+			[
+				{
+					"body": "Hàm <span class=\"inl-code\">print()</span> có thể xuất nhiều giá trị cùng một lúc, được ngăn cách bằng khoảng trắng."
+				},
+				{
+					"body": "Để nhập nhiều giá trị vào hàm <span class=\"inl-code\">print()</span>, hãy đặt dấu phẩy giữa các giá trị."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Vì bạn đang học Python, tại sao không thử làm chương trình in ra <span class=\"inl-code\">Tôi đang học Python</span>?"
+				}
+			],
+			[
+				{
+					"body": "Hàm <span class=\"inl-code\">print()</span> có thể xuất nhiều giá trị cùng một lúc, ngay cả khi chúng không cùng kiểu dữ liệu."
+				},
+				{
+					"body": "Cả số và chuỗi đều có thể được truyền vào <span class=\"inl-code\">print()</span>."
+				},
+				{
+					"type": "i",
+					"body": "(Số không cần được bọc trong các dấu nháy đơn hay nháy kép.)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy thử chạy <span class=\"inl-code\">print(123, \"Chào!\")</span> và xem Python hiển thị cả hai giá trị được ngăn cách bằng một khoảng trắng như thế nào."
+				}
+			]
+		],
+
+		"1.2": [
+			[
+				{
+					"body": "Trong Python, biến giống như những chiếc hộp để lưu trữ nhiều loại thông tin khác nhau, chẳng hạn như văn bản hoặc số."
+				},
+				{
+					"body": "Biến có thể lưu trữ các giá trị dạng văn bản như tên hoặc lời chào."
+				},
+				{
+					"body": "Ví dụ, bạn có thể gán từ <span class=\"inl-code\">'Ngọc'</span> cho một biến có tên là <span class=\"inl-code\">ban_cua_toi</span>."
+				},
+				{ "type": "div", "body": "ban_cua_toi: str = 'Ngọc'" },
+				{ "type": "br", "body": "" },
+				{
+					"body": "Hãy bắt đầu bằng cách gán giá trị <span class=\"inl-code\">'Tấn'</span> cho một biến có tên là <span class=\"inl-code\">ten</span>."
+				}
+			],
+			[
+				{
+					"body": "Biến cũng có thể lưu trữ số. Các số nguyên được gọi là integers."
+				},
+				{
+					"body": "Ví dụ, bạn có thể lưu trữ tuổi trong một biến như <span class=\"inl-code\">15</span>."
+				},
+				{ "type": "div", "body": "tuoi: int = 15" },
+				{ "type": "br", "body": "" },
+				{
+					"body": "Hãy thử tạo một biến <span class=\"inl-code\">tuoi</span> và gán cho nó giá trị <span class=\"inl-code\">23</span>."
+				}
+			],
+			[
+				{
+					"body": "Một số số có chứa phần thập phân, chẳng hạn như giá cả hoặc số đo."
+				},
+				{
+					"body": "Trong Python, chúng được gọi là số thực dấu chấm động, hay floats."
+				},
+				{
+					"body": "Ví dụ, bạn có thể gán <span class=\"inl-code\">52.8</span> cho một biến có tên là <span class=\"inl-code\">can_nang</span>."
+				},
+				{ "type": "div", "body": "can_nang: float = 52.8" },
+				{ "type": "br", "body": "" },
+				{
+					"body": "Hãy thực hành bằng cách gán cho biến <span class=\"inl-code\">gia_tien</span> giá trị <span class=\"inl-code\">10.5</span>."
+				}
+			],
+			[
+				{
+					"body": "Đôi khi chúng ta muốn lưu lại các giá trị đơn giản kiểu có/không."
+				},
+				{
+					"body": "Python sử dụng một kiểu đặc biệt gọi là Boolean, chỉ có thể là <span class=\"inl-code\">True</span> hoặc <span class=\"inl-code\">False</span>."
+				},
+				{
+					"body": "Ví dụ, bạn có thể lưu trữ việc ai đó có bằng lái hay không."
+				},
+				{ "type": "div", "body": "co_bang_lai: bool = True" },
+				{ "type": "br", "body": "" },
+				{
+					"body": "Chúng ta hãy tạo một biến <span class=\"inl-code\">la_hoc_sinh</span> và gán cho nó giá trị <span class=\"inl-code\">False</span> nhé."
+				}
+			],
+			[
+				{
+					"body": "Bạn có thể sử dụng nhiều câu lệnh <span class=\"inl-code\">print()</span> để hiển thị nhiều thông tin khác nhau."
+				},
+				{
+					"body": "Ví dụ, bạn có thể in ra một con số rồi sau đó in một thông điệp."
+				},
+				{
+					"type": "div",
+					"body": "so_yeu_thich = 12<br>loi_nhan = 'Cố lên!'"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Trước hết, hãy thử gán số <span class=\"inl-code\">7</span> vào biến <span class=\"inl-code\">so_may_man</span> và gán một thông điệp với nội dung <span class=\"inl-code\">'Chúc may mắn!'</span> vào biến <span class=\"inl-code\">loi_nhan</span>."
+				}
+			],
+			[
+				{
+					"body": "Biến không phải lúc nào cũng lưu trực tiếp số hoặc văn bản. Chúng cũng có thể sao chép giá trị từ biến khác."
+				},
+				{
+					"body": "Ví dụ, bạn có thể đặt một biến bằng một biến khác, như biến <span class=\"inl-code\">tong_diem</span> bằng với <span class=\"inl-code\">diem</span>."
+				},
+				{
+					"type": "div",
+					"body": "diem: int = 10<br>tong_diem: int = diem"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Hãy thử bằng cách đầu tiên tạo một biến <span class=\"inl-code\">tam_thoi</span> với giá trị <span class=\"inl-code\">5</span>, rồi gán một biến khác <span class=\"inl-code\">gia_tri</span> bằng với <span class=\"inl-code\">tam_thoi</span>."
+				}
+			],
+			[
+				{
+					"body": "Python cũng cho phép bạn gán cùng một giá trị cho nhiều biến trong một dòng lệnh."
+				},
+				{
+					"body": "Ví dụ, bạn có thể gán <span class=\"inl-code\">9</span> cho cả <span class=\"inl-code\">x</span> và <span class=\"inl-code\">y</span> trong một dòng."
+				},
+				{ "type": "div", "body": "x = y = 9" },
+				{ "type": "br", "body": "" },
+				{
+					"body": "Hãy thử gán giá trị <span class=\"inl-code\">6</span> cho cả <span class=\"inl-code\">a</span> và <span class=\"inl-code\">b</span>."
+				}
+			],
+			[
+				{
+					"body": "Bạn cũng có thể gán các giá trị khác nhau cho nhiều biến trong cùng một dòng."
+				},
+				{
+					"body": "Ví dụ, bạn có thể gán một từ cho một biến và một số cho biến khác."
+				},
+				{ "type": "div", "body": "x, y = 'Hi', 42" },
+				{ "type": "br", "body": "" },
+				{
+					"body": "Hãy kết thúc bài học bằng cách gán cho biến <span class=\"inl-code\">a</span> giá trị <span class=\"inl-code\">123</span> và biến <span class=\"inl-code\">b</span> giá trị <span class=\"inl-code\">'Chào!'</span>."
+				}
+			]
+		],
+
+		"1.3": [
+			[
+				{
+					"body": "Python có thể thực hiện các phép toán giống như một chiếc máy tính."
+				},
+				{
+					"body": "Ví dụ, Python có thể cộng hai số bằng toán tử <span class=\"inl-code\">+</span>."
+				},
+				{
+					"body": "Nếu bạn có <span class=\"inl-code\">3</span> quả táo và được thêm <span class=\"inl-code\">2</span> quả nữa, bạn có thể cộng chúng lại để được <span class=\"inl-code\">5</span>."
+				},
+				{
+					"type": "div",
+					"body": "tong: int = 3 + 2  <span class=\"code-comment\"># tong = 5</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Hãy bắt đầu bằng cách cộng <span class=\"inl-code\">7</span> và <span class=\"inl-code\">8</span> rồi lưu kết quả vào biến có tên <span class=\"inl-code\">tong</span>."
+				}
+			],
+			[
+				{
+					"body": "Python cũng có thể trừ số bằng toán tử <span class=\"inl-code\">-</span>."
+				},
+				{
+					"body": "Ví dụ, nếu bạn có <span class=\"inl-code\">10</span> viên kẹo và ăn mất <span class=\"inl-code\">3</span>, bạn sẽ còn lại <span class=\"inl-code\">7</span>."
+				},
+				{
+					"type": "div",
+					"body": "con_lai: int = 10 - 3  <span class=\"code-comment\"># con_lai = 7</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Hãy thử tạo một biến tên là <span class=\"inl-code\">hieu</span> và lưu kết quả của phép trừ <span class=\"inl-code\">12 - 4</span>."
+				}
+			],
+			[
+				{
+					"body": "Python dùng ký hiệu <span class=\"inl-code\">*</span> cho phép nhân."
+				},
+				{
+					"body": "Điều này hữu ích khi bạn muốn cộng cùng một số nhiều lần một cách nhanh chóng."
+				},
+				{
+					"body": "Ví dụ, nếu một chiếc ghế có giá <span class=\"inl-code\">50</span> và bạn mua <span class=\"inl-code\">4</span> chiếc, tổng chi phí là <span class=\"inl-code\">200</span>."
+				},
+				{
+					"type": "div",
+					"body": "tong_gia_tien: int = 50 * 4  <span class=\"code-comment\"># tong_gia_tien = 200</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Hãy luyện tập bằng cách nhân <span class=\"inl-code\">6.5</span> với <span class=\"inl-code\">9</span> và lưu kết quả vào biến <span class=\"inl-code\">tich</span>."
+				}
+			],
+			[
+				{
+					"body": "Python dùng ký hiệu <span class=\"inl-code\">/</span> cho phép chia."
+				},
+				{
+					"body": "Nó cho bạn biết một số có thể chia thành bao nhiêu lần trong một số khác."
+				},
+				{
+					"body": "Ví dụ, nếu bạn có <span class=\"inl-code\">20</span> cái bánh và chia đều cho <span class=\"inl-code\">5</span> người bạn, mỗi người sẽ nhận được <span class=\"inl-code\">4</span> cái."
+				},
+				{
+					"type": "div",
+					"body": "banh_cua_1_nguoi: float = 20 / 5 <span class=\"code-comment\"># banh_cua_1_nguoi = 4.0</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Không giống như các phép toán trước, phép chia luôn trả về một giá trị <span class=\"inl-code\">float</span>."
+				},
+				{
+					"body": "Hãy thử chia <span class=\"inl-code\">15</span> cho <span class=\"inl-code\">3</span> và lưu kết quả vào biến có tên <span class=\"inl-code\">thuong</span>."
+				}
+			],
+			[
+				{
+					"body": "Python cũng hỗ trợ phép chia lấy phần nguyên, trong đó kết quả được làm tròn xuống số nguyên gần nhất."
+				},
+				{
+					"body": "Python dùng ký hiệu <span class=\"inl-code\">//</span> cho phép chia lấy phần nguyên."
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Hãy thử sử dụng phép chia lấy phần nguyên để chia <span class=\"inl-code\">15</span> cho <span class=\"inl-code\">3</span> và lưu kết quả vào biến có tên <span class=\"inl-code\">thuong_nguyen</span>."
+				}
+			],
+			[
+				{
+					"body": "Python còn có một toán tử đặc biệt để lấy số dư, gọi là toán tử modulo, được viết là <span class=\"inl-code\">%</span>."
+				},
+				{
+					"body": "Nó cho bạn biết phần còn lại sau khi thực hiện phép chia."
+				},
+				{
+					"body": "Ví dụ, nếu bạn chia <span class=\"inl-code\">10</span> cho <span class=\"inl-code\">3</span>, kết quả là <span class=\"inl-code\">3</span> và dư <span class=\"inl-code\">1</span>."
+				},
+				{
+					"type": "div",
+					"body": "so_du = 10 % 3  <span class=\"code-comment\"># so_du = 1</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Thử tìm số dư khi <span class=\"inl-code\">17</span> chia cho <span class=\"inl-code\">5</span> và lưu kết quả vào biến <span class=\"inl-code\">so_du</span>."
+				}
+			],
+			[
+				{
+					"body": "Python cũng có thể tính lũy thừa bằng toán tử <span class=\"inl-code\">**</span>."
+				},
+				{
+					"body": "Lũy thừa có nghĩa là nhân một số với chính nó nhiều lần."
+				},
+				{
+					"body": "Ví dụ, <span class=\"inl-code\">2 ** 3 = 2 * 2 * 2 = 8</span>."
+				},
+				{
+					"type": "div",
+					"body": "luy_thua = 2 ** 3 <span class=\"code-comment\"># luy_thua = 8</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Bây giờ hãy thử tính <span class=\"inl-code\">5</span> mũ <span class=\"inl-code\">2</span> và lưu kết quả vào biến có tên <span class=\"inl-code\">vuong</span>."
+				}
+			],
+			[
+				{
+					"body": "Python tuân theo một tập hợp các quy tắc về thứ tự ưu tiên của toán tử, thường được ghi nhớ bằng chữ viết tắt <span class=\"inl-code\">PEMDAS</span>:"
+				},
+				{
+					"type": "div",
+					"body": "- Parentheses (dấu ngoặc)<br>- Exponentiation (lũy thừa)<br>- Multiplication and Division (nhân và chia)<br>- Addition and Subtraction (cộng và trừ)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Với một biểu thức như <span class=\"inl-code\">(3 + 4) ** 2 * 5 - 1</span>, Python sẽ tính toán theo thứ tự sau:"
+				},
+				{
+					"type": "div",
+					"body": " = 7 ** 2 * 5 - 1 <span class=\"code-comment\"># dấu ngoặc trước</span><br> = 49 * 5 - 1 <span class=\"code-comment\"># sau đó là lũy thừa</span><br> = 245 - 1 <span class=\"code-comment\"># rồi đến phép nhân</span><br> = 244 <span class=\"code-comment\"># cuối cùng là cộng/trừ</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Bây giờ, hãy kết thúc bài học này bằng cách gán kết quả của <span class=\"inl-code\">3 * (4 - 2) ** 3 / 2 + 1</span> vào biến <span class=\"inl-code\">ket_qua</span> nhé!"
+				}
+			]
+		],
+
+		"1.4": [
+			[
+				{
+					"body": "Trong Python, bạn có thể so sánh các số bằng những toán tử so sánh. Những toán tử này cho phép chương trình quyết định hai giá trị có quan hệ với nhau như thế nào."
+				},
+				{
+					"body": "Mỗi phép so sánh sẽ trả về một kết quả đặc biệt gọi là <span class=\"inl-code\">boolean</span>, chỉ có thể là <span class=\"inl-code\">True</span> (đúng, điều kiện chính xác) hoặc <span class=\"inl-code\">False</span> (sai, điều kiện không chính xác)."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Ví dụ, nếu bạn muốn kiểm tra một số có lớn hơn số khác hay không, bạn có thể dùng toán tử <span class=\"inl-code\">&gt;</span>."
+				},
+				{
+					"body": "Ngược lại, nếu bạn muốn kiểm tra một số có nhỏ hơn số khác, bạn có thể dùng toán tử <span class=\"inl-code\">&lt;</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Chẳng hạn, bạn có thể viết một phép so sánh đơn giản như <span class=\"inl-code\">a &gt; b</span> hoặc <span class=\"inl-code\">a &lt; b</span>. Python sẽ cho bạn biết phát biểu đó đúng hay sai."
+				}
+			],
+			[
+				{
+					"body": "Tất nhiên, so sánh số không chỉ là lớn hơn hoặc nhỏ hơn. Đôi khi bạn muốn biết liệu hai số có chính xác bằng nhau hay không."
+				},
+				{
+					"body": "Để làm điều đó, Python sử dụng toán tử <span class=\"inl-code\">==</span>. Hãy chú ý: dấu bằng kép là rất quan trọng, vì dấu bằng đơn <span class=\"inl-code\">=</span> đã được dùng để gán giá trị cho biến rồi."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy thử nhé: bạn có thể kiểm tra <span class=\"inl-code\">x == y</span>. Nếu hai số bằng nhau, Python sẽ trả về <span class=\"inl-code\">True</span>. Nếu không, kết quả sẽ là <span class=\"inl-code\">False</span>."
+				}
+			],
+			[
+				{
+					"body": "Python cũng cung cấp cho chúng ta những toán tử để kiểm tra đồng thời cả kích thước và sự bằng nhau."
+				},
+				{
+					"body": "Ví dụ, toán tử <span class=\"inl-code\"><=</span> kiểm tra xem một số có nhỏ hơn hoặc bằng số khác hay không."
+				},
+				{
+					"body": "Tương tự, toán tử <span class=\"inl-code\">>=</span> kiểm tra xem một số có lớn hơn hoặc bằng số khác hay không."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Những toán tử này rất hữu ích khi bạn muốn xét cả trường hợp hai số bằng nhau trong khi vẫn so sánh độ lớn của chúng. Hãy thử kiểm tra <span class=\"inl-code\">m &lt;= n</span> hoặc <span class=\"inl-code\">m &gt;= n</span> nhé."
+				}
+			],
+			[
+				{
+					"body": "Cuối cùng, nếu bạn muốn kiểm tra hai số <strong>không</strong> bằng nhau thì sao?"
+				},
+				{
+					"body": "Trong trường hợp đó, bạn có thể dùng toán tử <span class=\"inl-code\">!=</span>, đây là toán tử đối lập với <span class=\"inl-code\">==</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Ví dụ, viết <span class=\"inl-code\">num1 != num2</span> sẽ trả về <span class=\"inl-code\">True</span> nếu hai số khác nhau, và <span class=\"inl-code\">False</span> nếu chúng bằng nhau."
+				},
+				{
+					"body": "Thế là bạn đã học xong tất cả các cách chính để so sánh số trong Python!"
+				}
+			]
+		],
+
+		"1.5": [
+			[
+				{
+					"body": "Trong Python, bạn có thể tương tác với người dùng bằng cách yêu cầu họ nhập vào một thứ gì đó."
+				},
+				{
+					"body": "Điều này được thực hiện bằng hàm <span class=\"inl-code\">input()</span>, hàm này sẽ hiển thị một thông báo trong bảng điều khiển và chờ phản hồi từ người dùng."
+				},
+				{
+					"body": "Chương trình chỉ tiếp tục chạy sau khi người dùng nhấn phím <span class=\"inl-code\">Enter</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Để bắt đầu, hãy thử lưu dữ liệu mà người dùng nhập vào một biến có tên là <span class=\"inl-code\">ten</span> và chào người dùng dựa trên thông tin đó."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "i",
+					"body": "Điều quan trọng cần lưu ý là <span class=\"inl-code\">input()</span> luôn trả về một chuỗi (string). Điều này sẽ quan trọng về sau."
+				}
+			],
+			[
+				{
+					"body": "Hàm <span class=\"inl-code\">input()</span> không nhất thiết phải hiển thị một dòng trống để nhập. Bạn cũng có thể thêm một thông điệp gợi ý để người dùng biết mình cần nhập gì."
+				},
+				{
+					"body": "Điều này được thực hiện bằng cách truyền một chuỗi thông báo (prompt) vào trong hàm <span class=\"inl-code\">input()</span>, như <span class=\"inl-code\">input(prompt)</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy nhớ rằng, <span class=\"inl-code\">prompt</span> bạn cung cấp phải luôn được viết dưới dạng một chuỗi."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy cung cấp cho người dùng lời nhắc <br><span class=\"inl-code\">'Nhập tin nhắn: '</span> trước khi nhập dữ liệu."
+				}
+			],
+			[
+				{
+					"body": "Khi bạn sử dụng hàm <span class=\"inl-code\">input()</span>, Python luôn coi kết quả là văn bản, ngay cả khi bạn nhập một con số."
+				},
+				{
+					"body": "Đây là lúc việc <span class=\"inl-code\">chuyển đổi dữ liệu</span> trở nên cần thiết."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Để ép dữ liệu từ kiểu này sang kiểu khác, chỉ cần làm theo cú pháp <span class=\"inl-code\">&lt;type_name&gt;(&lt;data&gt;)</span>."
+				},
+				{
+					"body": "Dưới đây là một vài ví dụ về việc chuyển đổi dữ liệu:"
+				},
+				{
+					"type": "div",
+					"body": "gia_tri = int(\"134\") <span class=\"code-comment\"># gia_tri = 134</span><br>chuoi_id = str(165402985) <span class=\"code-comment\"># chuoi_id = \"165402985\"</span><br>gia_tien = float(\"10.5\") <span class=\"code-comment\"># gia_tien = 10.5</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hiện tại, chương trình của chúng ta không thể cộng thêm 3 vào dữ liệu người dùng nhập. Hãy khắc phục điều này bằng cách chuyển đổi dữ liệu nhập vào thành <span class=\"inl-code\">int</span>."
+				}
+			],
+			[
+				{
+					"body": "Hãy cùng xem một tình huống khác khi việc chuyển đổi dữ liệu trở nên quan trọng."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Giả sử chương trình yêu cầu người dùng nhập giá của một món hàng. Nếu chúng ta cố gắng trừ trực tiếp <span class=\"inl-code\">$2.5</span>, chương trình sẽ không hoạt động vì dữ liệu nhập vào vẫn là văn bản."
+				},
+				{
+					"body": "Chúng ta có thể giải quyết vấn đề này bằng cách chuyển đổi dữ liệu nhập vào thành kiểu <span class=\"inl-code\">float</span> trước."
+				}
+			],
+			[
+				{
+					"body": "Trong Python, mỗi giá trị đều có một kiểu dữ liệu cụ thể cho biết đó là loại dữ liệu gì."
+				},
+				{
+					"body": "Hàm <span class=\"inl-code\">type()</span> có thể được dùng để kiểm tra kiểu dữ liệu của một giá trị hoặc một biến."
+				},
+				{
+					"body": "Ví dụ, các số có kiểu như <span class=\"inl-code\">int</span> và <span class=\"inl-code\">float</span>, trong khi văn bản được lưu dưới dạng <span class=\"inl-code\">str</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy thử in ra kiểu dữ liệu của các biến bằng cách sử dụng hàm <span class=\"inl-code\">type()</span>."
+				}
+			]
+		],
+
+		"1": [
+			[
+				{
+					"type": "i",
+					"body": "Chào mừng bạn đến với hoạt động thực hành đầu tiên!"
+				},
+				{
+					"body": "Đây là cơ hội để bạn áp dụng tất cả các kỹ năng đã học cho đến bây giờ."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Trong bài thực hành đầu tiên, hãy viết một chương trình cho phép người dùng nhập vào hai số và in ra tổng của chúng."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "- Yêu cầu người dùng nhập với thông báo <br><span class=\"inl-code\">'Nhập số thứ nhất: '</span>, chuyển đổi dữ liệu nhập vào thành float, và lưu vào biến <span class=\"inl-code\">so_hang1</span>."
+				},
+				{
+					"body": "- Yêu cầu người dùng nhập với thông báo <br><span class=\"inl-code\">'Nhập số thứ hai: '</span>, chuyển đổi dữ liệu nhập vào thành float, và lưu vào biến <span class=\"inl-code\">so_hang2</span>."
+				},
+				{
+					"body": "- Tính toán và in ra tổng của chúng."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "--- KẾT QUẢ MẪU ---<br>Nhập số thứ nhất: 5<br>Nhập số thứ hai: 3<br>5.0 + 3.0 = 8.0"
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Hãy thử ứng dụng Python để làm toán thực tế nhé!"
+				},
+				{
+					"body": "Trong bài này, bạn sẽ viết một chương trình đổi nhiệt độ từ độ C sang độ F."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "- Yêu cầu người dùng nhập nhiệt độ C."
+				},
+				{
+					"body": "- Sử dụng công thức <span class=\"inl-code\">F = C * 9/5 + 32</span> để đổi sang độ F."
+				},
+				{
+					"body": "- In ra kết quả."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "--- KẾT QUẢ MẪU ---<br>Nhập nhiệt độ C: 25<br>Nhiệt độ F là 77.0"
+				}
+			]
+		],
+
+		"2.1": [
+			[
+				{
+					"body": "Trong Python, bạn có thể làm cho một đoạn mã lặp lại một số lần nhất định bằng cách sử dụng vòng lặp <span class=\"inl-code\">for</span>."
+				},
+				{
+					"body": "Giả sử bạn muốn in ra các số từ <span class=\"inl-code\">1</span> đến <span class=\"inl-code\">5</span>. Bạn có thể viết 5 lệnh print, nhưng điều đó thật nhàm chán. Vòng lặp cho phép máy tính thực hiện việc lặp lại thay cho bạn."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Để tạo một vòng lặp <span class=\"inl-code\">for</span>, hãy làm theo cú pháp:"
+				},
+				{
+					"type": "div",
+					"body": "for i in range(n):<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class=\"code-comment\"># các dòng lệnh</span><br><br><span class=\"code-comment\"># for i in ... -> tạo một biến đếm tên là 'i'</span><br><span class=\"code-comment\"># range(end) -> bắt đầu từ 0, dừng trước 'n'</span><br><span class=\"code-comment\"># i được tăng thêm 1 mỗi lần chạy</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "i",
+					"body": "Hãy nhớ: thụt lề sau vòng lặp <span class=\"inl-code\">for</span> rất quan trọng. Nó cho Python biết dòng lệnh nào thuộc về vòng lặp. Nếu thiếu thụt lề, chương trình của bạn sẽ không chạy đúng!"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "i",
+					"body": "Bạn có thể thụt lề dòng lệnh bằng phím <span class=\"inl-code\">Tab</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Bây giờ, hãy bắt đầu bằng cách in một thông điệp bạn chọn 10 lần bằng vòng lặp <span class=\"inl-code\">for</span>."
+				}
+			],
+			[
+				{
+					"body": "Vòng lặp <span class=\"inl-code\">for</span> không nhất thiết phải bắt đầu từ <span class=\"inl-code\">0</span>."
+				},
+				{
+					"body": "Để tạo một vòng lặp <span class=\"inl-code\">for</span> bắt đầu từ <span class=\"inl-code\">m</span> và kết thúc trước <span class=\"inl-code\">n</span>, ta sử dụng cú pháp:"
+				},
+				{
+					"type": "div",
+					"body": "for i in range(start, stop):<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class=\"code-comment\"># các dòng lệnh</span><br><br><span class=\"code-comment\"># for i in ... -> tạo một biến đếm tên là 'i'</span><br><span class=\"code-comment\"># range(start, stop) -> tạo dãy số bắt đầu từ 'start', dừng trước 'stop'</span><br><span class=\"code-comment\"># i được tăng thêm 1 mỗi lần chạy</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Ví dụ: <span class=\"inl-code\">range(1, 4)</span> sẽ tạo ra dãy số <span class=\"inl-code\">1, 2, 3</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Bây giờ, hãy viết một vòng lặp <span class=\"inl-code\">for</span> bắt đầu từ <span class=\"inl-code\">1</span> và dừng trước <span class=\"inl-code\">6</span>."
+				},
+				{
+					"body": "Bên trong vòng lặp, hãy thêm một lệnh <span class=\"inl-code\">print</span> để in số thứ tự <span class=\"inl-code\">i</span> trước dòng chữ <span class=\"inl-code\">lặp lại</span>."
+				}
+			],
+			[
+				{
+					"body": "Trong vòng lặp <span class=\"inl-code\">for</span>, số đếm thường tăng thêm <span class=\"inl-code\">1</span> sau mỗi lần lặp."
+				},
+				{
+					"body": "Chúng ta có thể thay đổi điều này bằng cách truyền thêm một số thứ ba vào <span class=\"inl-code\">range</span>, như sau:"
+				},
+				{
+					"type": "div",
+					"body": "for i in range(start, end, step):<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class=\"code-comment\"># các dòng lệnh</span><br><br><span class=\"code-comment\"># for i in ... -> tạo một biến đếm tên là 'i'</span><br><span class=\"code-comment\"># range(start, end, ...) -> bắt đầu từ 'start', dừng trước 'end'</span><br><span class=\"code-comment\"># ... step) -> i tăng thêm 'step' sau mỗi lần lặp</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Bây giờ, hãy in ra tất cả các số chẵn từ <span class=\"inl-code\">0</span> đến <span class=\"inl-code\">toi_da</span>."
+				},
+				{
+					"type": "i",
+					"body": "Gợi ý: làm cho <span class=\"inl-code\">i</span> tăng thêm <span class=\"inl-code\">2</span> sau mỗi lần lặp."
+				}
+			],
+			[
+				{
+					"body": "Tuyệt! Giờ bạn đã biết cách điều khiển điểm bắt đầu, điểm kết thúc và bước nhảy của vòng lặp <span class=\"inl-code\">for</span>."
+				},
+				{
+					"body": "Tiếp theo, chúng ta sẽ thử dùng lệnh <span class=\"inl-code\">input()</span> để quyết định vòng lặp sẽ chạy bao nhiêu lần."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy viết một chương trình yêu cầu người dùng nhập vào một số <span class=\"inl-code\">n</span>."
+				},
+				{
+					"body": "Sau đó, dùng vòng lặp <span class=\"inl-code\">for</span> để in ra các số từ <span class=\"inl-code\">1</span> đến <span class=\"inl-code\">n</span>."
+				}
+			]
+		],
+
+		"2.2": [
+			[
+				{
+					"body": "Vòng lặp <span class=\"inl-code\">for</span> chỉ có thể lặp lại một số lần xác định trước. Nhưng nếu chúng ta muốn lặp lại <strong>khi một điều kiện còn đúng (<span class=\"inl-code\">True</span>)</strong> thì sao?"
+				},
+				{
+					"body": "Thực ra, vòng lặp <span class=\"inl-code\">for</span> không thể làm được điều đó. Đây chính là lúc vòng lặp <span class=\"inl-code\">while</span> được sử dụng."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Đúng như tên gọi, vòng lặp <span class=\"inl-code\">while</span> sẽ lặp lại khối mã bên trong nó cho đến khi điều kiện không còn <span class=\"inl-code\">True</span> nữa."
+				},
+				{
+					"body": "Bạn có thể tạo một vòng lặp <span class=\"inl-code\">while</span> bằng cú pháp sau:"
+				},
+				{
+					"type": "div",
+					"body": "while condition:<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class=\"code-comment\"># phần thân vòng lặp</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "i",
+					"body": "Ghi nhớ: giống như vòng lặp <span class=\"inl-code\">for</span>, việc thụt đầu dòng sau câu lệnh <span class=\"inl-code\">while</span> rất quan trọng. Nó cho Python biết những dòng nào thuộc về vòng lặp. Nếu không có thụt lề, chương trình sẽ không chạy đúng!"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy bắt đầu khám phá vòng lặp <span class=\"inl-code\">while</span> bằng cách in ra các số nguyên từ <span class=\"inl-code\">0</span> nhỏ hơn <span class=\"inl-code\">10</span> bằng biến <span class=\"inl-code\">i</span>."
+				},
+				{
+					"body": "Đừng quên tăng <span class=\"inl-code\">i</span> thêm <span class=\"inl-code\">1</span> sau mỗi lần in ra!"
+				}
+			],
+			[
+				{
+					"body": "Bây giờ chúng ta đã thấy vòng lặp <span class=\"inl-code\">while</span> hoạt động như thế nào, hãy viết một chương trình cộng dồn các số cho đến khi người dùng nhập vào <span class=\"inl-code\">0</span>."
+				},
+				{
+					"body": "Chúng ta sẽ sử dụng vòng lặp <span class=\"inl-code\">while</span> chạy miễn là <span class=\"inl-code\">n != 0</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy hoàn thiện những phần còn thiếu để chương trình liên tục yêu cầu nhập số, cộng số đó vào <span class=\"inl-code\">tong</span>, và dừng lại khi người dùng nhập <span class=\"inl-code\">0</span>."
+				}
+			],
+			[
+				{
+					"body": "Hãy cùng xem một ví dụ khác cần sử dụng vòng lặp <span class=\"inl-code\">while</span>."
+				},
+				{
+					"body": "Trong ví dụ này, ta muốn người dùng nhập mật khẩu nhiều lần cho đến khi đúng."
+				},
+				{
+					"type": "ul",
+					"body": "<li>Nếu mật khẩu là <span class=\"inl-code\">matkhau123456</span>, vòng lặp sẽ kết thúc, chương trình in ra <br><span class=\"inl-code\">'Truy cập thành công.'</span> và dừng lại.</li><li>Nếu không đúng, chương trình sẽ in ra<br><span class=\"inl-code\">'Mật khẩu không đúng.'</span> và yêu cầu người dùng nhập lại mật khẩu.</li>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Mỗi lần yêu cầu nhập phải bắt đầu bằng <br><span class=\"inl-code\">'Vui lòng nhập mật khẩu: '</span>."
+				}
+			]
+		],
+
+		"2.3": [
+			[
+				{
+					"body": "Sau khi bạn đã biết cách vòng lặp <span class=\"inl-code\">while</span> giúp lặp lại mã lệnh, hãy cùng khám phá cách đưa ra quyết định trong chương trình."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Đôi khi, bạn muốn chương trình chỉ thực hiện một việc <strong>chỉ chạy một lần</strong> khi một điều kiện nào đó đúng. Đó chính là lúc câu lệnh <span class=\"inl-code\">if</span> được sử dụng."
+				},
+				{
+					"body": "Câu lệnh <span class=\"inl-code\">if</span> sẽ kiểm tra một điều kiện, và nếu điều kiện đó là <span class=\"inl-code\">True</span>, nó sẽ chạy đoạn mã nằm trong khối của nó."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Ví dụ:"
+				},
+				{
+					"type": "div",
+					"body": "x: int = 5<br>if x > 3:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(\"x is greater than 3!\")"
+				},
+				{
+					"body": "Ở đây, điều kiện <span class=\"inl-code\">x > 3</span> là đúng, nên thông báo được in ra. Nếu điều kiện sai, Python sẽ bỏ qua dòng lệnh <span class=\"inl-code\">print()</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Bây giờ, hãy thử tự làm nhé! Kiểm tra xem <span class=\"inl-code\">a</span> có lớn hơn <span class=\"inl-code\">b</span> không. Nếu có, hãy hiển thị thông báo <span class=\"inl-code\">a lớn hơn b</span>."
+				}
+			],
+			[
+				{
+					"body": "Nếu chúng ta muốn chạy một đoạn mã khác khi điều kiện là <span class=\"inl-code\">False</span> thì sao? Khi đó, ta sẽ dùng câu lệnh <span class=\"inl-code\">else</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Câu lệnh <span class=\"inl-code\">else</span> phải được viết ngay sau câu lệnh <span class=\"inl-code\">if</span>, như sau:"
+				},
+				{
+					"type": "div",
+					"body": "if condition:<br>&nbsp;&nbsp;&nbsp;&nbsp;body1<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;body2"
+				},
+				{
+					"body": "Ở đây, <span class=\"inl-code\">body1</span> sẽ chạy nếu điều kiện là <span class=\"inl-code\">True</span>. Còn nếu điều kiện là <span class=\"inl-code\">False</span>, thì <span class=\"inl-code\">body2</span> sẽ chạy thay thế."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Dựa trên đoạn mã trước, hãy thêm một khối <span class=\"inl-code\">else</span> để hiển thị <span class=\"inl-code\">a không lớn hơn b</span> khi điều kiện sai."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Nếu chúng ta cần kiểm tra nhiều điều kiện hơn thì sao?"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Chúng ta có thể lồng các câu lệnh <span class=\"inl-code\">if</span> bên trong <span class=\"inl-code\">else</span>..."
+				},
+				{
+					"type": "div",
+					"body": "if condition1:<br>&nbsp;&nbsp;&nbsp;&nbsp;body1<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;if condition2:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body2<br>&nbsp;&nbsp;&nbsp;&nbsp;else:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body3"
+				},
+				{
+					"body": "...nhưng cách này có thể khiến mã trở nên rối rắm."
+				},
+				{
+					"body": "Thay vào đó, Python cung cấp câu lệnh <span class=\"inl-code\">elif</span> để giúp kiểm tra nhiều điều kiện một cách gọn gàng hơn:"
+				},
+				{
+					"type": "div",
+					"body": "if condition1:<br>&nbsp;&nbsp;&nbsp;&nbsp;body1<br>elif condition2:<br>&nbsp;&nbsp;&nbsp;&nbsp;body2<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;body3"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Dựa trên đoạn mã trước, hãy thêm câu lệnh <span class=\"inl-code\">elif</span> để kiểm tra xem <span class=\"inl-code\">a</span> có bằng <span class=\"inl-code\">b</span> không. Nếu có, hãy hiển thị thông báo <span class=\"inl-code\">a bằng b</span>."
+				}
+			]
+		]
+	},
+
+	{
+		"1.1": [
+			[
+				{
+					"type": "i",
+					"body": "Welcome to Python!"
+				},
+				{
+					"body": "Python is a powerful and multi-purpose programming language."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "The first command you'll learn is the <span class=\"inl-code\">print()</span> function. It is used to output values into the console."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Let's start our programming journey by printing <span class=\"inl-code\">'Hello, world!'</span> to the console!"
+				},
+				{
+					"body": "Type <span class=\"inl-code\">print(\"Hello, world!\")</span> into the code editor and run it."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Here, since <span class=\"inl-code\">Hello, world!</span> is a string of text, it needs to be encased in single or double quotes."
+				}
+			],
+			[
+				{
+					"body": "The <span class=\"inl-code\">print()</span> function can output multiple values separated by a space."
+				},
+				{
+					"body": "To enter multiple values into the <span class=\"inl-code\">print()</span> function, enter a comma between each value."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Since you are learning Python, why not make the program output <span class=\"inl-code\">I am learning Python</span>?"
+				}
+			],
+			[
+				{
+					"body": "The <span class=\"inl-code\">print()</span> function can output multiple values at once, even if they are not the same type."
+				},
+				{
+					"body": "Numbers and strings can both be passed to <span class=\"inl-code\">print()</span>."
+				},
+				{
+					"type": "i",
+					"body": "(Numbers don't need to be surrounded by quotes.)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Try running <span class=\"inl-code\">print(123, \"Hello!\")</span> and see how Python displays both values separated by a space."
+				}
+			]
+		],
+
+		"1.2": [
+			[
+				{
+					"body": "In Python, variables are like containers that store different kinds of information, such as text or numbers."
+				},
+				{
+					"body": "Variables can store text values such as names or greetings."
+				},
+				{
+					"body": "For example, you might assign the word <span class=\"inl-code\">'Alice'</span> to a variable called <span class=\"inl-code\">friend</span>."
+				},
+				{ "type": "div", "body": "friend: str = 'Alice'" },
+				{ "type": "br", "body": "" },
+				{
+					"body": "Let's begin by assigning the value <span class=\"inl-code\">'John Doe'</span> to a variable named <span class=\"inl-code\">name</span>."
+				}
+			],
+			[
+				{
+					"body": "Variables can also hold numbers. Whole numbers are called integers."
+				},
+				{
+					"body": "For example, you might store an age in a variable like <span class=\"inl-code\">15</span>."
+				},
+				{ "type": "div", "body": "years: int = 15" },
+				{ "type": "br", "body": "" },
+				{
+					"body": "Try creating a variable <span class=\"inl-code\">age</span> and give it the value <span class=\"inl-code\">23</span>."
+				}
+			],
+			[
+				{
+					"body": "Some numbers include decimals, such as prices or measurements."
+				},
+				{
+					"body": "In Python, these are called floating-point numbers, or floats."
+				},
+				{
+					"body": "For example, you could assign <span class=\"inl-code\">52.8</span> to a variable called <span class=\"inl-code\">weight</span>."
+				},
+				{ "type": "div", "body": "weight: float = 52.8" },
+				{ "type": "br", "body": "" },
+				{
+					"body": "Let's practice by giving the variable <span class=\"inl-code\">price</span> the value <span class=\"inl-code\">10.5</span>."
+				}
+			],
+			[
+				{
+					"body": "Sometimes we want to keep track of simple yes/no values."
+				},
+				{
+					"body": "Python uses a special type called Boolean, which can only be <span class=\"inl-code\">True</span> or <span class=\"inl-code\">False</span>."
+				},
+				{
+					"body": "For example, you could store whether someone has a license."
+				},
+				{ "type": "div", "body": "has_license: bool = True" },
+				{ "type": "br", "body": "" },
+				{
+					"body": "How about we create a variable <span class=\"inl-code\">is_student</span> and set it to <span class=\"inl-code\">False</span>?"
+				}
+			],
+			[
+				{
+					"body": "You can use more than one <span class=\"inl-code\">print()</span> statement to show different information."
+				},
+				{
+					"body": "For example, you could print a number and then print a message afterwards."
+				},
+				{
+					"type": "div",
+					"body": "favorite_number = 12<br>note = 'Keep it up!'"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "As a first step, try assigning the number <span class=\"inl-code\">7</span> to the <span class=\"inl-code\">lucky_number</span> variable and assign a short <span class=\"inl-code\">'Good luck!'</span> message to the <span class=\"inl-code\">message</span> variable."
+				}
+			],
+			[
+				{
+					"body": "Variables don't always need to store numbers or text directly. They can also copy values from other variables."
+				},
+				{
+					"body": "For example, you could set one variable equal to another, like making <span class=\"inl-code\">score</span> equal to <span class=\"inl-code\">points</span>."
+				},
+				{
+					"type": "div",
+					"body": "points: int = 10<br>score: int = points"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Let's try this by first creating a variable <span class=\"inl-code\">temp</span> with the value <span class=\"inl-code\">5</span>, and then setting another variable <span class=\"inl-code\">value</span> equal to <span class=\"inl-code\">temp</span>."
+				}
+			],
+			[
+				{
+					"body": "Python also allows you to give the same value to more than one variable at once."
+				},
+				{
+					"body": "For example, you might assign <span class=\"inl-code\">9</span> to both <span class=\"inl-code\">x</span> and <span class=\"inl-code\">y</span> in a single line."
+				},
+				{ "type": "div", "body": "x = y = 9" },
+				{ "type": "br", "body": "" },
+				{
+					"body": "Try assigning the value <span class=\"inl-code\">6</span> to both <span class=\"inl-code\">a</span> and <span class=\"inl-code\">b</span>."
+				}
+			],
+			[
+				{
+					"body": "You can also assign different values to multiple variables in one line."
+				},
+				{
+					"body": "For example, you could assign a word to one variable and a number to another."
+				},
+				{ "type": "div", "body": "x, y = 'Hi', 42" },
+				{ "type": "br", "body": "" },
+				{
+					"body": "Let's finish by giving the variable <span class=\"inl-code\">a</span> the value <span class=\"inl-code\">123</span> and <span class=\"inl-code\">b</span> the value <span class=\"inl-code\">'Hello!'</span>."
+				}
+			]
+		],
+
+		"1.3": [
+			[
+				{
+					"body": "Python can perform mathematical operations just like a calculator."
+				},
+				{
+					"body": "For instance, Python can add two numbers using the <span class=\"inl-code\">+</span> operator."
+				},
+				{
+					"body": "If you have <span class=\"inl-code\">3</span> apples and you get <span class=\"inl-code\">2</span> more, you can add them together to get <span class=\"inl-code\">5</span>."
+				},
+				{
+					"type": "div",
+					"body": "total: int = 3 + 2  <span class=\"code-comment\"># total = 5</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Let's begin by adding <span class=\"inl-code\">7</span> and <span class=\"inl-code\">8</span> and storing the result in a variable called <span class=\"inl-code\">total</span>."
+				}
+			],
+			[
+				{
+					"body": "Python can also subtract numbers using the <span class=\"inl-code\">-</span> operator."
+				},
+				{
+					"body": "For example, if you have <span class=\"inl-code\">10</span> candies and you eat <span class=\"inl-code\">3</span>, you'll be left with <span class=\"inl-code\">7</span>."
+				},
+				{
+					"type": "div",
+					"body": "remaining: int = 10 - 3  <span class=\"code-comment\"># remaining = 7</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Try creating a variable named <span class=\"inl-code\">difference</span> and store the result of subtracting <span class=\"inl-code\">4</span> from <span class=\"inl-code\">12</span>."
+				}
+			],
+			[
+				{
+					"body": "Python uses the <span class=\"inl-code\">*</span> symbol for multiplication."
+				},
+				{
+					"body": "It is useful when you want to add the same number many times quickly."
+				},
+				{
+					"body": "For example, if a chair costs <span class=\"inl-code\">50</span> and you buy <span class=\"inl-code\">4</span> chairs, the total cost is <span class=\"inl-code\">200</span>."
+				},
+				{
+					"type": "div",
+					"body": "total_cost: int = 50 * 4  <span class=\"code-comment\"># total_cost = 200</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Let's practice by multiplying <span class=\"inl-code\">6.5</span> and <span class=\"inl-code\">9</span> and storing it in a variable <span class=\"inl-code\">product</span>."
+				}
+			],
+			[
+				{
+					"body": "Python uses the <span class=\"inl-code\">/</span> symbol for division."
+				},
+				{
+					"body": "It gives you how many times one number can be split into another."
+				},
+				{
+					"body": "For example, if you have <span class=\"inl-code\">20</span> cookies and share them equally among <span class=\"inl-code\">5</span> friends, each person gets <span class=\"inl-code\">4</span>."
+				},
+				{
+					"type": "div",
+					"body": "cookies_per_friend: float = 20 / 5 <span class=\"code-comment\"># cookies_per_friend = 4.0</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Unlike the previous operations, division always returns a <span class=\"inl-code\">float</span>."
+				},
+				{
+					"body": "Try dividing <span class=\"inl-code\">15</span> by <span class=\"inl-code\">3</span> and storing the result in a variable called <span class=\"inl-code\">quotient</span>."
+				}
+			],
+			[
+				{
+					"body": "Python also supports integer division, where the result is rounded down to the nearest integer."
+				},
+				{
+					"body": "Python uses the <span class=\"inl-code\">//</span> symbol for integer division."
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Try using integer division to divide <span class=\"inl-code\">15</span> by <span class=\"inl-code\">3</span> and storing the result in a variable called <span class=\"inl-code\">int_quotient</span>."
+				}
+			],
+			[
+				{
+					"body": "Python also has a special operator for remainders, called the modulo operator, written as <span class=\"inl-code\">%</span>."
+				},
+				{
+					"body": "It tells you what is left over after dividing numbers."
+				},
+				{
+					"body": "For example, if you divide <span class=\"inl-code\">10</span> by <span class=\"inl-code\">3</span>, the result is <span class=\"inl-code\">3</span> with a remainder of <span class=\"inl-code\">1</span>."
+				},
+				{
+					"type": "div",
+					"body": "remainder = 10 % 3  <span class=\"code-comment\"># remainder = 1</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "As a challenge, find the remainder when <span class=\"inl-code\">17</span> is divided by <span class=\"inl-code\">5</span> and store it in a variable <span class=\"inl-code\">remainder</span>."
+				}
+			],
+			[
+				{
+					"body": "Python can also calculate powers using the exponentiation operator <span class=\"inl-code\">**</span>."
+				},
+				{
+					"body": "Exponentiation means multiplying a number by itself several times."
+				},
+				{
+					"body": "For example, <span class=\"inl-code\">2 ** 3 = 2 * 2 * 2 = 8</span>."
+				},
+				{
+					"type": "div",
+					"body": "power = 2 ** 3 <span class=\"code-comment\"># power = 8</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Now try raising <span class=\"inl-code\">5</span> to the power of <span class=\"inl-code\">2</span> and store the result in a variable called <span class=\"inl-code\">square</span>."
+				}
+			],
+			[
+				{
+					"body": "Python follows a set of operator precedence rules, commonly remembered by the acronym <span class=\"inl-code\">PEMDAS</span>:"
+				},
+				{
+					"type": "div",
+					"body": "- Parentheses<br>- Exponentiation<br>- Multiplication and Division</p>- Addition and Subtraction"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "With an expression such as <span class=\"inl-code\">(3 + 4) ** 2 * 5 - 1</span>, Python will evaluate it as follows:"
+				},
+				{
+					"type": "div",
+					"body": " = 7 ** 2 * 5 - 1 <span class=\"code-comment\"># parentheses first</span><br> = 49 * 5 - 1 <span class=\"code-comment\"># then exponentiation</span><br> = 245 - 1 <span class=\"code-comment\"># then multiplication</span><br> = 244 <span class=\"code-comment\"># and finally addition</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Now, let's end this lesson by assigning the result of <span class=\"inl-code\">3 * (4 - 2) ** 3 / 2 + 1</span> to the <span class=\"inl-code\">result</span> variable!"
+				}
+			]
+		],
+
+		"1.4": [
+			[
+				{
+					"body": "In Python, you can compare numbers using comparison operators. These operators let your program decide how two values relate to each other."
+				},
+				{
+					"body": "Each comparison gives you back a special result called a <span class=\"inl-code\">boolean</span> value, which is simply <span class=\"inl-code\">True</span> (yes, the condition is correct) or <span class=\"inl-code\">False</span> (no, the condition is not correct)."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "For example, if you want to check whether one number is greater than another, you can use the <span class=\"inl-code\">&gt;</span> operator."
+				},
+				{
+					"body": "On the other hand, if you want to check whether one number is smaller, you can use the <span class=\"inl-code\">&lt;</span> operator."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "So, you could write a simple comparison like checking if <span class=\"inl-code\">a &gt; b</span> or if <span class=\"inl-code\">a &lt; b</span>. Python will then tell you whether that statement is true or false."
+				}
+			],
+			[
+				{
+					"body": "Of course, comparing numbers isn’t just about greater than or less than. Sometimes you want to know if two numbers are exactly the same."
+				},
+				{
+					"body": "For that, Python uses the <span class=\"inl-code\">==</span> operator. Notice the double equals sign—this is important, because a single <span class=\"inl-code\">=</span> is already used to assign values to variables."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Let’s try it out: we can check whether <span class=\"inl-code\">x == y</span>. If they are equal, Python will return <span class=\"inl-code\">True</span>. Otherwise, it will return <span class=\"inl-code\">False</span>."
+				}
+			],
+			[
+				{
+					"body": "Python also gives us operators to check for equality along with size in one go."
+				},
+				{
+					"body": "For instance, the <span class=\"inl-code\"><=</span> operator checks if a number is less than or equal to another number."
+				},
+				{
+					"body": "Similarly, the <span class=\"inl-code\">>=</span> operator checks if a number is greater than or equal to another number."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "These are really handy when you want to include the possibility of two numbers being equal while still comparing their size. For example, try checking <span class=\"inl-code\">m &lt;= n</span> or <span class=\"inl-code\">m &gt;= n</span>."
+				}
+			],
+			[
+				{
+					"body": "Finally, what if you want to check that two numbers are <strong>not</strong> equal to each other?"
+				},
+				{
+					"body": "In that case, you can use the <span class=\"inl-code\">!=</span> operator, which is the opposite of the <span class=\"inl-code\">==</span> operator."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "For example, writing <span class=\"inl-code\">num1 != num2</span> will return <span class=\"inl-code\">True</span> if the numbers are different, and <span class=\"inl-code\">False</span> if they are the same."
+				},
+				{
+					"body": "And with that, you've now learned all the main ways to compare numbers in Python!"
+				}
+			]
+		],
+
+		"1.5": [
+			[
+				{
+					"body": "In Python, you can interact with the user by asking them to type something."
+				},
+				{
+					"body": "This is done with the <span class=\"inl-code\">input()</span> function, which shows a message in the console and waits for the user's response."
+				},
+				{
+					"body": "The program will continue only after the user presses the <span class=\"inl-code\">Enter</span> key."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "To begin, let's try saving what the user types into a variable called <span class=\"inl-code\">name</span> and greet the user based on the provided input."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "i",
+					"body": "It is important to note that <span class=\"inl-code\">input()</span> returns a string. This will be important later."
+				}
+			],
+			[
+				{
+					"body": "The <span class=\"inl-code\">input()</span> function doesn't have to show a blank line every time. You can also display a helpful message so the user knows what to type."
+				},
+				{
+					"body": "This is done by passing a prompt string inside the <span class=\"inl-code\">input()</span> function, like <span class=\"inl-code\">input(prompt)</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Remember, the <span class=\"inl-code\">prompt</span> you provide must always be written as a string."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Let's provide the user with the prompt <br><span class=\"inl-code\">'Enter message: '</span> before the input."
+				}
+			],
+			[
+				{
+					"body": "When you use the <span class=\"inl-code\">input()</span> function, Python always treats the result as text, even if you type a number."
+				},
+				{
+					"body": "This is when <span class=\"inl-code\">type casting</span> comes into play."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "To cast data from one type to another, simply follow the syntax <span class=\"inl-code\">&lt;type_name&gt;(&lt;data&gt;)</span>."
+				},
+				{
+					"body": "Here are some examples of type casting:"
+				},
+				{
+					"type": "div",
+					"body": "value = int(\"134\") <span class=\"code-comment\"># value = 134</span><br>id_str = str(165402985) <span class=\"code-comment\"># id_str = \"165402985\"</span><br>price = float(\"10.5\") <span class=\"code-comment\"># price = 10.5</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Right now, our program cannot add 3 to our input. Let's fix that by casting the input into an <span class=\"inl-code\">int</span>."
+				}
+			],
+			[
+				{
+					"body": "Let's look at another situation where type casting becomes important."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Suppose our program asks the user for the price of an item. If we try to subtract <span class=\"inl-code\">$2.5</span> directly, it will not work because the input is still text."
+				},
+				{
+					"body": "We can solve this by converting the input into a <span class=\"inl-code\">float</span> first."
+				}
+			],
+			[
+				{
+					"body": "In Python, every value has a specific data type that tells us what kind of data it is."
+				},
+				{
+					"body": "The <span class=\"inl-code\">type()</span> function can be used to check the data type of a value or a variable."
+				},
+				{
+					"body": "For example, numbers have types like <span class=\"inl-code\">int</span> and <span class=\"inl-code\">float</span>, while text is stored as a <span class=\"inl-code\">str</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Let's try printing the types of the variables using the <span class=\"inl-code\">type()</span> function."
+				}
+			]
+		],
+
+		"1": [
+			[
+				{
+					"type": "i",
+					"body": "Welcome to your first practice activity!"
+				},
+				{
+					"body": "This is the chance for you to apply all the skills you've learned so far."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "For your first practice, make a program that lets the user input two numbers and output their sum."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "- Prompt the user with the message <br><span class=\"inl-code\">'Enter the first number: '</span>, cast the user input to a float, and store it in the <span class=\"inl-code\">term1</span> variable."
+				},
+				{
+					"body": "- Prompt the user with the message <br><span class=\"inl-code\">'Enter the second number: '</span>, cast the user input to a float, and store it in the <span class=\"inl-code\">term2</span> variable."
+				},
+				{
+					"body": "- Compute and output their sum."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "--- EXPECTED OUTPUT ---<br>Enter the first number: 5<br>Enter the second number: 3<br>5.0 + 3.0 = 8.0"
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Now, let's use Python for a real-world calculation!"
+				},
+				{
+					"body": "In this activity, you will write a program that converts temperature from Celsius to Fahrenheit."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "- Ask the user to input a Celsius temperature."
+				},
+				{
+					"body": "- Use the formula <span class=\"inl-code\">F = C * 9/5 + 32</span> to convert to Fahrenheit."
+				},
+				{
+					"body": "- Print the result."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "--- SAMPLE OUTPUT ---<br>Enter temperature (in Celsius): 25<br>The temperature in Fahrenheit is 77.0"
+				}
+			]
+		],
+
+		"2.1": [
+			[
+				{
+					"body": "In Python, you can make a snippet of code repeat itself a known amount of times by using the <span class=\"inl-code\">for</span> loop."
+				},
+				{
+					"body": "Suppose you want to print the numbers from <span class=\"inl-code\">1</span> to <span class=\"inl-code\">5</span>. You could write 5 print statements, but that's boring. A loop lets the computer do the repetition for you."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "To create a <span class=\"inl-code\">for</span> loop, follow the syntax:"
+				},
+				{
+					"type": "div",
+					"body": "for i in range(end):<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class=\"code-comment\"># body</span><br><br><span class=\"code-comment\"># for i in ... -> make a counter named 'i'</span><br><span class=\"code-comment\"># range(end) -> start at 0, stop before 'end'</span><br><span class=\"code-comment\"># i increases by 1 each step</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "i",
+					"body": "Remember: the indentation after a <span class=\"inl-code\">for</span> loop is very important. It shows Python which lines of code are part of the loop. Without it, your program won't run correctly!"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "i",
+					"body": "You can indent your code using the <span class=\"inl-code\">Tab</span> key."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Now, let's start by printing a message of your choice 10 times using a <span class=\"inl-code\">for</span> loop."
+				}
+			],
+			[
+				{
+					"body": "A <span class=\"inl-code\">for</span> loop does not necessarily have to start from <span class=\"inl-code\">0</span>."
+				},
+				{
+					"body": "To create a <span class=\"inl-code\">for</span> loop that starts from <span class=\"inl-code\">m</span> and ends before <span class=\"inl-code\">n</span>, we use the following syntax:"
+				},
+				{
+					"type": "div",
+					"body": "for i in range(start, end):<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class=\"code-comment\"># body</span><br><br><span class=\"code-comment\"># for i in ... -> create a counter variable named 'i'</span><br><span class=\"code-comment\"># range(m, n) -> start from 'start', stop before 'end'<br><span class=\"code-comment\"># i increases by 1 each step</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "For example: <span class=\"inl-code\">range(1, 4)</span> will generate the sequence <span class=\"inl-code\">1, 2, 3</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Now, write a <span class=\"inl-code\">for</span> loop that starts from <span class=\"inl-code\">1</span> and ends before <span class=\"inl-code\">6</span>."
+				},
+				{
+					"body": "Inside the loop, add a <span class=\"inl-code\">print</span> statement to display the counter <span class=\"inl-code\">i</span> before the text <span class=\"inl-code\">repeat</span>."
+				}
+			],
+			[
+				{
+					"body": "In a <span class=\"inl-code\">for</span> loop, the number usually goes up by <span class=\"inl-code\">1</span> each time."
+				},
+				{
+					"body": "We can change this by giving a third number to <span class=\"inl-code\">range</span>, like this:"
+				},
+				{
+					"type": "div",
+					"body": "for i in range(start, end, step):<br>&nbsp;&nbsp;&nbsp;&nbsp;...  <span class=\"code-comment\"># body</span><br><br><span class=\"code-comment\"># for i in ... -> create a counter variable named 'i'</span><br><span class=\"code-comment\"># range(start, end, ... -> start at 'start', stops before 'end'</span><br><span class=\"code-comment\"># ... step) -> i increases by 'step' each time</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Now, let's print all even numbers from <span class=\"inl-code\">0</span> to <span class=\"inl-code\">max_num</span>."
+				},
+				{
+					"type": "i",
+					"body": "Hint: make <span class=\"inl-code\">i</span> go up by <span class=\"inl-code\">2</span> each time."
+				}
+			],
+			[
+				{
+					"body": "Great! You now know how to control the start, end, and step of a <span class=\"inl-code\">for</span> loop!"
+				},
+				{
+					"body": "Next, let's try using <span class=\"inl-code\">input()</span> to decide how many times the loop should run."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a program that asks the user for a number <span class=\"inl-code\">n</span>."
+				},
+				{
+					"body": "Then, use a <span class=\"inl-code\">for</span> loop to print the numbers from <span class=\"inl-code\">1</span> to <span class=\"inl-code\">n</span>."
+				}
+			]
+		],
+
+		"2.2": [
+			[
+				{
+					"body": "A <span class=\"inl-code\">for</span> loop can only repeat for a known amount of times. But what if we want to repeat while a condition is <span class=\"inl-code\">True</span>?"
+				},
+				{
+					"body": "Well, a <span class=\"inl-code\">for</span> loop can't really do that. This is where the <span class=\"inl-code\">while</span> loop comes into play."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Just as the name suggests, a <span class=\"inl-code\">while</span> loop repeats the block of code inside it until its condition is no longer <span class=\"inl-code\">True</span>."
+				},
+				{
+					"body": "You can create a <span class=\"inl-code\">while</span> loop using the following syntax:"
+				},
+				{
+					"type": "div",
+					"body": "while condition:<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class=\"code-comment\"># body</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "i",
+					"body": "Remember: just like a <span class=\"inl-code\">for</span> loop, the indentation after a <span class=\"inl-code\">while</span> loop is very important. It shows Python which lines of code are part of the loop. Without it, your program won't run correctly!"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Let's start this exploration of the <span class=\"inl-code\">while</span> loop by printing the integers from <span class=\"inl-code\">0</span> that are less than <span class=\"inl-code\">10</span> using the <span class=\"inl-code\">i</span> variable."
+				},
+				{
+					"body": "Remember to increase <span class=\"inl-code\">i</span> by <span class=\"inl-code\">1</span> after each output!"
+				}
+			],
+			[
+				{
+					"body": "Now that we've seen <span class=\"inl-code\">while</span> loops in action, let's create a program that keeps adding numbers until the user enters <span class=\"inl-code\">0</span>."
+				},
+				{
+					"body": "We'll use a <span class=\"inl-code\">while</span> loop that runs as long as <span class=\"inl-code\">n != 0</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Complete the missing parts so the program repeatedly asks for a number, adds it to <span class=\"inl-code\">total</span>, and stops when the user enters <span class=\"inl-code\">0</span>."
+				}
+			],
+			[
+				{
+					"body": "Let's look at another example where a <span class=\"inl-code\">while</span> loop is needed."
+				},
+				{
+					"body": "Here, we want the user to repeatedly enter a password."
+				},
+				{
+					"type": "ul",
+					"body": "<li>If the password is <span class=\"inl-code\">password123</span>, the loop would finish executing and the program would print <span class=\"inl-code\">'Access granted.'</span> and stop.</li><li>Else, the program would print<br><span class=\"inl-code\">'Incorrect password.'</span> and the program would prompt the user again for the password.</li>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Each prompt must begin with <span class=\"inl-code\">'Enter password: '</span>."
+				}
+			]
+		],
+
+		"2.3": [
+			[
+				{
+					"body": "Now that you've learned how a <span class=\"inl-code\">while</span> loop repeats code, let's explore how to make decisions in your program."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Sometimes, you want your code to do something <strong>only if</strong> a certain condition is true. That's where the <span class=\"inl-code\">if</span> statement comes in."
+				},
+				{
+					"body": "An <span class=\"inl-code\">if</span> statement checks a condition, and if that condition is <span class=\"inl-code\">True</span>, it runs the code inside its block."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "For example:"
+				},
+				{
+					"type": "div",
+					"body": "x: int = 5<br>if x > 3:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(\"x is greater than 3!\")"
+				},
+				{
+					"body": "Here, the condition <span class=\"inl-code\">x > 3</span> is true, so the message is printed. If the condition were false, Python would simply skip the <span class=\"inl-code\">print()</span> line."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Now, try it yourself! Check if <span class=\"inl-code\">a</span> is greater than <span class=\"inl-code\">b</span>. If it is, display the message <br><span class=\"inl-code\">a is greater than b</span>."
+				}
+			],
+			[
+				{
+					"body": "What if we want to run another piece of code when a condition is <span class=\"inl-code\">False</span>? This is where the <span class=\"inl-code\">else</span> statement comes in."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "The <span class=\"inl-code\">else</span> statement must be written after an <span class=\"inl-code\">if</span> statement, like this:"
+				},
+				{
+					"type": "div",
+					"body": "if condition:<br>&nbsp;&nbsp;&nbsp;&nbsp;body1<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;body2"
+				},
+				{
+					"body": "Here, <span class=\"inl-code\">body1</span> runs if the condition is <span class=\"inl-code\">True</span>. If the condition is <span class=\"inl-code\">False</span>, then <span class=\"inl-code\">body2</span> runs instead."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Based on your previous code, add an <span class=\"inl-code\">else</span> block that displays <span class=\"inl-code\">a is not greater than b</span> when the condition is false."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "What if we need to check more than one condition?"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "We could nest <span class=\"inl-code\">if</span> statements inside <span class=\"inl-code\">else</span> statements..."
+				},
+				{
+					"type": "div",
+					"body": "if condition1:<br>&nbsp;&nbsp;&nbsp;&nbsp;body1<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;if condition2:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body2<br>&nbsp;&nbsp;&nbsp;&nbsp;else:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body3"
+				},
+				{
+					"body": "...but that can get messy quickly."
+				},
+				{
+					"body": "Instead, Python provides the <span class=\"inl-code\">elif</span> statement to check multiple conditions more cleanly:"
+				},
+				{
+					"type": "div",
+					"body": "if condition1:<br>&nbsp;&nbsp;&nbsp;&nbsp;body1<br>elif condition2:<br>&nbsp;&nbsp;&nbsp;&nbsp;body2<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;body3"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Using the code from before, add an <span class=\"inl-code\">elif</span> statement that checks if <span class=\"inl-code\">a</span> is equal to <span class=\"inl-code\">b</span>. If it is, display the message <span class=\"inl-code\">a is equal to b</span>."
+				}
+			]
+		]
+	}
+]
