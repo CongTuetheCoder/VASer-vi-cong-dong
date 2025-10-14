@@ -1,0 +1,12 @@
+{
+	"home": "<i class=\"fa-solid fa-house\"></i> Home",
+	"login": "<i class=\"fa-solid fa-user-plus\"></i> Log in",
+	"user-subheading": "Username",
+	"pw-subheading": "Password",
+	"confirm-pw-subheading": "Confirm password",
+	"password-strength": "No password.",
+	"animated": "Create account",
+	"signup": "<i class=\"fa-solid fa-user\"></i> <span>Sign up</span>",
+	"language-btn": "Change language",
+	"title": "Create account"
+}

@@ -1,0 +1,9 @@
+{
+	"brand-text": "<i class=\"fa-solid fa-circle-user\"></i> Profile",
+	"hub": "<i class=\"fa-solid fa-house\"></i> Hub",
+	"signoutBtn": "<span><i class=\"fa-solid fa-right-from-bracket\"></i> Sign out</span>",
+	"current-unit-text": "Current unit: <span id=\"current-unit\">Unit 1</span>",
+	"progress-text": "Progress: <span id=\"progress\">0</span>%",
+	"language-btn": "Change language",
+	"title": "Profile"
+}
