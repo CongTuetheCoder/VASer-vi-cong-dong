@@ -257,5 +257,7 @@ fetch("data/lessons.json")
 		setTimeout(drawPathsBetweenButtons, 100);
 	});
 
+if (localStorage.getItem("user") === null) window.location.href = "index.html";
+
 sessionStorage.clear();
 window.addEventListener("resize", drawPathsBetweenButtons);

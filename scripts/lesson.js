@@ -197,6 +197,9 @@ function step() {
 }
 
 function validateOutput(output, pattern) {
+	const out = document.getElementById("output");
+	if (out.style.color === "red") return false;
+
 	const normalize = (str) => str.replace(/\r\n/g, "\n").trim();
 	const outLines = normalize(output).split("\n");
 	const userInputs = [];
