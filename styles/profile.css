@@ -72,6 +72,11 @@
 	color: black;
 }
 
+#animated::before {
+	content: "@";
+	color: aqua;
+}
+
 @media screen and (max-width: 1200px) {
 	.collapse {
 		justify-content: flex-start;

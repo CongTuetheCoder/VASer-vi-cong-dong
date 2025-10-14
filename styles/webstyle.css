@@ -16,7 +16,7 @@ body {
 }
 
 body > * {
-	z-index: 1;
+	z-index: 2;
 }
 
 @property --color-stop-1 {
@@ -119,5 +119,9 @@ body > * {
 @media screen and (max-width: 1200px) {
 	.collapse {
 		justify-content: flex-start;
+	}
+
+	.nav-item {
+		text-align: left;
 	}
 }
