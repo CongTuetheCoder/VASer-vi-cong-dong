@@ -1,0 +1,12 @@
+{
+	"home": "<i class=\"fa-solid fa-house\"></i> Trang chủ",
+	"login": "<i class=\"fa-solid fa-circle-user\"></i> Đăng nhập",
+	"user-subheading": "Tên người dùng",
+	"pw-subheading": "Mật khẩu",
+	"confirm-pw-subheading": "Nhập lại mật khẩu",
+	"password-strength": "Chưa có mật khẩu.",
+	"animated": "Tạo tài khoản",
+	"signup": "<i class=\"fa-solid fa-user\"></i> <span>Đăng ký</span>",
+	"language-btn": "Thay đổi ngôn ngữ",
+	"title": "Tạo tài khoản"
+}
