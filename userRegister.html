@@ -14,9 +14,9 @@
 			crossorigin="anonymous"
 		/>
 		<link rel="stylesheet" href="styles/webstyle.css" />
-		<link rel="stylesheet" href="styles/login.css" />
-		<title>Login</title>
-		<link rel="icon" type="image/x-icon" href="images/icon.png">
+		<link rel="stylesheet" href="styles/userRegister.css" />
+		<title>Tạo tài khoản</title>
+		<link rel="icon" type="image/x-icon" href="images/icon.png" />
 	</head>
 	<body>
 		<script
@@ -52,9 +52,10 @@
 						>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="register.html" id="signup">
-							<i class="fa-solid fa-user-plus"></i> Đăng ký
-						</a>
+						<a class="nav-link" href="login.html" id="login"
+							><i class="fa-solid fa-circle-user"></i> Đăng
+							nhập</a
+						>
 					</li>
 				</ul>
 			</div>
@@ -63,36 +64,65 @@
 		<div class="gradient"></div>
 
 		<div class="container">
-			<h1 id="animated" data-value="Đăng nhập">Đăng nhập</h1>
+			<h1 id="animated" data-value="Tạo tài khoản">Tạo tài khoản</h1>
+			<div class="form-container">
+				<form class="form-panel">
+					<label id="user-subheading" for="username"
+						>Tên người dùng</label
+					>
+					<input
+						type="text"
+						class="user-input"
+						id="username"
+						title="Tên người dùng"
+						autocomplete="off"
+						autocapitalize="off"
+						autocorrect="off"
+						maxlength="15"
+						autofocus
+						required
+					/>
+					<br /><br />
+				</form>
+				<form class="form-panel">
+					<label id="pw-subheading" for="password">Mật khẩu</label>
+					<input
+						type="password"
+						class="user-input"
+						id="password"
+						title="Mật khẩu"
+						autocomplete="off"
+						autocapitalize="off"
+						autocorrect="off"
+						required
+					/>
+					<label id="confirm-pw-subheading" for="confirm-password"
+						>Nhập lại mật khẩu</label
+					>
+					<input
+						type="password"
+						class="user-input"
+						id="confirm-password"
+						title="Nhập lại mật khẩu"
+						autocomplete="off"
+						autocapitalize="off"
+						autocorrect="off"
+						required
+					/>
+				</form>
+			</div>
+
+			<p id="password-strength">Chưa có mật khẩu.</p>
+
 			<button
-				type="button"
-				title="Microsoft Login"
-				id="microsoftLogin"
-				class="loginBtn"
-				onclick="window.location.href = 'home.html';"
-			>
-				<i class="fa-brands fa-microsoft"></i>
-				<span>Đăng nhập bằng Microsoft</span>
-			</button>
-			<button
-				type="button"
-				title="Google Login"
-				id="googleLogin"
-				class="loginBtn"
-				onclick="window.location.href = 'home.html';"
-			>
-				<i class="fa-brands fa-google"></i>
-				<span>Đăng nhập bằng Google</span>
-			</button>
-			<button
-				type="button"
-				title="Google Login"
-				id="accountLogin"
-				class="loginBtn"
-				onclick="window.location.href = 'userLogin.html';"
+				type="submit"
+				title="Đăng ký"
+				class="signupBtn"
+				id="signup"
+				disabled
 			>
 				<i class="fa-solid fa-user"></i>
-				<span>Đăng nhập bằng tài khoản</span>
+				<span>Đăng ký</span>
 			</button>
 		</div>
 
@@ -100,7 +130,9 @@
 			<i class="fa-solid fa-globe"></i>
 		</button>
 
-		<script src="scripts/lang/language_login.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+		<script src="scripts/register.js"></script>
+		<script src="scripts/lang/language_userRegister.js"></script>
 		<script src="scripts/hackerEffect.js"></script>
 	</body>
 </html>
