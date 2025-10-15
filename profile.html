@@ -62,19 +62,29 @@
 		<div class="container">
 			<h2 id="animated" data-value="user">user</h2>
 			<br /><br />
-			<p id="current-unit-text">Chương hiện tại: <span id="current-unit"></span></p>
+			<p id="current-unit-text">
+				Chương hiện tại: <span id="current-unit"></span>
+			</p>
 			<p id="progress-text">Tiến trình: <span id="progress"></span>%</p>
 			<button
 				class="actionButton"
 				id="signoutBtn"
 				title="Sign out"
 				type="button"
-				onclick="window.location.href = 'index.html';"
+				onclick="() => {localStorage.removeItem('user'); window.location.href = 'index.html';}"
 			>
 				<span
 					><i class="fa-solid fa-right-from-bracket"></i> Đăng
 					xuất</span
 				>
+			</button>
+			<button
+				class="actionButton"
+				id="deleteAccBtn"
+				title="Delete account"
+				type="button"
+			>
+				<span><i class="fa-solid fa-trash-can"></i> Xóa tài khoản</span>
 			</button>
 		</div>
 
