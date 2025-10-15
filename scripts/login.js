@@ -2,7 +2,6 @@ const button = document.getElementById("loginBtn");
 const usernameIn = document.getElementById("username");
 const passwordIn = document.getElementById("password");
 
-console.log(button, usernameIn, passwordIn);
 
 const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
 
@@ -57,6 +56,7 @@ async function loginUser() {
 
 		if (!user) {
 			confirm("Username not found.");
+			button.innerHTML = originalHTML;
 			return;
 		}
 
@@ -69,6 +69,8 @@ async function loginUser() {
 		if (isMatch) {
 			localStorage.setItem("user", usernameIn.value);
 			window.location.href = "home.html";
+		} else {
+			button.innerHTML = originalHTML;
 		}
 	} catch (error) {
 		confirm(`An error occurred: ${error}`);
@@ -78,4 +80,18 @@ async function loginUser() {
 
 button.addEventListener("click", async () => {
 	await loginUser();
+});
+
+passwordIn.addEventListener("keydown", async (event) => {
+	if (event.key === "Enter") {
+		event.preventDefault();
+		await loginUser();
+	}
+});
+
+usernameIn.addEventListener("keydown", async (event) => {
+	if (event.key === "Enter") {
+		event.preventDefault();
+		await loginUser();
+	}
 });

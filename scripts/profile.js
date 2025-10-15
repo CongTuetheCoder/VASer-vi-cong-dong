@@ -6,6 +6,7 @@ user.innerHTML = usernameText;
 
 const currentUnit = document.getElementById("current-unit");
 const progressSpan = document.getElementById("progress");
+const deleteAccBtn = document.getElementById("deleteAccBtn");
 
 const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
 const lessonJSON = "data/lessons.json";
@@ -48,8 +49,52 @@ setInterval(() => {
 						(currentLesson * 100) / totalLessons
 					).toString();
 					document.getElementById("progress").innerHTML = percentage;
-
-					console.log(progressSpan);
 				});
 		});
 }, 100);
+
+deleteAccBtn.addEventListener("click", () => {
+	const msg =
+		localStorage.getItem("lang") === "en"
+			? "To delete your account, enter your username:"
+			: "Để xóa tài khoản, vui lòng nhập tên người dùng:";
+	const promptedUser = prompt(msg);
+
+	if (promptedUser === usernameText) {
+		fetch(usersAPI)
+			.then((response) => {
+				if (!response.ok) {
+					throw new Error(`HTTP error: Status: ${response.status}`);
+				}
+				return response.json();
+			})
+			.then((data) => {
+				const userObj = data.find(
+					(user) => user.username === usernameText
+				);
+				if (!userObj) {
+					alert("User not found.");
+					return;
+				}
+
+				fetch(`${usersAPI}/${userObj.id}`, {
+					method: "DELETE",
+					headers: {
+						"Content-Type": "application/json",
+					},
+				}).then((response) => {
+					if (!response.ok) {
+						throw new Error(
+							`HTTP error: Status: ${response.status}`
+						);
+					}
+					alert("Account deleted successfully.");
+					localStorage.removeItem("user");
+					window.location.href = "register.html";
+				});
+			})
+			.catch((error) => confirm(`An error occured: ${error}`));
+	} else {
+		alert("Wrong user!")
+	}
+});

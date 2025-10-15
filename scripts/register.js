@@ -56,11 +56,13 @@ const passwordStrengthCheck = (password) => {
 	)
 		return 1;
 
-	let strength = 1;
+	let strength = 0;
 
 	if (lowercase.test(password)) strength++;
 	if (uppercase.test(password)) strength++;
 	if (symbols.test(password)) strength++;
+
+	if (password.length >= 8 && strength == 1) strength++;
 
 	if (strength > 3) strength = 3;
 
