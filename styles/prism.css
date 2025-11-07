@@ -61,6 +61,11 @@ pre[class*="language-"] {
 	border-radius: 0.3em;
 	white-space: normal;
 }
+
+.token {
+	transition: background-color 800ms ease;
+}
+
 .token.cdata,
 .token.comment,
 .token.doctype,
@@ -96,16 +101,15 @@ pre[class*="language-"] {
 .style .token.string,
 .token.entity,
 .token.operator,
+.token.boolean,
 .token.url {
-	color: rgb(0, 179, 255);
-	background: hsla(0, 0%, 0%, 0.5);
+	color: rgb(0, 207, 200);
 }
 
-.token.boolean,
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: rgb(0, 179, 255);
+	color: rgb(78, 202, 255);
 }
 
 .token.function,
@@ -124,7 +128,8 @@ pre[class*="language-"] {
 	color: #e90;
 }
 .token.bold,
-.token.important {
+.token.important,
+.token.keyword {
 	font-weight: 700;
 }
 .token.italic {

@@ -27,6 +27,10 @@
 	box-shadow: 0 10px 0 0 rgba(0, 0, 0, 0.5);
 }
 
+#deleteAccBtn {
+	background-color: #640909;
+}
+
 .actionButton span,
 .actionButton i {
 	color: rgba(255, 255, 255, 0.5);
@@ -45,6 +49,10 @@
 
 .actionButton:hover {
 	background-color: #421c9c;
+}
+
+#deleteAccBtn:hover {
+	background-color: #9c1c1c;
 }
 
 .actionButton:hover span {
