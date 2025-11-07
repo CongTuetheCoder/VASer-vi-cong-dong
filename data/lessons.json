@@ -1,9 +1,9 @@
 {
 	"lessonsData": {
-		"1": ["c", "r", "c", "l", "c"],
+		"1": ["c", "r", "c", "l", "c", "c"],
 		"2": ["c", "l", "c", "c", "c"],
-		"3": ["c", "r", "l", "c"],
-		"4": ["c", "c", "l", "c", "r"]
+		"3": ["c", "r", "l", "c", "c"],
+		"4": ["c", "c", "l", "c"]
 	},
 
 	"lessons": {
@@ -14,12 +14,12 @@
 				"name": "Chương trình đầu tiên",
 				"codevi": [
 					"print()",
-					"print(\"Tôi đang\", \"học\", )",
+					"print('Tôi đang', 'học', )",
 					"print(123, )"
 				],
 				"codeen": [
 					"print()",
-					"print(\"I am\", \"learning\", )",
+					"print('I am', 'learning', )",
 					"print(123, )"
 				],
 				"correctvi": [
@@ -37,24 +37,24 @@
 				"iconClasses": "fa-solid fa-box-archive",
 				"name": "Lưu trữ thông tin",
 				"codevi": [
-					"ten: str = \n\nprint(\"Chào,\", ten)",
-					"tuoi: int = \n\nprint(tuoi)",
-					"gia_tien: float = \n\nprint(\"Giá của món đồ là $\", gia_tien)",
-					"la_hoc_sinh: bool = \n\nprint(\"Là học sinh:\", la_hoc_sinh)",
-					"\n\nprint(\"Số may mắn của tôi là\", so_may_man)\nprint(loi_nhan)",
-					"tam_thoi: int = 5\n\nprint(gia_tri)",
-					"a = b = \n\nprint(\"a =\", a)\nprint(\"b =\", b)",
-					"a, b = \n\nprint(\"a =\", a)\nprint(\"b =\", b)"
+					"ten = \n\nprint('Chào,', ten)",
+					"tuoi = \n\nprint(tuoi)",
+					"gia_tien = \n\nprint('Giá của món đồ là $', gia_tien)",
+					"la_hoc_sinh = \n\nprint('Là học sinh:', la_hoc_sinh)",
+					"\n\nprint('Số may mắn của tôi là', so_may_man)\nprint(loi_nhan)",
+					"tam_thoi = 5\n\nprint(gia_tri)",
+					"a = b = \n\nprint('a =', a)\nprint('b =', b)",
+					"a, b = \n\nprint('a =', a)\nprint('b =', b)"
 				],
 				"codeen": [
-					"name: str = \n\nprint(\"Hello,\", name)",
-					"age: int = \n\nprint(age)",
-					"price: float = \n\nprint(\"The price is $\", price)",
-					"is_student: bool = \n\nprint(\"Is student:\", is_student)",
-					"\n\nprint(\"My lucky number is\", lucky_number)\nprint(message)",
-					"temp: int = 5\n\nprint(value)",
-					"a = b = \n\nprint(\"a =\", a)\nprint(\"b =\", b)",
-					"a, b = \n\nprint(\"a =\", a)\nprint(\"b =\", b)"
+					"name = \n\nprint('Hello,', name)",
+					"age = \n\nprint(age)",
+					"price = \n\nprint('The price is $', price)",
+					"is_student = \n\nprint('Is student:', is_student)",
+					"\n\nprint('My lucky number is', lucky_number)\nprint(message)",
+					"temp = 5\n\nprint(value)",
+					"a = b = \n\nprint('a =', a)\nprint('b =', b)",
+					"a, b = \n\nprint('a =', a)\nprint('b =', b)"
 				],
 				"correctvi": [
 					[{ "type": "static", "text": "Chào, Tấn" }],
@@ -111,240 +111,401 @@
 				"iconClasses": "fa-solid fa-calculator",
 				"name": "Làm toán trong Python",
 				"codevi": [
-					"a: int = 5\nb: int = 3\n",
-					"a: int = 5\nb: int = 3\nprint(a + b)\n",
-					"a: int = 5\nb: int = 3\nprint(a + b)\nprint(a - b)\n",
-					"a: int = 5\nb: int = 3\nprint(a + b)\nprint(a - b)\nprint(a * b)\n",
-					"a: int = 5\nb: int = 3\nprint(a + b)\nprint(a - b)\nprint(a * b)\nprint(a / b)\nprint(a // b)\n",
-					"a: int = 5\nb: int = 3\nprint(a + b)\nprint(a - b)\nprint(a * b)\nprint(a / b)\nprint(a // b)\nprint(a % b)\n",
-					"a: int = 5\nb: int = 3\n",
-					"a: int = 5\nb: int = 3\nprint(a == b)\nprint(a != b)\n",
-					"a: int = 5\nb: int = 3\nprint(a == b)\nprint(a != b)\nprint(a < b)\nprint(a <= b)\n"
+					"tong = \n\nprint(tong)",
+					"hieu = \n\nprint(hieu)",
+					"tich = \n\nprint(tich)",
+					"thuong = \n\nprint(thuong)",
+					"thuong_nguyen = \n\nprint(thuong_nguyen)",
+					"so_du = \n\nprint(so_du)",
+					"vuong = \n\nprint(vuong)",
+					"ket_qua = \n\nprint(ket_qua)"
 				],
 				"codeen": [
-					"a: int = 5\nb: int = 3\n",
-					"a: int = 5\nb: int = 3\nprint(a + b)\n",
-					"a: int = 5\nb: int = 3\nprint(a + b)\nprint(a - b)\n",
-					"a: int = 5\nb: int = 3\nprint(a + b)\nprint(a - b)\nprint(a * b)\n",
-					"a: int = 5\nb: int = 3\nprint(a + b)\nprint(a - b)\nprint(a * b)\nprint(a / b)\nprint(a // b)\n",
-					"a: int = 5\nb: int = 3\nprint(a + b)\nprint(a - b)\nprint(a * b)\nprint(a / b)\nprint(a // b)\nprint(a % b)\n",
-					"a: int = 5\nb: int = 3\n",
-					"a: int = 5\nb: int = 3\nprint(a == b)\nprint(a != b)\n",
-					"a: int = 5\nb: int = 3\nprint(a == b)\nprint(a != b)\nprint(a < b)\nprint(a <= b)\n"
+					"total = \n\nprint(total)",
+					"difference = \n\nprint(difference)",
+					"product = \n\nprint(product)",
+					"quotient = \n\nprint(quotient)",
+					"int_quotient = \n\nprint(int_quotient)",
+					"remainder = \n\nprint(remainder)",
+					"square = \n\nprint(square)",
+					"result = \n\nprint(result)"
 				],
 				"correctvi": [
+					[{ "type": "static", "text": "15" }],
 					[{ "type": "static", "text": "8" }],
-					[
-						{ "type": "static", "text": "8" },
-						{ "type": "static", "text": "2" }
-					],
-					[
-						{ "type": "static", "text": "8" },
-						{ "type": "static", "text": "2" },
-						{ "type": "static", "text": "15" }
-					],
-					[
-						{ "type": "static", "text": "8" },
-						{ "type": "static", "text": "2" },
-						{ "type": "static", "text": "15" },
-						{ "type": "static", "text": "1.666666666666667" },
-						{ "type": "static", "text": "1" }
-					],
-					[
-						{ "type": "static", "text": "8" },
-						{ "type": "static", "text": "2" },
-						{ "type": "static", "text": "15" },
-						{ "type": "static", "text": "1.666666666666667" },
-						{ "type": "static", "text": "1" },
-						{ "type": "static", "text": "2" }
-					],
-					[
-						{ "type": "static", "text": "8" },
-						{ "type": "static", "text": "2" },
-						{ "type": "static", "text": "15" },
-						{ "type": "static", "text": "1.666666666666667" },
-						{ "type": "static", "text": "1" },
-						{ "type": "static", "text": "2" },
-						{ "type": "static", "text": "125" }
-					],
-					[
-						{ "type": "static", "text": "False" },
-						{ "type": "static", "text": "True" }
-					],
-					[
-						{ "type": "static", "text": "False" },
-						{ "type": "static", "text": "True" },
-						{ "type": "static", "text": "False" },
-						{ "type": "static", "text": "False" }
-					],
-					[
-						{ "type": "static", "text": "False" },
-						{ "type": "static", "text": "True" },
-						{ "type": "static", "text": "False" },
-						{ "type": "static", "text": "False" },
-						{ "type": "static", "text": "True" },
-						{ "type": "static", "text": "True" }
-					]
+					[{ "type": "static", "text": "58.5" }],
+					[{ "type": "static", "text": "5.0" }],
+					[{ "type": "static", "text": "5" }],
+					[{ "type": "static", "text": "2" }],
+					[{ "type": "static", "text": "25" }],
+					[{ "type": "static", "text": "13.0" }]
 				],
 				"correcten": [
+					[{ "type": "static", "text": "15" }],
 					[{ "type": "static", "text": "8" }],
-					[
-						{ "type": "static", "text": "8" },
-						{ "type": "static", "text": "2" }
-					],
-					[
-						{ "type": "static", "text": "8" },
-						{ "type": "static", "text": "2" },
-						{ "type": "static", "text": "15" }
-					],
-					[
-						{ "type": "static", "text": "8" },
-						{ "type": "static", "text": "2" },
-						{ "type": "static", "text": "15" },
-						{ "type": "static", "text": "1.666666666666667" },
-						{ "type": "static", "text": "1" }
-					],
-					[
-						{ "type": "static", "text": "8" },
-						{ "type": "static", "text": "2" },
-						{ "type": "static", "text": "15" },
-						{ "type": "static", "text": "1.666666666666667" },
-						{ "type": "static", "text": "1" },
-						{ "type": "static", "text": "2" }
-					],
-					[
-						{ "type": "static", "text": "8" },
-						{ "type": "static", "text": "2" },
-						{ "type": "static", "text": "15" },
-						{ "type": "static", "text": "1.666666666666667" },
-						{ "type": "static", "text": "1" },
-						{ "type": "static", "text": "2" },
-						{ "type": "static", "text": "125" }
-					],
-					[
-						{ "type": "static", "text": "False" },
-						{ "type": "static", "text": "True" }
-					],
-					[
-						{ "type": "static", "text": "False" },
-						{ "type": "static", "text": "True" },
-						{ "type": "static", "text": "False" },
-						{ "type": "static", "text": "False" }
-					],
-					[
-						{ "type": "static", "text": "False" },
-						{ "type": "static", "text": "True" },
-						{ "type": "static", "text": "False" },
-						{ "type": "static", "text": "False" },
-						{ "type": "static", "text": "True" },
-						{ "type": "static", "text": "True" }
-					]
+					[{ "type": "static", "text": "58.5" }],
+					[{ "type": "static", "text": "5.0" }],
+					[{ "type": "static", "text": "5" }],
+					[{ "type": "static", "text": "2" }],
+					[{ "type": "static", "text": "25" }],
+					[{ "type": "static", "text": "13.0" }]
 				]
 			},
 			"4": {
-				"iconClasses": "fa-solid fa-terminal",
-				"name": "Lấy và đổi dữ liệu",
+				"iconClasses": "fa-solid fa-equals",
+				"name": "So sánh trong Python",
+
 				"codevi": [
-					"ten: str = \nprint(\"Chào,\", ten)",
-					"gia_tri: int = input()\nprint(\"Giá trị sau khi cộng thêm 3:\", gia_tri + 3)",
-					"tin_nhan: str = input()\nprint(tin_nhan, \":)\")"
+					"a = 7\nb = 5\nprint('a lớn hơn b:', )\nprint('a bé hơn b:', )",
+					"x = 10\ny = 10\nprint('x bằng y:', )",
+					"m = 3\nn = 8\nprint('m nhỏ hơn hoặc bằng n:', )\nprint('m lớn hơn hoặc bằng n:', )",
+					"so1 = 4\nso2 = 9\nprint('so1 khác so2:', )"
 				],
 				"codeen": [
-					"name: str = \nprint(\"Hello,\", name)",
-					"value: int = input()\nprint(\"Value after adding 3:\", value + 3)",
-					"message: str = input()\nprint(message, \":)\")"
+					"a = 7\nb = 5\nprint('a is greater than b:', )\nprint('a is less than b:', )",
+					"x = 10\ny = 10\nprint('x equals y:', )",
+					"m = 3\nn = 8\nprint('m is less than or equal to n:', )\nprint('m is greater than or equal to n:', )",
+					"num1 = 4\nnum2 = 9\nprint('num1 is not equal to num2:', )"
 				],
 				"correctvi": [
 					[
-						{ "type": "prompt", "text": "" },
-						{ "type": "dynamic", "text": "Chào, " }
+						{ "type": "static", "text": "a lớn hơn b: True" },
+						{ "type": "static", "text": "a bé hơn b: False" }
 					],
+					[{ "type": "static", "text": "x bằng y: True" }],
 					[
-						{ "type": "prompt", "text": "" },
 						{
-							"type": "dynamic",
-							"text": "Giá trị sau khi cộng thêm 3: "
+							"type": "static",
+							"text": "m nhỏ hơn hoặc bằng n: True"
+						},
+						{
+							"type": "static",
+							"text": "m lớn hơn hoặc bằng n: False"
 						}
 					],
-					[
-						{ "type": "prompt", "text": "Nhập tin nhắn: " },
-						{ "type": "dynamic", "text": "" }
-					]
+					[{ "type": "static", "text": "so1 khác so2: True" }]
 				],
 				"correcten": [
 					[
-						{ "type": "prompt", "text": "" },
-						{ "type": "dynamic", "text": "Hello, " }
-					],
-					[
-						{ "type": "prompt", "text": "" },
 						{
-							"type": "dynamic",
-							"text": "Value after adding 3: "
+							"type": "static",
+							"text": "a is greater than b: True"
+						},
+						{
+							"type": "static",
+							"text": "a is less than b: False"
+						}
+					],
+					[{ "type": "static", "text": "x equals y: True" }],
+					[
+						{
+							"type": "static",
+							"text": "m is less than or equal to n: True"
+						},
+						{
+							"type": "static",
+							"text": "m is greater than or equal to n: False"
 						}
 					],
 					[
-						{ "type": "prompt", "text": "Enter message: " },
-						{ "type": "dynamic", "text": "" }
+						{
+							"type": "static",
+							"text": "num1 is not equal to num2: True"
+						}
 					]
 				]
 			},
 			"5": {
-				"iconClasses": "fa-solid fa-play",
-				"name": "Thực hành 1: Cộng hai số",
-				"codevi": ["so_hang1 = \nso_hang2 = \n"],
-				"codeen": ["term1 = \nterm2 = \n"],
+				"iconClasses": "fa-solid fa-terminal",
+				"name": "Lấy và đổi dữ liệu",
+				"codevi": [
+					"ten = \nprint('Chào,', ten)",
+					"tin_nhan = input()\nprint(tin_nhan, ':)')",
+					"gia_tri = input()\n\nprint('Giá trị sau khi cộng thêm 3:', gia_tri + 3)",
+					"gia_tien = input()\n\nprint('Giá tiền sau khi giảm: $', gia_tien - 2.5)",
+					"gia_tri1 = 'chuỗi ký tự'\ngia_tri2 = 67\ngia_tri3 = False\ngia_tri4 = 10.5\n\n"
+				],
+				"codeen": [
+					"name = \nprint('Hello,', name)",
+					"message = input()\nprint(message, ':)')",
+					"value = input()\n\nprint('Value after adding 3:', value + 3)",
+					"price = input()\n\nprint('Price after discount: $', price - 2.5)",
+					"value1 = 'some text'\nvalue2 = 67\nvalue3 = False\nvalue4 = 10.5\n\n"
+				],
 				"correctvi": [
 					[
-						{ "type": "prompt", "text": "Nhập số thứ nhất: " },
-						{ "type": "prompt", "text": "Nhập số thứ hai: " },
-						{ "type": "dynamic", "text": "" }
+						{ "type": "prompt", "text": "", "captureAs": "value" },
+						{
+							"type": "regex",
+							"pattern": "^Chào, (.+)$",
+							"captureAs": "result"
+						},
+						{
+							"type": "reference",
+							"name": "result",
+							"from": "value",
+							"transform": "x => x"
+						}
+					],
+					[
+						{
+							"type": "prompt",
+							"text": "Nhập tin nhắn: ",
+							"captureAs": "value"
+						},
+						{
+							"type": "regex",
+							"pattern": "^(.*) :\\)$",
+							"captureAs": "result"
+						},
+						{
+							"type": "reference",
+							"name": "result",
+							"from": "value",
+							"transform": "x => x"
+						}
+					],
+					[
+						{ "type": "prompt", "text": "", "captureAs": "value" },
+						{
+							"type": "regex",
+							"pattern": "^Giá trị sau khi cộng thêm 3: (-?\\d+)\\s*$",
+							"captureAs": "result"
+						},
+						{
+							"type": "reference",
+							"name": "result",
+							"from": "value",
+							"transform": "x => parseInt(x) + 3"
+						}
+					],
+					[
+						{ "type": "prompt", "text": "", "captureAs": "value" },
+						{
+							"type": "regex",
+							"pattern": "^Giá tiền sau khi giảm: \\$ (-?\\d+(?:\\.\\d+)?)\\s*$",
+							"captureAs": "result"
+						},
+						{
+							"type": "reference",
+							"name": "result",
+							"from": "value",
+							"transform": "x => parseFloat(x) - 2.5"
+						}
+					],
+					[
+						{ "type": "static", "text": "<class 'str'>" },
+						{ "type": "static", "text": "<class 'int'>" },
+						{ "type": "static", "text": "<class 'bool'>" },
+						{ "type": "static", "text": "<class 'float'>" }
+					]
+				],
+				"correcten": [
+					[
+						{ "type": "prompt", "text": "", "captureAs": "value" },
+						{
+							"type": "regex",
+							"pattern": "^Hello, (.+)$",
+							"captureAs": "result"
+						},
+						{
+							"type": "reference",
+							"name": "result",
+							"from": "value",
+							"transform": "x => x"
+						}
+					],
+					[
+						{
+							"type": "prompt",
+							"text": "Enter message: ",
+							"captureAs": "value"
+						},
+						{
+							"type": "regex",
+							"pattern": "^(.*) :\\)$",
+							"captureAs": "result"
+						},
+						{
+							"type": "reference",
+							"name": "result",
+							"from": "value",
+							"transform": "x => x"
+						}
+					],
+					[
+						{ "type": "prompt", "text": "", "captureAs": "value" },
+						{
+							"type": "regex",
+							"pattern": "^Value after adding 3: (-?\\d+)\\s*$",
+							"captureAs": "result"
+						},
+						{
+							"type": "reference",
+							"name": "result",
+							"from": "value",
+							"transform": "x => parseInt(x) + 3"
+						}
+					],
+					[
+						{ "type": "prompt", "text": "", "captureAs": "value" },
+						{
+							"type": "regex",
+							"pattern": "^Price after discount: \\$ (-?\\d+(?:\\.\\d+)?)\\s*$",
+							"captureAs": "result"
+						},
+						{
+							"type": "reference",
+							"name": "result",
+							"from": "value",
+							"transform": "x => parseFloat(x) - 2.5"
+						}
+					],
+					[
+						{ "type": "static", "text": "<class 'str'>" },
+						{ "type": "static", "text": "<class 'int'>" },
+						{ "type": "static", "text": "<class 'bool'>" },
+						{ "type": "static", "text": "<class 'float'>" }
+					]
+				]
+			},
+			"6": {
+				"iconClasses": "fa-solid fa-play",
+				"name": "Thực hành 1: Chương trình tính toán cơ bản",
+				"codevi": [
+					"so_hang1 = \nso_hang2 = \n",
+					"nhiet_do_C = \nnhiet_do_F = \n"
+				],
+				"codeen": [
+					"term1 = \nterm2 = \n",
+					"degrees_C = \ndegrees_F = \n"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "prompt",
+							"text": "Nhập số thứ nhất: ",
+							"captureAs": "value1"
+						},
+						{
+							"type": "prompt",
+							"text": "Nhập số thứ hai: ",
+							"captureAs": "value2"
+						},
+						{
+							"type": "regex",
+							"pattern": "^(-?\\d+(?:\\.\\d+)?) \\+ (-?\\d+(?:\\.\\d+)?) = (-?\\d+(?:\\.\\d+)?)$",
+							"captureAs": ["a", "b", "sum"]
+						},
+						{
+							"type": "reference",
+							"name": "sum",
+							"from": ["a", "b"],
+							"transform": "(a, b) => { const result = parseFloat(a) + parseFloat(b); return `${result}` + (Number.isInteger(result) ? '.0' : ''); }"
+						}
+					],
+					[
+						{
+							"type": "prompt",
+							"text": "Nhập nhiệt độ C: ",
+							"captureAs": "temperature_C"
+						},
+						{
+							"type": "regex",
+							"pattern": "Nhiệt độ F là (-?\\d+(?:\\.\\d+)?)",
+							"captureAs": ["temperature_F"]
+						},
+						{
+							"type": "reference",
+							"name": "temperature_F",
+							"from": ["temperature_C"],
+							"transform": "(temp) => parseFloat(temp) * 1.8 + 32"
+						}
 					]
 				],
 				"correcten": [
 					[
 						{
 							"type": "prompt",
-							"text": "Enter the first number: "
+							"text": "Enter the first number: ",
+							"captureAs": "value1"
 						},
 						{
 							"type": "prompt",
-							"text": "Enter the second number: "
+							"text": "Enter the second number: ",
+							"captureAs": "value2"
 						},
-						{ "type": "dynamic", "text": "" }
+						{
+							"type": "regex",
+							"pattern": "^(-?\\d+(?:\\.\\d+)?) \\+ (-?\\d+(?:\\.\\d+)?) = (-?\\d+(?:\\.\\d+)?)$",
+							"captureAs": ["a", "b", "sum"]
+						},
+						{
+							"type": "reference",
+							"name": "sum",
+							"from": ["a", "b"],
+							"transform": "(a, b) => { const result = parseFloat(a) + parseFloat(b); return `${result}` + (Number.isInteger(result) ? '.0' : ''); }"
+						}
+					],
+					[
+						{
+							"type": "prompt",
+							"text": "Enter temperature (in Celsius): ",
+							"captureAs": "temperature_C"
+						},
+						{
+							"type": "regex",
+							"pattern": "The temperature in Fahrenheit is (-?\\d+(?:\\.\\d+)?)",
+							"captureAs": ["temperature_F"]
+						},
+						{
+							"type": "reference",
+							"name": "temperature_F",
+							"from": ["temperature_C"],
+							"transform": "(temp) => { const result = parseFloat(temp) * 1.8 + 32; return `${result}` + (Number.isInteger(result) ? '.0' : ''); }"
+						}
 					]
 				]
 			}
 		},
+
 		"2": {
 			"name": "Chủ đề 2: Vòng lặp và lệnh điều kiện",
 			"1": {
 				"iconClasses": "fa-solid fa-arrow-up-9-1",
 				"name": "Vòng lặp for",
 				"codevi": [
-					"for i in range(10):\n\t...",
-					"for i in range(...):\n\tprint()",
-					"toi_da: int = 16\n\nfor i in range(...):\n\tprint(i)",
-					"so_lan: int = int(input())\n\n"
+					"for i in range(10):\n\t",
+					"for i in range(...):\n\tprint(i, 'lặp lại')",
+					"toi_da = 16\n\nfor i in range(...):\n\tprint(i)",
+					"n = int(input())\n\n"
 				],
 				"codeen": [
-					"for i in range(10):\n\t...",
-					"for i in range(...):\n\tprint()",
-					"max_num: int = 16\n\nfor i in range(...):\n\tprint(i)",
-					"amount: int = int(input())\n\n"
+					"for i in range(10):\n\t",
+					"for i in range(...):\n\tprint(i, 'repeat')",
+					"max_num = 16\n\nfor i in range(...):\n\tprint(i)",
+					"n = int(input())\n\n"
 				],
 				"correctvi": [
 					[
-						{ "type": "static", "text": "0" },
-						{ "type": "static", "text": "1" },
-						{ "type": "static", "text": "2" },
-						{ "type": "static", "text": "3" },
-						{ "type": "static", "text": "4" },
-						{ "type": "static", "text": "5" },
-						{ "type": "static", "text": "6" },
-						{ "type": "static", "text": "7" },
-						{ "type": "static", "text": "8" },
-						{ "type": "static", "text": "9" }
+						{
+							"type": "repeat",
+							"times": 10,
+							"body": [
+								{
+									"type": "regex",
+									"pattern": "^(.*)$",
+									"captureAs": "message",
+									"captureOnce": true
+								},
+								{
+									"type": "reference",
+									"name": "message",
+									"from": "message",
+									"transform": "x => x"
+								}
+							]
+						}
 					],
 					[
 						{ "type": "static", "text": "1 lặp lại" },
@@ -375,16 +536,24 @@
 				],
 				"correcten": [
 					[
-						{ "type": "static", "text": "0" },
-						{ "type": "static", "text": "1" },
-						{ "type": "static", "text": "2" },
-						{ "type": "static", "text": "3" },
-						{ "type": "static", "text": "4" },
-						{ "type": "static", "text": "5" },
-						{ "type": "static", "text": "6" },
-						{ "type": "static", "text": "7" },
-						{ "type": "static", "text": "8" },
-						{ "type": "static", "text": "9" }
+						{
+							"type": "repeat",
+							"times": 10,
+							"body": [
+								{
+									"type": "regex",
+									"pattern": "^(.*)$",
+									"captureAs": "message",
+									"captureOnce": true
+								},
+								{
+									"type": "reference",
+									"name": "message",
+									"from": "message",
+									"transform": "x => x"
+								}
+							]
+						}
 					],
 					[
 						{ "type": "static", "text": "1 repeat" },
@@ -419,13 +588,13 @@
 				"name": "Vòng lặp while",
 				"codevi": [
 					"i = 0\nwhile i < 10:\n\t",
-					"tong: int = 0\nn: int = -1\n\nwhile n != 0:\n\t",
-					"mat_khau: str = \n\nwhile mat_khau != 'matkhau123456':\n\t\n\nprint(\"Truy cập thành công.\")"
+					"tong: = 0\nn = -1\n\nwhile n != 0:\n\t\n\nprint('Tổng:', tong)",
+					"mat_khau = \n\nwhile mat_khau != 'matkhau123456':\n\t\n\nprint('Truy cập thành công.')"
 				],
 				"codeen": [
 					"i = 0\nwhile i < 10:\n\t",
-					"total: int = 0\nn: int = -1\n\nwhile n != 0:\n\t",
-					"password: str = \n\nwhile password != 'password123':\n\t\n\nprint(\"Access granted.\")"
+					"total = 0\nn = -1\n\nwhile n != 0:\n\t\n\nprint('Total:', total)",
+					"password = \n\nwhile password != 'password123':\n\t\n\nprint('Access granted.')"
 				],
 				"correctvi": [
 					[
@@ -518,117 +687,636 @@
 				"iconClasses": "fa-solid fa-circle-question",
 				"name": "Điều kiện",
 				"codevi": [
-					"a: int = 5\nb: int = 3\n\n",
-					"a: int = 3\nb: int = 3\n\nif a > b:\n\tprint(\"a lớn hơn b\")\n"
+					"a = 5\nb = 3\n\n",
+					"a = 3\nb = 3\n\nif a > b:\n\tprint('a lớn hơn b')\n",
+					"a = 3\nb = 3\n\nif a > b:\n\tprint('a lớn hơn b')\nelse:\n\tprint('a bé hơn b')"
 				],
 				"codeen": [
-					"a: int = 5\nb: int = 3\n\n",
-					"a: int = 3\nb: int = 3\n\nif a > b:\n\tprint(\"a is greater than b\")"
+					"a = 5\nb = 3\n\n",
+					"a = 3\nb = 3\n\nif a > b:\n\tprint('a is greater than b')",
+					"a = 3\nb = 3\n\nif a > b:\n\tprint('a is greater than b')\nelse:\n\tprint('a is less than b')"
 				],
 				"correctvi": [
 					[{ "type": "static", "text": "a lớn hơn b" }],
-					[{ "type": "static", "text": "a không lớn hơn b" }]
+					[{ "type": "static", "text": "a không lớn hơn b" }],
+					[{ "type": "static", "text": "a bằng b" }]
 				],
 				"correcten": [
 					[{ "type": "static", "text": "a is greater than b" }],
-					[{ "type": "static", "text": "a is not greater than b" }]
+					[{ "type": "static", "text": "a is not greater than b" }],
+					[{ "type": "static", "text": "a is equal to b" }]
 				]
 			},
 			"4": {
 				"iconClasses": "fa-solid fa-right-to-bracket",
 				"name": "Thoát khỏi vòng lặp",
-				"codevi": ["i = 0\nwhile True:\n\ti = i + 1"],
-				"codeen": ["i = 0\nwhile True:\n\ti = i + 1"],
+				"codevi": ["i = 0\nwhile True:\n\tprint(i)\n\ti = i + 1", ""],
+				"codeen": ["i = 0\nwhile True:\n\tprint(i)\n\ti = i + 1", ""],
 				"correctvi": [
-					{ "type": "static", "text": "0" },
-					{ "type": "static", "text": "1" },
-					{ "type": "static", "text": "2" },
-					{ "type": "static", "text": "3" },
-					{ "type": "static", "text": "4" },
-					{ "type": "static", "text": "5" },
-					{ "type": "static", "text": "6" },
-					{ "type": "static", "text": "7" },
-					{ "type": "static", "text": "8" },
-					{ "type": "static", "text": "9" }
+					[
+						{ "type": "static", "text": "0" },
+						{ "type": "static", "text": "1" },
+						{ "type": "static", "text": "2" },
+						{ "type": "static", "text": "3" },
+						{ "type": "static", "text": "4" },
+						{ "type": "static", "text": "5" },
+						{ "type": "static", "text": "6" },
+						{ "type": "static", "text": "7" },
+						{ "type": "static", "text": "8" },
+						{ "type": "static", "text": "9" }
+					],
+					[
+						{ "type": "static", "text": "1" },
+						{ "type": "static", "text": "2" },
+						{ "type": "static", "text": "3" },
+						{ "type": "static", "text": "5" },
+						{ "type": "static", "text": "6" },
+						{ "type": "static", "text": "7" },
+						{ "type": "static", "text": "9" },
+						{ "type": "static", "text": "10" },
+						{ "type": "static", "text": "11" },
+						{ "type": "static", "text": "13" },
+						{ "type": "static", "text": "14" },
+						{ "type": "static", "text": "15" }
+					]
 				],
 				"correcten": [
-					{ "type": "static", "text": "0" },
-					{ "type": "static", "text": "1" },
-					{ "type": "static", "text": "2" },
-					{ "type": "static", "text": "3" },
-					{ "type": "static", "text": "4" },
-					{ "type": "static", "text": "5" },
-					{ "type": "static", "text": "6" },
-					{ "type": "static", "text": "7" },
-					{ "type": "static", "text": "8" },
-					{ "type": "static", "text": "9" }
+					[
+						{ "type": "static", "text": "0" },
+						{ "type": "static", "text": "1" },
+						{ "type": "static", "text": "2" },
+						{ "type": "static", "text": "3" },
+						{ "type": "static", "text": "4" },
+						{ "type": "static", "text": "5" },
+						{ "type": "static", "text": "6" },
+						{ "type": "static", "text": "7" },
+						{ "type": "static", "text": "8" },
+						{ "type": "static", "text": "9" }
+					],
+					[
+						{ "type": "static", "text": "1" },
+						{ "type": "static", "text": "2" },
+						{ "type": "static", "text": "3" },
+						{ "type": "static", "text": "5" },
+						{ "type": "static", "text": "6" },
+						{ "type": "static", "text": "7" },
+						{ "type": "static", "text": "9" },
+						{ "type": "static", "text": "10" },
+						{ "type": "static", "text": "11" },
+						{ "type": "static", "text": "13" },
+						{ "type": "static", "text": "14" },
+						{ "type": "static", "text": "15" }
+					]
 				]
 			},
 			"5": {
 				"iconClasses": "fa-solid fa-play",
-				"name": "Thực hành 2: Chương trình đoán số",
-				"code": ["so_may_man: int = \n\n"]
+				"name": "Nghiên cứu tình huống 1: Quán cà phê của Linh",
+				"codevi": [
+					"gia_cafe = 25000\ngia_tra = 20000\ngia_banh = 50000\n\nprint('Chào mừng đến quán cà phê của Linh!')\nprint('Đây là thực đơn hôm nay:')\n\n"
+				],
+				"codeen": [
+					"coffee_price = 1.0\ntea_price = 0.75\ncake_price = 2.0\n\nprint('Welcome to Lynda's Coffee Shop!')\nprint('Here's today's menu:')\n\n"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "static",
+							"text": "Chào mừng đến quán cà phê của Linh!"
+						},
+						{
+							"type": "static",
+							"text": "Đây là thực đơn hôm nay:"
+						},
+						{
+							"type": "static",
+							"text": "1. Cà phê - 25000 VND"
+						},
+						{
+							"type": "static",
+							"text": "2. Trà - 20000 VND"
+						},
+						{
+							"type": "static",
+							"text": "3. Bánh - 50000 VND"
+						},
+						{
+							"type": "static",
+							"text": ""
+						},
+						{
+							"type": "prompt",
+							"text": "Nhập số lượng khách hôm nay: ",
+							"captureAs": "amount"
+						},
+						{
+							"type": "static",
+							"text": ""
+						},
+						{
+							"type": "repeat",
+							"body": [
+								{
+									"type": "regex",
+									"pattern": "--- Khách hàng \\d+ ---",
+									"captureAs": "customerMsg"
+								},
+								{
+									"type": "prompt",
+									"text": "Nhập món (cà phê/trà/bánh): ",
+									"captureAs": "food"
+								},
+								{
+									"type": "reference",
+									"name": "food",
+									"from": "food",
+									"transform": "x => ['cà phê', 'trà', 'bánh'].includes(x) ? x : null"
+								},
+								{
+									"type": "prompt",
+									"text": "Nhập số lượng: ",
+									"captureAs": "amount"
+								},
+								{
+									"type": "regex",
+									"pattern": "^(?:Tổng: )(\\d*\\.?\\d+)(?: VND)$",
+									"captureAs": "total"
+								},
+								{
+									"type": "reference",
+									"name": "total",
+									"from": ["food", "amount"],
+									"transform": "(a, b) => { const price = a == 'cà phê' ? 25000 : (a == 'trà' ? 20000 : 50000); return (parseInt(b) * price).toString(); }"
+								},
+								{
+									"type": "static",
+									"text": ""
+								}
+							],
+							"timesInputIndex": 0
+						},
+						{
+							"type": "dynamic",
+							"text": "Tổng doanh thu: "
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "static",
+							"text": "Welcome to Lynda's Coffee Shop!"
+						},
+						{
+							"type": "static",
+							"text": "Here's today's menu:"
+						},
+						{
+							"type": "static",
+							"text": "1. Coffee - $ 1.0"
+						},
+						{
+							"type": "static",
+							"text": "2. Tea - $ 0.75"
+						},
+						{
+							"type": "static",
+							"text": "3. Cake - $ 2.0"
+						},
+						{
+							"type": "static",
+							"text": ""
+						},
+						{
+							"type": "prompt",
+							"text": "Enter number of customers for today: ",
+							"captureAs": "amount"
+						},
+						{
+							"type": "static",
+							"text": ""
+						},
+						{
+							"type": "repeat",
+							"body": [
+								{
+									"type": "regex",
+									"pattern": "--- Customer \\d+ ---",
+									"captureAs": "customerMsg"
+								},
+								{
+									"type": "prompt",
+									"text": "Enter item (coffee/tea/cake): ",
+									"captureAs": "food"
+								},
+								{
+									"type": "reference",
+									"name": "food",
+									"from": "food",
+									"transform": "x => ['coffee', 'tea', 'cake'].includes(x) ? x : null"
+								},
+								{
+									"type": "prompt",
+									"text": "Enter amount: ",
+									"captureAs": "amount"
+								},
+								{
+									"type": "regex",
+									"pattern": "(?:Total: \\$ )(\\d*\\.?\\d+)",
+									"captureAs": "total"
+								},
+								{
+									"type": "reference",
+									"name": "total",
+									"from": ["food", "amount"],
+									"transform": "(a, b) => { const price = a == 'coffee' ? 1.0 : (a == 'tea' ? 0.75 : 2.0); const result = (parseInt(b) * price).toString(); console.log(result); return result + (result.indexOf('.') == -1 ? '.0' : '') }"
+								},
+								{
+									"type": "static",
+									"text": ""
+								}
+							],
+							"timesInputIndex": 0
+						},
+						{
+							"type": "dynamic",
+							"text": "Total revenue: $ "
+						}
+					]
+				]
 			}
 		},
+
 		"3": {
 			"name": "Chủ đề 3: Lưu trữ nhiều giá trị",
 			"1": {
 				"iconClasses": "fa-solid fa-list",
 				"name": "Danh sách trong Python",
-				"code": ["danh_sach: list = "]
+				"codevi": [
+					"danh_sach_trong = ",
+					"diem_so = []\nprint(diem_so)",
+					""
+				],
+				"codeen": ["empty_list = ", "scores = []\nprint(scores)", ""],
+				"correctvi": [
+					[
+						{
+							"type": "static",
+							"text": "[]"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "[8.5, 9, 7.5, 7]"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "['Đây là danh sách', 123, False, 2.7183]"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "static",
+							"text": "[]"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "[85, 93, 67, 78]"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "['This is a list', 123, False, 2.7183]"
+						}
+					]
+				]
 			},
 			"2": {
 				"iconClasses": "fa-solid fa-list-ol",
-				"name": "Truy cập và thay đổi danh sách",
-				"code": [
-					"hoc_sinh = [\"Nguyễn Văn A\", \"Lê Thị B\", \"Võ Văn C\"]"
+				"name": "Truy cập và thay đổi phần tử",
+				"codevi": [
+					"hoc_sinh = ['Nguyễn Văn A', 'Lê Thị B', 'Võ Văn C']",
+					"diem = [8.5, 9, 7.5, 7]",
+					"hoc_sinh = ['Nguyễn Văn A', 'Lê Thị B', 'Võ Văn C', 'Nguyễn Hoàng D', 'Phạm Gia H']",
+					"so_may_man = [7, 8, 3, 9, 6, 13, 4, 21, 11, 42]",
+					"so_may_man = [7, 8, 3, 9, 6, 13, 4, 21, 11, 42]",
+					"cac_mon_hoc = ['Toán', 'Tiếng Anh', 'Tin học', 'Lịch sử', 'Địa lí', 'Sinh học']",
+					"danh_sach = ['phần tử', 67, 3.14, 'cũng là phần tử!', False]\nindex = input('Nhập index: ')\ngia_tri = input('Nhập giá trị: ')"
+				],
+				"codeen": [
+					"students = ['Adam Jenkins', 'Bob Jimothy', 'Carolina DuBois']",
+					"scores = [85, 93, 67, 78]",
+					"students = ['Adam Jenkins', 'Bob Jimothy', 'Carolina DuBois', 'Daniel Berdichevsky', 'Jack Chen']",
+					"lucky_numbers = [7, 8, 3, 9, 6, 13, 4, 21, 11, 42]",
+					"lucky_numbers = [7, 8, 3, 9, 6, 13, 4, 21, 11, 42]",
+					"subjects = ['Maths', 'English', 'Computer Science', 'History', 'Geography', 'Biology']",
+					"values = ['an element', 67, 3.14, 'another element', False]\nindex = input('Enter index: ')\nvalue = input('Enter value: ')"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "static",
+							"text": "Lê Thị B"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "[8.5, 9, 7.5, 7.5]"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "['Nguyễn Văn A', 'Lê Thị B', 'Võ Văn C']"
+						}
+					],
+					[{ "type": "static", "text": "[7, 3, 6, 4, 11]" }],
+					[{ "type": "static", "text": "[13, 4, 21, 11, 42]" }],
+					[
+						{
+							"type": "static",
+							"text": "['Sinh học', 'Địa lí', 'Lịch sử', 'Tin học', 'Tiếng Anh', 'Toán']"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "['phần tử', 67, 3.14, 'cũng là phần tử!', False]"
+						},
+						{
+							"type": "prompt",
+							"text": "Nhập index: ",
+							"captureAs": "index"
+						},
+						{
+							"type": "prompt",
+							"text": "Nhập giá trị: ",
+							"captureAs": "value"
+						},
+						{
+							"type": "regex",
+							"pattern": "^.*$",
+							"captureAs": "outputList"
+						},
+						{
+							"type": "reference",
+							"name": "outputList",
+							"from": ["index", "value"],
+							"transform": "(a, b) => { const list = ['phần tử', 67, 3.14, 'cũng là phần tử!', false]; list[parseInt(a)] = b; let result = '['; for (let i = 0; i < 5; i++) { if (typeof list[i] === 'string') { result += `'${list[i]}'`; } else if (typeof list[i] === 'boolean') { result += list[i] ? 'True' : 'False'; } else { result += `${list[i]}`; } if (i < 4) result += ', '; }; return result + ']'; }"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "static",
+							"text": "Bob Jimothy"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "[85, 93, 67, 92]"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "['Adam Jenkins', 'Bob Jimothy', 'Carolina DuBois']"
+						}
+					],
+					[{ "type": "static", "text": "[7, 3, 6, 4, 11]" }],
+					[{ "type": "static", "text": "[13, 4, 21, 11, 42]" }],
+					[
+						{
+							"type": "static",
+							"text": "['Biology', 'Geography', 'History', 'Computer Science', 'English', 'Maths']"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "['an element', 67, 3.14, 'another element', False]"
+						},
+						{
+							"type": "prompt",
+							"text": "Enter index: ",
+							"captureAs": "index"
+						},
+						{
+							"type": "prompt",
+							"text": "Enter value: ",
+							"captureAs": "value"
+						},
+						{
+							"type": "regex",
+							"pattern": "^.*$",
+							"captureAs": "outputList"
+						},
+						{
+							"type": "reference",
+							"name": "outputList",
+							"from": ["index", "value"],
+							"transform": "(a, b) => { const list = ['an element', 67, 3.14, 'another element', False]; list[parseInt(a)] = b; let result = '['; for (let i = 0; i < 5; i++) { if (typeof list[i] === 'string') { result += `'${list[i]}'`; } else if (typeof list[i] === 'boolean') { result += list[i] ? 'True' : 'False'; } else { result += `${list[i]}`; } if (i < 4) result += ', '; }; return result + ']'; }"
+						}
+					]
 				]
 			},
 			"3": {
 				"iconClasses": "fa-solid fa-wrench",
+				"name": "Thêm và xóa phần tử",
+				"codevi": [
+					"hoc_sinh = ['Khôi', 'Dân', 'Hùng']",
+					"game_yeu_thich = ['Minecraft', 'Free Fire', 'Liên Quân', 'Roblox']",
+					"trai_cay = ['táo', 'chuối', 'cam', 'nho', 'lê']",
+					"so_thich = ['đánh đàn', 'học Python', 'ăn vặt', 'chơi game']",
+					"nums = [1, 2, 3, 4, 5]",
+					"nums = [1, 2, 3, 4, 5]"
+				],
+				"codeen": [
+					"students = ['Addison', 'Bill', 'Connor']",
+					"favourite_games = ['Minecraft', 'Call of Duty', 'Roblox', 'Fortnite']",
+					"fruits = ['apple', 'banana', 'orange', 'grape', 'pear']",
+					"hobbies = ['playing the guitar', 'learning Python', 'eating snacks', 'playing games']",
+					"nums = [1, 2, 3, 4, 5]",
+					"nums = [1, 2, 3, 4, 5]"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "static",
+							"text": "['Khôi', 'Dân', 'Hùng', 'Phong']"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "['Minecraft', 'Free Fire', 'Valorant', 'Liên Quân', 'Roblox']"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "['táo', 'chuối', 'nho', 'lê']"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "chơi game"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "[2, 3, 4, 5]"
+						}
+					],
+					[{ "type": "static", "text": "[1, 5]" }]
+				],
+				"correcten": [
+					[
+						{
+							"type": "static",
+							"text": "['Addison', 'Bill', 'Connor', 'James']"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "['Minecraft', 'Call of Duty', 'Valorant', 'Roblox', 'Fortnite']"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "['apple', 'banana', 'grape', 'pear']"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "playing games"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "[2, 3, 4, 5]"
+						}
+					],
+					[{ "type": "static", "text": "[1, 5]" }]
+				]
+			},
+			"4": {
+				"iconClasses": "fa-solid fa-arrow-down-short-wide",
 				"name": "Sắp xếp danh sách",
-				"code": ["diem: list = [5.5, 6, 9, 7.5, 8.8, 6.8, 8.2]"]
-			},
-			"4": {
-				"iconClasses": "fa-solid fa-play",
-				"name": "Thực hành 3: Chương trình mua sắm",
-				"code": ["gio_hang: list = []"]
-			}
-		},
-		"4": {
-			"name": "Chủ đề 4: Các chương trình con",
-			"1": {
-				"iconClasses": "fa-solid fa-code",
-				"name": "Tạo chương trình con",
-				"code": ["\n\nin_thong_tin()"]
-			},
-			"2": {
-				"iconClasses": "fa-solid fa-code",
-				"name": "Truyền tham số",
-				"code": [
-					"def cong_hai_so():\n\tprint(a, '+', b, '=', a + b)\n\ncong_hai_so(5, 3)"
-				]
-			},
-			"3": {
-				"iconClasses": "fa-solid fa-right-to-bracket",
-				"name": "Hàm trả về giá trị",
-				"code": [
-					"def cong_hai_so(a, b):\n\t\n\nprint(cong_hai_so(5, 3))"
-				]
-			},
-			"4": {
-				"iconClasses": "fa-solid fa-bars-staggered",
-				"name": "Phạm vi biến",
-				"code": [
-					"def ham_x():\n\tx = 5\n\tprint(x)\n\nx = 123\nprint(x)"
+				"codevi": [
+					"numbers = [3, 4, 53, 2]",
+					"numbers = [3, 4, 53, 2]",
+					"thong_diep = ['chuỗi', 'các kí tự', 'chuỗi2']",
+					"cac_chu_cai = ['d', 'a', 'c', 'b']"
+				],
+				"codeen": [
+					"numbers = [3, 4, 53, 2]",
+					"numbers = [3, 4, 53, 2]",
+					"messages = ['string', 'characters', 'string2']",
+					"letters = ['d', 'a', 'c', 'b']"
+				],
+				"correctvi": [
+					[{ "type": "static", "text": "[2, 3, 4, 53]" }],
+					[{ "type": "static", "text": "[53, 4, 3, 2]" }],
+					[
+						{
+							"type": "static",
+							"text": "['chuỗi', 'chuỗi2', 'các kí tự']"
+						}
+					],
+					[
+						{ "type": "static", "text": "['a', 'b', 'c', 'd']" },
+						{
+							"type": "var",
+							"name": "letters",
+							"captureAs": "letters"
+						}
+					],
+					[
+						{
+							"type": "reference",
+							"name": "letters",
+							"from": "letters",
+							"transform": "x => { const refArr = ['d', 'a', 'c', 'b']; if (refArr.length != x.length) return false; for (let i = 0; i < 4; i++) { if (refArr[i] != x[i]) return false; } return refArr; }"
+						}
+					]
+				],
+				"correcten": [
+					[{ "type": "static", "text": "[2, 3, 4, 53]" }],
+					[{ "type": "static", "text": "[53, 4, 3, 2]" }],
+					[
+						{
+							"type": "static",
+							"text": "['characters', 'string', 'string2']"
+						}
+					],
+					[
+						{ "type": "static", "text": "['a', 'b', 'c', 'd']" },
+						{
+							"type": "var",
+							"name": "letters",
+							"captureAs": "letters"
+						}
+					],
+					[
+						{
+							"type": "reference",
+							"name": "letters",
+							"from": "letters",
+							"transform": "x => { const refArr = ['d', 'a', 'c', 'b']; if (refArr.length != x.length) return false; for (let i = 0; i < 4; i++) { if (refArr[i] != x[i]) return false; } return refArr; }"
+						}
+					]
 				]
 			},
 			"5": {
 				"iconClasses": "fa-solid fa-play",
-				"name": "Thực hành 4: Máy tính đơn giản",
-				"code": [
-					"def cong(a, b):\n\ndef tru(a, b):\n\ndef nhan(a, b):\n\ndef chia(a, b):\n\n"
+				"name": "Thực hành 3: Chương trình mua sắm",
+				"codevi": ["gio_hang = []"]
+			}
+		},
+
+		"4": {
+			"name": "Chủ đề 4: Hàm và chia nhỏ chương trình",
+			"1": {
+				"iconClasses": "fa-solid fa-code",
+				"name": "Khai báo và gọi hàm",
+				"codevi": ["\n\nin_thong_tin()"]
+			},
+			"2": {
+				"iconClasses": "fa-solid fa-code",
+				"name": "Truyền tham số và trả về kết quả",
+				"codevi": [
+					"def cong_hai_so():\n\tprint(a, '+', b, '=', a + b)\n\ncong_hai_so(5, 3)"
 				]
+			},
+			"3": {
+				"iconClasses": "fa-solid fa-bars-staggered",
+				"name": "Phạm vi biến",
+				"codevi": [
+					"def ham_x():\n\tx = 5\n\tprint(x)\n\nx = 123\nprint(x)"
+				]
+			},
+			"4": {
+				"iconClasses": "fa-solid fa-play",
+				"name": "Thực hành 4: Tính chu vi, diện tích",
+				"codevi": [""]
 			}
 		}
 	}
