@@ -2,7 +2,7 @@
 	"lessonsData": {
 		"1": ["c", "r", "c", "l", "c", "c"],
 		"2": ["c", "l", "c", "c", "c"],
-		"3": ["c", "r", "l", "c", "c"],
+		"3": ["c", "r", "l", "c", "c", "l"],
 		"4": ["c", "c", "l", "c"]
 	},
 
@@ -588,7 +588,7 @@
 				"name": "Vòng lặp while",
 				"codevi": [
 					"i = 0\nwhile i < 10:\n\t",
-					"tong: = 0\nn = -1\n\nwhile n != 0:\n\t\n\nprint('Tổng:', tong)",
+					"tong = 0\nn = -1\n\nwhile n != 0:\n\t\n\nprint('Tổng:', tong)",
 					"mat_khau = \n\nwhile mat_khau != 'matkhau123456':\n\t\n\nprint('Truy cập thành công.')"
 				],
 				"codeen": [
@@ -710,8 +710,14 @@
 			"4": {
 				"iconClasses": "fa-solid fa-right-to-bracket",
 				"name": "Thoát khỏi vòng lặp",
-				"codevi": ["i = 0\nwhile True:\n\tprint(i)\n\ti = i + 1", ""],
-				"codeen": ["i = 0\nwhile True:\n\tprint(i)\n\ti = i + 1", ""],
+				"codevi": [
+					"i = 0\nwhile True:\n\tprint(i)\n\ti = i + 1",
+					"i ="
+				],
+				"codeen": [
+					"i = 0\nwhile True:\n\tprint(i)\n\ti = i + 1",
+					"i ="
+				],
 				"correctvi": [
 					[
 						{ "type": "static", "text": "0" },
@@ -950,14 +956,18 @@
 		"3": {
 			"name": "Chủ đề 3: Lưu trữ nhiều giá trị",
 			"1": {
-				"iconClasses": "fa-solid fa-list",
+				"iconClasses": "fa-solid fa-box",
 				"name": "Danh sách trong Python",
 				"codevi": [
 					"danh_sach_trong = ",
 					"diem_so = []\nprint(diem_so)",
-					""
+					"..."
 				],
-				"codeen": ["empty_list = ", "scores = []\nprint(scores)", ""],
+				"codeen": [
+					"empty_list = ",
+					"scores = []\nprint(scores)",
+					"..."
+				],
 				"correctvi": [
 					[
 						{
@@ -1286,9 +1296,219 @@
 				]
 			},
 			"5": {
+				"iconClasses": "fa-solid fa-clipboard-list",
+				"name": "Làm việc với danh sách",
+				"codevi": [
+					"animals = [...]",
+					"thanh_pho = ['Hà Nội', 'Huế', 'Đà Nẵng', 'TPHCM']",
+					"menu = ['Pepsi', 'Coca', 'Bạc xỉu', 'Nước chanh']\ntrang_mieng = ['Gato', 'Kem vani', 'Kem sô cô la']",
+					"numbers = [2, 4, 6, 8]"
+				],
+				"codeen": [
+					"animals = [...]",
+					"cities = ['Melbourne', 'Washington D.C.', 'Paris', 'Rome', 'Beijing']",
+					"menu = ['Pepsi', 'Coca', 'Coffee', 'Lemonade']\ndesserts = ['Cake', 'Ice cream', 'Chocolate']",
+					"numbers = [2, 4, 6, 8]"
+				],
+				"correctvi": [
+					[{ "type": "static", "text": "5" }],
+					[{ "type": "static", "text": "2" }],
+					[
+						{
+							"type": "static",
+							"text": "['Pepsi', 'Coca', 'Bạc xỉu', 'Nước chanh', 'Gato', 'Kem vani', 'Kem sô cô la']"
+						}
+					],
+					[
+						{ "type": "static", "text": "4" },
+						{ "type": "static", "text": "16" },
+						{ "type": "static", "text": "36" },
+						{ "type": "static", "text": "64" }
+					]
+				],
+				"correcten": [
+					[{ "type": "static", "text": "5" }],
+					[{ "type": "static", "text": "2" }],
+					[
+						{
+							"type": "static",
+							"text": "['Pepsi', 'Coca', 'Coffee', 'Lemonade', 'Cake', 'Ice cream', 'Chocolate']"
+						}
+					],
+					[
+						{ "type": "static", "text": "4" },
+						{ "type": "static", "text": "16" },
+						{ "type": "static", "text": "36" },
+						{ "type": "static", "text": "64" }
+					]
+				]
+			},
+			"6": {
 				"iconClasses": "fa-solid fa-play",
 				"name": "Thực hành 3: Chương trình mua sắm",
-				"codevi": ["gio_hang = []"]
+				"disabled": "true",
+				"codevi": ["gio_hang = ", "", ""],
+				"codeen": ["shopping_cart = ", "", ""],
+				"correctvi": [
+					[
+						{
+							"type": "var",
+							"name": "gio_hang",
+							"captureAs": "shoppingList"
+						},
+						{
+							"type": "reference",
+							"name": "shoppingList",
+							"from": "shoppingList",
+							"transform": "x => x.length == 0 ? x : false"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "gio_hang",
+							"captureAs": "shoppingList"
+						},
+						{
+							"type": "reference",
+							"name": "shoppingList",
+							"from": "shoppingList",
+							"transform": "x => x.length == 0 ? x : false"
+						},
+						{
+							"type": "repeat",
+							"body": [
+								{
+									"type": "static",
+									"text": "--- LỰA CHỌN MUA SẮM ---"
+								},
+								{
+									"type": "static",
+									"text": "- thêm: thêm món đồ vào giỏ hàng"
+								},
+								{
+									"type": "static",
+									"text": "- xóa: xóa món đồ khỏi giỏ hàng"
+								},
+								{
+									"type": "static",
+									"text": "- xếp: sắp xếp lại giỏ hàng"
+								},
+								{
+									"type": "static",
+									"text": "- xong: kết thúc chương trình"
+								},
+								{
+									"type": "prompt",
+									"text": "Nhập lựa chọn: "
+								}
+							],
+							"untilInput": "xong"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "gio_hang",
+							"captureAs": "shoppingList"
+						},
+						{
+							"type": "reference",
+							"name": "shoppingList",
+							"from": "shoppingList",
+							"transform": "x => x.length == 0 ? x : false"
+						},
+						{
+							"type": "repeat",
+							"body": [
+								{
+									"type": "static",
+									"text": "--- LỰA CHỌN MUA SẮM ---"
+								},
+								{
+									"type": "static",
+									"text": "- thêm: thêm món đồ vào giỏ hàng"
+								},
+								{
+									"type": "static",
+									"text": "- xóa: xóa món đồ khỏi giỏ hàng"
+								},
+								{
+									"type": "static",
+									"text": "- xếp: sắp xếp lại giỏ hàng"
+								},
+								{
+									"type": "static",
+									"text": "- xong: kết thúc chương trình"
+								},
+								{
+									"type": "prompt",
+									"text": "Nhập lựa chọn: ",
+									"captureAs": "choice"
+								}
+							],
+							"untilInput": "xong"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "var",
+							"name": "shopping_cart",
+							"captureAs": "shoppingList"
+						},
+						{
+							"type": "reference",
+							"name": "shoppingList",
+							"from": "shoppingList",
+							"transform": "x => x.length == 0 ? x : false"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "gio_hang",
+							"captureAs": "shoppingList"
+						},
+						{
+							"type": "reference",
+							"name": "shoppingList",
+							"from": "shoppingList",
+							"transform": "x => x.length == 0 ? x : false"
+						},
+						{
+							"type": "repeat",
+							"body": [
+								{
+									"type": "static",
+									"text": "--- SHOPPING MENU ---"
+								},
+								{
+									"type": "static",
+									"text": "- add: adds item to cart"
+								},
+								{
+									"type": "static",
+									"text": "- remove: remove item from cart"
+								},
+								{
+									"type": "static",
+									"text": "- sort: sorts the shopping cart"
+								},
+								{
+									"type": "static",
+									"text": "- done: end program"
+								},
+								{
+									"type": "prompt",
+									"text": "Enter choice: "
+								}
+							],
+							"untilInput": "done"
+						}
+					]
+				]
 			}
 		},
 
@@ -1297,26 +1517,179 @@
 			"1": {
 				"iconClasses": "fa-solid fa-code",
 				"name": "Khai báo và gọi hàm",
-				"codevi": ["\n\nin_thong_tin()"]
+				"codevi": ["ten = ''\n\ngoi_ten()", "\n\nchao_buoi_sang()", ""],
+				"codeen": [
+					"name = ''\n\nprint_name()",
+					"\n\ngood_morning()",
+					""
+				],
+				"correctvi": [
+					[
+						{
+							"type": "regex",
+							"pattern": "^Chào, (.+)$",
+							"captureAs": "nameOut"
+						},
+						{
+							"type": "var",
+							"name": "ten",
+							"captureAs": "name"
+						},
+						{
+							"type": "reference",
+							"name": "name",
+							"from": "nameOut",
+							"transform": "x => x"
+						}
+					],
+					[{ "type": "static", "text": "Chào buổi sáng!" }],
+					[
+						{ "type": "static", "text": "Chào buổi sáng!" },
+						{ "type": "static", "text": "Chào buổi sáng!" },
+						{ "type": "static", "text": "Chào buổi sáng!" }
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "regex",
+							"pattern": "^Hello, (.+)$",
+							"captureAs": "nameOut"
+						},
+						{
+							"type": "var",
+							"name": "name",
+							"captureAs": "name"
+						},
+						{
+							"type": "reference",
+							"name": "name",
+							"from": "nameOut",
+							"transform": "x => x"
+						}
+					],
+					[{ "type": "static", "text": "Good morning!" }],
+					[
+						{ "type": "static", "text": "Good morning!" },
+						{ "type": "static", "text": "Good morning!" },
+						{ "type": "static", "text": "Good morning!" }
+					]
+				]
 			},
 			"2": {
 				"iconClasses": "fa-solid fa-code",
 				"name": "Truyền tham số và trả về kết quả",
 				"codevi": [
-					"def cong_hai_so():\n\tprint(a, '+', b, '=', a + b)\n\ncong_hai_so(5, 3)"
+					"def chao_ban(ten):",
+					"def hieu(a, b):\n\t\n\na = \nb = \nprint(hieu(a, b))",
+					"def gioi_thieu():\n\t\n\ngioi_thieu('tên', 'lớp')"
+				],
+				"codeen": [
+					"def greet(name):",
+					"def difference(a, b)\n\t\n\na = \nb = \nprint(difference(a, b))",
+					"def introduce():\n\t\n\nintroduce('name', 'class')"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "regex",
+							"pattern": "^Xin chào bạn (.+)$"
+						}
+					],
+					[
+						{
+							"type": "regex",
+							"pattern": "^(-?\\d+(?:\\.\\d+)?)$",
+							"captureAs": "diff"
+						},
+						{
+							"type": "var",
+							"name": "a",
+							"captureAs": "a"
+						},
+						{
+							"type": "var",
+							"name": "b",
+							"captureAs": "b"
+						},
+						{
+							"type": "reference",
+							"name": "diff",
+							"from": ["a", "b"],
+							"transform": "(a, b) => { return a - b; }"
+						}
+					],
+					[
+						{
+							"type": "regex",
+							"pattern": "^Xin chào, mình là (.+) học lớp (.+)$",
+							"captureAs": ["name", "class"]
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "regex",
+							"pattern": "^Hello (.+)$"
+						}
+					],
+					[
+						{
+							"type": "regex",
+							"pattern": "^(-?\\d+(?:\\.\\d+)?)$",
+							"captureAs": "diff"
+						},
+						{
+							"type": "var",
+							"name": "a",
+							"captureAs": "a"
+						},
+						{
+							"type": "var",
+							"name": "b",
+							"captureAs": "b"
+						},
+						{
+							"type": "reference",
+							"name": "diff",
+							"from": ["a", "b"],
+							"transform": "(a, b) => { return a - b; }"
+						}
+					],
+					[
+						{
+							"type": "regex",
+							"pattern": "^Hello, I am (.+) in class (.+)$",
+							"captureAs": ["name", "class"]
+						}
+					]
 				]
 			},
 			"3": {
 				"iconClasses": "fa-solid fa-bars-staggered",
 				"name": "Phạm vi biến",
-				"codevi": [
-					"def ham_x():\n\tx = 5\n\tprint(x)\n\nx = 123\nprint(x)"
+				"codevi": ["def ham_x():\n\tx = 5\n\tprint(x)\n\nx = 123\n"],
+				"codeen": [
+					"def some_function():\n\tx = 5\n\tprint(x)\n\nx = 123"
+				],
+				"correctvi": [
+					[
+						{ "type": "static", "text": "5" },
+						{ "type": "static", "text": "123" }
+					]
+				],
+				"correcten": [
+					[
+						{ "type": "static", "text": "5" },
+						{ "type": "static", "text": "123" }
+					]
 				]
 			},
 			"4": {
 				"iconClasses": "fa-solid fa-play",
-				"name": "Thực hành 4: Tính chu vi, diện tích",
-				"codevi": [""]
+				"name": "Nghiên cứu tình huống 2: Hóa đơn Circle K",
+				"disabled": "true"
 			}
 		}
 	}

@@ -1661,23 +1661,191 @@
 			]
 		],
 
+		"3.5": [
+			[
+				{
+					"type": "i",
+					"body": "Khi làm việc với danh sách, đôi khi ta cần biết danh sách có bao nhiêu phần tử."
+				},
+				{
+					"body": "Hàm <span class='inl-code'><span class='token builtin'>len</span>()</span> giúp ta đếm số lượng phần tử trong một list."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "fruits = [<span class='token string'>'apple'</span>, <span class='token string'>'banana'</span>, <span class='token string'>'cherry'</span>]<br><span class='token builtin'>print</span>(<span class='token builtin'>len</span>(fruits))"
+				},
+				{
+					"body": "Kết quả: <span class='inl-code'><span class='token number'>3</span></span> vì list có 3 phần tử."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Tạo một list tên là <span class='inl-code'>animals</span> chứa 5 loài động vật, sau đó in ra độ dài của list đó bằng hàm <span class='inl-code'><span class='token builtin'>len</span>()</span>."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Khi làm việc với danh sách, đôi khi ta cần biết vị trí (chỉ số) của một phần tử cụ thể trong list."
+				},
+				{
+					"body": "Python cung cấp hàm <span class='inl-code'><span class='token function'>index</span>()</span> để giúp ta tìm vị trí đầu tiên của phần tử đó trong danh sách."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "fruits = [<span class='token string'>'apple'</span>, <span class='token string'>'banana'</span>, <span class='token string'>'cherry'</span>, <span class='token string'>'banana'</span>]<br><span class='token builtin'>print</span>(fruits.<span class='token function'>index</span>(<span class='token string'>'banana'</span>))"
+				},
+				{
+					"body": "Kết quả: <span class='inl-code'><span class='token number'>1</span></span> vì phần tử <span class='inl-code token string'>'banana'</span> đầu tiên nằm ở vị trí có chỉ số <span class='inl-code token number'>1</span> (Python đếm từ 0)."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Nếu phần tử không có trong list, Python sẽ báo lỗi."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy dùng hàm <span class='inl-code'><span class='token builtin'>index</span>()</span> để tìm vị trí của thành phố <span class='inl-code token string'>'Đà Nẵng'</span> và in ra kết quả."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Đôi khi, bạn muốn gộp hai danh sách lại với nhau. Khi đó, ta có thể dùng hàm <span class='inl-code'><span class='token function'>extend</span>()</span>."
+				},
+				{
+					"body": "Hàm <span class='inl-code'><span class='token function'>extend</span>()</span> thêm tất cả phần tử của một list khác vào cuối list hiện tại."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "trai_cay = [<span class='token string'>'táo'</span>, <span class='token string'>'chuối'</span>]<br>trai_cay_them = [<span class='token string'>'cherry'</span>, <span class='token string'>'xoài'</span>]<br>trai_cay.<span class='token function'>extend</span>(trai_cay_them)<br><span class='token builtin'>print</span>(trai_cay)"
+				},
+				{
+					"body": "Kết quả: <span class='inl-code'>['táo', 'chuối', 'cherry', 'xoài']</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy dùng hàm <span class='inl-code'><span class='token function'>extend</span>()</span> để gộp danh sách <span class='inl-code'>menu</span> với danh sách <span class='inl-code'>trang_mieng</span> lại thành một danh sách hoàn chỉnh rồi in ra."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Để xử lý từng phần tử trong danh sách, ta có thể dùng vòng lặp <span class='inl-code token keyword'>for</span>."
+				},
+				{
+					"body": "Cú pháp vòng lặp <span class='inl-code token keyword'>for</span> trong Python cho phép ta duyệt qua từng phần tử của list một cách dễ dàng."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "fruits = [<span class='token string'>'apple'</span>, <span class='token string'>'banana'</span>, <span class='token string'>'cherry'</span>]<br><span class='token keyword'>for</span> fruit <span class='token keyword'>in</span> fruits:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(fruit)"
+				},
+				{
+					"body": "Kết quả sẽ in ra từng phần tử của list trên mỗi dòng:"
+				},
+				{
+					"type": "div",
+					"body": "apple<br>banana<br>cherry"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Viết chương trình duyệt qua list <br><span class='inl-code'>numbers = [<span class='token number'>2</span>, <span class='token number'>4</span>, <span class='token number'>6</span>, <span class='token number'>8</span>]</span> và in ra bình phương của từng số."
+				}
+			]
+		],
+
+		"3": [
+			[
+				{
+					"body": "Trong bài tập thực hành này, bạn sẽ tạo một chương trình mua sắm nhỏ bằng cách sử dụng danh sách (list), vòng lặp và điều kiện."
+				},
+				{
+					"body": "Ta hãy bắt đầu chương trình này bằng việc tạo một danh sách mua sắm trống với cách tên là <span class='inl-code'>gio_hang</span>."
+				}
+			],
+			[
+				{
+					"body": "Tiếp theo, hãy làm chương trình in ra menu sau cho đến khi người dùng nhập <span class='inl-code'>xong</span>:"
+				},
+				{
+					"type": "div",
+					"body": "--- LỰA CHỌN MUA SẮM ---<br>- thêm: thêm món đồ vào giỏ hàng<br>- xóa: xóa món đồ khỏi giỏ hàng<br>- xếp: sắp xếp lại giỏ hàng<br>- xong: kết thúc chương trình"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Sau mỗi lần in menu, hiển thị thông báo <br><span class='inl-code token string'>'Nhập lựa chọn: '</span> để người dùng nhập lựa chọn."
+				}
+			],
+			[
+				{
+					"body": "Bây giờ, ta sẽ bắt đầu thêm chức năng cho các lựa chọn còn lại."
+				},
+				{
+					"body": "Ta sẽ bắt đầu với chức năng thêm món đồ vào giỏ hàng."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Thêm những chức năng sau vào chương trình:"
+				},
+				{
+					"type": "ol",
+					"body": "<li>Kiểm tra nếu lựa chọn là <span class='inl-code token string'>'thêm'</span>.</li><li>Nếu đúng, hiển thị thông báo <br><span class='inl-code token string'>'Nhập món hàng: '</span> để người dùng nhập món hàng.</li><li>Thêm món hàng người dùng mới nhập vào danh sách <span class='inl-code'>gio_hang</span>.</li><li>Ngược lại, nếu lựa chọn sai, in thông báo <span class='inl-code token string'>'Lựa chọn không hợp lệ.'</span> lên màn hình.</li>"
+				}
+			]
+		],
+
 		"4.1": [
 			[
 				{
-					"body": "Trong Python, ngoài những hàm có sẵn, được gọi là built-in function, như: <span class='inl-code'>print()</span>, <span class='inl-code'>sorted()</span>, <span class='inl-code'>type()</span>, ..."
+					"body": "Trong Python, ngoài những hàm có sẵn như <span class='inl-code'><span class='token builtin'>print</span>()</span>, <span class='inl-code'><span class='token builtin'>sorted</span>()</span>, <span class='inl-code'><span class='token builtin'>type</span>()</span>, ..."
 				},
 				{
-					"body": "Chúng ta còn có thể tự tạo ra hàm của riêng mình. Những hàm như vậy được gọi là user-defined function."
+					"body": "ta còn có thể tự tạo ra hàm của riêng mình. Những hàm như vậy được gọi là <strong>hàm do người dùng định nghĩa</strong>."
 				},
 				{
 					"body": "Tác dụng của những hàm này là giúp chúng ta tái sử dụng code và chia chương trình thành các phần nhỏ, giúp chương trình dễ quản lý hơn."
 				},
-				{ "type": "br", "body": "" },
 				{
-					"body": "Để định nghĩa hàm, ta dùng từ khóa <span class='inl-code token keyword'>def</span> theo sau tên hàm và cặp ngoặc ()."
+					"type": "br",
+					"body": ""
 				},
 				{
-					"body": "Viết như sau:"
+					"body": "Để định nghĩa hàm, ta dùng từ khóa <span class='inl-code token keyword'>def</span> theo sau tên hàm và cặp ngoặc () như sau:"
 				},
 				{
 					"type": "div",
@@ -1688,7 +1856,36 @@
 					"body": ""
 				},
 				{
-					"body": "Thực hành: Hãy tạo một hàm tên là goi_ten() để in ra tên của bạn khi được gọi."
+					"body": "Thực hành: Hãy tạo một hàm tên là <span class='inl-code'><span class='token function'>goi_ten</span>()</span> để in ra lời chào kèm tên của bạn trong biến <span class='inl-code'>ten</span> khi được gọi."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Ví dụ:"
+				},
+				{
+					"type": "div",
+					"body": "ten = 'Khang' -> in ra 'Chào, Khang'<br>ten = 'Yến' -> in ra 'Chào, Yến'"
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Bây giờ, hãy thử viết hàm thực hiện một hành động cụ thể!"
+				},
+				{
+					"body": "Hãy tạo một hàm tên là <span class='inl-code'><span class='token function'>chao_buoi_sang</span>()</span> in ra dòng chữ <span class='inl-code token string'>'Chào buổi sáng!'</span>."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Bạn cũng có thể gọi một hàm nhiều lần."
+				},
+				{
+					"body": "Hãy gọi lại hàm <span class='inl-code'><span class='token function'>chao_buoi_sang</span>()</span> ba lần liên tiếp và quan sát kết quả."
 				}
 			]
 		],
@@ -1696,54 +1893,111 @@
 		"4.2": [
 			[
 				{
-					"body": "Một hàm có thể nhận dữ liệu đầu vào gọi là tham số (parameter). Khi gọi hàm, ta truyền giá trị cụ thể vào tham số đó - được gọi là đối số (argument)."
+					"type": "i",
+					"body": "Các hàm không chỉ thực hiện hành động, mà còn có thể nhận dữ liệu để xử lý."
 				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Ví dụ:"
+					"body": "Những dữ liệu được truyền vào hàm được gọi là <strong>tham số</strong> (parameter)."
 				},
 				{
-					"type": "div",
-					"body": "def greet(name):"
-				},
-				{
-					"type": "div",
-					"body": "&nbsp;&nbsp;&nbsp;&nbsp;print('Hello', name)"
+					"body": "Khi bạn gọi hàm và truyền giá trị cụ thể vào, giá trị đó được gọi là <strong>đối số</strong> (argument)."
 				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Khi muốn hàm trả về kết quả, ta dùng câu lệnh return. Lệnh return giúp hàm kết thúc và gửi giá trị ra ngoài để có thể sử dụng tiếp."
+					"body": "Ví dụ: ta có một hàm chào hỏi với tên người dùng:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>def</span> <span class='token function'>chao</span>(ten):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Xin chào,'</span>, ten)"
+				},
+				{
+					"body": "Khi gọi <span class='inl-code'><span class='token function'>chao</span>(<span class='token string'>'Hà'</span>)</span>, chương trình sẽ in ra <br><span class='inl-code'><span class='token string'>'Xin chào, Hà'</span></span>."
 				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Ví dụ:"
-				},
-				{
-					"type": "div",
-					"body": "def add(a, b):"
-				},
-				{
-					"type": "div",
-					"body": "&nbsp;&nbsp;&nbsp;&nbsp;return a + b"
+					"body": "Ở đây, <span class='inl-code'>ten</span> là <strong>tham số</strong> trong định nghĩa hàm, còn <span class='inl-code'><span class='token string'>'Hà'</span></span> là <strong>đối số</strong> khi gọi hàm."
 				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Khi gọi hàm add(3, 5), hàm sẽ trả về 8. Một hàm có thể có một, nhiều, hoặc không có tham số."
+					"body": "Hãy viết hàm <span class='inl-code'><span class='token function'>chao_ban</span>(ten)</span> để in ra dòng chữ <span class='inl-code'><span class='token string'>'Xin chào bạn [ten]'</span></span>. Gọi hàm này với tên của bạn."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Một hàm cũng có thể <strong>trả về kết quả</strong> để ta tiếp tục sử dụng sau đó."
 				},
 				{
-					"body": "Nhớ rằng parameter là biến được khai báo trong định nghĩa hàm, còn argument là giá trị bạn truyền vào khi gọi hàm."
+					"body": "Để trả về giá trị, ta dùng từ khóa <span class='inl-code token keyword'>return</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Ví dụ: ta có một hàm tính tổng hai số:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>def</span> <span class='token function'>cong</span>(a, b):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>return</span> a <span class='token operator'>+</span> b"
+				},
+				{
+					"body": "Khi gọi <span class='inl-code'><span class='token function'>cong</span>(<span class='token number'>3</span>, <span class='token number'>5</span>)</span>, hàm sẽ trả về giá trị <span class='inl-code'><span class='token number'>8</span></span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Ta có thể gán giá trị trả về vào một biến để sử dụng sau này:"
+				},
+				{
+					"type": "div",
+					"body": "ket_qua = <span class='token function'>cong</span>(<span class='token number'>3</span>, <span class='token number'>5</span>)<br><span class='token builtin'>print</span>(<span class='token string'>'Kết quả là:'</span>, ket_qua)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy viết hàm <span class='inl-code'><span class='token function'>hieu</span>(a, b)</span> trả về hiệu của hai số. Gọi hàm với hai số bất kỳ và in kết quả ra màn hình."
+				}
+			],
+
+			[
+				{
+					"type": "i",
+					"body": "Một hàm có thể có <strong>một</strong>, <strong>nhiều</strong>, hoặc <strong>không có tham số</strong>."
+				},
+				{
+					"body": "Ví dụ về hàm có nhiều tham số:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>def</span> <span class='token function'>thong_tin</span>(ten, tuoi):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Tên:'</span>, ten)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Tuổi:'</span>, tuoi)"
+				},
+				{
+					"body": "Khi gọi <span class='inl-code'>thong_tin(<span class='token string'>'An'</span>, <span class='token number'>15</span>)</span>, chương trình sẽ in ra hai dòng với tên và tuổi tương ứng."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy viết hàm <span class='inl-code'><span class='token function'>gioi_thieu</span>(ten, lop)</span> để in ra câu: <span class='inl-code'><span class='token string'>'Xin chào, mình là [tên] học lớp [lớp]'</span></span>"
 				}
 			]
 		],
@@ -1751,7 +2005,7 @@
 		"4.3": [
 			[
 				{
-					"body": "Trong Python, các biến được chia thành hai loại chính: biến cục bộ (local variable) và biến toàn cục (global variable):"
+					"body": "Trong Python, các biến được chia thành hai loại chính: <strong>biến cục bộ</strong> và <strong>biến toàn cục</strong>:"
 				},
 				{
 					"type": "ul",
@@ -1762,7 +2016,10 @@
 					"body": ""
 				},
 				{
-					"body": "Những biến bạn đã học ở các bài trước chính là biến toàn cục (global variable). Chúng tồn tại trong toàn bộ chương trình và có thể được sử dụng ở mọi nơi, trừ khi một biến cùng tên được định nghĩa lại trong hàm."
+					"body": "Những biến bạn đã học ở các bài trước chính là biến toàn cục."
+				},
+				{
+					"body": "Chúng tồn tại trong toàn bộ chương trình và có thể được sử dụng ở mọi nơi, trừ khi một biến cùng tên được định nghĩa lại trong hàm."
 				},
 				{
 					"type": "br",
@@ -1773,58 +2030,44 @@
 				},
 				{
 					"type": "div",
-					"body": "x = 10  # Biến toàn cục"
+					"body": "x <span class='token operator'>=</span> <span class='token number'>10</span> <span class='code-comment'># Biến toàn cục</span><br><span class='token keyword'>def</span> <span class='token function'>ham_xy</span>():<br>&nbsp;&nbsp;&nbsp;&nbsp;y <span class='token operator'>=</span> <span class='token number'>5</span> <span class='code-comment'># Biến cục bộ</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'x ='</span>, x)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'y ='</span>, y)"
+				},
+				{
+					"body": "Kết quả được in ra màn hình sẽ là:"
 				},
 				{
 					"type": "div",
-					"body": "def show():"
-				},
-				{
-					"type": "div",
-					"body": "&nbsp;&nbsp;&nbsp;&nbsp;y = 5  # Biến cục bộ"
-				},
-				{
-					"type": "div",
-					"body": "&nbsp;&nbsp;&nbsp;&nbsp;print('x =', x)"
-				},
-				{
-					"type": "div",
-					"body": "&nbsp;&nbsp;&nbsp;&nbsp;print('y =', y)"
+					"body": "x = 10<br>y = 5"
 				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Hàm có thể đọc giá trị của biến toàn cục, nhưng nếu muốn thay đổi giá trị đó trong hàm, ta phải dùng từ khóa global."
+					"body": "Từ đó, ta có thể thấy rằng các hàm có thể đọc được giá trị của các biến toàn cục."
 				},
 				{
-					"type": "div",
-					"body": "def update():"
-				},
-				{
-					"type": "div",
-					"body": "&nbsp;&nbsp;&nbsp;&nbsp;global x"
-				},
-				{
-					"type": "div",
-					"body": "&nbsp;&nbsp;&nbsp;&nbsp;x = 20"
+					"body": "Tuy nhiên, các hàm <strong>không thể</strong> thay đổi giá trị của biến toàn cục một cách bình thường. Ta sẽ học về cách mà hàm thay đổi biến toàn cục ở bài tập sau."
 				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Việc hiểu rõ phạm vi của biến giúp bạn tránh được các lỗi khi chương trình trở nên phức tạp hơn."
+					"body": "Để chứng minh điều này, hãy hoàn thành chương trình sau để nó có thể:"
+				},
+				{
+					"type": "ul",
+					"body": "<li>gọi hàm <span class='inl-code token function'>ham_x</span></li><li>in ra giá trị của <span class='inl-code'>x</span> sau khi gọi hàm."
+				},
+				{
+					"body": "Ta sẽ thấy được <strong>hai giá trị khác nhau</strong> được in ra trên màn hình."
 				}
 			]
 		],
 
 		"5.1": [
 			[
-				{
-					"body": "5.1: <strong>Các vòng lặp (Iteration)</strong>"
-				},
 				{
 					"body": "Vòng lặp giúp thực hiện lặp lại các thao tác nhiều lần, rất quan trọng trong lập trình."
 				},
