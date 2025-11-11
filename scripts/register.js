@@ -174,7 +174,7 @@ button.addEventListener("click", () => {
 				type: "userAccount",
 				data: {
 					currentUnit: "1",
-					lesson: "0",
+					lesson: "1",
 				},
 			};
 

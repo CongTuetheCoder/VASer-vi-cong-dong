@@ -7,6 +7,7 @@ user.innerHTML = usernameText;
 const currentUnit = document.getElementById("current-unit");
 const progressSpan = document.getElementById("progress");
 const deleteAccBtn = document.getElementById("deleteAccBtn");
+const signOutBtn = document.getElementById("signoutBtn");
 
 const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
 const lessonJSON = "data/lessons.json";
@@ -51,7 +52,7 @@ setInterval(() => {
 					document.getElementById("progress").innerHTML = percentage;
 				});
 		});
-}, 100);
+}, 10000);
 
 deleteAccBtn.addEventListener("click", () => {
 	const msg =
@@ -95,6 +96,11 @@ deleteAccBtn.addEventListener("click", () => {
 			})
 			.catch((error) => confirm(`An error occured: ${error}`));
 	} else {
-		alert("Wrong user!")
+		alert("Wrong user!");
 	}
+});
+
+signOutBtn.addEventListener("click", () => {
+	localStorage.removeItem("user");
+	window.location.href = "index.html";
 });

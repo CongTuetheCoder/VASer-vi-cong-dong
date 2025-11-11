@@ -6,6 +6,8 @@ const lesson = sessionStorage.getItem("lesson");
 
 lessonContainer.style.height = codeContainer.style.height;
 
+const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
+
 const COLOURS = {
 	base: {
 		dark: "#1a1b27",
@@ -38,8 +40,9 @@ const activities = codeList.length;
 const jsonURL = "https://68ce57d06dc3f350777eb8f9.mockapi.io/content";
 const backupURL = "data/content.json";
 
-// Fetch content
-function updateContent() {
+let pythonWorker;
+
+function fetchAndUpdateContent() {
 	fetch(backupURL)
 		.then((response) => {
 			if (!response.ok) {
@@ -69,99 +72,240 @@ function updateContent() {
 		});
 }
 
-// Functions
+async function fetchUID() {
+	try {
+		const response = await fetch(usersAPI);
+		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+		const data = await response.json();
+
+		const username = localStorage.getItem("user");
+		const user = data.find((u) => u.username === username);
+
+		if (!user || !user.data) throw new Error("User data missing");
+
+		return {
+			uid: user.id,
+		};
+	} catch (err) {
+		console.error("Failed to fetch user progress:", err);
+		return { uid: "0" }; // fallback
+	}
+}
+
+async function fetchLessonConfig(currentUnit) {
+	try {
+		const response = await fetch("data/lessons.json");
+		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+		const data = await response.json();
+
+		return data.lessonsData[currentUnit];
+	} catch (err) {
+		console.error("Failed to fetch user progress:", err);
+		return []; // fallback
+	}
+}
+
+async function updateUserProgress(
+	uid,
+	currentUnit,
+	currentLesson,
+	lessonsData
+) {
+	try {
+		const response = await fetch(`${usersAPI}/${uid}`);
+		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+		const data = await response.json();
+
+		const storedUnit = Number(data.data.currentUnit);
+		const storedLesson = Number(data.data.lesson);
+
+		if (
+			storedUnit > currentUnit ||
+			(storedUnit === currentUnit && storedLesson > currentLesson)
+		)
+			return null;
+	} catch (err) {
+		console.error("Failed to update user progress:", err);
+		return null;
+	}
+
+	let nextUnit = currentUnit;
+	let nextLesson = currentLesson + 1;
+
+	if (nextLesson > lessonsData.length) {
+		nextUnit++;
+		nextLesson = 1;
+	}
+
+	if (nextUnit > 4) {
+		console.log("Reached end of course");
+		return null;
+	}
+
+	try {
+		const response = await fetch(`${usersAPI}/${uid}`, {
+			method: "PUT",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				data: {
+					currentUnit: String(nextUnit),
+					lesson: String(nextLesson),
+				},
+			}),
+		});
+		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+		const userProgress = await response.json();
+		console.log("Updated user progress:", userProgress);
+		return userProgress;
+	} catch (err) {
+		console.error("Failed to update user progress:", err);
+		return null;
+	}
+}
+
+function initWorker() {
+	if (!pythonWorker) {
+		pythonWorker = new Worker("scripts/worker.js");
+	}
+}
+
 async function runPython() {
 	const code = document.getElementById("editor").value;
 	const out = document.getElementById("output");
-	document.getElementById("runBtn").disabled = true;
+	const runBtn = document.getElementById("runBtn");
+	const stopBtn = document.getElementById("stopBtn");
+
+	initWorker();
+
+	// Cancel any ongoing execution
+	pythonWorker.postMessage({ cancel: true });
 
 	out.innerText = "";
 	out.style.color = "white";
 
-	Sk.configure({
-		output: (text) => {
-			out.innerText += text;
-			out.contentEditable = "false";
-		},
-		read: (x) => {
-			if (
-				Sk.builtinFiles === undefined ||
-				Sk.builtinFiles["files"][x] === undefined
-			) {
-				throw "File not found: '" + x + "'";
-			}
-			return Sk.builtinFiles["files"][x];
-		},
-		inputfun: (promptText) => {
-			return new Promise((resolve) => {
-				out.contentEditable = "true";
-				out.scrollTop = out.scrollHeight;
-				out.innerText += promptText || "\n"; // mark the prompt start
-				let promptStart = out.innerText.length;
-				if (promptText === "") promptStart--;
+	runBtn.disabled = true;
+	stopBtn.disabled = false;
 
-				function moveCaretToEnd() {
+	return new Promise((resolve, reject) => {
+		const handler = async (event) => {
+			const { type, text, error } = event.data;
+
+			switch (type) {
+				case "output":
+					out.innerText += text;
+					break;
+
+				case "error":
+					out.style.color = "red";
+					out.innerText = error;
+					cleanup();
+					reject(error);
+					break;
+
+				case "done":
+
+				case "cancelled":
+					cleanup();
+					resolve(out.innerText);
+					break;
+
+				case "input_request":
+					const userInput = await getUserInputFromOutput(text);
+
+					// Move cursor to end
 					const sel = window.getSelection();
 					const range = document.createRange();
 					range.selectNodeContents(out);
 					range.collapse(false);
 					sel.removeAllRanges();
 					sel.addRange(range);
-				}
 
-				function handler(e) {
-					const caretPos =
-						out.innerText.length -
-						window.getSelection().toString().length;
+					pythonWorker.postMessage({ type: "run", input: userInput });
+					break;
+			}
+		};
 
-					if (e.key === "Enter") {
-						e.preventDefault();
-						let text = out.innerText.slice(promptStart);
-						// Remove the last newline only if promptText is not empty and user pressed Enter
-						if (text.indexOf("\n") !== -1) {
-							text = text.slice(0, -1);
-						}
+		function cleanup() {
+			pythonWorker.removeEventListener("message", handler);
+			runBtn.disabled = false;
+			stopBtn.disabled = true;
+		}
 
-						if (
-							promptText === "" &&
-							!out.innerText.endsWith("\n")
-						) {
-							out.innerText += "\n";
-						}
-						out.scrollTop = out.scrollHeight;
-						out.contentEditable = "false";
-						out.removeEventListener("keydown", handler);
-						resolve(text);
-						moveCaretToEnd();
-						return;
-					}
-
-					if (e.key === "Backspace" && caretPos <= promptStart) {
-						e.preventDefault();
-						return;
-					}
-
-					if (caretPos < promptStart) {
-						e.preventDefault();
-						moveCaretToEnd();
-					}
-				}
-				out.addEventListener("keydown", handler);
-				moveCaretToEnd();
-				out.focus();
-			});
-		},
+		pythonWorker.addEventListener("message", handler);
+		pythonWorker.postMessage({ type: "run", code });
 	});
+}
 
-	await Sk.misceval
-		.asyncToPromise(() =>
-			Sk.importMainWithBody("<stdin>", false, code, true)
-		)
-		.catch((err) => {
-			out.style.color = "red";
-			document.getElementById("output").innerHTML = err.toString();
-			out.contentEditable = "false";
-		});
+function stopPython() {
+	if (pythonWorker) {
+		pythonWorker.terminate();
+		pythonWorker = null;
+
+		const out = document.getElementById("output");
+		const runBtn = document.getElementById("runBtn");
+		const stopBtn = document.getElementById("stopBtn");
+
+		runBtn.disabled = false;
+		stopBtn.disabled = true;
+	}
+}
+
+function getUserInputFromOutput(promptText = "") {
+	const out = document.getElementById("output");
+	return new Promise((resolve) => {
+		out.contentEditable = "true";
+		out.scrollTop = out.scrollHeight;
+
+		// Append prompt
+		const promptNode = document.createElement("span");
+		promptNode.textContent = promptText;
+		out.appendChild(promptNode);
+
+		const inputNode = document.createElement("span");
+		out.appendChild(inputNode);
+
+		let inputBuffer = "";
+
+		function moveCaretToEnd() {
+			const sel = window.getSelection();
+			const range = document.createRange();
+			range.selectNodeContents(out);
+			range.collapse(false);
+			sel.removeAllRanges();
+			sel.addRange(range);
+		}
+
+		function handler(e) {
+			if (e.key === "Enter") {
+				e.preventDefault();
+				// Commit input with newline
+				const textNode = document.createTextNode(inputBuffer);
+				out.replaceChild(textNode, inputNode);
+
+				const br = document.createElement("br");
+				out.appendChild(br);
+
+				out.contentEditable = "false";
+				out.removeEventListener("keydown", handler);
+				moveCaretToEnd();
+				resolve(inputBuffer);
+			} else if (e.key.length === 1 || e.key === "Backspace") {
+				if (e.key === "Backspace") {
+					e.preventDefault();
+					inputBuffer = inputBuffer.slice(0, -1);
+				}
+				// Update displayed input
+				inputNode.textContent = inputBuffer;
+				moveCaretToEnd();
+			}
+		}
+
+		out.addEventListener("keydown", handler);
+		moveCaretToEnd();
+		out.focus();
+	});
 }
 
 function changeBgGradient(property = "base") {
@@ -174,8 +318,8 @@ function changeBgGradient(property = "base") {
 }
 
 function changeLessonGradient(property = "base") {
-	const col1 = COLOURS[property].light;
-	const col2 = COLOURS[property].base;
+	const col1 = COLOURS[property]["light"];
+	const col2 = COLOURS[property][property === "base" ? "base" : "dark"];
 
 	lessonContainer.style.setProperty("--bg-stop-1", col1);
 
@@ -198,7 +342,7 @@ function step() {
 
 function validateOutput(output, pattern) {
 	const out = document.getElementById("output");
-	if (out.style.color === "red") return false;
+	if (out.style.color === "red") return false; // Error
 
 	const normalize = (str) => str.replace(/\r\n/g, "\n").trim();
 	const outLines = normalize(output).split("\n");
@@ -262,6 +406,7 @@ function validateOutput(output, pattern) {
 			const args = Array.isArray(pat.from)
 				? pat.from.map((v) => vars[v])
 				: [vars[pat.from]];
+
 			if (refVal === undefined || args === undefined) return false;
 
 			let expected = args;
@@ -303,7 +448,6 @@ function validateOutput(output, pattern) {
 
 				if (pattern.timesInputIndex !== undefined) {
 					reps = parseInt(userInputs[pattern.timesInputIndex], 10);
-					console.log(reps);
 				}
 
 				if (pattern.untilInput !== undefined) {
@@ -357,16 +501,7 @@ function validateOutput(output, pattern) {
 	return result !== -1;
 }
 
-// Listeners
-document.getElementById("runBtn").addEventListener("click", async () => {
-	changeBgGradient();
-	await runPython();
-
-	const out = document.getElementById("output");
-	const outputText = out.innerText;
-
-	let timeout;
-
+function validator(outputText) {
 	if (validateOutput(outputText, correctOutputs[lessonCounter])) {
 		changeBgGradient("correct");
 		changeLessonGradient("correct");
@@ -396,16 +531,18 @@ document.getElementById("runBtn").addEventListener("click", async () => {
 					pre.scrollLeft = textarea.scrollLeft;
 				}
 
-				textarea.value =
-					localStorage.getItem("lang") === "vi"
-						? "# Nhập mã ở đây\n"
-						: "# Enter code here\n";
-				textarea.value += codeList[lessonCounter];
-				textarea.focus();
-				updateHighlight();
+				if (codeList[lessonCounter] !== "") {
+					textarea.value =
+						localStorage.getItem("lang") === "vi"
+							? "# Nhập mã ở đây\n"
+							: "# Enter code here\n";
+					textarea.value += codeList[lessonCounter];
+					textarea.focus();
+					updateHighlight();
+				}
 
 				document.getElementById("runBtn").disabled = false;
-				updateContent();
+				fetchAndUpdateContent();
 			} else {
 				const backArrow = document.getElementById("back");
 				backArrow.innerHTML =
@@ -430,6 +567,19 @@ document.getElementById("runBtn").addEventListener("click", async () => {
 		changeBgGradient();
 		changeLessonGradient();
 	}, timeout);
+}
+
+// Listeners
+document.getElementById("runBtn").addEventListener("click", async () => {
+	changeBgGradient();
+	const outputText = await runPython();
+	validator(outputText);
+});
+
+document.getElementById("stopBtn").addEventListener("click", () => {
+	stopPython();
+	const outputText = document.getElementById("output").innerText;
+	validator(outputText);
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -504,4 +654,21 @@ document.addEventListener("DOMContentLoaded", () => {
 	updateHighlight();
 });
 
-updateContent();
+document.getElementById("back").addEventListener("click", async () => {
+	if (lessonCounter >= activities - 1) {
+		const { uid } = await fetchUID();
+		const currentUnit = Number(
+			sessionStorage.getItem("lessonID").split(".")[0]
+		);
+		const currentLesson = Number(
+			sessionStorage.getItem("lessonID").split(".")[1]
+		);
+		const lessonsData = await fetchLessonConfig(Number(currentUnit));
+
+		await updateUserProgress(uid, currentUnit, currentLesson, lessonsData);
+	}
+
+	window.location.href = "home.html";
+});
+
+fetchAndUpdateContent();

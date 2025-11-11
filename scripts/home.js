@@ -2,12 +2,37 @@ const container = document.getElementById("lessons-container");
 const dialog = document.getElementsByClassName("lessonDialog")[0];
 let clicked = false;
 
-const createButtons = (unit, lessonsArrange, lessonsData) => {
+const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
+
+async function fetchUID() {
+	try {
+		const response = await fetch(usersAPI);
+		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+		const data = await response.json();
+
+		const username = localStorage.getItem("user");
+		const user = data.find((u) => u.username === username);
+
+		if (!user || !user.data) throw new Error("User data missing");
+
+		return {
+			currentUnit: user.data.currentUnit,
+			currentLesson: user.data.lesson,
+		};
+	} catch (err) {
+		console.error("Failed to fetch user progress:", err);
+		return { currentUnit: 1, currentLesson: 1 }; // fallback
+	}
+}
+
+const createButtons = async (unit, lessonsArrange, lessonsData) => {
 	let lessonIdx = 1;
 	const title = document.createElement("h4");
 	title.innerText = lessonsData["name"];
 	title.id = `section${unit}`;
 	container.appendChild(title);
+
+	const { currentUnit, currentLesson } = await fetchUID();
 
 	for (let i = 0; i < lessonsArrange.length; i++) {
 		if (lessonsArrange[i] > 4) {
@@ -26,18 +51,30 @@ const createButtons = (unit, lessonsArrange, lessonsData) => {
 		const isActivity =
 			lesson.indexOf("Thực hành") !== -1 ||
 			lesson.indexOf("Practice") !== -1;
-		const title = !isActivity
+		const isCaseStudy =
+			lesson.startsWith("Case study") ||
+			lesson.startsWith("Nghiên cứu tình huống");
+		const title = !(isActivity || isCaseStudy)
 			? `Bài ${unit}.${lessonIdx} - ${lesson}`
 			: lesson;
 
 		button.innerHTML = `<i class="${lessonsData[lessonIdx]["iconClasses"]}"></i>`;
 		button.className = "lessonBtn";
-		if (isActivity) button.classList.add("activityBtn");
+		if (isActivity || isCaseStudy) button.classList.add("activityBtn");
 		button.title = title;
 		button.type = "button";
 		button.id = `lesson${unit}${lessonIdx}`;
 		button.dataset.unit = unit;
 		button.dataset.idx = lessonIdx;
+
+		if (unit > parseInt(currentUnit)) button.disabled = true;
+		if (
+			unit === parseInt(currentUnit) &&
+			lessonIdx > parseInt(currentLesson)
+		)
+			button.disabled = true;
+
+		if (i == 0) button.disabled = false;
 
 		button.addEventListener("click", () => {
 			if (dialog.children.length === 0) {
@@ -66,29 +103,48 @@ const createButtons = (unit, lessonsArrange, lessonsData) => {
 							return response.json();
 						})
 						.then((data) => {
+							const lang = localStorage.getItem("lang");
+							const isActivity =
+								headerText.indexOf("Thực hành") !== -1 ||
+								headerText.indexOf("Practice") !== -1;
+							const isCaseStudy =
+								headerText.startsWith("Case Study") ||
+								headerText.startsWith("Nghiên cứu tình huống");
+
+							let splitIdx = 1;
+							splitIdx += Number(lang == "vi" && isActivity);
+							splitIdx +=
+								Number(isCaseStudy) *
+								(Number(lang == "vi") * 2 + 1);
+
+							const lessonID = headerText
+								.split(" ")
+								[splitIdx];
+							let chapter, lesson;
+							chapter = Number(lessonID.split(".")[0]);
+
+							if (isCaseStudy) chapter *= 2;
+
+							chapter = chapter.toString();
+
+							if (!isActivity && !isCaseStudy)
+								lesson = lessonID.split(".")[1];
+							else
+								lesson =
+									data.lessonsData[chapter].length.toString();
+
+							console.log(lessonID, lesson);
+							if (data.lessons[chapter][lesson].disabled) {
+								alert(
+									lang == "vi"
+										? "Bài tập hiện chưa hoàn thiện."
+										: "Exercise currently unavailable."
+								);
+								enterLessonBtn.innerHTML = `<i class='fa-solid fa-play fa-beat'></i>`;
+								return;
+							}
+
 							const storeData = () => {
-								const lang = localStorage.getItem("lang");
-								const isActivity =
-									headerText.indexOf("Thực hành") !== -1 ||
-									headerText.indexOf("Practice") !== -1;
-
-								const lessonID = headerText
-									.split(" ")
-									[
-										1 + Number(lang == "vi" && isActivity)
-									].slice(0, -1);
-
-								let chapter, lesson;
-								chapter = lessonID.split(".")[0];
-
-								if (!isActivity)
-									lesson = lessonID.split(".")[1];
-								else
-									lesson =
-										data.lessonsData[
-											chapter
-										].length.toString();
-
 								const code =
 									data.lessons[chapter][lesson][
 										"code" + lang
@@ -107,7 +163,10 @@ const createButtons = (unit, lessonsArrange, lessonsData) => {
 									"correct",
 									JSON.stringify(correctOutputs)
 								);
-								sessionStorage.setItem("lessonID", lessonID);
+
+								const getIndex =
+									lessonID * (Number(isCaseStudy) + 1);
+								sessionStorage.setItem("lessonID", getIndex);
 							};
 
 							for (let time = 0; time < 1000; time += 50) {
@@ -135,7 +194,7 @@ const createButtons = (unit, lessonsArrange, lessonsData) => {
 			const lessonHeader = document.getElementById("lessonHeader");
 			lessonHeader.innerHTML = button.title;
 
-			if (isActivity) {
+			if (isActivity || isCaseStudy) {
 				enterLessonBtn.classList.add("enterActivityBtn");
 				dialog.classList.add("activityDialog");
 			} else {
@@ -243,21 +302,26 @@ const drawPathsBetweenButtons = () => {
 	container.appendChild(svg);
 };
 
-fetch("data/lessons.json")
-	.then((response) => {
-		if (!response.ok) {
-			console.error(`HTTP error: Status: ${response.status}`);
-		}
-		return response.json();
-	})
-	.then((data) => {
+(async function init() {
+	if (!localStorage.getItem("user")) {
+		window.location.href = "index.html";
+		return;
+	}
+
+	sessionStorage.clear();
+
+	try {
+		const response = await fetch("data/lessons.json");
+		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
+		const data = await response.json();
+
 		for (let i = 1; i <= 4; i++) {
-			createButtons(i, data.lessonsData[i], data.lessons[i]);
+			await createButtons(i, data.lessonsData[i], data.lessons[i]);
 		}
+
 		setTimeout(drawPathsBetweenButtons, 100);
-	});
-
-if (localStorage.getItem("user") === null) window.location.href = "index.html";
-
-sessionStorage.clear();
-window.addEventListener("resize", drawPathsBetweenButtons);
+		window.addEventListener("resize", drawPathsBetweenButtons);
+	} catch (err) {
+		console.error("Error initializing lessons:", err);
+	}
+})();
