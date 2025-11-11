@@ -89,6 +89,22 @@ h4 {
 	box-shadow: 0 0 0 0 #005cac;
 }
 
+.lessonBtn:disabled,
+.activityBtn:disabled {
+	background-color: #bdbdbd;
+	box-shadow: 0 10px 0 0 #6a6a6a;
+}
+
+.lessonBtn:disabled:hover,
+.activityBtn:disabled:hover {
+	box-shadow: 0 8px 0 0 #6a6a6a;
+}
+
+.lessonBtn:disabled:active,
+.activityBtn:disabled:active {
+	box-shadow: 0 0 0 0 #6a6a6a;
+}
+
 #lessonHeader {
 	font-size: 18px;
 	margin-bottom: 25px;

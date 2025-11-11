@@ -124,6 +124,10 @@
 	z-index: 4;
 }
 
+#back:hover {
+	cursor: pointer;
+}
+
 .codeEdit {
 	z-index: 2;
 	background-color: black;
@@ -332,7 +336,7 @@
 	width: 100%;
 	height: 25px;
 	border-radius: 8px;
-	margin: 0 auto; /* Centering the progress bar */
+	margin: 0 auto;
 	display: flex;
 	align-items: center;
 	background-color: #4d4fdf7a;
