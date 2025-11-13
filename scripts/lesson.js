@@ -1,4 +1,5 @@
 // Setup
+
 const lessonContainer = document.getElementById("lesson-content");
 const codeContainer = document.getElementById("code-container");
 const body = document.getElementsByTagName("body")[0];
@@ -83,12 +84,10 @@ async function fetchUID() {
 
 		if (!user || !user.data) throw new Error("User data missing");
 
-		return {
-			uid: user.id,
-		};
+		return user.id;
 	} catch (err) {
-		console.error("Failed to fetch user progress:", err);
-		return { uid: "0" }; // fallback
+		console.error("Failed to fetch user ID:", err);
+		return "0"; // fallback
 	}
 }
 
@@ -100,7 +99,7 @@ async function fetchLessonConfig(currentUnit) {
 
 		return data.lessonsData[currentUnit];
 	} catch (err) {
-		console.error("Failed to fetch user progress:", err);
+		console.error("Failed to fetch lessons:", err);
 		return []; // fallback
 	}
 }
@@ -125,7 +124,7 @@ async function updateUserProgress(
 		)
 			return null;
 	} catch (err) {
-		console.error("Failed to update user progress:", err);
+		console.error("Failed to fetch user progress:", err);
 		return null;
 	}
 
@@ -179,7 +178,6 @@ async function runPython() {
 
 	initWorker();
 
-	// Cancel any ongoing execution
 	pythonWorker.postMessage({ cancel: true });
 
 	out.innerText = "";
@@ -190,7 +188,7 @@ async function runPython() {
 
 	return new Promise((resolve, reject) => {
 		const handler = async (event) => {
-			const { type, text, error } = event.data;
+			const { type, text, error, vars } = event.data;
 
 			switch (type) {
 				case "output":
@@ -205,7 +203,10 @@ async function runPython() {
 					break;
 
 				case "done":
-
+					window.lastPythonVars = vars || {};
+					cleanup();
+					resolve(out.innerText);
+					break;
 				case "cancelled":
 					cleanup();
 					resolve(out.innerText);
@@ -257,16 +258,9 @@ function getUserInputFromOutput(promptText = "") {
 	return new Promise((resolve) => {
 		out.contentEditable = "true";
 		out.scrollTop = out.scrollHeight;
-
-		// Append prompt
-		const promptNode = document.createElement("span");
-		promptNode.textContent = promptText;
-		out.appendChild(promptNode);
-
-		const inputNode = document.createElement("span");
-		out.appendChild(inputNode);
-
-		let inputBuffer = "";
+		out.innerText += promptText || "\n"; // mark the prompt start
+		let promptStart = out.innerText.length;
+		if (promptText === "") promptStart--;
 
 		function moveCaretToEnd() {
 			const sel = window.getSelection();
@@ -278,26 +272,37 @@ function getUserInputFromOutput(promptText = "") {
 		}
 
 		function handler(e) {
+			const caretPos =
+				out.innerText.length - window.getSelection().toString().length;
+
 			if (e.key === "Enter") {
 				e.preventDefault();
-				// Commit input with newline
-				const textNode = document.createTextNode(inputBuffer);
-				out.replaceChild(textNode, inputNode);
+				let text = out.innerText.slice(promptStart);
 
-				const br = document.createElement("br");
-				out.appendChild(br);
+				// Remove the last newline only if promptText is not empty and user pressed Enter
+				if (text.indexOf("\n") !== -1) {
+					text = text.slice(0, -1);
+				}
 
+				if (promptText === "" && !out.innerText.endsWith("\n")) {
+					out.innerText += "\n";
+				}
+
+				out.scrollTop = out.scrollHeight;
 				out.contentEditable = "false";
 				out.removeEventListener("keydown", handler);
+				resolve(text);
 				moveCaretToEnd();
-				resolve(inputBuffer);
-			} else if (e.key.length === 1 || e.key === "Backspace") {
-				if (e.key === "Backspace") {
-					e.preventDefault();
-					inputBuffer = inputBuffer.slice(0, -1);
-				}
-				// Update displayed input
-				inputNode.textContent = inputBuffer;
+				return;
+			}
+
+			if (e.key === "Backspace" && caretPos <= promptStart) {
+				e.preventDefault();
+				return;
+			}
+
+			if (caretPos < promptStart) {
+				e.preventDefault();
 				moveCaretToEnd();
 			}
 		}
@@ -428,10 +433,16 @@ function validateOutput(output, pattern) {
 		}
 
 		if (pat.type === "var") {
-			const pythonVal = Sk.globals[pat.name];
-			const value = Sk.ffi.remapToJs(pythonVal);
+			const varsFromPython = window.lastPythonVars;
+			const value = varsFromPython[pat.name];
+
+			if (value === undefined) return false;
 
 			if (pat.captureAs) vars[pat.captureAs] = value;
+
+			if (pat.expected !== undefined) {
+				return String(value).trim() === String(pat.expected).trim();
+			}
 
 			return true;
 		}
@@ -487,7 +498,7 @@ function validateOutput(output, pattern) {
 			} else {
 				if (skipTypes.includes(pattern.type)) idx--;
 				if (idx >= lines.length || !matchLine(lines[idx], pattern)) {
-					console.log("failed at pattern", pattern);
+					console.log("Failed at pattern", pattern);
 					return -1;
 				}
 				idx++;
@@ -571,6 +582,8 @@ function validator(outputText) {
 
 // Listeners
 document.getElementById("runBtn").addEventListener("click", async () => {
+	const btn = document.getElementById("runBtn");
+	btn.disabled = true;
 	changeBgGradient();
 	const outputText = await runPython();
 	validator(outputText);
@@ -656,7 +669,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("back").addEventListener("click", async () => {
 	if (lessonCounter >= activities - 1) {
-		const { uid } = await fetchUID();
+		const uid = await fetchUID();
 		const currentUnit = Number(
 			sessionStorage.getItem("lessonID").split(".")[0]
 		);
