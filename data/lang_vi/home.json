@@ -15,17 +15,19 @@
 	"lesson22": "Bài 2.2: Vòng lặp while",
 	"lesson23": "Bài 2.3: Điều kiện",
 	"lesson24": "Bài 2.4: Thoát khỏi vòng lặp",
-	"lesson25": "Thực hành 2: Chương trình đoán số",
+	"lesson25": "Nghiên cứu tình huống 1: Quán cà phê của Linh",
 
 	"lesson31": "Bài 3.1: Danh sách trong Python",
-	"lesson32": "Bài 3.2: Truy cập và thay đổi danh sách",
-	"lesson33": "Bài 3.3: Sắp xếp danh sách",
-	"lesson34": "Thực hành 3: Chương trình mua sắm",
+	"lesson32": "Bài 3.2: Truy cập và thay đổi phần tử",
+	"lesson33": "Bài 3.3: Thêm và xóa phần tử",
+	"lesson34": "Bài 3.4: Sắp xếp danh sách",
+	"lesson35": "Bài 3.5: Làm việc với danh sách",
+	"lesson36": "Thực hành 3: Chương trình mua sắm",
 
 	"lesson41": "Bài 4.1: Khai báo và gọi hàm",
 	"lesson42": "Bài 4.2: Truyền tham số và trả về kết quả",
 	"lesson43": "Bài 4.3: Phạm vi biến",
-	"lesson44": "Thực hành 4: Tính chu vi, diện tích",
+	"lesson44": "Nghiên cứu tình huống 2: Hóa đơn Circle K",
 
 	"profile": "<i class=\"fa-solid fa-circle-user\"></i> Trang cá nhân",
 	"language-btn": "Thay đổi ngôn ngữ"
