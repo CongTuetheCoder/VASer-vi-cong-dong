@@ -15,17 +15,19 @@
 	"lesson22": "Lesson 2.2: While Loops",
 	"lesson23": "Lesson 2.3: Conditionals",
 	"lesson24": "Lesson 2.4: Exiting Loops",
-	"lesson25": "Practice 2: Number Guessing Program",
+	"lesson25": "Case Study 1: Lynda's Café",
 
 	"lesson31": "Lesson 3.1: Lists in Python",
-	"lesson32": "Lesson 3.2: Accessing and Modifying Lists",
-	"lesson33": "Lesson 3.3: Sorting Lists",
-	"lesson34": "Practice 3: Shopping Program",
+	"lesson32": "Lesson 3.2: Accessing and Modifying Elements",
+	"lesson33": "Lesson 3.3: Adding and Removing Elements",
+	"lesson34": "Lesson 3.4: Sorting Lists",
+	"lesson35": "Lesson 3.5: Working with Lists",
+	"lesson36": "Practice 3: Shopping Program",
 
 	"lesson41": "Lesson 4.1: Defining and calling functions",
 	"lesson42": "Lesson 4.2: Parameters and return values",
 	"lesson43": "Lesson 4.3: Variable Scopes",
-	"lesson44": "Practice 4: Calculating perimeters and areas",
+	"lesson44": "Case Study 2: Making Bills for Circle K",
 
 	"profile": "<i class=\"fa-solid fa-circle-user\"></i> Profile",
 	"language-btn": "Change language"
