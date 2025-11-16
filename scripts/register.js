@@ -6,6 +6,13 @@ const passwordStrength = document.getElementById("password-strength");
 
 const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
 
+function setCookie(name, value, days) {
+	const date = new Date();
+	date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+	const expires = "expires=" + date.toUTCString();
+	document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
 const strengthMapVi = [
 	"Chưa có mật khẩu.",
 	"Mật khẩu yếu.",
@@ -70,18 +77,14 @@ const passwordStrengthCheck = (password) => {
 };
 
 async function hashPassword(password) {
-	// 1. Generate a random 16-byte salt
 	const salt = crypto.getRandomValues(new Uint8Array(16));
-
-	// 2. Encode the password into bytes
 	const enc = new TextEncoder();
 	const passwordData = enc.encode(password);
 
-	// 3. Derive a key using PBKDF2 (100,000 iterations of SHA-256)
 	const keyMaterial = await crypto.subtle.importKey(
 		"raw",
 		passwordData,
-		"PBKDF2",
+		"PBKDF2", // 100_000 iterations of SHA-256
 		false,
 		["deriveBits"]
 	);
@@ -94,10 +97,9 @@ async function hashPassword(password) {
 			hash: "SHA-256",
 		},
 		keyMaterial,
-		256 // 256 bits = 32 bytes
+		256
 	);
 
-	// 4. Convert to hex strings
 	const hashArray = Array.from(new Uint8Array(derivedBits));
 	const hashHex = hashArray
 		.map((b) => b.toString(16).padStart(2, "0"))
@@ -107,7 +109,6 @@ async function hashPassword(password) {
 		.map((b) => b.toString(16).padStart(2, "0"))
 		.join("");
 
-	// Return both the salt and hash
 	return { salt: saltHex, hash: hashHex };
 }
 
@@ -169,8 +170,8 @@ button.addEventListener("click", () => {
 
 			const newUser = {
 				username: usernameIn.value,
-				salt, // store salt separately
-				hash, // store the derived hash
+				salt,
+				hash,
 				type: "userAccount",
 				data: {
 					currentUnit: "1",
@@ -178,7 +179,6 @@ button.addEventListener("click", () => {
 				},
 			};
 
-			// send it to the same api
 			fetch(usersAPI, {
 				method: "POST",
 				headers: {
@@ -190,8 +190,8 @@ button.addEventListener("click", () => {
 					if (!response.ok) throw new Error("Failed to add user");
 					return response.json();
 				})
-				.then((result) => {
-					localStorage.setItem("user", usernameIn.value);
+				.then(() => {
+					setCookie("user", usernameIn.value, 30);
 					window.location.href = "home.html";
 				})
 				.catch((error) => confirm(`Error adding user: ${error}`));
