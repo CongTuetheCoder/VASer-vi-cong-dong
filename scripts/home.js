@@ -4,13 +4,29 @@ let clicked = false;
 
 const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
 
+function getCookie(cname) {
+	let name = cname + "=";
+	let decodedCookie = decodeURIComponent(document.cookie);
+	let ca = decodedCookie.split(";");
+	for (let i = 0; i < ca.length; i++) {
+		let c = ca[i];
+		while (c.charAt(0) == " ") {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+
 async function fetchUID() {
 	try {
 		const response = await fetch(usersAPI);
 		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
 		const data = await response.json();
 
-		const username = localStorage.getItem("user");
+		const username = getCookie("user");
 		const user = data.find((u) => u.username === username);
 
 		if (!user || !user.data) throw new Error("User data missing");
@@ -58,7 +74,15 @@ const createButtons = async (unit, lessonsArrange, lessonsData) => {
 			? `Bài ${unit}.${lessonIdx} - ${lesson}`
 			: lesson;
 
-		button.innerHTML = `<i class="${lessonsData[lessonIdx]["iconClasses"]}"></i>`;
+		const current = unit == currentUnit && lessonIdx == currentLesson;
+		let btnClasses = lessonsData[lessonIdx]["iconClasses"];
+		let glowSelector = "";
+		if (current) {
+			btnClasses += " fa-beat";
+			glowSelector = " style='text-shadow: 0px 0px 4px white;'";
+		}
+
+		button.innerHTML = `<i class="${btnClasses}"${glowSelector}></i>`;
 		button.className = "lessonBtn";
 		if (isActivity || isCaseStudy) button.classList.add("activityBtn");
 		button.title = title;
@@ -119,7 +143,7 @@ const createButtons = async (unit, lessonsArrange, lessonsData) => {
 
 							const lessonID = headerText
 								.split(" ")
-								[splitIdx];
+								[splitIdx].replace(":", "");
 							let chapter, lesson;
 							chapter = Number(lessonID.split(".")[0]);
 
@@ -133,7 +157,6 @@ const createButtons = async (unit, lessonsArrange, lessonsData) => {
 								lesson =
 									data.lessonsData[chapter].length.toString();
 
-							console.log(lessonID, lesson);
 							if (data.lessons[chapter][lesson].disabled) {
 								alert(
 									lang == "vi"
@@ -226,11 +249,22 @@ const drawPathsBetweenButtons = () => {
 	svg.id = "lesson-paths-svg";
 	svg.style.zIndex = "2";
 
-	// Remove old SVG if exists
 	const oldSvg = document.getElementById("lesson-paths-svg");
 	if (oldSvg) oldSvg.remove();
 
-	// Group rows by unit (split at each <h4>)
+	const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+	defs.innerHTML = `
+	<filter id="glow">
+		<feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+		<feMerge>
+			<feMergeNode in="coloredBlur"/>
+			<feMergeNode in="SourceGraphic"/>
+		</feMerge>
+	</filter>
+`;
+	svg.appendChild(defs);
+
+	// split at each <h4>
 	const containerChildren = Array.from(container.children);
 	let groups = [];
 	let currentGroup = [];
@@ -244,32 +278,7 @@ const drawPathsBetweenButtons = () => {
 	});
 	if (currentGroup.length) groups.push(currentGroup);
 
-	// Helper: Catmull-Rom to Bezier
-	function catmullRom2bezier(points) {
-		let d = "";
-		for (let i = 0; i < points.length - 1; i++) {
-			const p0 = points[i - 1] || points[i];
-			const p1 = points[i];
-			const p2 = points[i + 1];
-			const p3 = points[i + 2] || p2;
-
-			const divisor = 3.2;
-
-			// Catmull-Rom to Bezier conversion
-			const cp1x = p1.x + (p2.x - p0.x) / divisor;
-			const cp1y = p1.y + (p2.y - p0.y) / divisor;
-			const cp2x = p2.x - (p3.x - p1.x) / divisor;
-			const cp2y = p2.y - (p3.y - p1.y) / divisor;
-
-			if (i === 0) d += `M ${p1.x} ${p1.y} `;
-			d += `C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${p2.x} ${p2.y} `;
-		}
-		return d;
-	}
-
-	// Draw a smooth path for each unit group only
 	groups.forEach((group) => {
-		// Collect all button centers in this group
 		const points = [];
 		group.forEach((row) => {
 			const btn = row.querySelector("button");
@@ -278,23 +287,58 @@ const drawPathsBetweenButtons = () => {
 				const containerRect = container.getBoundingClientRect();
 				const x = rect.left + rect.width / 2 - containerRect.left;
 				const y = rect.top + rect.height / 2 - containerRect.top;
-				points.push({ x, y });
+				points.push({
+					x,
+					y,
+					disabled: btn.disabled,
+					isCurrent: btn.dataset.current === "1",
+				});
 			}
 		});
 
 		if (points.length > 1) {
-			const d = catmullRom2bezier(points);
-			const path = document.createElementNS(
-				"http://www.w3.org/2000/svg",
-				"path"
-			);
-			path.setAttribute("d", d);
-			path.setAttribute("stroke", "#743800ff");
-			path.setAttribute("stroke-width", "16");
-			path.setAttribute("fill", "none");
-			path.setAttribute("stroke-linecap", "round");
-			path.setAttribute("stroke-linejoin", "round");
-			svg.appendChild(path);
+			for (let i = 0; i < points.length - 1; i++) {
+				const p0 = points[i - 1] || points[i];
+				const p1 = points[i];
+				const p2 = points[i + 1];
+				const p3 = points[i + 2] || p2;
+
+				const divisor = 3.2;
+
+				// Catmull-Rom -> Bezier control points
+				const cp1x = p1.x + (p2.x - p0.x) / divisor;
+				const cp1y = p1.y + (p2.y - p0.y) / divisor;
+				const cp2x = p2.x - (p3.x - p1.x) / divisor;
+				const cp2y = p2.y - (p3.y - p1.y) / divisor;
+
+				// Build bezier path
+				const d = `
+		M ${p1.x} ${p1.y}
+		C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${p2.x} ${p2.y}
+	`;
+
+				const seg = document.createElementNS(
+					"http://www.w3.org/2000/svg",
+					"path"
+				);
+				seg.setAttribute("d", d.trim());
+				seg.setAttribute("fill", "none");
+				seg.setAttribute("stroke-linecap", "round");
+				seg.setAttribute("stroke-linejoin", "round");
+				seg.setAttribute("stroke-width", "16");
+
+				if (p1.disabled && p2.disabled) {
+					seg.setAttribute("stroke", "#777");
+				} else {
+					if (!p1.disabled && p2.disabled) {
+						seg.setAttribute("stroke", "#76583c");
+					} else {
+						seg.setAttribute("stroke", "#743800");
+					}
+				}
+
+				svg.appendChild(seg);
+			}
 		}
 	});
 
@@ -303,7 +347,7 @@ const drawPathsBetweenButtons = () => {
 };
 
 (async function init() {
-	if (!localStorage.getItem("user")) {
+	if (getCookie("user") == "") {
 		window.location.href = "index.html";
 		return;
 	}
@@ -320,6 +364,7 @@ const drawPathsBetweenButtons = () => {
 		}
 
 		setTimeout(drawPathsBetweenButtons, 100);
+		document.dispatchEvent(new Event("lessonReady"));
 		window.addEventListener("resize", drawPathsBetweenButtons);
 	} catch (err) {
 		console.error("Error initializing lessons:", err);
