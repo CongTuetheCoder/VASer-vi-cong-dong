@@ -1,4 +1,3 @@
-// pythonWorker.js
 importScripts(
 	"https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js",
 	"https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"
@@ -42,7 +41,10 @@ self.onmessage = async (event) => {
 					return Sk.builtinFiles["files"][x];
 				},
 				inputfun: (promptText) => {
-					self.postMessage({ type: "input_request", text: promptText || "" });
+					self.postMessage({
+						type: "input_request",
+						text: promptText || "",
+					});
 					return new Promise((resolve) => {
 						pendingInputResolve = resolve;
 					});
@@ -53,7 +55,16 @@ self.onmessage = async (event) => {
 				Sk.importMainWithBody("<stdin>", false, code, true)
 			);
 
-			self.postMessage({ type: "done", output });
+			const vars = {};
+			if (Sk.globals) {
+				for (const [k, v] of Object.entries(Sk.globals)) {
+					if (typeof k === "string" && !k.startsWith("__")) {
+						vars[k.replace("_$rw$", "")] = Sk.ffi.remapToJs(v);
+					}
+				}
+			}
+
+			self.postMessage({ type: "done", output, vars });
 		} catch (err) {
 			if (signal.aborted) {
 				self.postMessage({ type: "cancelled" });
