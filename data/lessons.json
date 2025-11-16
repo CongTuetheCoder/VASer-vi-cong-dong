@@ -28,7 +28,7 @@
 					[{ "type": "static", "text": "123 Chào!" }]
 				],
 				"correcten": [
-					[{ "type": "static", "text": "Hello, world!" }],
+					[{ "type": "static", "text": "Hello, Python!" }],
 					[{ "type": "static", "text": "I am learning Python" }],
 					[{ "type": "static", "text": "123 Hello!" }]
 				]
@@ -57,53 +57,196 @@
 					"a, b = \n\nprint('a =', a)\nprint('b =', b)"
 				],
 				"correctvi": [
-					[{ "type": "static", "text": "Chào, Tấn" }],
-					[{ "type": "static", "text": "23" }],
-					[{ "type": "static", "text": "Giá của món đồ là $ 10.5" }],
-					[{ "type": "static", "text": "Là học sinh: False" }],
+					[
+						{ "type": "static", "text": "Chào, Tấn" },
+						{
+							"type": "var",
+							"name": "ten",
+							"expected": "Tấn"
+						}
+					],
+					[
+						{ "type": "static", "text": "23" },
+						{
+							"type": "var",
+							"name": "tuoi",
+							"expected": "23"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "Giá của món đồ là $ 10.5"
+						},
+						{
+							"type": "var",
+							"name": "gia_tien",
+							"expected": "10.5"
+						}
+					],
+					[
+						{ "type": "static", "text": "Là học sinh: False" },
+						{
+							"type": "var",
+							"name": "la_hoc_sinh",
+							"expected": "false"
+						}
+					],
 					[
 						{
 							"type": "static",
 							"text": "Số may mắn của tôi là 7"
 						},
 						{
+							"type": "var",
+							"name": "so_may_man",
+							"expected": "7"
+						},
+						{
 							"type": "static",
 							"text": "Chúc may mắn!"
+						},
+						{
+							"type": "var",
+							"name": "loi_nhan",
+							"expected": "Chúc may mắn!"
 						}
 					],
-					[{ "type": "static", "text": "5" }],
+					[
+						{ "type": "static", "text": "5" },
+						{
+							"type": "var",
+							"name": "tam_thoi",
+							"expected": "5"
+						},
+						{
+							"type": "var",
+							"name": "gia_tri",
+							"expected": "5"
+						}
+					],
 					[
 						{ "type": "static", "text": "a = 6" },
-						{ "type": "static", "text": "b = 6" }
+						{ "type": "static", "text": "b = 6" },
+						{
+							"type": "var",
+							"name": "a",
+							"expected": "6"
+						},
+						{
+							"type": "var",
+							"name": "b",
+							"expected": "6"
+						}
 					],
 					[
 						{ "type": "static", "text": "a = 123" },
-						{ "type": "static", "text": "b = Chào!" }
+						{ "type": "static", "text": "b = Chào!" },
+						{
+							"type": "var",
+							"name": "a",
+							"expected": "123"
+						},
+						{
+							"type": "var",
+							"name": "b",
+							"expected": "Chào!"
+						}
 					]
 				],
 				"correcten": [
-					[{ "type": "static", "text": "Hello, John Doe" }],
-					[{ "type": "static", "text": "23" }],
-					[{ "type": "static", "text": "The price is $ 10.5" }],
-					[{ "type": "static", "text": "Is student: False" }],
+					[
+						{ "type": "static", "text": "Hello, Tony" },
+						{
+							"type": "var",
+							"name": "name",
+							"expected": "Tony"
+						}
+					],
+					[
+						{ "type": "static", "text": "23" },
+						{
+							"type": "var",
+							"name": "age",
+							"expected": "23"
+						}
+					],
+					[
+						{ "type": "static", "text": "The price is $ 10.5" },
+						{
+							"type": "var",
+							"name": "price",
+							"expected": "10.5"
+						}
+					],
+					[
+						{ "type": "static", "text": "Is student: False" },
+						{
+							"type": "var",
+							"name": "is_student",
+							"expected": "false"
+						}
+					],
 					[
 						{
 							"type": "static",
 							"text": "My lucky number is 7"
 						},
 						{
+							"type": "var",
+							"name": "lucky_number",
+							"expected": "7"
+						},
+						{
 							"type": "static",
 							"text": "Good luck!"
+						},
+						{
+							"type": "var",
+							"name": "message",
+							"expected": "Good luck!"
 						}
 					],
-					[{ "type": "static", "text": "5" }],
+					[
+						{ "type": "static", "text": "5" },
+						{
+							"type": "var",
+							"name": "temp",
+							"expected": "5"
+						},
+						{
+							"type": "var",
+							"name": "value",
+							"expected": "5"
+						}
+					],
 					[
 						{ "type": "static", "text": "a = 6" },
-						{ "type": "static", "text": "b = 6" }
+						{ "type": "static", "text": "b = 6" },
+						{
+							"type": "var",
+							"name": "a",
+							"expected": "6"
+						},
+						{
+							"type": "var",
+							"name": "b",
+							"expected": "6"
+						}
 					],
 					[
 						{ "type": "static", "text": "a = 123" },
-						{ "type": "static", "text": "b = Hello!" }
+						{ "type": "static", "text": "b = Hello!" },
+						{
+							"type": "var",
+							"name": "a",
+							"expected": "123"
+						},
+						{
+							"type": "var",
+							"name": "b",
+							"expected": "Hello!"
+						}
 					]
 				]
 			},
@@ -782,7 +925,7 @@
 					"gia_cafe = 25000\ngia_tra = 20000\ngia_banh = 50000\n\nprint('Chào mừng đến quán cà phê của Linh!')\nprint('Đây là thực đơn hôm nay:')\n\n"
 				],
 				"codeen": [
-					"coffee_price = 1.0\ntea_price = 0.75\ncake_price = 2.0\n\nprint('Welcome to Lynda's Coffee Shop!')\nprint('Here's today's menu:')\n\n"
+					"coffee_price = 1.0\ntea_price = 0.75\ncake_price = 2.0\n\nprint(\"Welcome to Lynda's Coffee Shop!\")\nprint(\"Here's today's menu:\")\n\n"
 				],
 				"correctvi": [
 					[
@@ -961,12 +1104,12 @@
 				"codevi": [
 					"danh_sach_trong = ",
 					"diem_so = []\nprint(diem_so)",
-					"..."
+					"print(...)"
 				],
 				"codeen": [
 					"empty_list = ",
-					"scores = []\nprint(scores)",
-					"..."
+					"grades = []\nprint(grades)",
+					"print(...)"
 				],
 				"correctvi": [
 					[
@@ -1136,7 +1279,7 @@
 							"type": "reference",
 							"name": "outputList",
 							"from": ["index", "value"],
-							"transform": "(a, b) => { const list = ['an element', 67, 3.14, 'another element', False]; list[parseInt(a)] = b; let result = '['; for (let i = 0; i < 5; i++) { if (typeof list[i] === 'string') { result += `'${list[i]}'`; } else if (typeof list[i] === 'boolean') { result += list[i] ? 'True' : 'False'; } else { result += `${list[i]}`; } if (i < 4) result += ', '; }; return result + ']'; }"
+							"transform": "(a, b) => { const list = ['an element', 67, 3.14, 'another element', false]; list[parseInt(a)] = b; let result = '['; for (let i = 0; i < 5; i++) { if (typeof list[i] === 'string') { result += `'${list[i]}'`; } else if (typeof list[i] === 'boolean') { result += list[i] ? 'True' : 'False'; } else { result += `${list[i]}`; } if (i < 4) result += ', '; }; return result + ']'; }"
 						}
 					]
 				]
@@ -1518,11 +1661,7 @@
 				"iconClasses": "fa-solid fa-code",
 				"name": "Khai báo và gọi hàm",
 				"codevi": ["ten = ''\n\ngoi_ten()", "\n\nchao_buoi_sang()", ""],
-				"codeen": [
-					"name = ''\n\nprint_name()",
-					"\n\ngood_morning()",
-					""
-				],
+				"codeen": ["name = ''\n\ngreet()", "\n\ngood_morning()", ""],
 				"correctvi": [
 					[
 						{
@@ -1586,7 +1725,7 @@
 				],
 				"codeen": [
 					"def greet(name):",
-					"def difference(a, b)\n\t\n\na = \nb = \nprint(difference(a, b))",
+					"def subtract(a, b)\n\t\n\na = \nb = \nprint(subtract(a, b))",
 					"def introduce():\n\t\n\nintroduce('name', 'class')"
 				],
 				"correctvi": [
@@ -1669,21 +1808,27 @@
 			"3": {
 				"iconClasses": "fa-solid fa-bars-staggered",
 				"name": "Phạm vi biến",
-				"codevi": ["def ham_x():\n\tx = 5\n\tprint(x)\n\nx = 123\n"],
+				"codevi": [
+					"def ham_x():\n\tx = 5\n\tprint(x)\n\nx = 123\n",
+					"x = 4\ndef tang_x():\n\t...\n\nprint(x)"
+				],
 				"codeen": [
-					"def some_function():\n\tx = 5\n\tprint(x)\n\nx = 123"
+					"def some_function():\n\tx = 5\n\tprint(x)\n\nx = 123",
+					"x = 4\ndef increase_x():\n\t...\n\nprint(x)"
 				],
 				"correctvi": [
 					[
 						{ "type": "static", "text": "5" },
 						{ "type": "static", "text": "123" }
-					]
+					],
+					[{ "type": "static", "text": "9" }]
 				],
 				"correcten": [
 					[
 						{ "type": "static", "text": "5" },
 						{ "type": "static", "text": "123" }
-					]
+					],
+					[{ "type": "static", "text": "9" }]
 				]
 			},
 			"4": {
