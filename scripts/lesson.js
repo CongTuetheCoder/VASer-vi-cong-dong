@@ -43,6 +43,22 @@ const backupURL = "data/content.json";
 
 let pythonWorker;
 
+function getCookie(cname) {
+	let name = cname + "=";
+	let decodedCookie = decodeURIComponent(document.cookie);
+	let ca = decodedCookie.split(";");
+	for (let i = 0; i < ca.length; i++) {
+		let c = ca[i];
+		while (c.charAt(0) == " ") {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+
 function fetchAndUpdateContent() {
 	fetch(backupURL)
 		.then((response) => {
@@ -79,7 +95,7 @@ async function fetchUID() {
 		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
 		const data = await response.json();
 
-		const username = localStorage.getItem("user");
+		const username = getCookie("user");
 		const user = data.find((u) => u.username === username);
 
 		if (!user || !user.data) throw new Error("User data missing");
