@@ -645,7 +645,7 @@
 				},
 				{
 					"type": "div",
-					"body": "<span class='token keyword'>for</span> i <span class='token keyword'>in</span> <span class='token builtin'>range</span>(n):<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class='code-comment'># các dòng lệnh</span><br><br><span class='code-comment'># for i in ... -> tạo một biến đếm tên là 'i'</span><br><span class='code-comment'># range(end) -> bắt đầu từ 0, dừng trước 'n'</span><br><span class='code-comment'># i được tăng thêm 1 mỗi lần chạy</span>"
+					"body": "<span class='token keyword'>for</span> i <span class='token keyword'>in</span> <span class='token builtin'>range</span>(n):<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class='code-comment'># các dòng lệnh</span><br><br><span class='code-comment'># for i in ... -> tạo một biến đếm tên là 'i'</span><br><span class='code-comment'># range(n) -> bắt đầu từ 0, dừng trước 'n'</span><br><span class='code-comment'># i được tăng thêm 1 mỗi lần chạy</span>"
 				},
 				{
 					"type": "br",
@@ -1275,7 +1275,7 @@
 					"body": ""
 				},
 				{
-					"body": "Ví dụ, để lấy các phần tử cách nhau 2 vị trí, ta có thể làm như sau::"
+					"body": "Ví dụ, để lấy các phần tử cách nhau 2 vị trí, ta có thể làm như sau:"
 				},
 				{
 					"type": "div",
@@ -1302,7 +1302,7 @@
 					"body": ""
 				},
 				{
-					"body": "Bài tập: Hãy in ra nửa sau của danh sách <span class=\"inl-code\">so_may_man</span> bằng cách dùng slicing."
+					"body": "Hãy in ra nửa sau của danh sách <span class=\"inl-code\">so_may_man</span> bằng cách dùng slicing."
 				}
 			],
 			[
@@ -1318,7 +1318,7 @@
 					"body": ""
 				},
 				{
-					"body": "Bài tập: Dùng slicing để in ra danh sách <span class=\"inl-code\">cac_mon_hoc</span> theo thứ tự ngược lại."
+					"body": "Dùng slicing để in ra danh sách <span class=\"inl-code\">cac_mon_hoc</span> theo thứ tự ngược lại."
 				}
 			],
 			[
@@ -2063,6 +2063,32 @@
 				{
 					"body": "Ta sẽ thấy được <strong>hai giá trị khác nhau</strong> được in ra trên màn hình."
 				}
+			],
+			[
+				{
+					"body": "Trong Python, nếu bạn muốn thay đổi giá trị của biến toàn cục bên trong một hàm, bạn cần dùng từ khóa <span class='inl-code token keyword'>global</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Từ khóa <span class='inl-code token keyword'>global</span> cho phép hàm truy cập và sửa đổi biến toàn cục thay vì tạo biến cục bộ mới."
+				},
+				{
+					"type": "div",
+					"body": "x = 10  <span class='code-comment'># biến toàn cục</span><br><span class='token keyword'>def</span> <span class='token function'>thay_doi_x</span>():<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>global</span> x<br>&nbsp;&nbsp;&nbsp;&nbsp;x = 20<br><span class='token function'>thay_doi_x</span>()<br><span class='token builtin'>print</span>(x)  <span class='code-comment'># Kết quả: 20</span>"
+				},
+				{
+					"body": "Như ví dụ trên, khi sử dụng <span class='inl-code token keyword'>global</span>, hàm có thể thay đổi trực tiếp giá trị của biến toàn cục."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Thực hành: Viết một hàm <span class='inl-code token function'>tang_x</span>() để tăng giá trị biến toàn cục x lên 5, sau đó in giá trị x."
+				}
 			]
 		],
 
@@ -2104,6 +2130,7 @@
 				}
 			]
 		],
+
 		"5.2": [
 			[
 				{
@@ -2137,6 +2164,7 @@
 				}
 			]
 		],
+
 		"5.3": [
 			[
 				{
@@ -2170,6 +2198,7 @@
 				}
 			]
 		],
+
 		"5.4": [
 			[
 				{
@@ -2203,6 +2232,7 @@
 				}
 			]
 		],
+
 		"5.5": [
 			[
 				{
@@ -2236,6 +2266,7 @@
 				}
 			]
 		],
+
 		"5.6": [
 			[
 				{
@@ -2269,7 +2300,8 @@
 				}
 			]
 		],
-		"Thực hành 5": [
+
+		"5": [
 			[
 				{
 					"body": "Thực hành tổng hợp: <strong>Phân tích điểm số lớp học</strong>"
@@ -2291,6 +2323,2032 @@
 				},
 				{
 					"body": "<em>Bài mở rộng:</em> Cải tiến chương trình để xếp loại học sinh theo mức điểm và tìm người có điểm cao nhất."
+				}
+			]
+		]
+	},
+
+	{
+		"1.1": [
+			[
+				{
+					"type": "i",
+					"body": "Welcome to Python!"
+				},
+				{
+					"body": "Python is a powerful and versatile programming language."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "The first command you will learn is the <span class='inl-code'><span class='token builtin'>print</span>()</span> function. It is used to output values to the console."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Let's begin our programming journey by printing <span class='inl-code token string'>'Hello, Python!'</span> to the console!"
+				},
+				{
+					"body": "Type <span class='inl-code'><span class='token builtin'>print</span>(<span class='token string'>'Hello, Python!'</span>)</span> in the editor and run it."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Here, because <span class='inl-code token string'>'Hello, Python!'</span> is a text string, it needs to be placed inside single or double quotation marks."
+				}
+			],
+			[
+				{
+					"body": "The <span class='inl-code'><span class='token builtin'>print</span>()</span> function can output multiple values at once, separated by spaces."
+				},
+				{
+					"body": "To input multiple values into the <span class='inl-code'><span class='token builtin'>print</span>()</span> function, place commas between the values."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Since you're learning Python, why not try making a program that prints <span class='inl-code token string'>I am learning Python</span>?"
+				}
+			],
+			[
+				{
+					"body": "The <span class='inl-code'><span class='token builtin'>print</span>()</span> function can output multiple values at once, even if they're not the same data type."
+				},
+				{
+					"body": "Both numbers and strings can be passed into <span class='inl-code'><span class='token builtin'>print</span>()</span>."
+				},
+				{
+					"type": "i",
+					"body": "(Numbers do not need to be wrapped in single or double quotation marks.)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Try running <span class='inl-code'><span class='token builtin'>print</span>(<span class='token number'>123</span>, <span class='token string'>'Hello!'</span>)</span> and see how Python displays both values separated by a space."
+				}
+			]
+		],
+
+		"1.2": [
+			[
+				{
+					"body": "In Python, variables are like boxes used to store different kinds of information, such as text or numbers."
+				},
+				{
+					"body": "Variables can store text values such as names or greetings."
+				},
+				{
+					"body": "For example, you can assign the word <span class='inl-code token string'>'Jade'</span> to a variable named <span class='inl-code'>my_friend</span>."
+				},
+				{
+					"type": "div",
+					"body": "my_friend <span class='token operator'>=</span> <span class='token string'>'Jade'</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Let's start by assigning the value <span class='inl-code token string'>'Tony'</span> to a variable named <span class='inl-code'>name</span>."
+				}
+			],
+			[
+				{
+					"body": "Variables can also store numbers. Whole numbers are called integers."
+				},
+				{
+					"body": "For example, you can store an age in a variable like <span class='inl-code token number'>15</span>."
+				},
+				{
+					"type": "div",
+					"body": "age <span class='token operator'>=</span> <span class='token number'>15</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Try creating a variable named <span class='inl-code'>age</span> and assign it the value <span class='inl-code token number'>23</span>."
+				}
+			],
+			[
+				{
+					"body": "Some numbers have decimal parts, such as prices or measurements."
+				},
+				{
+					"body": "In Python, these are called floating-point numbers, or floats."
+				},
+				{
+					"body": "For example, you can assign <span class='inl-code token number'>52.8</span> to a variable named <span class='inl-code'>weight</span>:"
+				},
+				{
+					"type": "div",
+					"body": "weight <span class='token operator'>=</span> <span class='token number'>52.8</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Let's practice by assigning the variable <span class='inl-code'>price</span> the value <span class='inl-code token number'>10.5</span>."
+				}
+			],
+			[
+				{
+					"body": "Sometimes we want to store simple yes/no values."
+				},
+				{
+					"body": "Python uses a special type called Boolean, which can only be <span class='inl-code token boolean'>True</span> or <span class='inl-code token boolean'>False</span>."
+				},
+				{
+					"body": "For example, you can store whether someone has a driver's license."
+				},
+				{
+					"type": "div",
+					"body": "has_license <span class='token operator'>=</span> <span class='token boolean'>True</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Let's create a variable named <span class='inl-code'>is_student</span> and assign it the value <span class='inl-code token boolean'>False</span>!"
+				}
+			],
+			[
+				{
+					"body": "You can use multiple <span class='inl-code'><span class='token builtin'>print</span>()</span> statements to display different information."
+				},
+				{
+					"body": "For example, you can print a number and then print a message."
+				},
+				{
+					"type": "div",
+					"body": "favorite_number <span class='token operator'>=</span> <span class='token number'>12</span><br>message <span class='token operator'>=</span> <span class='token string'>'Keep going!'</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "First, try assigning the number <span class='inl-code token number'>7</span> to the variable <span class='inl-code'>lucky_number</span> and the text <br><span class='inl-code token string'>'Good luck!'</span> to the variable <span class='inl-code'>message</span>."
+				}
+			],
+			[
+				{
+					"body": "Variables don't always store numbers or text directly. They can also copy values from other variables."
+				},
+				{
+					"body": "For example, you can set one variable equal to another, such as setting <span class='inl-code'>total_score</span> equal to <span class='inl-code'>score</span>."
+				},
+				{
+					"type": "div",
+					"body": "score <span class='token operator'>=</span> <span class='token number'>10</span><br>total_score = score"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Try this by first creating a variable <span class='inl-code'>temp</span> with the value <span class='inl-code token number'>5</span>, then assigning another variable <span class='inl-code'>value</span> to be equal to <span class='inl-code'>temp</span>."
+				}
+			],
+			[
+				{
+					"body": "Python also lets you assign the same value to multiple variables in one line of code."
+				},
+				{
+					"body": "For example, you can assign <span class='inl-code token number'>9</span> to both <span class='inl-code'>x</span> and <span class='inl-code'>y</span> in one line."
+				},
+				{
+					"type": "div",
+					"body": "x <span class='token operator'>=</span> y <span class='token operator'>=</span> <span class='token number'>9</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Try assigning the value <span class='inl-code token number'>6</span> to both <span class='inl-code'>a</span> and <span class='inl-code'>b</span>."
+				}
+			],
+			[
+				{
+					"body": "You can also assign different values to multiple variables in the same line."
+				},
+				{
+					"body": "For example, you can assign a word to one variable and a number to another."
+				},
+				{
+					"type": "div",
+					"body": "x, y <span class='token operator'>=</span> <span class='token string'>'Hi'</span>, <span class='token number'>42</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Let's end the lesson by assigning the variable <span class='inl-code'>a</span> the value <span class='inl-code token number'>123</span> and the variable <span class='inl-code'>b</span> the value <span class='inl-code token string'>'Hello!'</span>."
+				}
+			]
+		],
+
+		"1.3": [
+			[
+				{
+					"body": "Python can perform arithmetic just like a calculator."
+				},
+				{
+					"body": "For example, Python can add two numbers using the <span class='inl-code token operator'>+</span> operator."
+				},
+				{
+					"body": "If you have <span class='inl-code'>3</span> apples and receive <span class='inl-code'>2</span> more, you can add them together to get <span class='inl-code'>5</span>."
+				},
+				{
+					"type": "div",
+					"body": "total <span class='token operator'>=</span> <span class='token number'>3</span> <span class='token operator'>+</span> <span class='token number'>2</span> <span class='code-comment'># total = 5</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Start by adding <span class='inl-code token number'>7</span> and <span class='inl-code token number'>8</span> and store the result in a variable named <span class='inl-code'>total</span>."
+				}
+			],
+			[
+				{
+					"body": "Python can also subtract numbers using the <span class='inl-code token operator'>-</span> operator."
+				},
+				{
+					"body": "For example, if you have <span class='inl-code token number'>10</span> candies and eat <span class='inl-code token number'>3</span>, you will have <span class='inl-code token number'>7</span> left."
+				},
+				{
+					"type": "div",
+					"body": "difference <span class='token operator'>=</span> <span class='token number'>10</span> <span class='token operator'>-</span> <span class='token number'>3</span> <span class='code-comment'># difference = 7</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Try creating a variable named <span class='inl-code'>difference</span> and store the result of <span class='inl-code'><span class='token number'>12</span> <span class='token operator'>-</span> <span class='token number'>4</span></span>."
+				}
+			],
+			[
+				{
+					"body": "Python uses the <span class='inl-code token operator'>*</span> symbol for multiplication."
+				},
+				{
+					"body": "This is useful when you want to add the same number many times quickly."
+				},
+				{
+					"body": "For example, if one chair costs <span class='inl-code token number'>50</span> and you buy <span class='inl-code token number'>4</span>, the total cost is <span class='inl-code token number'>200</span>."
+				},
+				{
+					"type": "div",
+					"body": "total_price <span class='token operator'>=</span> <span class='token number'>50</span> <span class='token operator'>*</span> <span class='token number'>4</span> <span class='code-comment'># total_price = 200</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Practice by multiplying <span class='inl-code token number'>6.5</span> by <span class='inl-code token number'>9</span> and storing the result in a variable named <span class='inl-code'>product</span>."
+				}
+			],
+			[
+				{
+					"body": "Python uses the <span class='inl-code token operator'>/</span> symbol for division."
+				},
+				{
+					"body": "It tells you how many times one number fits into another."
+				},
+				{
+					"body": "For example, if you have <span class='inl-code token number'>20</span> cookies and share them equally among <span class='inl-code token number'>5</span> friends, each person gets <span class='inl-code token number'>4</span> cookies."
+				},
+				{
+					"type": "div",
+					"body": "cookies_per_person <span class='token operator'>=</span> <span class='token number'>20</span> <span class='token operator'>/</span> <span class='token number'>5</span> <span class='code-comment'># cookies_per_person = 4.0</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Unlike other operations, division always returns a <span class='inl-code token builtin'>float</span>."
+				},
+				{
+					"body": "Try dividing <span class='inl-code token number'>15</span> by <span class='inl-code token number'>3</span> and store the result in a variable named <span class='inl-code'>quotient</span>."
+				}
+			],
+			[
+				{
+					"body": "Python also supports floor division, which rounds the result down to the nearest integer."
+				},
+				{
+					"body": "Python uses the <span class='inl-code token operator'>//</span> operator for floor division."
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Try using floor division to divide <span class='inl-code token number'>15</span> by <span class='inl-code token number'>3</span> and store the result in a variable named <span class='inl-code'>int_quotient</span>."
+				}
+			],
+			[
+				{
+					"body": "Python also has a special operator for finding the remainder, called the modulo operator, written as <span class='inl-code token operator'>%</span>."
+				},
+				{
+					"body": "It tells you what is left over after dividing."
+				},
+				{
+					"body": "For example, dividing <span class='inl-code token number'>10</span> by <span class='inl-code token number'>3</span> gives a result of <span class='inl-code token number'>3</span> with a remainder of <span class='inl-code token number'>1</span>."
+				},
+				{
+					"type": "div",
+					"body": "remainder <span class='token operator'>=</span> <span class='token number'>10</span> <span class='token operator'>%</span> <span class='token number'>3</span> <span class='code-comment'># remainder = 1</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Find the remainder when <span class='inl-code token number'>17</span> is divided by <span class='inl-code token number'>5</span> and store it in a variable named <span class='inl-code'>remainder</span>."
+				}
+			],
+			[
+				{
+					"body": "Python can also calculate exponents using the <span class='inl-code token operator'>**</span> operator."
+				},
+				{
+					"body": "Exponentiation means multiplying a number by itself several times."
+				},
+				{
+					"body": "For example, <span class='inl-code'><span class='token number'>2</span> <span class='token operator'>**</span> <span class='token number'>3</span> = <span class='token number'>2</span> <span class='token operator'>*</span> <span class='token number'>2</span> <span class='token operator'>*</span> <span class='token number'>2</span> = <span class='token number'>8</span></span>."
+				},
+				{
+					"type": "div",
+					"body": "power <span class='token operator'>=</span> <span class='token number'>2</span> <span class='token operator'>**</span> <span class='token number'>3</span> <span class='code-comment'># power = 8</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Now try calculating <span class='inl-code token number'>5</span> to the power of <span class='inl-code token number'>2</span> and store the result in a variable named <span class='inl-code'>square</span>."
+				}
+			],
+			[
+				{
+					"body": "Python follows a set of rules for operator precedence, often remembered by the acronym <span class='inl-code'>PEMDAS</span>:"
+				},
+				{
+					"type": "ul",
+					"body": "<li>Parentheses</li><li>Exponentiation</li><li>Multiplication and Division</li><li>Addition and Subtraction</li>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "For an expression like <span class='inl-code'>(3 + 4) ** 2 * 5 - 1</span>, Python evaluates it in this order:"
+				},
+				{
+					"type": "div",
+					"body": " = 7 ** 2 * 5 - 1 <span class='code-comment'># parentheses first</span><br> = 49 * 5 - 1 <span class='code-comment'># then exponentiation</span><br> = 245 - 1 <span class='code-comment'># then multiplication</span><br> = 244 <span class='code-comment'># finally addition/subtraction</span>"
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Let's finish strong by assigning the result of <span class='inl-code'><span class='token number'>3</span> <span class='token operator'>*</span> (<span class='token number'>4</span> <span class='token operator'>-</span> <span class='token number'>2</span>) <span class='token operator'>**</span> <span class='token number'>3</span> <span class='token operator'>/</span> <span class='token number'>2</span> <span class='token operator'>+</span> <span class='token number'>1</span></span> to a variable named <span class='inl-code'>result</span>!"
+				}
+			]
+		],
+
+		"1.4": [
+			[
+				{
+					"body": "In Python, you can compare numbers using comparison operators. These operators let programs determine how two values relate to each other."
+				},
+				{
+					"body": "Each comparison returns a special result called a <span class='inl-code'>boolean</span>, which can only be <span class='inl-code token boolean'>True</span> (the condition is correct) or <span class='inl-code token boolean'>False</span> (the condition is not correct)."
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "For example, if you want to check whether one number is greater than another, you can use the <span class='inl-code token operator'>&gt;</span> operator."
+				},
+				{
+					"body": "Likewise, if you want to check whether a number is smaller than another, you can use the <span class='inl-code token operator'>&lt;</span> operator."
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "For instance, you can write a simple comparison like <span class='inl-code'>a <span class='token operator'>&gt;</span> b</span> or <span class='inl-code'>a <span class='token operator'>&lt;</span> b</span>. Python will tell you whether the statement is true or false."
+				}
+			],
+			[
+				{
+					"body": "Of course, comparing numbers isn't just about greater or smaller. Sometimes you want to know whether two numbers are exactly equal."
+				},
+				{
+					"body": "To do this, Python uses the <span class='inl-code token operator'>==</span> operator. Pay close attention: the double equals sign is important, because the single equals sign <span class='inl-code token operator'>=</span> is already used for assigning values to variables."
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "Try this: you can check <span class='inl-code'>x <span class='token operator'>==</span> y</span>. If the two numbers are equal, Python returns <span class='inl-code token boolean'>True</span>. Otherwise, it returns <span class='inl-code token boolean'>False</span>."
+				}
+			],
+			[
+				{
+					"body": "Python also provides operators that check both size and equality at the same time."
+				},
+				{
+					"body": "For example, the <span class='inl-code token operator'><=</span> operator checks whether a number is less than or equal to another."
+				},
+				{
+					"body": "Similarly, the <span class='inl-code token operator'>>=</span> operator checks whether a number is greater than or equal to another."
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "These operators are useful when you want to include the case where two numbers are equal while still comparing their sizes. Try checking <span class='inl-code'>m <span class='token operator'>&lt;=</span> n</span> or <span class='inl-code'>m <span class='token operator'>&gt;=</span> n</span>."
+				}
+			],
+			[
+				{
+					"body": "Finally, what if you want to check whether two numbers are <strong>not</strong> equal?"
+				},
+				{
+					"body": "In that case, you can use the <span class='inl-code token operator'>!=</span> operator, which is the opposite of <span class='inl-code token operator'>==</span>."
+				},
+				{ "type": "br", "body": "" },
+				{
+					"body": "For example, writing <span class='inl-code'>num1 <span class='token operator'>!=</span> num2</span> will return <span class='inl-code token boolean'>True</span> if the numbers are different, and <span class='inl-code token boolean'>False</span> if they are the same."
+				},
+				{
+					"body": "And that's all the main ways to compare numbers in Python!"
+				}
+			]
+		],
+
+		"1.5": [
+			[
+				{
+					"body": "In Python, you can interact with the user by asking them to enter something."
+				},
+				{
+					"body": "This is done using the <span class='inl-code'><span class='token builtin'>input</span>()</span> function, which displays a message in the console and waits for the user's response."
+				},
+				{
+					"body": "The program only continues after the user presses <span class='inl-code'>Enter</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "To begin, try storing the data the user enters into a variable named <span class='inl-code'>name</span> and greet the user based on that information."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "i",
+					"body": "It's important to note that <span class='inl-code'><span class='token builtin'>input</span>()</span> always returns a string. This will matter later."
+				}
+			],
+			[
+				{
+					"body": "The <span class='inl-code'><span class='token builtin'>input</span>()</span> function does not have to display an empty line for input. You can also add a prompt message so the user knows what to type."
+				},
+				{
+					"body": "This is done by passing a string prompt into the <span class='inl-code'><span class='token builtin'>input</span>()</span> function, like <span class='inl-code'><span class='token builtin'>input</span>(prompt)</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Remember that the <span class='inl-code'>prompt</span> you provide must always be written as a string."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Give the user the prompt <br><span class='inl-code token string'>'Enter message: '</span> before they input data."
+				}
+			],
+			[
+				{
+					"body": "When you use the <span class='inl-code'><span class='token builtin'>input</span>()</span> function, Python always treats the result as text, even if you enter a number."
+				},
+				{
+					"body": "This is where <span class='inl-code'>type casting</span> becomes necessary."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "To convert data from one type to another, simply follow the syntax <span class='inl-code'>&lt;data_type&gt;(&lt;...&gt;)</span>."
+				},
+				{
+					"body": "Here are a few examples of data conversion:"
+				},
+				{
+					"type": "div",
+					"body": "value = <span class='token builtin'>int</span>(<span class='token string'>'134'</span>) <span class='code-comment'># value = 134</span><br>id_string = <span class='token builtin'>str</span>(<span class='token number'>165402985</span>) <span class='code-comment'># id_string = '165402985'</span><br>price = <span class='token builtin'>float</span>(<span class='token string'>'10.5'</span>) <span class='code-comment'># price = 10.5</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Right now, our program cannot add 3 to the data the user enters. Fix this by converting the input into an <span class='inl-code token builtin'>int</span>."
+				}
+			],
+			[
+				{
+					"body": "Let's look at another situation where data conversion is important."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Suppose the program asks the user to enter the price of an item. If we try subtracting <span class='inl-code'>$2.5</span> directly, the program will fail because the input is still treated as text."
+				},
+				{
+					"body": "We can solve this problem by converting the input into a <span class='inl-code token builtin'>float</span> first."
+				}
+			],
+			[
+				{
+					"body": "In Python, every value has a specific data type that describes what kind of data it is."
+				},
+				{
+					"body": "The <span class='inl-code'><span class='token builtin'>type</span>()</span> function can be used to check the data type of a value or a variable."
+				},
+				{
+					"body": "For example, numbers can have types like <span class='inl-code token builtin'>int</span> and <span class='inl-code token builtin'>float</span>, while text is stored as <span class='inl-code token builtin'>str</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Try printing the data types of your variables using the <span class='inl-code'><span class='token builtin'>type</span>()</span> function."
+				}
+			]
+		],
+
+		"1": [
+			[
+				{
+					"type": "i",
+					"body": "Welcome to your first practice activity!"
+				},
+				{
+					"body": "This is your chance to apply all the skills you've learned so far."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "In this first exercise, write a program that allows the user to enter two numbers and prints their sum."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "- Ask the user to enter a number using the prompt <br><span class='inl-code token string'>'Enter the first number: '</span>, convert the input into a float, and store it in the variable <span class='inl-code'>term1</span>."
+				},
+				{
+					"body": "- Ask the user to enter another number using the prompt <br><span class='inl-code token string'>'Enter the second number: '</span>, convert the input into a float, and store it in the variable <span class='inl-code'>term2</span>."
+				},
+				{
+					"body": "- Calculate and print the sum of the two numbers."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "--- SAMPLE OUTPUT ---<br>Enter the first number: 5<br>Enter the second number: 3<br>5.0 + 3.0 = 8.0"
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Now, let's try using Python for a real-world math application!"
+				},
+				{
+					"body": "In this exercise, you will write a program to convert temperature from Celsius to Fahrenheit."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "- Ask the user to enter a temperature in Celsius."
+				},
+				{
+					"body": "- Use the formula <span class='inl-code'>F = C <span class='token operator'>*</span> <span class='token number'>9</span><span class='token operator'>/</span><span class='token number'>5</span> <span class='token operator'>+</span> <span class='token number'>32</span></span> to convert to Fahrenheit."
+				},
+				{
+					"body": "- Print the result."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "--- SAMPLE OUTPUT ---<br>Enter temperature (in Celsius): 25<br>The temperature in Fahrenheit is 77.0"
+				}
+			]
+		],
+
+		"2.1": [
+			[
+				{
+					"body": "In Python, you can make a block of code repeat a certain number of times using a <span class='inl-code token keyword'>for</span> loop."
+				},
+				{
+					"body": "Suppose you want to print the numbers from <span class='inl-code token number'>1</span> to <span class='inl-code token number'>5</span>. You could write 5 print statements, but that would be boring. A loop allows the computer to repeat the work for you."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "To create a <span class='inl-code token keyword'>for</span> loop, follow this syntax:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>for</span> i <span class='token keyword'>in</span> <span class='token builtin'>range</span>(n):<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class='code-comment'># code lines</span><br><br><span class='code-comment'># for i in ... -> creates a counter variable named 'i'</span><br><span class='code-comment'># range(n) -> starts from 0, stops before 'n'</span><br><span class='code-comment'># i increases by 1 each loop</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "i",
+					"body": "Remember: indentation after a <span class='inl-code token keyword'>for</span> loop is very important. It tells Python which lines belong to the loop. Without it, your program will not run correctly!"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "i",
+					"body": "You can indent using the <span class='inl-code'>Tab</span> key."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Now, start by printing a message of your choice 10 times using a <span class='inl-code token keyword'>for</span> loop."
+				}
+			],
+			[
+				{
+					"body": "A <span class='inl-code token keyword'>for</span> loop does not have to start from <span class='inl-code token number'>0</span>."
+				},
+				{
+					"body": "To create a <span class='inl-code token keyword'>for</span> loop that starts from <span class='inl-code'>m</span> and ends before <span class='inl-code'>n</span>, use the syntax:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>for</span> i <span class='token keyword'>in</span> <span class='token builtin'>range</span>(m, n):<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class='code-comment'># code lines</span><br><br><span class='code-comment'># for i in ... -> creates a counter variable named 'i'</span><br><span class='code-comment'># range(m, n) -> generates numbers starting from 'm', stopping before 'n'</span><br><span class='code-comment'># i increases by 1 each loop</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example: <span class='inl-code'><span class='token builtin'>range</span>(<span class='token number'>1</span>, <span class='token number'>4</span>)</span> produces the numbers <br><span class='inl-code'>1, 2, 3</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Now, write a <span class='inl-code token keyword'>for</span> loop starting from <span class='inl-code token number'>1</span> and stopping before <span class='inl-code token number'>6</span>."
+				},
+				{
+					"body": "Inside the loop, add a <span class='inl-code token builtin'>print</span> statement to print the counter <span class='inl-code'>i</span> followed by the text <span class='inl-code token string'>\"repeat\"</span>."
+				}
+			],
+			[
+				{
+					"body": "In a <span class='inl-code token keyword'>for</span> loop, the counter usually increases by <span class='inl-code token number'>1</span> each time."
+				},
+				{
+					"body": "We can change this by adding a third number to <span class='inl-code token builtin'>range</span>, like this:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>for</span> i <span class='token keyword'>in</span> <span class='token builtin'>range</span>(start, end, step):<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class='code-comment'># code lines</span><br><br><span class='code-comment'># for i in ... -> creates a counter variable named 'i'</span><br><span class='code-comment'># range(start, end, ...) -> starts at 'start', stops before 'end'</span><br><span class='code-comment'># ... step) -> i increases by 'step' every loop</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Now, print all even numbers from <span class='inl-code token number'>0</span> to <span class='inl-code'>max_num</span>."
+				},
+				{
+					"type": "i",
+					"body": "Hint: make <span class='inl-code'>i</span> increase by <span class='inl-code token number'>2</span> each time."
+				}
+			],
+			[
+				{
+					"body": "Great! Now you know how to control the starting point, ending point, and step size of a <span class='inl-code token keyword'>for</span> loop."
+				},
+				{
+					"body": "Next, we will try using the <span class='inl-code'><span class='token builtin'>input</span>()</span> function to determine how many times the loop should run."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a program that asks the user to enter a number <span class='inl-code'>n</span>."
+				},
+				{
+					"body": "Then, use a <span class='inl-code token keyword'>for</span> loop to print the numbers from <span class='inl-code token number'>1</span> to <span class='inl-code'>n</span>."
+				}
+			]
+		],
+
+		"2.2": [
+			[
+				{
+					"body": "A <span class='inl-code token keyword'>for</span> loop can only repeat a fixed number of times. But what if we want to repeat <strong>as long as a condition is True</strong>?"
+				},
+				{
+					"body": "A <span class='inl-code token keyword'>for</span> loop cannot do that. This is when a <span class='inl-code token keyword'>while</span> loop comes in handy."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "As the name suggests, a <span class='inl-code token keyword'>while</span> loop repeats the block of code inside it until the condition is no longer <span class='inl-code token boolean'>True</span>."
+				},
+				{
+					"body": "You can create a <span class='inl-code token keyword'>while</span> loop using the following syntax:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>while</span> condition:<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class='code-comment'># loop body</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "i",
+					"body": "Remember: just like with a <span class='inl-code token keyword'>for</span> loop, indentation after the <span class='inl-code token keyword'>while</span> statement is very important. It tells Python which lines belong to the loop. Without it, your program will not run correctly!"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Start exploring <span class='inl-code token keyword'>while</span> loops by printing the integers from <span class='inl-code token number'>0</span> less than <span class='inl-code token number'>10</span> using a variable <span class='inl-code'>i</span>."
+				},
+				{
+					"body": "Don't forget to increment <span class='inl-code'>i</span> by <span class='inl-code token number'>1</span> after each print!"
+				}
+			],
+			[
+				{
+					"body": "Now that we see how a <span class='inl-code token keyword'>while</span> loop works, let's write a program that accumulates numbers until the user enters <span class='inl-code token number'>0</span>."
+				},
+				{
+					"body": "We will use a <span class='inl-code token keyword'>while</span> loop that runs as long as <br><span class='inl-code'>n <span class='token operator'>!=</span> <span class='token number'>0</span></span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Complete the missing parts so the program continuously asks for a number, adds it to <span class='inl-code'>total</span>, and stops when the user enters <span class='inl-code token number'>0</span>."
+				}
+			],
+			[
+				{
+					"body": "Let's look at another example where a <span class='inl-code token keyword'>while</span> loop is needed."
+				},
+				{
+					"body": "In this example, we want the user to enter a password repeatedly until it is correct."
+				},
+				{
+					"type": "ul",
+					"body": "<li>If the password is <span class='inl-code'>password123</span>, the loop ends, the program prints <br><span class='inl-code token string'>'Access granted.'</span> and stops.</li><li>If it is incorrect, the program prints <br><span class='inl-code token string'>'Incorrect password.'</span> and asks the user to enter the password again.</li>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Each input request should start with <br><span class='inl-code token string'>'Enter password: '</span>."
+				}
+			]
+		],
+
+		"2.3": [
+			[
+				{
+					"body": "After learning how the <span class='inl-code token keyword'>while</span> loop helps repeat code, let's explore how to make decisions in a program."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Sometimes, you want the program to do something <strong>only once</strong> when a certain condition is true. This is when the <span class='inl-code token keyword'>if</span> statement is used."
+				},
+				{
+					"body": "The <span class='inl-code token keyword'>if</span> statement checks a condition, and if it is <span class='inl-code token boolean'>True</span>, it executes the code inside its block."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "x <span class='token operator'>=</span> <span class='token number'>5</span><br><span class='token keyword'>if</span> x <span class='token operator'>></span> <span class='token number'>3</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'x is greater than 3!'</span>)"
+				},
+				{
+					"body": "Here, the condition <span class='inl-code'>x > 3</span> is true, so the message is printed. If the condition were false, Python would skip the <span class='inl-code'><span class='token builtin'>print</span>()</span> line."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Now, try it yourself! Check if <span class='inl-code'>a</span> is greater than <span class='inl-code'>b</span>. If it is, display the message <br><span class='inl-code token string'>'a is greater than b'</span>."
+				}
+			],
+			[
+				{
+					"body": "What if we want to run a different block of code when the condition is <span class='inl-code token boolean'>False</span>? In that case, we use the <span class='inl-code token keyword'>else</span> statement."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "The <span class='inl-code token keyword'>else</span> statement must be written immediately after the <span class='inl-code token keyword'>if</span> statement, like this:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>if</span> condition:<br>&nbsp;&nbsp;&nbsp;&nbsp;block1<br><span class='token keyword'>else</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;block2"
+				},
+				{
+					"body": "Here, <span class='inl-code'>block1</span> runs if the condition is <span class='inl-code token boolean'>True</span>. If the condition is <span class='inl-code token boolean'>False</span>, then <span class='inl-code'>block2</span> runs instead."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Based on the previous code, add an <span class='inl-code token keyword'>else</span> block to display <span class='inl-code token string'>'a is not greater than b'</span> when the condition is false."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "What if we need to check multiple conditions?"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "We can nest <span class='inl-code token keyword'>if</span> statements inside an <span class='inl-code token keyword'>else</span>..."
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>if</span> condition1:<br>&nbsp;&nbsp;&nbsp;&nbsp;body1<br><span class='token keyword'>else</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>if</span> condition2:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block2<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>else</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block3"
+				},
+				{
+					"body": "...but this approach can make code messy."
+				},
+				{
+					"body": "Instead, Python provides the <span class='inl-code token keyword'>elif</span> statement to check multiple conditions more neatly:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>if</span> condition1:<br>&nbsp;&nbsp;&nbsp;&nbsp;block1<br><span class='token keyword'>elif</span> condition2:<br>&nbsp;&nbsp;&nbsp;&nbsp;block2<br><span class='token keyword'>else</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;block3"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Based on the previous code, add an <span class='inl-code token keyword'>elif</span> statement to check if <span class='inl-code'>a</span> is equal to <span class='inl-code'>b</span>. If so, display the message <span class='inl-code token string'>'a equals b'</span>."
+				}
+			]
+		],
+
+		"2.4": [
+			[
+				{
+					"body": "Loops in Python are very useful, but sometimes we can accidentally get our program stuck in an infinite loop."
+				},
+				{
+					"body": "In this case, the program will run continuously and never stop."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Most of the time, we don't want this to happen.<br>To fix this, we can use the <span class='inl-code token keyword'>break</span> statement in Python."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "The <span class='inl-code token keyword'>break</span> statement immediately exits the loop that is currently being executed. Here's how to use it:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>while</span> <span class='token boolean'>True</span>: <span class='code-comment'># can be replaced with any loop</span><br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class='code-comment'># loop body</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>break</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Currently, we are using an infinite <span class='inl-code'><span class='token keyword'>while</span> <span class='token boolean'>True</span></span> loop to print numbers from 0-9. Exit this loop when the variable <span class='inl-code'>i</span> becomes greater than <span class='inl-code token number'>9</span>."
+				}
+			],
+			[
+				{
+					"body": "However, sometimes we don't want to exit the loop immediately."
+				},
+				{
+					"body": "Sometimes, we just want to skip the rest of the loop for a particular iteration."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "In such cases, the <span class='inl-code token keyword'>break</span> statement is not suitable. Instead, we use the <span class='inl-code token keyword'>continue</span> statement."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Here is an example of using <span class='inl-code token keyword'>continue</span>:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>for</span> i <span class='token keyword'>in</span> <span class='token builtin'>range</span>(5):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>if</span> i <span class='token operator'>==</span> <span class='token number'>2</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>continue</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(i)"
+				},
+				{
+					"body": "The output will be:"
+				},
+				{
+					"type": "div",
+					"body": "0<br>1<br>3<br>4<br>"
+				},
+				{
+					"body": "We can see that the <span class='inl-code token keyword'>continue</span> statement ran when <span class='inl-code'>i</span> was <span class='inl-code token number'>2</span>, so the code after <span class='inl-code token keyword'>continue</span> <em>(the <span class='inl-code token builtin'>print</span> statement)</em> did not execute."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a program using the <span class='inl-code token keyword'>continue</span> statement to print numbers from <span class='inl-code token number'>1</span> to <span class='inl-code token number'>15</span>, skipping numbers divisible by <span class='inl-code token number'>4</span>."
+				},
+				{
+					"type": "i",
+					"body": "Hint: use the modulo operator (<span class='inl-code token operator'>%</span>) to check if a number is divisible by 4."
+				}
+			]
+		],
+
+		"2": [
+			[
+				{
+					"type": "i",
+					"body": "Welcome to the first scenario exercise!"
+				},
+				{
+					"body": "In this exercise, you will apply your Python skills to solve a real-world problem."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "You will help a small café owner named Lynda automate part of her daily workflow.<br>Currently, Lynda records orders on paper, but she wants a simple Python program to help with:"
+				},
+				{
+					"type": "ul",
+					"body": "<li>recording each customer's order,</li><li>calculating the total cost,</li><li>and summarizing the day's revenue when the café closes.</li>"
+				},
+				{
+					"body": "You have decided to build a simple text-based program using only the Python skills you've learned so far."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Lynda has also given you a few requirements."
+				},
+				{
+					"type": "strong",
+					"body": "Your program should perform the following tasks:"
+				},
+				{
+					"type": "ol",
+					"body": "<li>Display the menu.</li><li>Ask how many customers there are today.</li><li>For each customer:<br><ul><li>Ask what they ordered and how many portions</li><li>Calculate the total cost for that customer</li><li>Print the customer's total</li></ul></li><li>Display the café's total revenue at the end of the day.</li>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Lynda has prepared an example output for your reference:"
+				},
+				{
+					"type": "div",
+					"body": "Welcome to Lynda's café!<br>Today's menu:<br>1. Coffee - $ 1.0<br>2. Tea - $ 0.75<br>3. Cake - $ 2.0<br><br>Enter the number of customers today: 2<br><br>--- Customer 1 ---<br>Enter item (coffee/tea/cake): coffee<br>Enter quantity: 2<br>Total: $ 2.0<br><br>--- Customer 2 ---<br>Enter item (coffee/tea/cake): cake<br>Enter quantity: 1<br>Total: $ 2.0<br><br>Total revenue: $ 4.0"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Let's help Lynda!"
+				}
+			]
+		],
+
+		"3.1": [
+			[
+				{
+					"type": "i",
+					"body": "We've learned how to store a single value in a variable. But what if we want to store multiple values in a single variable?"
+				},
+				{
+					"body": "Today's lesson will answer that question."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "To store multiple values in a single variable, we use a <span class='inl-code'>list</span>."
+				},
+				{
+					"body": "An empty list in Python is created using square brackets (<span class='inl-code'>[]</span>)."
+				},
+				{
+					"body": "Create an empty list called <span class='inl-code'>empty_list</span> and print it using <span class='inl-code token builtin'>print</span>."
+				}
+			],
+			[
+				{
+					"body": "To create a list with elements, place them inside square brackets (<span class='inl-code'>[]</span>) separated by commas."
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "my_list <span class='token operator'>=</span> [<span class='token number'>1</span>, <span class='token number'>2</span>, <span class='token number'>4</span>, <span class='token number'>5</span>] <span class='code-comment'># creates a list with elements 1, 2, 4, 5</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Now, we have an empty list called <span class='inl-code'>grades</span>."
+				},
+				{
+					"body": "Add the scores <span class='inl-code token number'>85</span>, <span class='inl-code token number'>93</span>, <span class='inl-code token number'>67</span>, and <span class='inl-code token number'>78</span> to <span class='inl-code'>grades</span> and print the list."
+				}
+			],
+			[
+				{
+					"body": "Lists in Python can also contain elements of different data types."
+				},
+				{
+					"body": "This means they can store strings, numbers, booleans, etc."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example: the list <span class='inl-code'>[<span class='token number'>1</span>, <span class='token number'>-3.14</span>, <span class='token string'>'Hello!'</span>, <span class='token boolean'>True</span>]</span> is valid."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "To finish the lesson, create and print a list containing <span class='inl-code token string'>'This is a list'</span>, <span class='inl-code token number'>123</span>, <span class='inl-code token boolean'>False</span>, and <span class='inl-code token number'>2.7183</span>."
+				}
+			]
+		],
+
+		"3.2": [
+			[
+				{
+					"body": "We can now store multiple values in a variable, but how do we access and modify them?"
+				},
+				{
+					"body": "Think of a list as a box with compartments. Each compartment has an index starting from 0 to help you retrieve an item."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "<strong>Example:</strong> The list <span class='inl-code'>grades = [<span class='token number'>8.5</span>, <span class='token number'>9</span>, <span class='token number'>7.5</span>, <span class='token number'>7</span>]</span> can be visualized as a box with 4 compartments:"
+				},
+				{
+					"type": "div",
+					"body": "┎────────────────────┒<br>┃&nbsp;8.5&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;7.5&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;┃&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┎──────┒<br>┃┖─0─┚┖─1─┚┖─2─┚┖─3─┚┃ --> ┃grades┃<br>┖────────────────────┚&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖──────┚"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "To access the first element (index 0) in <span class='inl-code'>grades</span>, use:"
+				},
+				{
+					"type": "div",
+					"body": "grades[<span class='token number'>0</span>] <span class='code-comment'># accesses the first element -> 8.5</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Accessing an element is like opening a compartment of a box to see what's inside."
+				},
+				{
+					"body": "Try printing the 3rd element (index 2) of the list <span class='inl-code'>students</span>!"
+				},
+				{
+					"type": "i",
+					"body": "Hint: The second element of a list has index <span class='inl-code token number'>1</span>."
+				}
+			],
+			[
+				{
+					"body": "We can now access elements, but how do we modify them?"
+				},
+				{
+					"body": "Modifying an element is like opening a compartment of a box and replacing the value inside with a new value."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Revisiting the list <span class='inl-code'>grades</span>:"
+				},
+				{
+					"type": "div",
+					"body": "┎────────────────────┒<br>┃&nbsp;8.5&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;7.5&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;┃&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┎──────┒<br>┃┖─0─┚┖─1─┚┖─2─┚┖─3─┚┃ --> ┃grades┃<br>┖────────────────────┚&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖──────┚"
+				},
+				{
+					"body": "To change the 3rd element to <span class='inl-code token number'>8.5</span>, open the compartment at index 2 and replace <span class='inl-code token number'>7.5</span> with <span class='inl-code token number'>8.5</span>."
+				},
+				{
+					"body": "The list now looks like this:"
+				},
+				{
+					"type": "div",
+					"body": "┎────────────────────┒<br>┃&nbsp;8.5&nbsp;&nbsp;&nbsp;9&nbsp;&nbsp;&nbsp;8.5&nbsp;&nbsp;&nbsp;7&nbsp;&nbsp;┃&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┎──────┒<br>┃┖─0─┚┖─1─┚┖─2─┚┖─3─┚┃ --> ┃grades┃<br>┖────────────────────┚&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┖──────┚"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "In Python, the syntax to change the 3rd element to 8.5 is:"
+				},
+				{
+					"type": "div",
+					"body": "grades[<span class='token number'>2</span>] <span class='token operator'>=</span> <span class='token number'>8.5</span> <span class='code-comment'># change the 3rd element to 8.5</span>"
+				},
+				{
+					"body": "Try replacing the 4th element of <span class='inl-code'>scores</span> with <span class='inl-code token number'>92</span> and print the list."
+				},
+				{
+					"type": "i",
+					"body": "Hint: The 4th element has index <span class='inl-code token number'>3</span>."
+				}
+			],
+			[
+				{
+					"body": "Sometimes, you don't need the entire list but just a part of it (e.g., first 3 elements or elements at even positions)."
+				},
+				{
+					"body": "In Python, <strong>list slicing</strong> lets you easily extract a subset of a list."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Basic slicing syntax:"
+				},
+				{
+					"type": "div",
+					"body": "my_list[start:end]"
+				},
+				{
+					"body": "Where:<br>- <span class=\"inl-code\">start</span> is the starting index (inclusive).<br>- <span class=\"inl-code\">end</span> is the ending index (exclusive)."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "numbers = [<span class='token number'>0</span>, <span class='token number'>1</span>, <span class='token number'>2</span>, <span class='token number'>3</span>, <span class='token number'>4</span>, <span class='token number'>5</span>]<br><span class='token builtin'>print</span>(numbers[<span class='token number'>1</span>:<span class='token number'>4</span>]) <span class=\"code-comment\"># Output: [1, 2, 3]</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Print elements from index 0 to 2 of the list <span class=\"inl-code\">students</span>."
+				}
+			],
+			[
+				{
+					"body": "You can also add a <strong>step</strong> to skip elements using:"
+				},
+				{
+					"type": "div",
+					"body": "list_name[start:end:step]"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example: to get every second element:"
+				},
+				{
+					"type": "div",
+					"body": "numbers = [<span class='token number'>0</span>, <span class='token number'>1</span>, <span class='token number'>2</span>, <span class='token number'>3</span>, <span class='token number'>4</span>, <span class='token number'>5</span>, <span class='token number'>6</span>]<br><span class='token builtin'>print</span>(numbers[<span class='token number'>0</span>:<span class='token number'>7</span>:<span class='token number'>2</span>]) <span class=\"code-comment\"># Output: [0, 2, 4, 6]</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Print elements with even indices in the list <span class=\"inl-code\">lucky_numbers</span> using a step."
+				}
+			],
+			[
+				{
+					"body": "If you omit <span class=\"inl-code\">start</span> or <span class=\"inl-code\">end</span>, Python assumes you want to start from the beginning or go to the end."
+				},
+				{
+					"type": "div",
+					"body": "numbers = [<span class='token number'>10</span>, <span class='token number'>20</span>, <span class='token number'>30</span>, <span class='token number'>40</span>, <span class='token number'>50</span>]<br>print(numbers[:3]) <span class=\"code-comment\"># From start to index 2</span><br><span class='token builtin'>print</span>(numbers[<span class='token number'>2</span>:]) <span class=\"code-comment\"># From index 2 to end</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Print the second half of the list <span class=\"inl-code\">lucky_numbers</span> using slicing."
+				}
+			],
+			[
+				{
+					"body": "You can also use a negative step to <strong>reverse a list</strong>."
+				},
+				{
+					"type": "div",
+					"body": "numbers = [<span class='token number'>0</span>, <span class='token number'>1</span>, <span class='token number'>2</span>, <span class='token number'>3</span>, <span class='token number'>4</span>, <span class='token number'>5</span>]<br><span class='token builtin'>print</span>(numbers[::<span class='token number'>-1</span>]) <span class=\"code-comment\"># Output: [5, 4, 3, 2, 1]</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Use slicing to print the list <span class=\"inl-code\">subjects</span> in reverse order."
+				}
+			],
+			[
+				{
+					"body": "To finish the lesson, write a program with the following features:"
+				},
+				{
+					"type": "ul",
+					"body": "<li>Print the initial list (given)</li><li>Ask the user to input an index</li><li>Ask the user to input a value</li><li>Replace the element at the given index with the new value</li><li>Print the modified list</li>"
+				}
+			]
+		],
+
+		"3.3": [
+			[
+				{
+					"body": "Python lists are not fixed; we can add or remove elements from a list while the program is running."
+				},
+				{
+					"body": "Python has two functions to help us add elements to a list: <span class='inl-code'><span class='token function'>append</span>()</span> and <span class='inl-code'><span class='token function'>insert</span>()</span>."
+				},
+				{
+					"body": "We will learn about the <span class='inl-code'><span class='token function'>append</span>()</span> function first."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "The <span class='inl-code'><span class='token function'>append</span>()</span> command is always used to add an element to the <strong>end of the list</strong>. <i>This command <strong>cannot</strong> add elements to the beginning or middle of the list.</i>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "<strong>Example:</strong> Suppose we have a list <br><span class='inl-code'>scores = [<span class='token number'>8.5</span>, <span class='token number'>7.5</span>, <span class='token number'>10</span>, <span class='token number'>9.5</span>]</span> storing user scores, and we want to add the score <span class='inl-code token number'>8</span> while the program is running."
+				},
+				{
+					"body": "Since we cannot directly write the score <span class='inl-code token number'>8</span> into the <span class='inl-code'>scores</span> list, we can use the <span class='inl-code'><span class='token function'>append</span>()</span> command as follows:"
+				},
+				{
+					"type": "div",
+					"body": "scores.<span class='token function'>append</span>(<span class='token number'>8</span>) <span class='code-comment'># add element 8 to the list</span>"
+				},
+				{
+					"body": "Now, our list will be <br><span class='inl-code'>scores = [<span class='token number'>8.5</span>, <span class='token number'>7.5</span>, <span class='token number'>10</span>, <span class='token number'>9.5</span>, <span class='token number'>8</span>]</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Currently, we have a list <span class='inl-code'>students</span> with 3 students. Use the <span class='inl-code token function'>append</span> function to add the student <span class='inl-code token string'>'James'</span> to this list and print the list of students."
+				}
+			],
+			[
+				{
+					"body": "Besides <span class='inl-code'><span class='token function'>append</span>()</span>, we can also use <span class='inl-code'><span class='token function'>insert</span>()</span> to add elements to a list."
+				},
+				{
+					"body": "The <span class='inl-code'><span class='token function'>insert</span>()</span> function inserts an element at a specified position <em>(starting from index 0)</em>."
+				},
+				{
+					"body": "Example: Suppose we have a list <br><span class='inl-code'>fruits <span class='token operator'>=</span> [<span class='token string'>'apple'</span>, <span class='token string'>'melon'</span>, <span class='token string'>'peach'</span>]</span> and we want to insert the fruit <span class='inl-code token string'>'pear'</span> at the 2nd position in the list."
+				},
+				{
+					"body": "To do this, we can use the following command:"
+				},
+				{
+					"type": "div",
+					"body": "fruits.<span class='token function'>insert</span>(<span class='token number'>1</span>, <span class='token string'>'pear'</span>) <span class='code-comment'># the 2nd position has index 1</span>"
+				},
+				{
+					"body": "Now, our list will be <br><span class='inl-code'>fruits <span class='token operator'>=</span> [<span class='token string'>'apple'</span>, <span class='token string'>'pear'</span>, <span class='token string'>'melon'</span>, <span class='token string'>'peach'</span>]</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Now, we have a list <span class='inl-code'>favourite_games</span> and want to add <span class='inl-code token string'>'Valorant'</span> at the 3rd position (index 2). Write the Python command to do this."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Besides adding elements to a list, Python also allows us to remove elements from a list."
+				},
+				{
+					"body": "There are 3 ways to remove an element from a list:"
+				},
+				{
+					"type": "ul",
+					"body": "<li>using the <span class='inl-code'><span class='token function'>remove</span>()</span> function</li><li>using the <span class='inl-code'><span class='token function'>pop</span>()</span> function</li><li>using the <span class='inl-code token keyword'>del</span> statement</li>"
+				},
+				{
+					"body": "We will learn about the <span class='inl-code'><span class='token function'>remove</span>()</span> function first."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "The <span class='inl-code'><span class='token function'>remove</span>()</span> function removes the first occurrence of a specified value in the list."
+				},
+				{
+					"body": "<strong>Example:</strong> Suppose we have a list <br><span class='inl-code'>fruits = [<span class='inl-code token string'>'apple'</span>,<span class='inl-code token string'>'banana'</span>,<span class='inl-code token string'>'grape'</span>,<span class='inl-code token string'>'banana'</span>]</span> and want to remove the first <span class='inl-code token string'>'banana'</span>."
+				},
+				{
+					"type": "div",
+					"body": "fruits.<span class='token function'>remove</span>(<span class='token string'>'banana'</span>) <span class='code-comment'># remove the first 'banana'</span>"
+				},
+				{
+					"body": "After running, the list will be: <br><span class='inl-code'>[<span class='inl-code token string'>'apple'</span>, <span class='inl-code token string'>'grape'</span>, <span class='inl-code token string'>'banana'</span>]</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a Python command to remove the element <span class='inl-code token string'>'orange'</span> from the <span class='inl-code'>fruits</span> list."
+				}
+			],
+			[
+				{
+					"body": "Now, we will learn about the <span class='inl-code'><span class='token function'>pop</span>()</span> function."
+				},
+				{
+					"body": "The <span class='inl-code'><span class='token function'>pop</span>()</span> function removes an element from a list and <strong>returns the removed value</strong>."
+				},
+				{
+					"body": "If no position is specified, it defaults to removing the <strong>last element</strong>."
+				},
+				{
+					"body": "<strong>Example:</strong>"
+				},
+				{
+					"type": "div",
+					"body": "animals = [<span class='inl-code token string'>'cat'</span>, <span class='inl-code token string'>'dog'</span>, <span class='inl-code token string'>'bird'</span>]<br>last = animals.<span class='token function'>pop</span>()<br><span class='token builtin'>print</span>(last) <span class='code-comment'># 'bird'</span><br><span class='token builtin'>print</span>(animals) <span class='code-comment'># ['cat', 'dog']</span>"
+				},
+				{
+					"body": "We can also specify the position of the element to remove as follows:"
+				},
+				{
+					"type": "div",
+					"body": "animals.<span class='token function'>pop</span>(<span class='token number'>0</span>) <span class='code-comment'># remove the first element ('cat')</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a command using <span class='inl-code'><span class='token function'>pop</span>()</span> to remove the last element from the <span class='inl-code'>hobbies</span> list and print the removed element."
+				}
+			],
+			[
+				{
+					"body": "Finally, we can use the <span class='inl-code token keyword'>del</span> statement to remove an element from a list at a specified position."
+				},
+				{
+					"body": "Unlike <span class='inl-code'><span class='token function'>pop</span>()</span>, the <span class='inl-code token keyword'>del</span> statement <strong>does not return the removed value</strong>."
+				},
+				{
+					"body": "<strong>Example:</strong>"
+				},
+				{
+					"type": "div",
+					"body": "numbers = [<span class='token number'>10</span>, <span class='token number'>20</span>, <span class='token number'>30</span>, <span class='token number'>40</span>]<br><span class='token keyword'>del</span> numbers[<span class='token number'>1</span>]<br><span class='token builtin'>print</span>(numbers) <span class='code-comment'># [10, 30, 40]</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Use the <span class='inl-code token keyword'>del</span> statement to remove the element at position <span class='inl-code token number'>0</span> from the <span class='inl-code'>nums</span> list."
+				}
+			],
+			[
+				{
+					"body": "We can also remove <strong>multiple elements at once</strong> using <span class='inl-code token keyword'>del</span> with slicing:"
+				},
+				{
+					"type": "div",
+					"body": "nums = [<span class='token number'>1</span>, <span class='token number'>2</span>, <span class='token number'>3</span>, <span class='token number'>4</span>, <span class='token number'>5</span>, <span class='token number'>6</span>]<br><span class='token keyword'>del</span> nums[<span class='token number'>2</span>:<span class='token number'>5</span>]<br><span class='token builtin'>print</span>(nums) <span class='code-comment'># [1, 2, 6]</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Remove elements from index 1 up to but not including index 4 in the <span class='inl-code'>nums</span> list using <span class='inl-code token keyword'>del</span> and list slicing."
+				}
+			]
+		],
+
+		"3.4": [
+			[
+				{
+					"type": "i",
+					"body": "Besides adding or removing elements, Python also allows us to <strong>sort</strong> elements in a list."
+				},
+				{
+					"body": "The <span class='inl-code'><span class='token function'>sort</span>()</span> function is used to sort a list in <strong>ascending order</strong> as follows:"
+				},
+				{
+					"type": "div",
+					"body": "my_list.<span class='token function'>sort</span>()"
+				},
+				{
+					"body": "This function sorts the list <strong>from smallest to largest</strong> if the elements are numbers, or in alphabetical order if they are strings."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "<strong>Example:</strong>"
+				},
+				{
+					"type": "div",
+					"body": "numbers = [<span class='token number'>5</span>, <span class='token number'>2</span>, <span class='token number'>9</span>, <span class='token number'>1</span>]<br>numbers.<span class='token function'>sort</span>()<br><span class='token builtin'>print</span>(numbers)"
+				},
+				{
+					"body": "Result: <span class='inl-code'>[1, 2, 5, 9]</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a Python command to sort the list <br><span class='inl-code'>numbers = [<span class='token number'>3</span>, <span class='token number'>4</span>, <span class='token number'>53</span>, <span class='token number'>2</span>]</span> in ascending order."
+				}
+			],
+			[
+				{
+					"body": "Now, we will learn how to sort a list in <strong>descending order</strong>."
+				},
+				{
+					"body": "We can add the argument <span class='inl-code'>reverse<span class='token operator'>=</span><span class='token boolean'>True</span></span> to the <span class='inl-code'><span class='token function'>sort</span>()</span> function to reverse the sort order as follows:"
+				},
+				{
+					"type": "div",
+					"body": "numbers.<span class='token function'>sort</span>(reverse<span class='token operator'>=</span><span class='token boolean'>True</span>)"
+				},
+				{
+					"body": "<strong>Example:</strong>"
+				},
+				{
+					"type": "div",
+					"body": "numbers = [<span class='token number'>5</span>, <span class='token number'>2</span>, <span class='token number'>9</span>, <span class='token number'>1</span>]<br>numbers.<span class='token function'>sort</span>(reverse<span class='token operator'>=</span><span class='token boolean'>True</span>)<br><span class='token builtin'>print</span>(numbers)"
+				},
+				{
+					"body": "Result: <span class='inl-code'>[9, 5, 2, 1]</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a Python command to sort the list <br><span class='inl-code'>numbers = [<span class='token number'>3</span>, <span class='token number'>4</span>, <span class='token number'>53</span>, <span class='token number'>2</span>]</span> in <strong>descending order</strong>."
+				}
+			],
+			[
+				{
+					"body": "Not only numbers, the <span class='inl-code'><span class='token function'>sort</span>()</span> function can also sort strings in a list in <strong>alphabetical order</strong>."
+				},
+				{
+					"body": "The syntax remains the same, and the sorting is based on the first character of each string."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "<strong>Example:</strong>"
+				},
+				{
+					"type": "div",
+					"body": "fruits = [<span class='token string'>'banana'</span>, <span class='token string'>'apple'</span>, <span class='token string'>'cherry'</span>]<br>fruits.<span class='token function'>sort</span>()<br><span class='token builtin'><span class='token builtin'>print</span></span>(fruits)"
+				},
+				{
+					"body": "Result: <span class='inl-code'>['apple', 'banana', 'cherry']</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a Python command to sort the list <span class='inl-code'>messages = [<span class='token string'>'string'</span>, <span class='token string'>'characters'</span>, <span class='token string'>'string2'</span>]</span> in alphabetical order."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "In addition to the <span class='inl-code'><span class='token function'>sort</span>()</span> function, Python also provides the <span class='inl-code'><span class='token function'>sorted</span>()</span> function to sort lists."
+				},
+				{
+					"body": "The difference is that <span class='inl-code'><span class='token builtin'>sorted</span>()</span> <strong>creates a new sorted list</strong>, while <span class='inl-code'><span class='token function'>sort</span>()</span> <strong>modifies the original list directly</strong>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Syntax:"
+				},
+				{
+					"type": "div",
+					"body": "new_list = <span class='token builtin'>sorted</span>(old_list)"
+				},
+				{
+					"body": "Or to sort in descending order:"
+				},
+				{
+					"type": "div",
+					"body": "new_list = <span class='token builtin'>sorted</span>(old_list, reverse=<span class='token boolean'>True</span>)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "<strong>Example:</strong>"
+				},
+				{
+					"type": "div",
+					"body": "numbers = [<span class='token number'>5</span>, <span class='token number'>2</span>, <span class='token number'>9</span>, <span class='token number'>1</span>]<br>sorted_numbers = <span class='token builtin'>sorted</span>(numbers)<br>print(sorted_numbers)<br>print(numbers)"
+				},
+				{
+					"body": "Result:<br><span class='inl-code'>[1, 2, 5, 9]</span> -> new list<br><span class='inl-code'>[5, 2, 9, 1]</span> -> original list remains unchanged"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a Python command using <span class='inl-code'><span class='token builtin'>sorted</span>()</span> to sort the list <span class='inl-code'>letters = [<span class='token string'>'d'</span>, <span class='token string'>'a'</span>, <span class='token string'>'c'</span>, <span class='token string'>'b'</span>]</span> alphabetically <strong>while keeping the original list unchanged</strong>."
+				}
+			]
+		],
+
+		"3.5": [
+			[
+				{
+					"type": "i",
+					"body": "When working with lists, sometimes we need to know how many elements are in the list."
+				},
+				{
+					"body": "The <span class='inl-code'><span class='token builtin'>len</span>()</span> function helps us count the number of elements in a list."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "fruits = [<span class='token string'>'apple'</span>, <span class='token string'>'banana'</span>, <span class='token string'>'cherry'</span>]<br><span class='token builtin'>print</span>(<span class='token builtin'>len</span>(fruits))"
+				},
+				{
+					"body": "Result: <span class='inl-code'><span class='token number'>3</span></span> because the list has 3 elements."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Create a list named <span class='inl-code'>animals</span> containing 5 animals, then print the length of the list using the <span class='inl-code'><span class='token builtin'>len</span>()</span> function."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Sometimes, we need to know the position (index) of a specific element in a list."
+				},
+				{
+					"body": "Python provides the <span class='inl-code'><span class='token function'>index</span>()</span> function to find the first position of that element in the list."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "fruits = [<span class='token string'>'apple'</span>, <span class='token string'>'banana'</span>, <span class='token string'>'cherry'</span>, <span class='token string'>'banana'</span>]<br><span class='token builtin'>print</span>(fruits.<span class='token function'>index</span>(<span class='token string'>'banana'</span>))"
+				},
+				{
+					"body": "Result: <span class='inl-code'><span class='token number'>1</span></span> because the first <span class='inl-code token string'>'banana'</span> is at index <span class='inl-code token number'>1</span> (Python counts from 0)."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "If the element is not in the list, Python will raise an error."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Use the <span class='inl-code'><span class='token function'>index</span>()</span> function to find the position of the city <span class='inl-code token string'>'Paris'</span> and print the result."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Sometimes, you want to combine two lists together. In this case, we can use the <span class='inl-code'><span class='token function'>extend</span>()</span> function."
+				},
+				{
+					"body": "The <span class='inl-code'><span class='token function'>extend</span>()</span> function adds all elements of another list to the end of the current list."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "fruits = [<span class='token string'>'apple'</span>, <span class='token string'>'banana'</span>]<br>more_fruits = [<span class='token string'>'cherry'</span>, <span class='token string'>'mango'</span>]<br>fruits.<span class='token function'>extend</span>(more_fruits)<br><span class='token builtin'>print</span>(fruits)"
+				},
+				{
+					"body": "Result: <span class='inl-code'>['apple', 'banana', 'cherry', 'mango']</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Use the <span class='inl-code'><span class='token function'>extend</span>()</span> function to combine the list <span class='inl-code'>menu</span> with the list <span class='inl-code'>desserts</span> into one complete list and print it."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "To process each element in a list, we can use a <span class='inl-code token keyword'>for</span> loop."
+				},
+				{
+					"body": "The <span class='inl-code token keyword'>for</span> loop syntax in Python allows us to iterate through each element of a list easily."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"type": "div",
+					"body": "fruits = [<span class='token string'>'apple'</span>, <span class='token string'>'banana'</span>, <span class='token string'>'cherry'</span>]<br><span class='token keyword'>for</span> fruit <span class='token keyword'>in</span> fruits:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(fruit)"
+				},
+				{
+					"body": "The result will print each element of the list on a separate line:"
+				},
+				{
+					"type": "div",
+					"body": "apple<br>banana<br>cherry"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a program to iterate through the list <br><span class='inl-code'>numbers = [<span class='token number'>2</span>, <span class='token number'>4</span>, <span class='token number'>6</span>, <span class='token number'>8</span>]</span> and print the square of each number."
+				}
+			]
+		],
+
+		"4.1": [
+			[
+				{
+					"body": "In Python, besides built-in functions like <span class='inl-code'><span class='token builtin'>print</span>()</span>, <span class='inl-code'><span class='token builtin'>sorted</span>()</span>, <span class='inl-code'><span class='token builtin'>type</span>()</span>, ..."
+				},
+				{
+					"body": "we can also create our own functions. Such functions are called <strong>user-defined functions</strong>."
+				},
+				{
+					"body": "These functions help us reuse code and divide the program into smaller parts, making it easier to manage."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "To define a function, we use the <span class='inl-code token keyword'>def</span> keyword followed by the function name and parentheses ():"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>def</span> <span class='token function'>function_name</span>():<br>&nbsp;&nbsp;&nbsp;&nbsp;... <span class='code-comment'># statements you want to execute</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Practice: Create a function named <span class='inl-code'><span class='token function'>greet</span>()</span> that prints a greeting with your name stored in the variable <span class='inl-code'>name</span> when called."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "name = 'John' -> prints 'Hello, John'<br>name = 'Lucy' -> prints 'Hello, Lucy'"
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "Now, try writing a function that performs a specific action!"
+				},
+				{
+					"body": "Create a function named <span class='inl-code'><span class='token function'>good_morning</span>()</span> that prints <span class='inl-code token string'>'Good morning!'</span>."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "You can also call a function multiple times."
+				},
+				{
+					"body": "Call the <span class='inl-code'><span class='token function'>good_morning</span>()</span> function three times in a row and observe the result."
+				}
+			]
+		],
+
+		"4.2": [
+			[
+				{
+					"type": "i",
+					"body": "Functions not only perform actions but can also accept data to process."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "The data passed into a function is called a <strong>parameter</strong>."
+				},
+				{
+					"body": "When you call a function with a specific value, that value is called an <strong>argument</strong>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example: we have a greeting function with a username:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>def</span> <span class='token function'>greet</span>(name):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Hello,'</span>, name)"
+				},
+				{
+					"body": "Calling <span class='inl-code'><span class='token function'>greet</span>(<span class='token string'>'Ha'</span>)</span> will print <br><span class='inl-code'><span class='token string'>'Hello, Ha'</span></span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Here, <span class='inl-code'>name</span> is a <strong>parameter</strong> in the function definition, while <span class='inl-code'><span class='token string'>'Ha'</span></span> is an <strong>argument</strong> when calling the function."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a function <span class='inl-code'><span class='token function'>greet</span>(name)</span> to print <span class='inl-code'><span class='token string'>'Hello [name]'</span></span>. Call this function with your name."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "A function can also <strong>return a value</strong> for further use."
+				},
+				{
+					"body": "To return a value, we use the <span class='inl-code token keyword'>return</span> keyword."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example: a function to sum two numbers:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>def</span> <span class='token function'>add</span>(a, b):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>return</span> a <span class='token operator'>+</span> b"
+				},
+				{
+					"body": "Calling <span class='inl-code'><span class='token function'>add</span>(<span class='token number'>3</span>, <span class='token number'>5</span>)</span> returns <span class='inl-code'><span class='token number'>8</span></span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "We can assign the return value to a variable for later use:"
+				},
+				{
+					"type": "div",
+					"body": "result = <span class='token function'>add</span>(<span class='token number'>3</span>, <span class='token number'>5</span>)<br><span class='token builtin'>print</span>(<span class='token string'>'Result:'</span>, result)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a function <span class='inl-code'><span class='token function'>subtract</span>(a, b)</span> that returns the difference of two numbers. Call it with any two numbers and print the result."
+				}
+			],
+			[
+				{
+					"type": "i",
+					"body": "A function can have <strong>one</strong>, <strong>multiple</strong>, or <strong>no parameters</strong>."
+				},
+				{
+					"body": "Example of a function with multiple parameters:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token keyword'>def</span> <span class='token function'>info</span>(name, age):<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Name:'</span>, name)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Age:'</span>, age)"
+				},
+				{
+					"body": "Calling <span class='inl-code'><span class='token function'>info</span>(<span class='token string'>'An'</span>, <span class='token number'>15</span>)</span> prints two lines showing the name and age."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a function <span class='inl-code'><span class='token function'>introduce</span>(name, class)</span> to print: <br><span class='inl-code'><span class='token string'>'Hello, I am [name] studying in class [class]'</span></span>"
+				}
+			]
+		],
+
+		"4.3": [
+			[
+				{
+					"body": "In Python, variables are mainly divided into two types: <strong>local variables</strong> and <strong>global variables</strong>:"
+				},
+				{
+					"type": "ul",
+					"body": "<li>Local variables are created inside a function and can only be used within that function.</li><li>Global variables are created outside all functions and can be accessed anywhere in the program.</li>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "The variables you learned in previous lessons are global variables."
+				},
+				{
+					"body": "They exist throughout the program and can be used anywhere, unless a variable with the same name is redefined inside a function."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "x <span class='token operator'>=</span> <span class='token number'>10</span> <span class='code-comment'># Global variable</span><br><span class='token keyword'>def</span> <span class='token function'>func_xy</span>():<br>&nbsp;&nbsp;&nbsp;&nbsp;y <span class='token operator'>=</span> <span class='token number'>5</span> <span class='code-comment'># Local variable</span><br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'x ='</span>, x)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'y ='</span>, y)"
+				},
+				{
+					"body": "The result printed on the screen will be:"
+				},
+				{
+					"type": "div",
+					"body": "x = 10<br>y = 5"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "From this, we can see that functions can read the value of global variables."
+				},
+				{
+					"body": "However, functions <strong>cannot</strong> normally change the value of a global variable. We will learn how functions can modify global variables in a later exercise."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "To demonstrate this, complete the following program so that it can:"
+				},
+				{
+					"type": "ul",
+					"body": "<li>call the function <span class='inl-code token function'>func_x</span></li><li>print the value of <span class='inl-code'>x</span> after calling the function</li>"
+				},
+				{
+					"body": "We will see <strong>two different values</strong> printed on the screen."
+				}
+			],
+			[
+				{
+					"body": "In Python, if you want to modify a global variable inside a function, you need to use the <span class='inl-code token keyword'>global</span> keyword."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "The <span class='inl-code token keyword'>global</span> keyword allows the function to access and modify the global variable instead of creating a new local variable."
+				},
+				{
+					"type": "div",
+					"body": "x = 10  <span class='code-comment'># global variable</span><br><span class='token keyword'>def</span> <span class='token function'>change_x</span>():<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>global</span> x<br>&nbsp;&nbsp;&nbsp;&nbsp;x = 20<br><span class='token function'>change_x</span>()<br><span class='token builtin'>print</span>(x)  <span class='code-comment'># Output: 20</span>"
+				},
+				{
+					"body": "As shown above, using <span class='inl-code token keyword'>global</span> allows the function to directly modify the value of the global variable."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Exercise: Write a function <span class='inl-code'><span class='token function'>increase_x</span>()</span> that increases the global variable x by 5, then print the value of x."
 				}
 			]
 		]
