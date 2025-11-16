@@ -51,16 +51,16 @@ body > * {
 .navbar-brand {
 	font-weight: 900;
 	font-size: 28px;
-	color: #EC4899;
-	text-shadow: 0 0 1px #EC4899;
+	color: white;
+	text-shadow: 0 0 3px white;
 	transition: var(--link-transition);
-	cursor: pointer;
 }
 
-.navbar-brand:hover {
-	color: #06B6D4;
-	text-shadow: 0 0 5px #06B6D4;
-	transform: scale(1.1) rotate(-5deg);
+.navbar-brand > img {
+	position: relative;
+	height: 30px;
+	width: auto;
+	margin-bottom: 4px;
 }
 
 .collapse {

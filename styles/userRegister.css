@@ -33,7 +33,7 @@ label {
 }
 
 .form-container {
-	z-index: 2;
+	z-index: 6;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -56,7 +56,8 @@ label {
 	align-self: center;
 }
 
-.user-input {
+.user-input,
+.dropdown {
 	padding: 8px;
 	margin: 10px;
 	margin-bottom: 25px;
@@ -71,16 +72,91 @@ label {
 	box-shadow: 0 10px 0 0 rgba(0, 0, 0, 0.5);
 }
 
-.user-input:hover {
+.dropdown {
+	padding: 0;
+}
+
+.dropdown-btn {
+	padding: 8px;
+	z-index: 2;
+	background-color: transparent;
+	border: none;
+	color: white;
+	width: 100%;
+	height: 100%;
+}
+
+.dropdown-btn::after {
+	content: "▾";
+	font-size: 14px;
+}
+
+.dropdown-btn:focus {
+	outline: none;
+	border-radius: 5px;
 	background-color: #421c9c;
 }
 
-.user-input:focus {
+.dropdown-btn:focus > .dropdown {
+	outline: none;
+	background-color: #421c9c;
+	transform: translateY(10px);
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
+}
+
+.user-input:hover,
+.dropdown:hover {
+	background-color: #421c9c;
+}
+
+.user-input:focus,
+.dropdown.active {
 	outline: none;
 	background-color: #421c9c;
 	transform: translateY(10px);
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
 	opacity: 1;
+}
+
+.dropdown-menu {
+	position: absolute;
+	top: calc(100% + 4px);
+	left: 0;
+	width: 100%;
+	background: #000;
+	border: 2px solid #454545;
+	border-radius: 8px;
+	padding: 4px 0;
+	display: none;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	max-height: 180px;
+	overflow-y: auto;
+	z-index: 999;
+}
+
+.dropdown-item {
+	padding: 10px 12px;
+	cursor: pointer;
+	transition: background 0.3s ease, color 0.3s ease;
+	color: white;
+	border-radius: 4px;
+	margin-left: 4px;
+	margin-right: 4px;
+	width: calc(100% - 8px);
+}
+
+.dropdown-item:hover {
+	background: #f0f0f0;
+	color: black;
+}
+
+.dropdown.active .dropdown-menu {
+	display: block;
+}
+
+.dropdown-item:active {
+	background-color: black;
+	color: white;
 }
 
 .signupBtn {
