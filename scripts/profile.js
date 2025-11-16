@@ -1,8 +1,4 @@
 const user = document.getElementById("animated");
-const usernameText = localStorage.getItem("user") || "user";
-
-user.dataset.value = usernameText;
-user.innerHTML = usernameText;
 
 const currentUnit = document.getElementById("current-unit");
 const progressSpan = document.getElementById("progress");
@@ -11,6 +7,33 @@ const signOutBtn = document.getElementById("signoutBtn");
 
 const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
 const lessonJSON = "data/lessons.json";
+
+function setCookie(name, value, days) {
+	const date = new Date();
+	date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+	const expires = "expires=" + date.toUTCString();
+	document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+	let name = cname + "=";
+	let decodedCookie = decodeURIComponent(document.cookie);
+	let ca = decodedCookie.split(";");
+	for (let i = 0; i < ca.length; i++) {
+		let c = ca[i];
+		while (c.charAt(0) == " ") {
+			c = c.substring(1);
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length);
+		}
+	}
+	return "";
+}
+
+const usernameText = getCookie("user");
+user.dataset.value = usernameText;
+user.innerHTML = usernameText;
 
 setInterval(() => {
 	fetch(usersAPI)
@@ -44,7 +67,7 @@ setInterval(() => {
 							userData.data.currentUnit.toString()
 						];
 					const totalLessons = lessonsList.length;
-					const currentLesson = Number(userData.data.lesson);
+					const currentLesson = Number(userData.data.lesson) - 1;
 
 					const percentage = Math.round(
 						(currentLesson * 100) / totalLessons
@@ -52,7 +75,7 @@ setInterval(() => {
 					document.getElementById("progress").innerHTML = percentage;
 				});
 		});
-}, 10000);
+}, 300);
 
 deleteAccBtn.addEventListener("click", () => {
 	const msg =
@@ -101,6 +124,6 @@ deleteAccBtn.addEventListener("click", () => {
 });
 
 signOutBtn.addEventListener("click", () => {
-	localStorage.removeItem("user");
+	setCookie("user", "user", -1);
 	window.location.href = "index.html";
 });
