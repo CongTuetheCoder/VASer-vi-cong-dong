@@ -2,20 +2,23 @@ const button = document.getElementById("loginBtn");
 const usernameIn = document.getElementById("username");
 const passwordIn = document.getElementById("password");
 
-
 const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
 
+function setCookie(name, value, days) {
+	const date = new Date();
+	date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+	const expires = "expires=" + date.toUTCString();
+	document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
 async function verifyPassword(inputPassword, storedSaltHex, storedHashHex) {
-	// Convert stored salt (hex -> bytes)
 	const saltBytes = new Uint8Array(
 		storedSaltHex.match(/.{1,2}/g).map((byte) => parseInt(byte, 16))
 	);
 
-	// Encode password
 	const enc = new TextEncoder();
 	const passwordData = enc.encode(inputPassword);
 
-	// Derive hash again using PBKDF2
 	const keyMaterial = await crypto.subtle.importKey(
 		"raw",
 		passwordData,
@@ -35,12 +38,10 @@ async function verifyPassword(inputPassword, storedSaltHex, storedHashHex) {
 		256
 	);
 
-	// Convert derived bits to hex
 	const derivedHashHex = Array.from(new Uint8Array(derivedBits))
 		.map((b) => b.toString(16).padStart(2, "0"))
 		.join("");
 
-	// Compare hashes
 	return derivedHashHex === storedHashHex;
 }
 
@@ -67,7 +68,7 @@ async function loginUser() {
 		);
 
 		if (isMatch) {
-			localStorage.setItem("user", usernameIn.value);
+			setCookie("user", usernameIn.value, 30);
 			window.location.href = "home.html";
 		} else {
 			button.innerHTML = originalHTML;
