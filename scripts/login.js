@@ -12,37 +12,19 @@ function setCookie(name, value, days) {
 }
 
 async function verifyPassword(inputPassword, storedSaltHex, storedHashHex) {
-	const saltBytes = new Uint8Array(
-		storedSaltHex.match(/.{1,2}/g).map((byte) => parseInt(byte, 16))
-	);
+	const salt = CryptoJS.enc.Hex.parse(storedSaltHex);
 
-	const enc = new TextEncoder();
-	const passwordData = enc.encode(inputPassword);
+	// Derive key with same parameters
+	const derivedKey = CryptoJS.PBKDF2(inputPassword, salt, {
+		keySize: 256 / 32, // 256 bits = 32 bytes
+		iterations: 100000,
+		hasher: CryptoJS.algo.SHA256,
+	});
 
-	const keyMaterial = await crypto.subtle.importKey(
-		"raw",
-		passwordData,
-		"PBKDF2",
-		false,
-		["deriveBits"]
-	);
+	// Convert derived key to hex string
+	const derivedHex = derivedKey.toString(CryptoJS.enc.Hex);
 
-	const derivedBits = await crypto.subtle.deriveBits(
-		{
-			name: "PBKDF2",
-			salt: saltBytes,
-			iterations: 100000,
-			hash: "SHA-256",
-		},
-		keyMaterial,
-		256
-	);
-
-	const derivedHashHex = Array.from(new Uint8Array(derivedBits))
-		.map((b) => b.toString(16).padStart(2, "0"))
-		.join("");
-
-	return derivedHashHex === storedHashHex;
+	return derivedHex === storedHashHex;
 }
 
 async function loginUser() {
