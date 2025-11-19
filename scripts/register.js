@@ -77,39 +77,20 @@ const passwordStrengthCheck = (password) => {
 };
 
 async function hashPassword(password) {
-	const salt = crypto.getRandomValues(new Uint8Array(16));
-	const enc = new TextEncoder();
-	const passwordData = enc.encode(password);
+	// Generate 16-byte (128-bit) salt
+	const salt = CryptoJS.lib.WordArray.random(16);
 
-	const keyMaterial = await crypto.subtle.importKey(
-		"raw",
-		passwordData,
-		"PBKDF2", // 100_000 iterations of SHA-256
-		false,
-		["deriveBits"]
-	);
+	// Derive key: PBKDF2 with SHA-256, 100k iterations, 256-bit output
+	const derivedKey = CryptoJS.PBKDF2(password, salt, {
+		keySize: 256 / 32, // 256 bits = 32 bytes
+		iterations: 100000,
+		hasher: CryptoJS.algo.SHA256,
+	});
 
-	const derivedBits = await crypto.subtle.deriveBits(
-		{
-			name: "PBKDF2",
-			salt,
-			iterations: 100000,
-			hash: "SHA-256",
-		},
-		keyMaterial,
-		256
-	);
-
-	const hashArray = Array.from(new Uint8Array(derivedBits));
-	const hashHex = hashArray
-		.map((b) => b.toString(16).padStart(2, "0"))
-		.join("");
-
-	const saltHex = Array.from(salt)
-		.map((b) => b.toString(16).padStart(2, "0"))
-		.join("");
-
-	return { salt: saltHex, hash: hashHex };
+	return {
+		salt: salt.toString(CryptoJS.enc.Hex),
+		hash: derivedKey.toString(CryptoJS.enc.Hex),
+	};
 }
 
 const updateButton = () => {
