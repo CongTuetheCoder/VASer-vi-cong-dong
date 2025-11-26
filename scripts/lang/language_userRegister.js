@@ -16,7 +16,16 @@ const fetchLang = (path) => {
 						element.dataset.value = data[key];
 						element.innerHTML = data[key];
 					} else if (key == "title") {
-						document.title = data[key]
+						document.title = data[key];
+					} else if (key == "dropdown-btn") {
+						element.innerHTML =
+							data[
+								element.innerHTML.indexOf(
+									"fa-chalkboard-user"
+								) !== -1
+									? "teacher-dropdown"
+									: "student-dropdown"
+							];
 					} else {
 						element.innerHTML = data[key];
 					}
