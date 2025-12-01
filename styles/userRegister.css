@@ -78,7 +78,7 @@ label {
 
 .dropdown-btn {
 	padding: 8px;
-	z-index: 2;
+	z-index: 5;
 	background-color: transparent;
 	border: none;
 	color: white;

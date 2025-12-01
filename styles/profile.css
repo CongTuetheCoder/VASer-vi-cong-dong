@@ -31,6 +31,10 @@
 	background-color: #640909;
 }
 
+#addClassBtn {
+	background-color: #184d2d;
+}
+
 .actionButton span,
 .actionButton i {
 	color: rgba(255, 255, 255, 0.5);
@@ -55,6 +59,10 @@
 	background-color: #9c1c1c;
 }
 
+#addClassBtn:hover {
+	background-color: #0d7c39;
+}
+
 .actionButton:hover span {
 	color: white;
 	padding-right: 25px;
@@ -69,7 +77,7 @@
 	right: 0;
 }
 
-.actionButton:active {
+.actionButton:active, #addClassBtn:active {
 	background-color: white;
 	transform: translateY(10px);
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);

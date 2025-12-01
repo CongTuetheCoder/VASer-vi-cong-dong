@@ -39,6 +39,8 @@ body > * {
 	background: linear-gradient(var(--color-stop-1), var(--color-stop-2));
 	z-index: 0;
 	pointer-events: none;
+	display: flex;
+	flex-direction: row;
 
 	transition: --color-stop-1 800ms ease, --color-stop-2 800ms ease;
 }
@@ -87,7 +89,7 @@ body > * {
 	right: 20px;
 	border-radius: 4px;
 	border: 2px white solid;
-	background-color: #3c3069;
+	background-color: transparent;
 	color: white;
 	transition: background-color 500ms ease, transform 500ms ease, color 500ms ease;
 }
@@ -96,6 +98,7 @@ body > * {
 	color: #3c3069;
 	background-color: white;
 	transform: scale(1.2); 
+	cursor: pointer;
 }
 
 ::-webkit-scrollbar {
