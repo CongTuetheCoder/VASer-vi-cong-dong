@@ -4,9 +4,6 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>CriticalCode - Learn Python</title>
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="alternate" hreflang="en" href="/index.html" />
-		<link rel="alternate" hreflang="vi" href="/vn.html" />
 
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800;900&family=Jaro:wght@300;400;500;600;700;800;900&display=swap"
@@ -284,12 +281,12 @@
 						/>
 					</svg>
 
-					<a href="#" class="cta-text">Start Learning for Free </a>
+					<a href="register.html" class="cta-text">Start Learning for Free </a>
 				</div>
 			</div>
 			<!-- bottom links -->
 			<div class="hero-bottom container">
-				<a href="#" class="socials">
+				<a href="https://www.instagram.com/critical_code.education/" class="socials">
 					<img
 						src="images/instagram.png"
 						alt="Instagram"
@@ -297,7 +294,7 @@
 					/>
 					<h3>critical_code.education</h3>
 				</a>
-				<!-- lang link -->
+
 				<button
 					id="language-btn"
 					title="Thay đổi ngôn ngữ"
@@ -309,14 +306,6 @@
 		</section>
 
 		<script src="scripts/main.js"></script>
-
-		<script>
-			const userLang = navigator.language || navigator.userLanguage;
-
-			if (userLang.startsWith("vi")) {
-				window.location.href = "/vn.html";
-			}
-		</script>
 		<script>
 			const content = ["Quickly", "Efficiently", "For Free"];
 			const fast = document.getElementsByClassName("fast")[0];
