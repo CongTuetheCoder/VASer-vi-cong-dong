@@ -12,7 +12,7 @@ const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
 const COLOURS = {
 	base: {
 		dark: "#1a1b27",
-		base: "#3c3069",
+		base: "#372F8C",
 		light: "#bca9f2",
 	},
 	correct: {
@@ -38,8 +38,7 @@ const lessonID = sessionStorage.getItem("lessonID");
 
 const activities = codeList.length;
 
-const jsonURL = "https://68ce57d06dc3f350777eb8f9.mockapi.io/content";
-const backupURL = "data/content.json";
+const jsonURL = "data/content.json";
 
 let pythonWorker;
 
@@ -60,7 +59,7 @@ function getCookie(cname) {
 }
 
 function fetchAndUpdateContent() {
-	fetch(backupURL)
+	fetch(jsonURL)
 		.then((response) => {
 			if (!response.ok) {
 				console.error(`HTTP error: Status: ${response.status}`);

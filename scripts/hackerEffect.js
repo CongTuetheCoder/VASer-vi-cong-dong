@@ -12,7 +12,11 @@ function applyEffect() {
 			})
 			.join("");
 
-		if (iterations >= title.dataset.value.length) clearInterval(interval);
+		if (iterations >= title.dataset.value.length) {
+			title.innerText = title.dataset.value;
+			title.classList.add("animation-done");
+			clearInterval(interval);
+		}
 
 		iterations += 1 / 8;
 	}, 10);

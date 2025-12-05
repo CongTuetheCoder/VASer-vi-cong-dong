@@ -4,8 +4,10 @@ const currentUnit = document.getElementById("current-unit");
 const progressSpan = document.getElementById("progress");
 const deleteAccBtn = document.getElementById("deleteAccBtn");
 const signOutBtn = document.getElementById("signoutBtn");
+const addClassBtn = document.getElementById("addClassBtn");
 
 const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
+const classesAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/classes";
 const lessonJSON = "data/lessons.json";
 
 function setCookie(name, value, days) {
