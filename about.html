@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>About Us</title>
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Roboto:wght@300;400;700&display=swap%22"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="styles/main.css" />
+		<link rel="stylesheet" href="styles/about.css" />
+		<link rel="icon" type="images/x-icon" href="images/icon.png" />
+	</head>
+	<body>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+			crossorigin="anonymous"
+		></script>
+
+		<img
+			src="images/logo.png"
+			alt="Background Robot"
+			class="page-watermark"
+		/>
+
+		<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+			<div class="logo navbar-brand">
+				<img src="images/white_icon.png" alt="" class="logo-icon" />
+				<div><span class="py-accent">Critical</span>Code</div>
+			</div>
+
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent"
+				data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div
+				class="collapse navbar-collapse test"
+				id="navbarSupportedContent"
+			>
+				<ul class="nav-links navbar-nav mr-auto">
+					<li class="nav-item">
+						<a href="index.html" id="home"
+							><i class="fa-solid fa-house"></i> Home</a
+						>
+					</li>
+					<li class="nav-item">
+						<div class="courses-dropdown">
+							<a href="#" id="dropdown"
+								><i class="fa-solid fa-graduation-cap"></i>
+								Courses
+								<svg
+									class="arrow-icon"
+									width="16"
+									height="16"
+									viewBox="0 0 24 24"
+								>
+									<path
+										d="M6 9l6 6 6-6"
+										fill="none"
+										stroke="white"
+										stroke-width="2"
+									/>
+								</svg>
+							</a>
+
+							<div class="dropdown-content">
+								<a href="#" id="course1"
+									>Introduction to Python</a
+								>
+								<a href="#" id="course2"
+									>Loops and Conditionals</a
+								>
+								<a href="#" id="course3"
+									>Storing Multiple Values</a
+								>
+								<a href="#" id="course4"
+									>Functions and Program Decomposition</a
+								>
+								<a href="#" id="seeMore">See more...</a>
+							</div>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a href="about.html" id="aboutUs" class="active"
+							><i class="fa-solid fa-question"></i> About us</a
+						>
+					</li>
+					<li class="nav-item">
+						<a href="#" id="contact"
+							><i class="fa-solid fa-phone"></i> Contact</a
+						>
+					</li>
+					<li class="nav-item">
+						<a href="register.html" id="register"
+							><i class="fa-solid fa-user-plus"></i> Sign up</a
+						>
+					</li>
+					<li class="nav-item">
+						<a href="login.html" id="login"
+							><i class="fa-solid fa-circle-user"></i> Log in</a
+						>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<main>
+			<section class="mission-section fade-in">
+				<h1 class="section-title">
+					Who <span class="highlight">We Are</span>
+				</h1>
+				<div class="mission-box">
+					<p>
+						<span class="highlight-lead">
+							CriticalCode là một nhóm 11 học sinh đam mê công
+							nghệ với sứ mệnh đơn giản hóa việc học lập trình
+							Python.
+						</span>
+						<br /><br />
+						Xuất phát từ những thách thức thực tế khi mới bắt đầu,
+						chúng tôi quyết tâm xây dựng một nền tảng học tập
+						<strong>Miễn phí, Dễ hiểu và Thực tế</strong> dành cho
+						cộng đồng.<br />Đội ngũ của chúng tôi bao gồm các chuyên
+						gia trẻ tuổi từ Web Development, Media đến Finance, cùng
+						nhau kiến tạo một môi trường học tập tiên tiến và hiệu
+						quả nhất.
+					</p>
+				</div>
+			</section>
+
+			<section class="team-section">
+				<h2 class="section-subtitle fade-in">Leadership & Squad</h2>
+
+				<div class="team-grid structured-grid">
+					<div class="member-card leader-card fade-in grid-span-3">
+						<div class="avt-frame">
+							<img
+								src="images/members/nguyen-the-dan.jpg"
+								alt="Thế Dân"
+							/>
+						</div>
+						<div class="member-info">
+							<h3>Nguyễn Thế Dân</h3>
+							<span class="role">Founder & Team Leader</span>
+							<p>
+								Người định hướng chiến lược và phát triển dài
+								hạn cho dự án.
+							</p>
+							<div class="socials">
+								<a href="#"><i class="fab fa-github"></i></a
+								><a href="#"
+									><i class="fas fa-chart-line"></i
+								></a>
+							</div>
+						</div>
+					</div>
+
+					<div
+						class="member-card management-card fade-in grid-span-3"
+					>
+						<div class="avt-frame">
+							<img
+								src="images/members/trinh-nguyen-hai-linh.jpg"
+								alt="Hải Linh"
+							/>
+						</div>
+						<div class="member-info">
+							<h3>Trịnh Nguyễn Hải Linh</h3>
+							<span class="role">Assistant Manager</span>
+							<p>
+								Hỗ trợ quản lý dự án, điều phối nội bộ và truyền
+								thông.
+							</p>
+							<div class="socials">
+								<a href="#"><i class="fas fa-users-cog"></i></a
+								><a href="#"><i class="fas fa-tasks"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<h3 class="group-separator grid-col-1">WEB DEVELOPMENT</h3>
+					<h3 class="group-separator grid-col-2">MEDIA TEAM</h3>
+					<h3 class="group-separator grid-col-3">FINANCE TEAM</h3>
+
+					<div class="member-card head-card fade-in grid-col-1">
+						<div class="avt-frame">
+							<img
+								src="images/members/truong-cong-tue.jpg"
+								alt="Công Tuệ"
+							/>
+						</div>
+						<div class="member-info">
+							<h3>Trương Công Tuệ</h3>
+							<span class="role">Head of Web Development</span>
+							<p>
+								Trưởng nhóm phát triển web, chịu trách nhiệm
+								kiến trúc hệ thống.
+							</p>
+							<div class="socials">
+								<a href="#"><i class="fab fa-github"></i></a
+								><a href="#"><i class="fab fa-python"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="member-card head-card fade-in grid-col-2">
+						<div class="avt-frame">
+							<img
+								src="images/members/tran-phuong-kiet.jpg"
+								alt="Phương Kiệt"
+							/>
+						</div>
+						<div class="member-info">
+							<h3>Trần Phương Kiệt</h3>
+							<span class="role">Head of Media</span>
+							<p>
+								Dẫn dắt đội ngũ truyền thông, quản lý hình ảnh
+								và nội dung sáng tạo.
+							</p>
+							<div class="socials">
+								<a href="#"><i class="fab fa-instagram"></i></a
+								><a href="#"><i class="fas fa-camera"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="member-card head-card fade-in grid-col-3">
+						<div class="avt-frame">
+							<img
+								src="images/members/vo-nguyen-gia-huy.jpg"
+								alt="Gia Huy"
+							/>
+						</div>
+						<div class="member-info">
+							<h3>Võ Nguyễn Gia Huy</h3>
+							<span class="role">Head of Finance</span>
+							<p>
+								Dẫn dắt đội ngũ tài chính, quản lý ngân sách và
+								nguồn vốn.
+							</p>
+							<div class="socials">
+								<a href="#"
+									><i class="fab fa-linkedin-in"></i></a
+								><a href="#"
+									><i class="fas fa-dollar-sign"></i
+								></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="member-card member-item fade-in grid-col-1">
+						<div class="avt-frame">
+							<img
+								src="images/members/nguyen-thanh-dat.jpg"
+								alt="Thành Đạt"
+							/>
+						</div>
+						<div class="member-info">
+							<h3>Nguyễn Thành Đạt</h3>
+							<span class="role">Web Development Member</span>
+							<p>
+								Phát triển và duy trì các tính năng frontend và
+								backend.
+							</p>
+							<div class="socials">
+								<a href="#"><i class="fab fa-github"></i></a
+								><a href="#"><i class="fas fa-code"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="member-card member-item fade-in grid-col-2">
+						<div class="avt-frame">
+							<img
+								src="images/members/le-minh-khoi.jpg"
+								alt="Minh Khôi"
+							/>
+						</div>
+						<div class="member-info">
+							<h3>Lê Minh Khôi</h3>
+							<span class="role">Media Team Member</span>
+							<p>
+								Sản xuất video, hình ảnh và thiết kế đồ họa cho
+								các chiến dịch.
+							</p>
+							<div class="socials">
+								<a href="#"><i class="fab fa-youtube"></i></a
+								><a href="#"><i class="fas fa-video"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="member-card member-item fade-in grid-col-3">
+						<div class="avt-frame">
+							<img
+								src="images/members/tran-nguyen-minh-khoi.jpg"
+								alt="Minh Khôi"
+							/>
+						</div>
+						<div class="member-info">
+							<h3>Trần Nguyễn Minh Khôi</h3>
+							<span class="role"
+								>Financial Member & AI Applier</span
+							>
+							<p>
+								Tối ưu hóa quy trình tài chính bằng các ứng dụng
+								AI.
+							</p>
+							<div class="socials">
+								<a href="#"><i class="fas fa-brain"></i></a
+								><a href="#"><i class="fas fa-robot"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="member-card member-item fade-in grid-col-1">
+						<div class="avt-frame">
+							<img
+								src="images/members/pham-hoang-bach.jpg"
+								alt="Hoàng Bách"
+							/>
+						</div>
+						<div class="member-info">
+							<h3>Phạm Hoàng Bách</h3>
+							<span class="role">Web Development Member</span>
+							<p>
+								Đảm bảo giao diện người dùng hoạt động trơn tru
+								và tối ưu.
+							</p>
+							<div class="socials">
+								<a href="#"><i class="fab fa-dribbble"></i></a
+								><a href="#"><i class="fab fa-js"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="member-card member-item fade-in grid-col-2">
+						<div class="avt-frame">
+							<img
+								src="images/members/thai-huy-phong.jpg"
+								alt="Huy Phong"
+							/>
+						</div>
+						<div class="member-info">
+							<h3>Thái Huy Phong</h3>
+							<span class="role">Media Team Member</span>
+							<p>
+								Sáng tạo nội dung trên mạng xã hội và tương tác
+								cộng đồng.
+							</p>
+							<div class="socials">
+								<a href="#"><i class="fab fa-twitter"></i></a
+								><a href="#"><i class="fab fa-tiktok"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="member-card member-item fade-in grid-col-3">
+						<div class="avt-frame">
+							<img
+								src="images/members/nguyen-viet-thanh.jpg"
+								alt="Việt Thành"
+							/>
+						</div>
+						<div class="member-info">
+							<h3>Nguyễn Việt Thành</h3>
+							<span class="role">Financial Member</span>
+							<p>
+								Phân tích dữ liệu tài chính và hỗ trợ lập kế
+								hoạch chi tiêu.
+							</p>
+							<div class="socials">
+								<a href="#"><i class="fas fa-database"></i></a
+								><a href="#"
+									><i class="fas fa-chart-pie"></i
+								></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="group-photo-section fade-in">
+				<h2 class="section-subtitle">CriticalCode Group Photo</h2>
+				<div class="photo-frame">
+					<img
+						src="images/members/group-photo.jpg"
+						alt="CriticalCode Group Photo"
+					/>
+					<div class="photo-overlay"></div>
+				</div>
+			</section>
+		</main>
+
+		<button id="language-btn" title="." type="button">
+			<i class="fa-solid fa-globe"></i>
+		</button>
+
+		<footer>
+			<p>&copy; 2025 CriticalCode. Built with Python & Passion.</p>
+		</footer>
+
+		<script src="scripts/about.js"></script>
+		<script src="scripts/courses.js"></script>
+
+		<script src="scripts/lang/language_about.js"></script>
+		<script src="scripts/lang/language_navbar.js"></script>
+	</body>
+</html>

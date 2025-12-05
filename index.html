@@ -3,328 +3,254 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>CriticalCode - Learn Python</title>
+		<title>CriticalCode</title>
 
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800;900&family=Jaro:wght@300;400;500;600;700;800;900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
 			rel="stylesheet"
 		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="styles/main.css" />
+		<link rel="stylesheet" href="styles/index.css" />
+		<link rel="stylesheet" href="styles/prism.css" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
 		/>
-		<link rel="stylesheet" href="styles/webstyle.css" />
-		<link rel="stylesheet" href="styles/index.css" />
 		<link rel="icon" type="image/x-icon" href="images/icon.png" />
 	</head>
 	<body>
-		<!-- HEADER -->
-		<header class="main-header">
-			<div class="container header-container">
-				<div class="logo-area">
-					<a class="navbar-brand"
-						><img
-							src="images/white_icon.png"
-							alt="CriticalCode Logo"
-						/>
-						CriticalCode</a
-					>
-				</div>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+			crossorigin="anonymous"
+		></script>
 
-				<button class="hamburger-btn" aria-label="Toggle menu">
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width="24"
-						height="24"
-						viewBox="0 0 24 24"
-						fill="white"
-						stroke="white"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						class="lucide lucide-menu"
-					>
-						<line x1="4" x2="20" y1="12" y2="12" />
-						<line x1="4" x2="20" y1="6" y2="6" />
-						<line x1="4" x2="20" y1="18" y2="18" />
-					</svg>
-				</button>
-
-				<nav class="nav-links desktop-nav">
-					<a href="#"><i class="fa-solid fa-house"></i> Home</a>
-
-					<div class="dropdown">
-						<a href="#" class="drop-btn">
-							<i class="fa-solid fa-graduation-cap"></i> Courses
-							<svg
-								class="arrow-icon"
-								width="16"
-								height="16"
-								viewBox="0 0 24 24"
-							>
-								<path
-									d="M6 9l6 6 6-6"
-									fill="none"
-									stroke="white"
-									stroke-width="2"
-								/>
-							</svg>
-						</a>
-
-						<div class="dropdown-content">
-							<a href="#">Introduction to Python</a>
-							<a href="#">Loops and Conditions</a>
-							<a href="#">Storing Multiple Values</a>
-							<a href="#">Functions and Program Decomposition</a>
-							<a
-								href="https://criticalcode.org/index.html"
-								target="_blank"
-								rel="noopener noreferrer"
-								>See more...</a
-							>
-						</div>
-					</div>
-
-					<a href="#"><i class="fa-solid fa-circle-question"></i> Help</a>
-					<a href="#"><i class="fa-solid fa-circle-info"></i> About Us</a>
-				</nav>
-
-				<div class="auth-buttons desktop-auth">
-					<a href="register.html" class="btn-signup"
-						><i class="fa-solid fa-user-plus"></i> Sign up</a
-					>
-					<a href="login.html" class="btn-login"
-						><i class="fa-solid fa-circle-user"></i> Log in</a
-					>
-				</div>
+		<img src="images/logo.png" alt="" class="page-watermark" />
+		<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+			<div class="logo navbar-brand">
+				<img src="images/white_icon.png" alt="" class="logo-icon" />
+				<div><span class="py-accent">Critical</span>Code</div>
 			</div>
-		</header>
 
-		<!-- SHEET -->
-		<div class="mobile-sheet-content" id="mobileSheet">
-			<button class="close-btn" aria-label="Close menu">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					width="24"
-					height="24"
-					viewBox="0 0 24 24"
-					fill="none"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					class="lucide lucide-x"
-				>
-					<path d="M18 6 6 18" />
-					<path d="m6 6 12 12" />
-				</svg>
+			<button
+				class="navbar-toggler"
+				type="button"
+				data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent"
+				data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent"
+				aria-expanded="false"
+				aria-label="Toggle navigation"
+			>
+				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			<nav class="nav-links mobile-nav">
-				<a href="#"><i class="fa-solid fa-house"></i> Home</a>
-
-				<div class="dropdown mobile-dropdown">
-					<a href="#" class="drop-btn mobile-drop-btn">
-						<i class="fa-solid fa-graduation-cap"></i> Courses
-						<svg
-							class="arrow-icon"
-							width="16"
-							height="16"
-							viewBox="0 0 24 24"
+			<div
+				class="collapse navbar-collapse test"
+				id="navbarSupportedContent"
+			>
+				<ul class="nav-links navbar-nav mr-auto">
+					<li class="nav-item">
+						<a href="#" id="home" class="active"
+							><i class="fa-solid fa-house"></i> Home</a
 						>
-							<path
-								d="M6 9l6 6 6-6"
-								fill="none"
-								stroke="white"
-								stroke-width="2"
-							/>
-						</svg>
-					</a>
-					<div class="dropdown-content mobile-dropdown-content">
-						<a href="#">Introduction to Python</a>
-						<a href="#">Loops and Conditions</a>
-						<a href="#">Storing Multiple Values</a>
-						<a href="#">Functions and Program Decomposition</a>
-						<a
-							href="https://criticalcode.org/index.html"
-							target="_blank"
-							rel="noopener noreferrer"
-							>See more...</a
+					</li>
+					<li class="nav-item">
+						<div class="courses-dropdown">
+							<a href="#" id="dropdown"
+								><i class="fa-solid fa-graduation-cap"></i>
+								Courses
+								<svg
+									class="arrow-icon"
+									width="16"
+									height="16"
+									viewBox="0 0 24 24"
+								>
+									<path
+										d="M6 9l6 6 6-6"
+										fill="none"
+										stroke="white"
+										stroke-width="2"
+									/>
+								</svg>
+							</a>
+
+							<div class="dropdown-content">
+								<a href="#" id="course1"
+									>Introduction to Python</a
+								>
+								<a href="#" id="course2"
+									>Loops and Conditionals</a
+								>
+								<a href="#" id="course3"
+									>Storing Multiple Values</a
+								>
+								<a href="#" id="course4"
+									>Functions and Program Decomposition</a
+								>
+								<a href="#" id="seeMore"
+									>See more...</a
+								>
+							</div>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a href="about.html" id="aboutUs"
+							><i class="fa-solid fa-question"></i> About us</a
 						>
+					</li>
+					<li class="nav-item">
+						<a href="#" id="contact"
+							><i class="fa-solid fa-phone"></i> Contact</a
+						>
+					</li>
+					<li class="nav-item">
+						<a href="register.html" id="register"
+							><i class="fa-solid fa-user-plus"></i> Sign up</a
+						>
+					</li>
+					<li class="nav-item">
+						<a href="login.html" id="login"
+							><i class="fa-solid fa-circle-user"></i> Log in</a
+						>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<main class="hero">
+			<div class="code-window-container">
+				<div class="code-window">
+					<div class="window-controls">
+						<div class="control red"></div>
+						<div class="control yellow"></div>
+						<div class="control green"></div>
 					</div>
+
+					<code>
+						<span class="code-block">
+							<span class="token keyword">def</span>
+							<span class="token function">hello_world</span
+							><span class="token punctuation">():</span><br />
+							&nbsp;&nbsp;&nbsp;&nbsp;<span class="token builtin"
+								>print</span
+							><span class="token punctuation">(</span
+							><span class="token string" id="str1"
+								>"Welcome to CriticalCode!"</span
+							><span class="token punctuation">)</span>
+						</span>
+
+						<span class="code-block">
+							<span class="token keyword">def</span>
+							<span class="token function">main_json</span
+							><span class="token punctuation">():</span><br />
+							&nbsp;&nbsp;&nbsp;&nbsp;data
+							<span class="token operator">=</span> data<span
+								class="token punctuation"
+								>.</span
+							><span class="token function">test</span
+							><span class="token punctuation">({})</span><br />
+							&nbsp;&nbsp;&nbsp;&nbsp;<span class="token builtin"
+								>print</span
+							><span class="token punctuation">(</span
+							><span class="token string" id="str2"
+								>"Learn Python Quickly, Efficiently, and For
+								Free!"</span
+							><span class="token punctuation">)</span>
+						</span>
+
+						<span class="code-block">
+							<span class="token comment" id="codeComment"
+								># Run program</span
+							><br />
+							<span class="token function">hello_world</span
+							><span class="token punctuation">()</span>
+						</span>
+					</code>
 				</div>
+			</div>
 
-				<a href="#"><i class="fa-solid fa-circle-question"></i> Help</a>
-				<a href="#"><i class="fa-solid fa-circle-info"></i> About Us</a>
-
-				<a href="register.html" class="btn-signup"
-					><i class="fa-solid fa-user-plus"></i> Sign up</a
+			<div class="hero-content">
+				<h1>
+					<span id="welcome">Welcome to</span>
+					<span
+						class="highlight"
+						id="animated"
+						data-value="CriticalCode"
+						>CriticalCode</span
+					>
+				</h1>
+				<p class="hero-subtext" id="subtext">
+					Learn Python For Free, Quickly, and Efficiently
+				</p>
+				<a href="register.html" class="cta-button" id="getStarted"
+					><i class="fa-solid fa-play"></i> Get Started</a
 				>
-				<a href="login.html" class="btn-login"
-					><i class="fa-solid fa-circle-user"></i> Log in</a
-				>
-			</nav>
-		</div>
-
-		<div class="sheet-overlay" id="sheetOverlay"></div>
-
-		<!-- HERO -->
-		<section class="hero">
-			<div class="container hero-container">
-				<!-- LEFT CONTENT -->
-				<div class="hero-left">
-					<h1 class="hero-title">
-						Learn <span class="python">Python</span>
-						<br />
-						<span class="fast">Quickly</span>
-					</h1>
-					<div class="info-card">
-						<p>
-							Want to learn Python but don't know where to start?
-							This website, created by a group of students, will
-							help you learn Python in a simple, fast, and
-							completely free way!
-						</p>
-					</div>
-				</div>
-				<!-- RIGHT SIDE -->
-				<div class="hero-right">
-					<img
-						src="images/promo0.jpg"
-						alt="Promotion"
-						class="hero-image"
-					/>
-				</div>
 			</div>
-			<!-- FEATURES -->
-			<div class="features-main">
-				<div class="features">
-					<svg
-						width="48"
-						height="48"
-						viewBox="0 0 48 48"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						class="correct-icon"
-					>
-						<path
-							d="M21.2 32.4L35.3 18.3L32.5 15.5L21.2 26.8L15.5 21.1L12.7 23.9L21.2 32.4ZM10 42C8.9 42 7.95833 41.6083 7.175 40.825C6.39167 40.0417 6 39.1 6 38V10C6 8.9 6.39167 7.95833 7.175 7.175C7.95833 6.39167 8.9 6 10 6H38C39.1 6 40.0417 6.39167 40.825 7.175C41.6083 7.95833 42 8.9 42 10V38C42 39.1 41.6083 40.0417 40.825 40.825C40.0417 41.6083 39.1 42 38 42H10Z"
-							fill="#43C73E"
-						/>
-					</svg>
-					<h3 class="features-text">100% Free</h3>
-				</div>
-				<div class="features">
-					<svg
-						width="48"
-						height="48"
-						viewBox="0 0 48 48"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						class="correct-icon"
-					>
-						<path
-							d="M21.2 32.4L35.3 18.3L32.5 15.5L21.2 26.8L15.5 21.1L12.7 23.9L21.2 32.4ZM10 42C8.9 42 7.95833 41.6083 7.175 40.825C6.39167 40.0417 6 39.1 6 38V10C6 8.9 6.39167 7.95833 7.175 7.175C7.95833 6.39167 8.9 6 10 6H38C39.1 6 40.0417 6.39167 40.825 7.175C41.6083 7.95833 42 8.9 42 10V38C42 39.1 41.6083 40.0417 40.825 40.825C40.0417 41.6083 39.1 42 38 42H10Z"
-							fill="#43C73E"
-						/>
-					</svg>
-					<h3 class="features-text">Suitable for beginners</h3>
-				</div>
-				<div class="features">
-					<svg
-						width="48"
-						height="48"
-						viewBox="0 0 48 48"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						class="correct-icon"
-					>
-						<path
-							d="M21.2 32.4L35.3 18.3L32.5 15.5L21.2 26.8L15.5 21.1L12.7 23.9L21.2 32.4ZM10 42C8.9 42 7.95833 41.6083 7.175 40.825C6.39167 40.0417 6 39.1 6 38V10C6 8.9 6.39167 7.95833 7.175 7.175C7.95833 6.39167 8.9 6 10 6H38C39.1 6 40.0417 6.39167 40.825 7.175C41.6083 7.95833 42 8.9 42 10V38C42 39.1 41.6083 40.0417 40.825 40.825C40.0417 41.6083 39.1 42 38 42H10Z"
-							fill="#43C73E"
-						/>
-					</svg>
-					<h3 class="features-text">Easy to understand</h3>
-				</div>
-				<div class="features">
-					<svg
-						width="48"
-						height="48"
-						viewBox="0 0 48 48"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						class="correct-icon"
-					>
-						<path
-							d="M21.2 32.4L35.3 18.3L32.5 15.5L21.2 26.8L15.5 21.1L12.7 23.9L21.2 32.4ZM10 42C8.9 42 7.95833 41.6083 7.175 40.825C6.39167 40.0417 6 39.1 6 38V10C6 8.9 6.39167 7.95833 7.175 7.175C7.95833 6.39167 8.9 6 10 6H38C39.1 6 40.0417 6.39167 40.825 7.175C41.6083 7.95833 42 8.9 42 10V38C42 39.1 41.6083 40.0417 40.825 40.825C40.0417 41.6083 39.1 42 38 42H10Z"
-							fill="#43C73E"
-						/>
-					</svg>
-					<h3 class="features-text">Practical exercises</h3>
-				</div>
-			</div>
-			<!-- CTA BUTTON -->
-			<div class="cta-button">
-				<div class="btn-color">
-					<svg
-						width="49"
-						height="55"
-						viewBox="0 0 49 55"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-						class="play"
-					>
-						<path
-							opacity="0.8"
-							d="M46.5 23.9245C49.1667 25.4641 49.1667 29.3131 46.5 30.8527L6 54.2354C3.33333 55.775 0 53.8505 0 50.7713V4.00596C0 0.926757 3.33333 -0.99774 6 0.54186L46.5 23.9245Z"
-							fill="black"
-						/>
-					</svg>
 
-					<a href="register.html" class="cta-text">Start Learning for Free </a>
-				</div>
-			</div>
-			<!-- bottom links -->
-			<div class="hero-bottom container">
-				<a href="https://www.instagram.com/critical_code.education/" class="socials">
-					<img
-						src="images/instagram.png"
-						alt="Instagram"
-						class="insta-icon"
-					/>
-					<h3>critical_code.education</h3>
-				</a>
+			<a
+				target="_blank"
+				href="https://instagram.com/critical_code.education"
+				title="Instagram"
+				rel="noopener"
+				class="instagram"
+				><i class="fa-brands fa-instagram"></i>
+			</a>
 
-				<button
-					id="language-btn"
-					title="Thay đổi ngôn ngữ"
-					type="button"
-				>
-					<i class="fa-solid fa-globe"></i>
-				</button>
-			</div>
-		</section>
+			<button id="language-btn" title="." type="button">
+				<i class="fa-solid fa-globe"></i>
+			</button>
+		</main>
 
-		<script src="scripts/main.js"></script>
+		<footer>
+			<p>&copy; 2025 CriticalCode. Built with Python & Passion.</p>
+		</footer>
+
 		<script>
-			const content = ["Quickly", "Efficiently", "For Free"];
-			const fast = document.getElementsByClassName("fast")[0];
-			const img = document.getElementsByClassName("hero-image")[0];
-			let contentIdx = 0;
-			let imgIdx = 0;
+			const LETTERS =
+				"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-			function changeImg() {
-				imgIdx = (imgIdx + 1) % content.length;
-				img.src = `images/promo${imgIdx}.jpg`;
+			function applyEffect() {
+				const title = document.getElementById("animated");
+				let iterations = 0;
+				const interval = setInterval(() => {
+					title.innerText = title.innerText
+						.split("")
+						.map((letter, index) => {
+							if (index < iterations)
+								return title.dataset.value[index];
+							return LETTERS[Math.floor(Math.random() * 52)];
+						})
+						.join("");
+
+					if (iterations >= title.dataset.value.length) {
+						title.innerText = title.dataset.value;
+						title.style.color = "#bb9eff";
+						title.style.textShadow = "0 0 30px #b679ff";
+						clearInterval(interval);
+					}
+
+					iterations += 1 / 8;
+				}, 10);
 			}
 
-			function changeContent() {
-				contentIdx = (contentIdx + 1) % content.length;
-				fast.innerHTML = content[contentIdx];
-			}
-
-			setInterval(changeImg, 3000);
-			setInterval(changeContent, 800);
+			applyEffect();
 		</script>
+		<script src="scripts/courses.js"></script>
+		<script src="scripts/lang/language_index.js"></script>
+		<script src="scripts/lang/language_navbar.js"></script>
 	</body>
 </html>
