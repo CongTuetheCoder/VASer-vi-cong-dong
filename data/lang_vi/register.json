@@ -1,6 +1,4 @@
 {
-	"home": "<i class=\"fa-solid fa-house\"></i> Trang chủ",
-	"login": "<i class=\"fa-solid fa-circle-user\"></i> Đăng nhập",
 	"microsoftSignup": "<i class=\"fa-brands fa-microsoft\"></i> <span>Đăng ký bằng Microsoft</span>",
 	"googleSignup": "<i class=\"fa-brands fa-google\"></i> <span>Đăng ký bằng Google</span>",
 	"accountSignup": "<i class=\"fa-solid fa-user\"></i> <span>Tạo tài khoản</span>",

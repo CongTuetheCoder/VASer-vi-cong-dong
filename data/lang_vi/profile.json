@@ -2,6 +2,7 @@
 	"brand-text": "<i class=\"fa-solid fa-circle-user\"></i> Trang cá nhân",
 	"hub": "<i class=\"fa-solid fa-house\"></i> Hub",
 	"signoutBtn": "<span><i class=\"fa-solid fa-right-from-bracket\"></i> Đăng xuất</span>",
+	"deleteAccBtn": "<span><i class=\"fa-solid fa-trash-can\"></i> Xóa tài khoản</span>",
 	"current-unit-text": "Chủ đề hiện tại: <span id=\"current-unit\">Chủ đề 1</span>",
 	"progress-text": "Tiến trình: <span id=\"progress\">0</span>%",
 	"language-btn": "Thay đổi ngôn ngữ",

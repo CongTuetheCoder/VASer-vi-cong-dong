@@ -1,6 +1,9 @@
 {
-	"login": "<i class=\"fa-solid fa-circle-user\"></i> Đăng nhập",
-	"signup": "<i class=\"fa-solid fa-user-plus\"></i> Đăng ký",
-	"quotecontent": "Cái khiến tôi thấy thú vị nhất sẽ là được chứng kiến thế hệ của bạn bước vào và đưa các phần mềm lên một tầm cao mới.",
+	"str1": "\"Chào mừng đến với CriticalCode!\"",
+	"str2": "\"Học Python Nhanh, Hiệu Quả, và Miễn Phí!\"",
+	"subtext": "Học Python Nhanh,<br>Hiệu Quả, và Miễn Phí",
+	"codeComment": "# Chạy chương trình",
+	"welcome": "Chào mừng đến",
+	"getStarted": "<i class='fa-solid fa-play'></i> Bắt đầu học",
 	"language-btn": "Thay đổi ngôn ngữ"
 }
