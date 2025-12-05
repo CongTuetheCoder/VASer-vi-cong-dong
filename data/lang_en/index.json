@@ -1,6 +1,10 @@
 {
-	"login": "<i class=\"fa-solid fa-circle-user\"></i> Log in",
-	"signup": "<i class=\"fa-solid fa-user-plus\"></i> Sign up",
-	"quotecontent": "What will be most fun for me is to see how your generation comes in and takes software to a whole new level.",
+	"str1": "\"Welcome to CriticalCode!\"",
+	"str2": "\"Learn Python Quickly, Efficiently, and For Free!\"",
+	"course1": "Introduction to Python",
+	"codeComment": "# Run program",
+	"subtext": "Learn Python Quickly, Efficiently, and For Free",
+	"welcome": "Welcome to",
+	"getStarted": "<i class='fa-solid fa-play'></i> Get Started",
 	"language-btn": "Change language"
 }
