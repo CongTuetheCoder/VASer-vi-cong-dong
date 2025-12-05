@@ -1,0 +1,428 @@
+/* --- Cài đặt màu tím chủ đạo --- */
+:root {
+	--bg-dark: #0e0b16;
+	--purple-glow: #d726ff;
+	--red-glow: #ff2626;
+	--cyan-glow: #26d4ff;
+	--purple-dim: #5c1898;
+	--text-white: #ffffff;
+	--text-gray: #babbc0;
+	--card-bg: #181225;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Roboto", sans-serif;
+	background-color: var(--bg-dark);
+	color: var(--text-white);
+	overflow-x: hidden;
+}
+
+/* Background Watermark */
+.bg-robot-watermark {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 60%;
+	opacity: 0.04;
+	z-index: -1;
+	filter: hue-rotate(60deg); /* Chuyển màu robot sang tím */
+}
+
+nav a.active {
+	color: var(--purple-glow);
+	text-shadow: 0 0 10px var(--purple-glow);
+}
+
+/* --- Layout Chung --- */
+main {
+	padding: 40px 10%;
+	max-width: 1400px;
+	margin: 0 auto;
+	z-index: 20;
+}
+.section-title {
+	font-family: "Orbitron", sans-serif;
+	font-size: 3rem;
+	text-align: center;
+	margin-bottom: 30px;
+}
+.section-subtitle {
+	font-family: "Orbitron", sans-serif;
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 40px;
+	color: var(--purple-glow);
+	border-bottom: 2px solid var(--purple-glow);
+	display: inline-block;
+	padding-bottom: 5px;
+}
+.highlight {
+	color: var(--purple-glow);
+	text-shadow: 0 0 20px rgba(176, 38, 255, 0.5);
+}
+
+/* --- PHẦN 1: Mission Box --- */
+.mission-section {
+	text-align: center;
+	margin-bottom: 80px;
+}
+.mission-box {
+	background: linear-gradient(135deg, rgba(176, 38, 255, 0.1), transparent);
+	border: 1px solid rgba(176, 38, 255, 0.3);
+	border-left: 5px solid var(--purple-glow);
+	padding: 30px;
+	border-radius: 10px;
+	max-width: 800px;
+	margin: 0 auto;
+	font-size: 1.1rem;
+	line-height: 1.8;
+	color: #ddd;
+	box-shadow: 0 0 30px rgba(176, 38, 255, 0.1);
+}
+
+/* --- PHẦN 2: Team Grid --- */
+.team-section {
+	margin-bottom: 100px;
+	text-align: center;
+}
+.team-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 30px;
+}
+
+.member-card {
+	background-color: var(--card-bg);
+	border-radius: 15px;
+	padding: 30px 20px;
+	position: relative;
+	border: 1px solid rgba(255, 255, 255, 0.05);
+	transition: 0.4s;
+	overflow: hidden;
+}
+
+.member-card:hover {
+	transform: translateY(-10px);
+	border-color: var(--purple-glow);
+	box-shadow: 0 10px 40px rgba(176, 38, 255, 0.2);
+}
+
+.avt-frame {
+	width: 120px;
+	height: 120px;
+	margin: 0 auto 20px;
+	border-radius: 50%;
+	padding: 3px;
+	border: 2px dashed var(--purple-dim);
+}
+.avt-frame img {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	object-fit: cover;
+}
+.member-card:hover .avt-frame {
+	border-style: solid;
+	border-color: var(--purple-glow);
+	animation: spinBorder 10s linear infinite;
+}
+
+.member-info h3 {
+	font-family: "Cascadia Code";
+	margin-bottom: 5px;
+	color: #fff;
+}
+.member-info .role {
+	font-size: 0.9rem;
+	font-weight: bold;
+	display: block;
+	margin-bottom: 15px;
+	letter-spacing: 1px;
+}
+
+.grid-col-1 .member-info .role {
+	color: var(--purple-glow);
+}
+
+.grid-col-2 .member-info .role {
+	color: var(--red-glow);
+}
+
+.grid-col-3 .member-info .role {
+	color: var(--cyan-glow);
+}
+
+.member-info p {
+	font-size: 0.9rem;
+	color: #aaa;
+	margin-bottom: 20px;
+}
+
+.socials a {
+	color: #fff;
+	margin: 0 8px;
+	font-size: 1.1rem;
+	transition: 0.3s;
+}
+.socials a:hover {
+	color: var(--purple-glow);
+}
+
+/* --- PHẦN 3: Group Photo --- */
+.group-photo-section {
+	text-align: center;
+	margin-bottom: 50px;
+}
+.photo-frame {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	border-radius: 20px;
+	overflow: hidden;
+	border: 2px solid var(--purple-glow);
+	box-shadow: 0 0 50px rgba(176, 38, 255, 0.3);
+	position: relative;
+}
+
+.photo-frame img {
+	width: 100%;
+	display: block;
+	transition: 0.5s;
+}
+.photo-frame:hover img {
+	transform: scale(1.02);
+}
+
+/* Overlay tạo hiệu ứng quét màu tím */
+.photo-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(
+		to bottom,
+		transparent 80%,
+		rgba(176, 38, 255, 0.4)
+	);
+	pointer-events: none;
+}
+
+/* Footer */
+footer {
+	text-align: center;
+	padding: 20px;
+	color: #555;
+	border-top: 1px solid #222;
+	margin-top: 50px;
+	font-size: 0.8rem;
+}
+
+/* Animations */
+.fade-in {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: 0.8s ease-out;
+}
+.fade-in.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@keyframes spinBorder {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+	header {
+		flex-direction: column;
+		gap: 15px;
+	}
+	.section-title {
+		font-size: 2rem;
+	}
+	.mission-box {
+		padding: 20px;
+	}
+}
+/* Thêm đoạn này vào cuối file about.css của bạn */
+.mission-box .highlight-lead {
+	font-size: 1.2rem;
+	font-weight: 700;
+	color: var(--purple-glow); /* Sử dụng biến màu tím neon */
+	text-shadow: 0 0 5px rgba(176, 38, 255, 0.3);
+}
+/* Thêm đoạn này vào file about.css */
+
+/* Logo Text Coloring */
+.brand .logo-text {
+	/* Critical phần ngoài sẽ giữ màu trắng mặc định (var(--text-white)) */
+	color: var(--text-white);
+	font-weight: 700;
+}
+
+.brand .logo-accent {
+	/* Code phần này sẽ là màu tím neon */
+	color: var(--purple-glow);
+	text-shadow: 0 0 10px rgba(176, 38, 255, 0.6);
+}
+/* Thêm/chỉnh sửa đoạn CSS này trong file about.css */
+
+/* --- THIẾT LẬP LẠI GRID CHO BỐ CỤC PHÂN CẤP --- */
+
+.team-grid.structured-grid {
+	/* Đã chuyển từ auto-fit sang grid 3 cột cố định cho màn hình lớn */
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* 3 cột bằng nhau */
+	gap: 30px;
+	/* Loại bỏ padding và max-width nếu có xung đột, giữ nguyên trong main */
+}
+
+/* --- QUY TẮC ĐỊNH VỊ CỘT (Cần thiết cho bố cục mới) --- */
+.grid-span-3 {
+	grid-column: 1 / span 3; /* Chiếm trọn 3 cột (Cho Leader/Manager) */
+}
+
+.grid-col-1 {
+	grid-column: 1;
+} /* Cột 1: Web Dev */
+.grid-col-2 {
+	grid-column: 2;
+} /* Cột 2: Media */
+.grid-col-3 {
+	grid-column: 3;
+} /* Cột 3: Finance */
+
+/* --- STYLING CHO CÁC VỊ TRÍ MỚI --- */
+
+/* Leader Card (nổi bật nhất) */
+.member-card.leader-card {
+	background-color: var(--purple-dim);
+	border: 1px solid var(--purple-glow);
+	transform: scale(1.05); /* Lớn hơn */
+	margin-bottom: 30px;
+}
+
+/* Assistant Manager (Nổi bật hơn thành viên thường) */
+.member-card.management-card {
+	background-color: #2b1d3d; /* Màu tối hơn */
+	margin-bottom: 50px;
+}
+
+/* Head Card (Trưởng Ban) */
+.member-card.head-card {
+	border-bottom: 5px solid var(--purple-glow); /* Viền đậm dưới cùng */
+	margin-bottom: 10px;
+}
+
+/* Tiêu đề phân tách (WEB DEVELOPMENT, MEDIA TEAM, ...) */
+.group-separator {
+	font-family: "Orbitron", sans-serif;
+	color: var(--light-purple);
+	font-size: 1rem;
+	padding: 10px 0;
+	text-align: center;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	margin-top: 20px;
+	margin-bottom: 20px;
+	grid-column: auto; /* Đảm bảo nằm đúng cột 1, 2, 3 */
+}
+
+/* --- XỬ LÝ RESPONSIVE (QUAN TRỌNG) --- */
+
+@media (max-width: 900px) {
+	/* Trên màn hình nhỏ, quay về layout tự động (chỉ 1 cột) */
+	.team-grid.structured-grid {
+		grid-template-columns: 1fr;
+		gap: 30px;
+	}
+
+	/* Hủy bỏ định vị cột cho màn hình nhỏ */
+	.grid-span-3,
+	.grid-col-1,
+	.grid-col-2,
+	.grid-col-3 {
+		grid-column: auto;
+	}
+
+	.member-card.leader-card {
+		transform: scale(1);
+	}
+	.group-separator {
+		grid-column: auto;
+	} /* Tiêu đề phân tách cũng quay về auto */
+}
+/* --- Cập nhật biến màu (giữ nguyên) --- */
+:root {
+	--bg-dark: #0e0b16;
+	--purple-glow: #b026ff;
+	--purple-dim: #5c1898;
+	--text-white: #ffffff;
+	--text-gray: #babbc0;
+	--card-bg: #181225; /* Nền card mặc định */
+
+	/* Màu nền mới theo nhóm */
+	--bg-coding: #3b006c; /* Tím đậm cho Coding/Web */
+	--bg-media: #6b0000; /* Đỏ đậm cho Media */
+	--bg-finance: #00366b; /* Xanh đậm cho Finance */
+}
+
+/* --- QUY TẮC PHÂN BIỆT MÀU NỀN THEO CỘT --- */
+
+/* 1. Coding/Web Development (Cột 1) */
+.member-card.grid-col-1 {
+	background-color: var(--bg-coding);
+	border-color: rgba(176, 38, 255, 0.4); /* Giữ viền tím neon */
+}
+.member-card.grid-col-1:hover {
+	box-shadow: 0 10px 40px rgba(176, 38, 255, 0.2); /* Đổ bóng tím */
+}
+
+/* 2. Media Team (Cột 2) */
+.member-card.grid-col-2 {
+	background-color: var(--bg-media);
+	border-color: rgba(255, 50, 50, 0.4); /* Viền đỏ nhạt hơn */
+}
+.member-card.grid-col-2:hover {
+	box-shadow: 0 10px 40px rgba(255, 50, 50, 0.2); /* Đổ bóng đỏ */
+}
+
+/* 3. Finance Team (Cột 3) */
+.member-card.grid-col-3 {
+	background-color: var(--bg-finance);
+	border-color: rgba(0, 150, 255, 0.4); /* Viền xanh nhạt hơn */
+}
+.member-card.grid-col-3:hover {
+	box-shadow: 0 10px 40px rgba(0, 150, 255, 0.2); /* Đổ bóng xanh */
+}
+
+/* Leader & Assistant Manager: Giữ màu Tím đậm/huyền ảo */
+.member-card.leader-card {
+	background-color: var(--purple-dim); /* Tím đậm cho Leader */
+	border: 1px solid var(--purple-glow);
+}
+
+.member-card.management-card {
+	background-color: #2b1d3d; /* Tím tối hơn cho Assistant Manager */
+}
+
+/* --- Cập nhật tiêu đề nhóm để dễ nhìn hơn --- */
+.group-separator.grid-col-1 {
+	color: var(--purple-glow);
+} /* Tiêu đề Tím */
+.group-separator.grid-col-2 {
+	color: #ff5050;
+} /* Tiêu đề Đỏ */
+.group-separator.grid-col-3 {
+	color: #50aaff;
+} /* Tiêu đề Xanh */

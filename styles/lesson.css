@@ -130,7 +130,7 @@
 
 .codeEdit {
 	z-index: 2;
-	background-color: black;
+	background-color: #11121e;
 	color: white;
 	resize: none;
 	outline: none;
@@ -303,7 +303,7 @@
 	height: 145px;
 	resize: none;
 	padding: 10px;
-	background-color: #11121e;
+	background-color: #000;
 	z-index: 4;
 	margin-top: 10px;
 	color: white;
