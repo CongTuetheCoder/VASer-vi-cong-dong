@@ -23,17 +23,17 @@ const fetchLang = (path) => {
 const languageBtn = document.getElementById("language-btn");
 
 if (localStorage.getItem("lang") === "en") {
-	fetchLang("data/lang_en/index.json");
+	fetchLang("data/lang_en/about.json");
 } else {
-	fetchLang("data/lang_vi/index.json");
+	fetchLang("data/lang_vi/about.json");
 }
 
 languageBtn.addEventListener("click", () => {
 	if (localStorage.getItem("lang") === "en") {
 		localStorage.setItem("lang", "vi");
-		fetchLang("data/lang_vi/index.json");
+		fetchLang("data/lang_vi/about.json");
 	} else {
 		localStorage.setItem("lang", "en");
-		fetchLang("data/lang_en/index.json");
+		fetchLang("data/lang_en/about.json");
 	}
 });

@@ -16,7 +16,7 @@ const fetchLang = (path) => {
 						element.dataset.value = data[key];
 						element.innerHTML = data[key];
 					} else if (key == "title") {
-						document.title = data[key]
+						document.title = data[key];
 					} else {
 						element.innerHTML = data[key];
 					}
@@ -26,6 +26,14 @@ const fetchLang = (path) => {
 };
 
 const languageBtn = document.getElementById("language-btn");
+
+document.addEventListener("lessonReady", () => {
+	if (localStorage.getItem("lang") === "en") {
+		fetchLang("data/lang_en/home.json");
+	} else {
+		fetchLang("data/lang_vi/home.json");
+	}
+});
 
 languageBtn.addEventListener("click", () => {
 	const dialog = document.getElementsByClassName("lessonDialog")[0];
@@ -41,11 +49,3 @@ languageBtn.addEventListener("click", () => {
 		fetchLang("data/lang_en/home.json");
 	}
 });
-
-setTimeout(() => {
-	if (localStorage.getItem("lang") === "en") {
-		fetchLang("data/lang_en/home.json");
-	} else {
-		fetchLang("data/lang_vi/home.json");
-	}
-}, 300);
