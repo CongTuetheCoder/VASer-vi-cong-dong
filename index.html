@@ -64,13 +64,13 @@
 			>
 				<ul class="nav-links navbar-nav mr-auto">
 					<li class="nav-item">
-						<a href="#" id="home" class="active"
+						<a href="javascript: void(0)" id="home" class="active"
 							><i class="fa-solid fa-house"></i> Home</a
 						>
 					</li>
 					<li class="nav-item">
 						<div class="courses-dropdown">
-							<a href="#" id="dropdown"
+							<a href="javascript: void(0)" id="dropdown"
 								><i class="fa-solid fa-graduation-cap"></i>
 								Courses
 								<svg
@@ -101,9 +101,7 @@
 								<a href="#" id="course4"
 									>Functions and Program Decomposition</a
 								>
-								<a href="#" id="seeMore"
-									>See more...</a
-								>
+								<a href="#" id="seeMore">See more...</a>
 							</div>
 						</div>
 					</li>
@@ -113,7 +111,7 @@
 						>
 					</li>
 					<li class="nav-item">
-						<a href="#" id="contact"
+						<a href="contact.html" id="contact"
 							><i class="fa-solid fa-phone"></i> Contact</a
 						>
 					</li>
@@ -194,13 +192,23 @@
 					>
 				</h1>
 				<p class="hero-subtext" id="subtext">
-					Learn Python For Free, Quickly, and Efficiently
+					Learn Python Quickly, Efficiently, and For Free
 				</p>
 				<a href="register.html" class="cta-button" id="getStarted"
 					><i class="fa-solid fa-play"></i> Get Started</a
 				>
 			</div>
+		</main>
 
+		<div class="socials">
+			<a
+				target="_blank"
+				href="https://www.facebook.com/profile.php?id=61582451132437"
+				title="Facebook"
+				rel="noopener"
+				class="facebook"
+				><i class="fa-brands fa-facebook"></i>
+			</a>
 			<a
 				target="_blank"
 				href="https://instagram.com/critical_code.education"
@@ -209,11 +217,27 @@
 				class="instagram"
 				><i class="fa-brands fa-instagram"></i>
 			</a>
+			<a
+				target="_blank"
+				href="https://www.tiktok.com/@criticalcodewebsite"
+				title="TikTok"
+				rel="noopener"
+				class="tiktok"
+				><i class="fa-brands fa-tiktok"></i>
+			</a>
+			<a
+				target="_blank"
+				href="https://www.youtube.com/@CriticalCodeYoutube"
+				title="YouTube"
+				rel="noopener"
+				class="youtube"
+				><i class="fa-brands fa-youtube"></i>
+			</a>
+		</div>
 
-			<button id="language-btn" title="." type="button">
-				<i class="fa-solid fa-globe"></i>
-			</button>
-		</main>
+		<button id="language-btn" title="." type="button">
+			<i class="fa-solid fa-globe"></i>
+		</button>
 
 		<footer>
 			<p>&copy; 2025 CriticalCode. Built with Python & Passion.</p>
@@ -238,7 +262,7 @@
 
 					if (iterations >= title.dataset.value.length) {
 						title.innerText = title.dataset.value;
-						title.style.color = "#bb9eff";
+						title.style.color = "#d1bdff";
 						title.style.textShadow = "0 0 30px #b679ff";
 						clearInterval(interval);
 					}

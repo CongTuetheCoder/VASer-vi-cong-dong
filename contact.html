@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>CriticalCode</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
+			href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
 		/>
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800;900&family=Jaro:wght@300;400;500;600;700;800;900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap"
 			rel="stylesheet"
 		/>
 		<link
@@ -18,8 +22,10 @@
 			crossorigin="anonymous"
 		/>
 		<link rel="stylesheet" href="styles/main.css" />
-		<link rel="stylesheet" href="styles/login.css" />
-		<title>Login</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+		/>
 		<link rel="icon" type="image/x-icon" href="images/icon.png" />
 	</head>
 	<body>
@@ -93,9 +99,7 @@
 								<a href="#" id="course4"
 									>Functions and Program Decomposition</a
 								>
-								<a href="#" id="seeMore"
-									>See more...</a
-								>
+								<a href="#" id="seeMore">See more...</a>
 							</div>
 						</div>
 					</li>
@@ -105,7 +109,7 @@
 						>
 					</li>
 					<li class="nav-item">
-						<a href="contact.html" id="contact"
+						<a href="javascript: void(0)" id="contact" class="active"
 							><i class="fa-solid fa-phone"></i> Contact</a
 						>
 					</li>
@@ -115,7 +119,7 @@
 						>
 					</li>
 					<li class="nav-item">
-						<a href="javascript: void(0)" id="login" class="active"
+						<a href="login.html" id="login"
 							><i class="fa-solid fa-circle-user"></i> Log in</a
 						>
 					</li>
@@ -123,53 +127,16 @@
 			</div>
 		</nav>
 
-		<div class="gradient"></div>
-
-		<div class="container">
-			<h1 id="animated" data-value="Đăng nhập">Đăng nhập</h1>
-			<button
-				type="button"
-				title="Microsoft Login"
-				id="microsoftLogin"
-				class="loginBtn"
-				onclick="window.location.href = 'home.html';"
-			>
-				<i class="fa-brands fa-microsoft"></i>
-				<span>Đăng nhập bằng Microsoft</span>
+		<main>
+			<button id="language-btn" title="." type="button">
+				<i class="fa-solid fa-globe"></i>
 			</button>
-			<button
-				type="button"
-				title="Google Login"
-				id="googleLogin"
-				class="loginBtn"
-				onclick="window.location.href = 'home.html';"
-			>
-				<i class="fa-brands fa-google"></i>
-				<span>Đăng nhập bằng Google</span>
-			</button>
-			<button
-				type="button"
-				title="Google Login"
-				id="accountLogin"
-				class="loginBtn"
-				onclick="window.location.href = 'userLogin.html';"
-			>
-				<i class="fa-solid fa-user"></i>
-				<span>Đăng nhập bằng tài khoản</span>
-			</button>
-		</div>
-
-		<button id="language-btn" title="." type="button">
-			<i class="fa-solid fa-globe"></i>
-		</button>
+		</main>
 
 		<footer>
 			<p>&copy; 2025 CriticalCode. Built with Python & Passion.</p>
 		</footer>
-
-		<script src="scripts/lang/language_login.js"></script>
-		<script src="scripts/lang/language_navbar.js"></script>
-		<script src="scripts/hackerEffect.js"></script>
 		<script src="scripts/courses.js"></script>
+		<script src="scripts/lang/language_navbar.js"></script>
 	</body>
 </html>

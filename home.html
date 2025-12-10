@@ -17,7 +17,7 @@
 			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="styles/webstyle.css" />
+		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/home.css" />
 		<title>CriticalCode Hub</title>
 		<link rel="icon" type="image/x-icon" href="images/icon.png">
@@ -29,10 +29,13 @@
 			crossorigin="anonymous"
 		></script>
 
+		<img src="images/logo.png" alt="" class="page-watermark" />
 		<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-			<a class="navbar-brand"
-				><i class="fa-solid fa-house"></i> CriticalCode Hub</a
-			>
+			<div class="logo navbar-brand">
+				<img src="images/white_icon.png" alt="" class="logo-icon" />
+				<div><span class="py-accent">Critical</span>Code</div>
+			</div>
+
 			<button
 				class="navbar-toggler"
 				type="button"
@@ -51,17 +54,67 @@
 				class="collapse navbar-collapse test"
 				id="navbarSupportedContent"
 			>
-				<ul class="navbar-nav mr-auto">
+				<ul class="nav-links navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="profile.html" id="profile"
-							><i class="fa-solid fa-circle-user"></i> Trang cá nhân</a
+						<a href="javascript: void(0)" id="home" class="active"
+							><i class="fa-solid fa-house"></i> Home</a
+						>
+					</li>
+					<li class="nav-item">
+						<div class="courses-dropdown">
+							<a href="javascript: void(0)" id="dropdown"
+								><i class="fa-solid fa-graduation-cap"></i>
+								Courses
+								<svg
+									class="arrow-icon"
+									width="16"
+									height="16"
+									viewBox="0 0 24 24"
+								>
+									<path
+										d="M6 9l6 6 6-6"
+										fill="none"
+										stroke="white"
+										stroke-width="2"
+									/>
+								</svg>
+							</a>
+
+							<div class="dropdown-content">
+								<a href="#" id="course1"
+									>Introduction to Python</a
+								>
+								<a href="#" id="course2"
+									>Loops and Conditionals</a
+								>
+								<a href="#" id="course3"
+									>Storing Multiple Values</a
+								>
+								<a href="#" id="course4"
+									>Functions and Program Decomposition</a
+								>
+								<a href="#" id="seeMore">See more...</a>
+							</div>
+						</div>
+					</li>
+					<li class="nav-item">
+						<a href="about.html" id="aboutUs"
+							><i class="fa-solid fa-question"></i> About us</a
+						>
+					</li>
+					<li class="nav-item">
+						<a href="contact.html" id="contact"
+							><i class="fa-solid fa-phone"></i> Contact</a
+						>
+					</li>
+					<li class="nav-item">
+						<a href="profile.html" id="profile"
+							><i class="fa-solid fa-circle-user"></i> Profile</a
 						>
 					</li>
 				</ul>
 			</div>
 		</nav>
-
-		<div class="gradient"></div>
 
 		<div class="container lessonDialog"></div>
 
@@ -73,6 +126,9 @@
 		</button>
 
 		<script src="scripts/home.js"></script>
+		<script src="scripts/courses.js"></script>
+		
 		<script src="scripts/lang/language_home.js"></script>
+		<script src="scripts/lang/language_homenav.js"></script>
 	</body>
 </html>
