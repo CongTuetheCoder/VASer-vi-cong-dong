@@ -4,23 +4,29 @@ document.addEventListener("DOMContentLoaded", () => {
 	const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
 
 	async function upsertMockApiUser(profile) {
-		// profile = { provider, id, name, email, picture }
+		// profile = { provider, providerId, name, email, picture, ... }
 		const resp = await fetch(usersAPI);
 		const users = await resp.json();
 
-		// find existing user by provider/id or email
+		// find existing user by email
 		const existing = users.find(
 			(u) => u.email && u.email === profile.email
 		);
 
 		if (existing) {
-			const updated = Object.assign({}, existing, {
+			// --- UPDATE EXISTING USER LOGIC ---
+			// (Keeping extra fields here ensures you retain data integrity if they exist in DB)
+			const updated = {
+				...existing,
+				// Note: We are keeping the provider/name/picture fields in the update
+				// because they might be necessary for logging in later or displaying info.
 				provider: profile.provider,
-				providerId: profile.id,
+				providerId: profile.providerId,
 				name: profile.name,
-				email: profile.email,
 				picture: profile.picture,
-			});
+				lastLogin: new Date().toISOString(),
+			};
+
 			await fetch(`${usersAPI}/${existing.id}`, {
 				method: "PUT",
 				headers: { "Content-Type": "application/json" },
@@ -28,18 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
 			});
 			return updated;
 		} else {
-			const createPayload = Object.assign({}, profile, {
+			// --- CREATE NEW USER LOGIC (STRICTLY ADHERING TO YOUR SCHEMA) ---
+			const createPayload = {
+				// Use email as a reliable username if name isn't suitable, or profile.name
 				username: profile.email || profile.name,
-				email: profile.email,
-				salt: "", // OAuth users don't need salt/hash
-				hash: "",
-				type: "googleAccount",
+				salt: "", // Required by your schema
+				hash: "", // Required by your schema
+				type: "googleAccount", // Strictly set as requested
 				data: {
 					currentUnit: "1",
 					lesson: "1",
 				},
-				classList: [],
-			});
+				classList: [], // Required by your schema
+				email: profile.email, // Ensure email is included
+			};
+
 			const createResp = await fetch(usersAPI, {
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
@@ -49,61 +58,55 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 	}
 
-	// helpers
-	function decodeJwtPayload(jwt) {
-		try {
-			const base64Url = jwt.split(".")[1] || "";
-			const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-			const jsonPayload = decodeURIComponent(
-				atob(base64)
-					.split("")
-					.map(
-						(c) =>
-							"%" +
-							("00" + c.charCodeAt(0).toString(16)).slice(-2)
-					)
-					.join("")
-			);
-			return JSON.parse(jsonPayload);
-		} catch {
-			return null;
+	async function handleGoogleToken(tokenResponse) {
+		if (tokenResponse && tokenResponse.access_token) {
+			try {
+				const userInfoResp = await fetch(
+					"https://www.googleapis.com/oauth2/v3/userinfo",
+					{
+						headers: {
+							Authorization: `Bearer ${tokenResponse.access_token}`,
+						},
+					}
+				);
+				const googleUser = await userInfoResp.json();
+
+				const profile = {
+					provider: "Google",
+					providerId: googleUser.sub,
+					name: googleUser.name,
+					email: googleUser.email,
+					picture: googleUser.picture,
+				};
+
+				upsertMockApiUser(profile).then((user) => {
+					setCookie("user", user.username);
+					window.location.href = "http://127.0.0.1:5500/home.html";
+				});
+			} catch (err) {
+				console.error("Failed to fetch Google profile:", err);
+			}
 		}
 	}
 
-	// Google handler
-	function handleGoogleCredential(response) {
-		const payload = decodeJwtPayload(response?.credential);
-		if (!payload) {
-			console.error("Invalid Google credential");
-			alert("Google sign-in failed");
-			return;
-		}
-		const profile = {
-			username: payload.given_name || payload.name,
-			type: "googleAccount",
-			id: payload.sub,
-			email: payload.email,
-		};
-		upsertMockApiUser(profile).then(() => {
-			window.location.href = "home.html"; // change as needed
-		});
-	}
-
-	(async function tryInitGoogle() {
+	(async function initGoogleCustom() {
 		const start = Date.now();
-		while (!window.google && Date.now() - start < 2000) {
-			await new Promise((r) => setTimeout(r, 50));
+		while (!window.google && Date.now() - start < 3000) {
+			await new Promise((r) => setTimeout(r, 100));
 		}
-		if (window.google && ggSignup) {
-			google.accounts.id.initialize({
-				client_id: "YOUR_GOOGLE_CLIENT_ID", // replace
-				callback: handleGoogleCredential,
-			});
-			google.accounts.id.renderButton(ggSignup, {
-				theme: "outline",
-				size: "large",
-			});
-		}
+
+		if (!window.google || !ggSignup) return;
+
+		const client = google.accounts.oauth2.initTokenClient({
+			client_id:
+				"883471007794-c05ngp5k0gglnvbnsuo6b972oadumdrt.apps.googleusercontent.com",
+			scope: "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
+			callback: handleGoogleToken,
+		});
+
+		ggSignup.onclick = () => {
+			client.requestAccessToken();
+		};
 	})();
 
 	// Microsoft (MSAL)

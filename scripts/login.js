@@ -1,6 +1,7 @@
 const button = document.getElementById("loginBtn");
 const usernameIn = document.getElementById("username");
 const passwordIn = document.getElementById("password");
+const dialog = document.getElementById("wrong-dialog");
 
 const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
 
@@ -27,8 +28,69 @@ async function verifyPassword(inputPassword, storedSaltHex, storedHashHex) {
 	return derivedHex === storedHashHex;
 }
 
+function hasDialogSupport() {
+	return (
+		typeof HTMLDialogElement === "function" &&
+		typeof dialog.showModal === "function"
+	);
+}
+
+function showDialogFallback() {
+	if (dialog) dialog.setAttribute("open", "");
+}
+function closeDialogFallback() {
+	if (dialog) dialog.removeAttribute("open");
+}
+
+function showError(message) {
+	if (!dialog) {
+		alert(message);
+		return;
+	}
+	const errorMsg =
+		dialog.querySelector(":scope > p") || dialog.querySelector("p") || null;
+	if (errorMsg) errorMsg.innerText = message;
+
+	try {
+		if (hasDialogSupport()) {
+			dialog.showModal();
+		} else {
+			showDialogFallback();
+		}
+	} catch (e) {
+		showDialogFallback();
+	}
+}
+
+function closeDialog() {
+	if (!dialog) return;
+	try {
+		if (typeof dialog.close === "function") dialog.close();
+		dialog.removeAttribute("open");
+	} catch (e) {
+		dialog.removeAttribute("open");
+	}
+}
+
+(function initDialogHandlers() {
+	if (!dialog) return;
+
+	const okBtn = document.getElementById("ok-btn");
+	if (okBtn) okBtn.addEventListener("click", closeDialog);
+
+	dialog.addEventListener("click", (e) => {
+		if (e.target === dialog) closeDialog();
+	});
+
+	dialog.addEventListener("cancel", (e) => {
+		e.preventDefault();
+		closeDialog();
+	});
+})();
+
 async function loginUser() {
 	const originalHTML = button.innerHTML;
+	const isVn = (localStorage.getItem("lang") || "en") === "vi";
 	button.innerHTML = '<i class="fa-solid fa-spinner fa-spin-pulse"></i>';
 
 	try {
@@ -38,7 +100,7 @@ async function loginUser() {
 		const user = data.find((u) => u.username === usernameIn.value);
 
 		if (!user) {
-			confirm("Username not found.");
+			showError(isVn ? "Tên người dùng không hợp lệ." : "Username not found.");
 			button.innerHTML = originalHTML;
 			return;
 		}
@@ -53,7 +115,10 @@ async function loginUser() {
 			setCookie("user", usernameIn.value, 30);
 			window.location.href = "home.html";
 		} else {
+			showError(isVn ? "Mật khẩu không hợp lệ." : "Incorrect password.");
 			button.innerHTML = originalHTML;
+			passwordIn.value = "";
+			passwordIn.focus();
 		}
 	} catch (error) {
 		confirm(`An error occurred: ${error}`);

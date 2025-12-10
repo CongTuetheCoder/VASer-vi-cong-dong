@@ -44,7 +44,8 @@ async function fetchUID() {
 const createButtons = async (unit, lessonsArrange, lessonsData) => {
 	let lessonIdx = 1;
 	const title = document.createElement("h4");
-	title.innerText = lessonsData["name"];
+	const splitted = lessonsData["name"].split(":");
+	title.innerHTML = `<span class='accent'>${splitted[0]}:</span>${splitted[1]}`;
 	title.id = `section${unit}`;
 	container.appendChild(title);
 
@@ -82,7 +83,7 @@ const createButtons = async (unit, lessonsArrange, lessonsData) => {
 			glowSelector = " style='text-shadow: 0px 0px 4px white;'";
 		}
 
-		button.innerHTML = `<i class="${btnClasses}"${glowSelector}></i>`;
+		button.innerHTML = `<span class="icon-wrapper"><i class="${btnClasses}"${glowSelector}></i></span>`;
 		button.className = "lessonBtn";
 		if (isActivity || isCaseStudy) button.classList.add("activityBtn");
 		button.title = title;
@@ -247,7 +248,7 @@ const drawPathsBetweenButtons = () => {
 	svg.style.height = "100%";
 	svg.style.pointerEvents = "none";
 	svg.id = "lesson-paths-svg";
-	svg.style.zIndex = "2";
+	svg.style.zIndex = "1";
 
 	const oldSvg = document.getElementById("lesson-paths-svg");
 	if (oldSvg) oldSvg.remove();
