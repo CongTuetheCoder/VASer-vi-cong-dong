@@ -39,6 +39,14 @@ h4 {
 	transition: background-color 100ms ease;
 }
 
+#user-xp {
+	color: var(--accent-cyan);
+}
+
+#user-xp > * {
+	display: inline;
+}
+
 .activityDialog {
 	background-color: #06b6d4;
 }
