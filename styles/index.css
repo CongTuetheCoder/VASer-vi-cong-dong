@@ -121,8 +121,8 @@ h1 .highlight {
 	transform: scale(1.04);
 }
 
-.instagram {
-	font-size: 12px;
+.socials {
+	font-size: 40px;
 	text-decoration: none;
 	font-family: "Cascadia Code", "Consolas", monospace;
 	font-weight: 900;
@@ -130,58 +130,122 @@ h1 .highlight {
 	color: transparent;
 	-webkit-background-clip: text;
 	background-clip: text;
-	position: fixed;
 	left: 20px;
-	bottom: 20px;
+	bottom: 80px;
 	display: inline-flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-items: flex-start;
 	transition: all 300ms ease;
+	position: absolute;
 	z-index: 100;
+	gap: 4px;
+}
+
+.facebook i {
+	background-image: linear-gradient(180deg, #1877f2, #55b0ff);
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	position: relative;
 }
 
 .instagram i {
-	position: relative;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	bottom: 0px;
-	left: 0px;
 	background-image: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7);
 	color: transparent;
 	-webkit-background-clip: text;
 	background-clip: text;
-	transition: all 300ms ease;
+	position: relative;
 }
 
-.instagram i {
-	font-size: 40px;
-	font-family: "Font Awesome 5 Brands", "Font Awesome 5 Free",
-		"Font Awesome Pro", sans-serif;
+.youtube i {
+	background-image: linear-gradient(
+		135deg,
+		red 37.5%,
+		rgb(255, 107, 107) 50%,
+		red 62.5%,
+		red 100%
+	);
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	position: relative;
 }
 
-.instagram i::after {
-	content: "\f16d";
+.tiktok i {
+	background-image: linear-gradient(135deg, red 30%, magenta 50%, #67c6ff 70%, cyan 100%);
+	color: transparent;
+	-webkit-background-clip: text;
+	background-clip: text;
+	position: relative;
+}
+
+.facebook i::after,
+.instagram i::after,
+.youtube i::after,
+.tiktok i::after {
 	font-family: "Font Awesome 5 Brands", "Font Awesome 5 Free",
 		"Font Awesome Pro", sans-serif;
 	font-weight: 900;
 	position: absolute;
 	inset: 0;
-	background-image: linear-gradient(135deg, white, white, white);
+	background-color: white;
 	color: transparent;
 	-webkit-background-clip: text;
 	background-clip: text;
 	opacity: 1;
-	transition: all 300ms ease-in-out;
+	transition: all 300ms ease;
 	z-index: 1;
 }
 
-.instagram i:hover {
-	transform: scale(1.04);
+.facebook i::after {
+	content: "\f09a";
 }
 
-.instagram:hover i::after {
+.instagram i::after {
+	content: "\f16d";
+}
+
+.youtube i::after {
+	content: "\f16a";
+}
+
+.tiktok i::after {
+	content: "\e07b";
+}
+
+.facebook i:hover,
+.instagram i:hover,
+.youtube i:hover,
+.tiktok i:hover {
+	transform: scale(1.08) translateY(-4px);
+}
+
+.facebook i:hover {
+	filter: drop-shadow(0 0 5px rgba(24, 119, 242, 0.6))
+		drop-shadow(0 0 10px rgba(85, 176, 255, 0.5));
+}
+
+.instagram i:hover {
+	filter: drop-shadow(0 0 5px rgba(249, 206, 52, 0.6))
+		drop-shadow(0 0 10px rgba(238, 42, 123, 0.5));
+}
+
+.youtube i:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.7))
+		drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
+}
+
+.tiktok i:hover {
+	filter: drop-shadow(0 0 5px rgba(255, 0, 255, 0.6))
+		drop-shadow(0 0 10px rgba(0, 255, 255, 0.5));
+}
+
+.facebook i:hover::after,
+.instagram i:hover::after,
+.youtube i:hover::after,
+.tiktok i:hover::after {
 	opacity: 0;
+	transform: scale(1.08) translateY(-4px);
 }
 
 @media (max-width: 968px) {

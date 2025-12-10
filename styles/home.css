@@ -1,5 +1,12 @@
 h4 {
+	font-family: "Cascadia Code", "Consolas", monospace;
 	margin-top: 25px;
+}
+
+:root {
+	--btn-path: path(
+		"M 28.5 0 L 61.5 0 Q 67.5 0 72 7 L 86 33 Q 90 40 86 47 L 72 73 Q 67.5 80 61.5 80 L 28.5 80 Q 22.5 80 18 73 L 4 47 Q 0 40 4 33 L 18 7 Q 22.5 0 28.5 0 Z"
+	);
 }
 
 .nav-link:hover {
@@ -16,6 +23,11 @@ h4 {
 	align-items: center;
 	flex-direction: column;
 	margin-bottom: 10px;
+}
+
+.accent {
+	color: var(--accent-purple);
+	text-shadow: 0 0 10px rgba(195, 0, 255, 0.5);
 }
 
 .lessonDialog {
@@ -42,67 +54,108 @@ h4 {
 }
 
 .lessonBtn {
-	width: 80px;
+	width: 90px;
 	height: 80px;
 	font-size: 32px;
-	border-radius: 80px;
-	background-color: #f39237;
-	color: white;
+	border-radius: 8px;
 	border-width: 0;
-	box-shadow: 0 10px 0 0 #9a4a00;
-	transition: transform 100ms ease-in, box-shadow 100ms ease-in,
-		background-color 300ms ease;
+	transition: transform 100ms ease-in;
+	margin: 10px;
+
+	position: relative;
+	z-index: 2;
+	background-color: transparent;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 10px;
+}
+
+.lessonBtn::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	clip-path: var(--btn-path);
+	background-color: #9a4a00;
+	transform: translateY(10px);
+
+	z-index: 2;
+	transition: transform 100ms ease-in;
+}
+
+.lessonBtn::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	background-color: #f39237;
+	clip-path: var(--btn-path);
+	font-size: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	z-index: 3;
+	transition: transform 100ms ease-in, background-color 300ms ease;
+}
+
+.lessonBtn .icon-wrapper {
+	z-index: 4;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: top 100ms ease-in;
+	pointer-events: none;
+	line-height: 0;
 }
 
 .lessonBtn i {
-	position: static;
+	color: white;
 }
 
-.lessonBtn:hover {
+.lessonBtn:hover::after {
 	transform: translateY(2px);
-	box-shadow: 0 8px 0 0 #9a4a00;
 }
 
-.lessonBtn:active {
+.lessonBtn:hover .icon-wrapper {
+	top: calc(50% + 2px) !important;
+}
+
+.lessonBtn:active::after {
 	background-color: #f5a65b;
 	transform: translateY(10px);
-	box-shadow: 0 0 0 0 #9a4a00;
 }
 
-.activityBtn {
+.lessonBtn:active .icon-wrapper {
+	top: calc(50% + 10px) !important;
+}
+
+.activityBtn::before {
+	background-color: #005cac;
+}
+
+.activityBtn::after {
 	background-color: #06b6d4;
-	box-shadow: 0 10px 0 0 #005cac;
 }
 
-.activityBtn:hover {
-	box-shadow: 0 8px 0 0 #005cac;
-}
-
-.activityBtn:active {
+.activityBtn:active::after {
 	background-color: #22d3ee;
-	transform: translateY(10px);
-	box-shadow: 0 0 0 0 #005cac;
 }
 
-.lessonBtn:disabled,
-.activityBtn:disabled {
+.lessonBtn:disabled::after {
 	background-color: #bdbdbd;
-	box-shadow: 0 10px 0 0 #6a6a6a;
 }
 
-.lessonBtn:disabled:hover,
-.activityBtn:disabled:hover {
-	box-shadow: 0 8px 0 0 #6a6a6a;
-}
-
-.lessonBtn:disabled:active,
-.activityBtn:disabled:active {
-	box-shadow: 0 0 0 0 #6a6a6a;
+.lessonBtn:disabled::before {
+	background-color: #6a6a6a;
 }
 
 #lessonHeader {

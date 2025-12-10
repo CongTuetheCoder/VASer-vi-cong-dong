@@ -157,11 +157,6 @@ header {
 	transition: 0.3s ease;
 }
 
-#dropdown:hover > .arrow-icon {
-	transform: rotate(180deg);
-	stroke: var(--accent-cyan);
-}
-
 .dropdown-content {
 	display: flex;
 	flex-direction: column;
@@ -172,6 +167,7 @@ header {
 	padding: 10px;
 	border-radius: 6px;
 	border: 1px solid #fff6;
+	box-shadow: 0 4px 0 #00000080;
 	width: 300px;
 	pointer-events: none;
 	opacity: 0;
@@ -194,7 +190,6 @@ header {
 
 .courses-dropdown.dropdown-active .arrow-icon {
 	transform: rotate(180deg);
-	stroke: var(--accent-cyan);
 }
 
 .dropdown-content a:not(:last-child)::after {
