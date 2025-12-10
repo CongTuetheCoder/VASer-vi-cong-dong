@@ -1,6 +1,4 @@
 {
-	"home": "<i class=\"fa-solid fa-house\"></i> Home",
-	"signup": "<i class=\"fa-solid fa-user-plus\"></i> Sign up",
 	"microsoftLogin": "<i class=\"fa-brands fa-microsoft\"></i> <span>Log in with Microsoft</span>",
 	"googleLogin": "<i class=\"fa-brands fa-google\"></i> <span>Log in with Google</span>",
 	"accountLogin": "<i class=\"fa-solid fa-user\"></i> <span>Log in with account</span>",

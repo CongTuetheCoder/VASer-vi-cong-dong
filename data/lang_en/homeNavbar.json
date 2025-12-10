@@ -1,0 +1,12 @@
+{
+	"home": "<i class='fa-solid fa-house'></i> Home",
+	"dropdown": "<i class='fa-solid fa-graduation-cap'></i> Courses <svg class='arrow-icon' width='16' height='16' viewBox='0 0 24 24'><path d='M6 9l6 6 6-6' fill='none' stroke='white' stroke-width='2'/></svg>",
+	"aboutUs": "<i class='fa-solid fa-question'></i> About us",
+	"contact": "<i class='fa-solid fa-phone'></i> Contact",
+	"profile": "<i class='fa-solid fa-circle-user'></i> Profile",
+	"course1": "Introduction to Python",
+	"course2": "Loops and Conditionals",
+	"course3": "Storing Multiple Values",
+	"course4": "Functions and Program Decomposition",
+	"seeMore": "See more..."
+}
