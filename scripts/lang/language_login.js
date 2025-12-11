@@ -8,6 +8,7 @@ const fetchLang = (path) => {
 		})
 		.then((data) => {
 			for (const key in data) {
+				console.log(key);
 				if (Object.prototype.hasOwnProperty.call(data, key)) {
 					const element = document.getElementById(key);
 					if (key == "language-btn") {

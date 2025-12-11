@@ -17,6 +17,9 @@ const fetchLang = (path) => {
 						element.innerHTML = data[key];
 					} else if (key == "title") {
 						document.title = data[key];
+					} else if (key.startsWith("section")) {
+						const splitted = data[key].split(":");
+						element.innerHTML = `<span class='accent'>${splitted[0]}:</span>${splitted[1]}`;
 					} else {
 						element.innerHTML = data[key];
 					}
@@ -33,19 +36,19 @@ document.addEventListener("lessonReady", () => {
 	} else {
 		fetchLang("data/lang_vi/home.json");
 	}
-});
 
-languageBtn.addEventListener("click", () => {
-	const dialog = document.getElementsByClassName("lessonDialog")[0];
-	dialog.innerHTML = "";
-	dialog.style.height = "0";
-	dialog.style.padding = "0";
+	languageBtn.addEventListener("click", () => {
+		const dialog = document.getElementsByClassName("lessonDialog")[0];
+		dialog.innerHTML = "";
+		dialog.style.height = "0";
+		dialog.style.padding = "0";
 
-	if (localStorage.getItem("lang") === "en") {
-		localStorage.setItem("lang", "vi");
-		fetchLang("data/lang_vi/home.json");
-	} else {
-		localStorage.setItem("lang", "en");
-		fetchLang("data/lang_en/home.json");
-	}
+		if (localStorage.getItem("lang") === "en") {
+			localStorage.setItem("lang", "vi");
+			fetchLang("data/lang_vi/home.json");
+		} else {
+			localStorage.setItem("lang", "en");
+			fetchLang("data/lang_en/home.json");
+		}
+	});
 });
