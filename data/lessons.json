@@ -3,7 +3,12 @@
 		"1": ["c", "r", "c", "l", "c", "c"],
 		"2": ["c", "l", "c", "c", "c"],
 		"3": ["c", "r", "l", "c", "c", "l"],
-		"4": ["c", "c", "l", "c"]
+		"4": ["c", "c", "l", "c"],
+		"5": ["c", "l", "c", "c", "r", "l"],
+		"6": ["c", "c", "r", "l", "c", "r"],
+		"7": ["c", "l", "c", "r"],
+		"8": ["c"],
+		"9": ["c", "c", "c", "c", "c", "c", "c"]
 	},
 
 	"lessons": {
@@ -1489,7 +1494,6 @@
 			"6": {
 				"iconClasses": "fa-solid fa-play",
 				"name": "Thực hành 3: Chương trình mua sắm",
-				"disabled": "true",
 				"codevi": ["gio_hang = ", "", ""],
 				"codeen": ["shopping_cart = ", "", ""],
 				"correctvi": [
@@ -1556,12 +1560,6 @@
 							"captureAs": "shoppingList"
 						},
 						{
-							"type": "reference",
-							"name": "shoppingList",
-							"from": "shoppingList",
-							"transform": "x => x.length == 0 ? x : false"
-						},
-						{
 							"type": "repeat",
 							"body": [
 								{
@@ -1588,6 +1586,49 @@
 									"type": "prompt",
 									"text": "Nhập lựa chọn: ",
 									"captureAs": "choice"
+								},
+								{
+									"type": "conditional",
+									"condition": {
+										"type": "var-equals",
+										"name": "choice",
+										"value": "thêm"
+									},
+									"then": [
+										{
+											"type": "prompt",
+											"text": "Nhập món hàng: ",
+											"captureAs": "item"
+										},
+										{
+											"type": "var",
+											"name": "gio_hang",
+											"captureAs": "shoppingList"
+										},
+										{
+											"type": "reference",
+											"name": "shoppingList",
+											"from": ["shoppingList", "item"],
+											"transform": "(ls, item) => ls.at(-1) == item ? ls : null"
+										}
+									],
+									"else": [
+										{
+											"type": "conditional",
+											"condition": {
+												"type": "var-equals",
+												"name": "choice",
+												"value": "xong"
+											},
+											"then": [],
+											"else": [
+												{
+													"type": "static",
+													"text": "Lựa chọn không hợp lệ."
+												}
+											]
+										}
+									]
 								}
 							],
 							"untilInput": "xong"
@@ -1835,6 +1876,1729 @@
 				"iconClasses": "fa-solid fa-play",
 				"name": "Nghiên cứu tình huống 2: Hóa đơn Circle K",
 				"disabled": "true"
+			}
+		},
+
+		"5": {
+			"name": "Chủ đề 5: Những khái niệm lập trình",
+			"1": {
+				"iconClasses": "fa-solid fa-repeat",
+				"name": "Vòng lặp",
+				"codevi": [
+					"",
+					"lenh = ''\nwhile lenh != 'exit':\n\tlenh = input('Nhập lệnh: ')"
+				],
+				"codeen": [
+					"",
+					"cmd = ''\nwhile cmd != 'exit':\n\tcmd = input('Enter command: ')"
+				],
+				"correctvi": [
+					[
+						{ "type": "static", "text": "1" },
+						{ "type": "static", "text": "2" },
+						{ "type": "static", "text": "3" },
+						{ "type": "static", "text": "4" },
+						{ "type": "static", "text": "5" },
+						{ "type": "static", "text": "6" },
+						{ "type": "static", "text": "7" },
+						{ "type": "static", "text": "8" },
+						{ "type": "static", "text": "9" },
+						{ "type": "static", "text": "10" }
+					],
+					[
+						{
+							"type": "prompt",
+							"text": "Nhập lệnh: ",
+							"captureAs": "cmd"
+						},
+						{
+							"type": "repeat",
+							"body": [
+								{
+									"type": "regex",
+									"pattern": "^(.*)$",
+									"captureAs": "cmdOut"
+								},
+								{
+									"type": "reference",
+									"name": "cmdOut",
+									"from": ["cmd"],
+									"transform": "x => x"
+								},
+								{
+									"type": "prompt",
+									"text": "Nhập lệnh: ",
+									"captureAs": "cmd"
+								}
+							],
+							"untilInput": "exit"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{ "type": "static", "text": "1" },
+						{ "type": "static", "text": "2" },
+						{ "type": "static", "text": "3" },
+						{ "type": "static", "text": "4" },
+						{ "type": "static", "text": "5" },
+						{ "type": "static", "text": "6" },
+						{ "type": "static", "text": "7" },
+						{ "type": "static", "text": "8" },
+						{ "type": "static", "text": "9" },
+						{ "type": "static", "text": "10" }
+					],
+					[
+						{
+							"type": "prompt",
+							"text": "Enter command: ",
+							"captureAs": "cmd"
+						},
+						{
+							"type": "repeat",
+							"body": [
+								{
+									"type": "regex",
+									"pattern": "^(.*)$",
+									"captureAs": "cmdOut"
+								},
+								{
+									"type": "reference",
+									"name": "cmdOut",
+									"from": ["cmd"],
+									"transform": "x => x"
+								},
+								{
+									"type": "prompt",
+									"text": "Enter command: ",
+									"captureAs": "cmd"
+								}
+							],
+							"untilInput": "exit"
+						}
+					]
+				]
+			},
+			"2": {
+				"iconClasses": "fa-solid fa-arrow-down-1-9",
+				"name": "Đếm",
+				"codevi": [
+					"[5, 23, 75, -3, 54, 1, -71, 81]\nso_luong = 0",
+					"so_luong = 0"
+				],
+				"codeen": [
+					"[5, 23, 75, -3, 54, 1, -71, 81]\ncount = 0",
+					"count = 0"
+				],
+				"correctvi": [
+					[{ "type": "var", "name": "so_luong", "expected": "4" }],
+					[
+						{
+							"type": "repeat",
+							"body": [
+								{
+									"type": "prompt",
+									"text": "",
+									"captureAs": "num"
+								},
+								{
+									"type": "conditional",
+									"condition": {
+										"type": "var-gt",
+										"name": "num",
+										"value": "50"
+									},
+									"then": [
+										{
+											"type": "dynamic",
+											"text": "",
+											"captureAs": "passed",
+											"captureAppend": "true"
+										},
+										{
+											"type": "rollback"
+										}
+									]
+								}
+							],
+							"times": "10"
+						},
+						{
+							"type": "var",
+							"name": "so_luong",
+							"captureAs": "pythonCount"
+						},
+						{
+							"type": "reference",
+							"name": "pythonCount",
+							"from": "passed",
+							"transform": "(vals) => vals !== undefined ? vals.length : 0"
+						}
+					]
+				],
+				"correcten": [
+					[{ "type": "var", "name": "count", "expected": "4" }],
+					[
+						{
+							"type": "repeat",
+							"body": [
+								{
+									"type": "prompt",
+									"text": "",
+									"captureAs": "num"
+								},
+								{
+									"type": "conditional",
+									"condition": {
+										"type": "var-gt",
+										"name": "num",
+										"value": "50"
+									},
+									"then": [
+										{
+											"type": "dynamic",
+											"text": "",
+											"captureAs": "passed",
+											"captureAppend": "true"
+										},
+										{
+											"type": "rollback"
+										}
+									]
+								}
+							],
+							"times": "10"
+						},
+						{
+							"type": "var",
+							"name": "count",
+							"captureAs": "pythonCount"
+						},
+						{
+							"type": "reference",
+							"name": "pythonCount",
+							"from": "passed",
+							"transform": "(vals) => vals !== undefined ? vals.length : 0"
+						}
+					]
+				]
+			},
+			"3": {
+				"iconClasses": "fa-solid fa-plus",
+				"name": "Tính tổng",
+				"codevi": [
+					"diem_so = [7.5, 8.5, 9.25, 7.0, 6.75, 7.75]\ntong_diem = ",
+					"danh_sach_so = [1, 2, 3, 4, 5, 6, 7]\ntong_chan = ",
+					"danh_gia = [5, 4, 3, 5, 5, 4, 2, 5, 1]"
+				],
+				"codeen": [
+					"scores = [75, 85, 93, 70, 69, 78]\ntotal = ",
+					"nums = [1, 2, 3, 4, 5, 6, 7]\neven_sum = ",
+					"ratings = [5, 4, 3, 5, 5, 4, 2, 5, 1]"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "var",
+							"name": "diem_so",
+							"captureAs": "scores"
+						},
+						{
+							"type": "var",
+							"name": "tong_diem",
+							"captureAs": "total"
+						},
+						{
+							"type": "reference",
+							"name": "total",
+							"from": "scores",
+							"transform": "(arr) => arr.reduce((a, b) => a + b, 0)"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "danh_sach_so",
+							"captureAs": "nums"
+						},
+						{
+							"type": "var",
+							"name": "tong_chan",
+							"captureAs": "total"
+						},
+						{
+							"type": "reference",
+							"name": "total",
+							"from": "nums",
+							"transform": "(arr) => arr.filter(n => n % 2 === 0).reduce((a, b) => a + b, 0)"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "danh_gia_trung_binh",
+							"captureAs": "avgRating"
+						},
+						{
+							"type": "reference",
+							"name": "avgRating",
+							"from": ["avgRating"],
+							"transform": "x => Math.abs(x - 3.7777777777777777) < Number.EPSILON ? x : null"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "var",
+							"name": "scores",
+							"captureAs": "scores"
+						},
+						{
+							"type": "var",
+							"name": "total",
+							"captureAs": "total"
+						},
+						{
+							"type": "reference",
+							"name": "total",
+							"from": "scores",
+							"transform": "(arr) => arr.reduce((a, b) => a + b, 0)"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "nums",
+							"captureAs": "nums"
+						},
+						{
+							"type": "var",
+							"name": "even_sum",
+							"captureAs": "total"
+						},
+						{
+							"type": "reference",
+							"name": "total",
+							"from": "nums",
+							"transform": "(arr) => arr.filter(n => n % 2 === 0).reduce((a, b) => a + b, 0)"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "average_rating",
+							"captureAs": "avgRating"
+						},
+						{
+							"type": "reference",
+							"name": "avgRating",
+							"from": ["avgRating"],
+							"transform": "x => Math.abs(x - 3.7777777777777777) < Number.EPSILON ? x : null"
+						}
+					]
+				]
+			},
+			"4": {
+				"iconClasses": "fa-solid fa-code-branch",
+				"name": "Chọn lọc",
+				"codevi": [
+					"tuoi = int(input())",
+					"so = int(input())",
+					"so1 = float(input())\nso2 = float(input())"
+				],
+				"codeen": [
+					"age = int(input())",
+					"num = int(input())",
+					"num1 = float(input())\nnum2 = float(input())"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "age"
+						},
+						{
+							"type": "conditional",
+							"condition": {
+								"type": "var-ge",
+								"name": "age",
+								"value": "18"
+							},
+							"then": [
+								{
+									"type": "regex",
+									"pattern": "Đủ"
+								}
+							],
+							"else": [
+								{
+									"type": "regex",
+									"pattern": "Chưa"
+								}
+							]
+						}
+					],
+					[
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "num"
+						},
+						{
+							"type": "regex",
+							"pattern": "(.+)",
+							"captureAs": "output"
+						},
+						{
+							"type": "reference",
+							"name": "output",
+							"from": ["num"],
+							"transform": "x => x % 2 === 0 ? 'Số chẵn' : 'Số lẻ'"
+						}
+					],
+					[
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "num1"
+						},
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "num2"
+						},
+						{
+							"type": "regex",
+							"pattern": "(.+)",
+							"captureAs": "output"
+						},
+						{
+							"type": "reference",
+							"name": "output",
+							"from": ["num1", "num2"],
+							"transform": "(a, b) => a > b ? `Số lớn hơn là ${a}` : (a < b ? `Số lớn hơn là ${b}` : 'Hai số bằng nhau')"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "age"
+						},
+						{
+							"type": "conditional",
+							"condition": {
+								"type": "var-ge",
+								"name": "age",
+								"value": "18"
+							},
+							"then": [
+								{
+									"type": "regex",
+									"pattern": "Can "
+								}
+							],
+							"else": [
+								{
+									"type": "regex",
+									"pattern": "Cannot "
+								}
+							]
+						}
+					],
+					[
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "num"
+						},
+						{
+							"type": "regex",
+							"pattern": "(.+)",
+							"captureAs": "output"
+						},
+						{
+							"type": "reference",
+							"name": "output",
+							"from": ["num"],
+							"transform": "x => x % 2 === 0 ? 'Even' : 'Odd'"
+						}
+					],
+					[
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "num1"
+						},
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "num2"
+						},
+						{
+							"type": "regex",
+							"pattern": "(.+)",
+							"captureAs": "output"
+						},
+						{
+							"type": "reference",
+							"name": "output",
+							"from": ["num1", "num2"],
+							"transform": "(a, b) => a > b ? `The greater number is ${a}` : (a < b ? `The greater number is ${b}` : 'Both are equal')"
+						}
+					]
+				]
+			},
+			"5": {
+				"iconClasses": "fa-solid fa-layer-group",
+				"name": "Đệ quy",
+				"codevi": [
+					"def tinh_tong(danh_sach):\n\t\n\nds_mau = [1, 5, 4, 6, 7, 3]\ntong = tinh_tong(ds_mau)"
+				],
+				"codeen": [
+					"def list_sum(ls):\n\t\n\nex_list = [1, 5, 4, 6, 7, 3]\ntotal = list_sum(ex_list)"
+				],
+				"correctvi": [
+					[{ "type": "var", "name": "tong", "expected": "26" }]
+				],
+				"correcten": [
+					[{ "type": "var", "name": "total", "expected": "26" }]
+				]
+			},
+			"6": {
+				"iconClasses": "fa-solid fa-bug-slash",
+				"name": "Sửa lỗi",
+				"codevi": [
+					"x = '5'\nprint(x + 1)",
+					"a = 10\nb = 0\nprint(a / b)",
+					"tong = 0\nfor i in range(1, 6):\n\ttong = i\nprint(tong)",
+					"so_chan = 0\nfor n in [1, 2, 3, 4]:\n\tif n % 2 == 0:\n\t\tso_chan = so_chan + 2\nprint(so_chan)"
+				],
+				"codeen": [
+					"x = '5'\nprint(x + 1)",
+					"a = 10\nb = 0\nprint(a / b)",
+					"total = 0\nfor i in range(1, 6):\n\ttotal = i\nprint(total)",
+					"count = 0\nfor n in [1, 2, 3, 4]:\n\tif n % 2 == 0:\n\t\tcount = count + 2\nprint(count)"
+				],
+				"correctvi": [
+					[{ "type": "static", "text": "6" }],
+					[
+						{
+							"type": "var",
+							"name": "a",
+							"captureAs": "a"
+						},
+						{
+							"type": "var",
+							"name": "b",
+							"captureAs": "b"
+						},
+						{
+							"type": "regex",
+							"pattern": "(.+)",
+							"captureAs": "output"
+						},
+						{
+							"type": "reference",
+							"name": "output",
+							"from": ["a", "b"],
+							"transform": "(a, b) => a / b"
+						}
+					],
+					[{ "type": "static", "text": "15" }],
+					[{ "type": "static", "text": "2" }],
+					[
+						{ "type": "static", "text": "3" },
+						{ "type": "static", "text": "6" },
+						{ "type": "static", "text": "9" }
+					]
+				],
+				"correcten": [
+					[{ "type": "static", "text": "6" }],
+					[
+						{
+							"type": "var",
+							"name": "a",
+							"captureAs": "a"
+						},
+						{
+							"type": "var",
+							"name": "b",
+							"captureAs": "b"
+						},
+						{
+							"type": "regex",
+							"pattern": "(.+)",
+							"captureAs": "output"
+						},
+						{
+							"type": "reference",
+							"name": "output",
+							"from": ["a", "b"],
+							"transform": "(a, b) => a / b"
+						}
+					],
+					[{ "type": "static", "text": "15" }],
+					[{ "type": "static", "text": "2" }],
+					[
+						{ "type": "static", "text": "3" },
+						{ "type": "static", "text": "6" },
+						{ "type": "static", "text": "9" }
+					]
+				]
+			}
+		},
+
+		"6": {
+			"name": "Chủ đề 6: Tuple, tập hợp và từ điển",
+			"1": {
+				"iconClasses": "fa-solid fa-ellipsis",
+				"name": "Giới thiệu về tuple",
+				"codevi": [
+					"so_nguyen = (...)",
+					"mon_hoc = (...)",
+					"ngay_sinh = ",
+					"vi_du = "
+				],
+				"codeen": [
+					"nums = (...)",
+					"subjects = (...)",
+					"date_of_birth = ",
+					"example = "
+				],
+				"correctvi": [
+					[
+						{
+							"type": "var",
+							"name": "so_nguyen",
+							"captureAs": "values"
+						},
+						{
+							"type": "reference",
+							"name": "values",
+							"from": ["values"],
+							"transform": "x => { if (typeof x !== 'object') return null; if (x.length !== 3) return null; for (let i = 0; i < 3; i++) { if (typeof x[i] !== 'number') return null; if (!Number.isInteger(x[i])) return null; }; return x; }"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "mon_hoc",
+							"captureAs": "values"
+						},
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "secondValue"
+						},
+						{
+							"type": "reference",
+							"name": "secondValue",
+							"from": ["values"],
+							"transform": "x => x.length != 4 ? null : x[1]"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "ngay_sinh",
+							"captureAs": "values"
+						},
+						{
+							"type": "static",
+							"text": "19"
+						},
+						{
+							"type": "static",
+							"text": "5"
+						},
+						{
+							"type": "static",
+							"text": "1890"
+						}
+					],
+					[
+						{
+							"type": "set-error"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "var",
+							"name": "nums",
+							"captureAs": "values"
+						},
+						{
+							"type": "reference",
+							"name": "values",
+							"from": ["values"],
+							"transform": "x => { if (typeof x !== 'object') return null; if (x.length !== 3) return null; for (let i = 0; i < 3; i++) { if (typeof x[i] !== 'number') return null; if (!Number.isInteger(x[i])) return null; }; return x; }"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "subjects",
+							"captureAs": "values"
+						},
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "secondValue"
+						},
+						{
+							"type": "reference",
+							"name": "secondValue",
+							"from": ["values"],
+							"transform": "x => x.length != 4 ? null : x[1]"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "date_of_birth",
+							"captureAs": "values"
+						},
+						{
+							"type": "static",
+							"text": "4"
+						},
+						{
+							"type": "static",
+							"text": "8"
+						},
+						{
+							"type": "static",
+							"text": "1961"
+						}
+					],
+					[
+						{
+							"type": "set-error"
+						}
+					]
+				]
+			},
+			"2": {
+				"iconClasses": "fa-solid fa-bars",
+				"name": "Các hàm liên quan đến tuple",
+				"codevi": [
+					"nguoi_ban = \nprint()",
+					"diem_so = (10, 7, 8.5, 6, 9.25, 10, 7, 7.75, 8)\nprint()",
+					"mon_hoc = ('Văn', 'Toán', 'Hóa học', 'Vật lí', 'GDCD')\nprint()"
+				],
+				"codeen": [
+					"friends = \nprint()",
+					"scores = (98, 75, 85, 63, 95, 98, 76, 95, 98)\nprint()",
+					"mon_hoc = ('English', 'Maths', 'Chemistry', 'Physics', 'Arts')\nprint()"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "static",
+							"text": "5"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "2"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "1"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "static",
+							"text": "5"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "2"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "1"
+						}
+					]
+				]
+			},
+			"3": {
+				"iconClasses": "fa-solid fa-grip",
+				"name": "Làm quen với tập hợp",
+				"codevi": [
+					"",
+					"ds_hoc_sinh = ['An', 'Huy', 'Thành', 'Đạt', 'Khôi', 'Huy']\nhoc_sinh_khong_trung = ...",
+					"mon_an = {'cơm', 'phở', 'salad', 'tôm', 'hàu'}"
+				],
+				"codeen": [
+					"",
+					"students = ['Tim', 'Drake', 'Bill', 'Emily', 'Bill', 'Tom']\nunique_students = ...",
+					"menu = {'cereal', 'chocolate', 'salad', 'lobster', 'oysters'}"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "var",
+							"name": "tap_hop",
+							"captureAs": "firstSet"
+						},
+						{
+							"type": "reference",
+							"name": "firstSet",
+							"from": ["firstSet"],
+							"transform": "x => x.size >= 4 ? x : null"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "hoc_sinh_khong_trung",
+							"captureAs": "students"
+						},
+						{
+							"type": "reference",
+							"name": "students",
+							"from": ["students"],
+							"transform": "x => x.size == 5 ? x : null"
+						}
+					],
+					[
+						{
+							"type": "repeat",
+							"body": [
+								{
+									"type": "regex",
+									"pattern": "\\{('(cơm|phở|salad|tôm|hàu)', ){4}'(cơm|phở|salad|tôm|hàu)'\\}"
+								}
+							],
+							"times": "10"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "var",
+							"name": "elements",
+							"captureAs": "firstSet"
+						},
+						{
+							"type": "reference",
+							"name": "firstSet",
+							"from": ["firstSet"],
+							"transform": "x => x.size >= 4 ? x : null"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "unique_students",
+							"captureAs": "students"
+						},
+						{
+							"type": "reference",
+							"name": "students",
+							"from": ["students"],
+							"transform": "x => x.size == 5 ? x : null"
+						}
+					],
+					[
+						{
+							"type": "repeat",
+							"body": [
+								{
+									"type": "regex",
+									"pattern": "\\{('(cereal|chocolate|salad|lobster|oysters)', ){4}'(cereal|chocolate|salad|lobster|oysters)'\\}"
+								}
+							],
+							"times": "10"
+						}
+					]
+				]
+			},
+			"4": {
+				"iconClasses": "fa-solid fa-u",
+				"name": "Các phép toán tập hợp",
+				"codevi": [
+					"\nprint(len(tap_so))",
+					"mon_hoc = {'Văn', 'Toán', 'Hóa học', 'Vật lí', 'GDCD'}",
+					"day_so = {0, 1, 1, 2, 3, 5, 8, 13}",
+					"do_dung = {'tẩy', 'bút bi', 'máy tính', 'bút lông'}",
+					"...",
+					"lop_10A = {'An', 'Bình', 'Chi'}\nlop_10B = {'Bình', 'Dũng', 'Hà'}"
+				],
+				"codeen": [
+					"\nprint(len(nums))",
+					"subjects = {'Maths', 'English', 'Computer Science', 'History', 'Geography', 'Biology'}",
+					"sequence = {0, 1, 1, 2, 3, 5, 8, 13}",
+					"supplies = {'eraser', 'pen', 'calculator', 'marker'}",
+					"grade10 = {'Andrew', 'Bob', 'John'}\ngrade11 = {'Drew', 'James', 'Bob'}"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "var",
+							"name": "tap_so",
+							"captureAs": "nums"
+						},
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "len"
+						},
+						{
+							"type": "reference",
+							"name": "len",
+							"from": ["nums"],
+							"transform": "x => x.size"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "True"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "32"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "do_dung",
+							"captureAs": "supplies"
+						},
+						{
+							"type": "reference",
+							"name": "supplies",
+							"from": "supplies",
+							"transform": "x => { console.log(x, x.name); const xSet = new Set(Object.keys(x.entries)); const supp = new Set(['tẩy', 'bút bi', 'máy tính', 'bút lông', 'bút chì']); const isSubset = [...supp].every(item => xSet.has(item)); return isSubset ? x : null; }"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "tap_tam",
+							"captureAs": "tmp"
+						},
+						{
+							"type": "reference",
+							"name": "tmp",
+							"from": "tmp",
+							"transform": "x => x.size == 0 ? x : null"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "{'An', 'Bình', 'Chi', 'Dũng', 'Hà'}"
+						},
+						{
+							"type": "static",
+							"text": "{'Bình'}"
+						},
+						{
+							"type": "static",
+							"text": "{'An', 'Chi'}"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "var",
+							"name": "nums",
+							"captureAs": "nums"
+						},
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "len"
+						},
+						{
+							"type": "reference",
+							"name": "len",
+							"from": ["nums"],
+							"transform": "x => x.size"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "True"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "32"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "supplies",
+							"captureAs": "supplies"
+						},
+						{
+							"type": "reference",
+							"name": "supplies",
+							"from": "supplies",
+							"transform": "x => { const xSet = new Set(Object.keys(x.entries)); const supp = new Set(['eraser', 'pen', 'calculator', 'marker', 'pencil']); const isSubset = [...supp].every(item => xSet.has(item)); return isSubset ? x : null; }"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "temp_set",
+							"captureAs": "tmp"
+						},
+						{
+							"type": "reference",
+							"name": "tmp",
+							"from": "tmp",
+							"transform": "x => x.size == 0 ? x : null"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "{'Andrew', 'Bill', 'John', 'Drew', 'James'}"
+						},
+						{
+							"type": "static",
+							"text": "{'Bill'}"
+						},
+						{
+							"type": "static",
+							"text": "{'Andrew', 'John'}"
+						}
+					]
+				]
+			},
+			"5": {
+				"iconClasses": "fa-solid fa-book",
+				"name": "Từ điển (Dictionary)",
+				"codevi": [
+					"thong_tin = {\n    'ten': 'Lan',\n    'lop': '9A',\n    'truong': 'THCS ABC'\n}\nprint(thong_tin['ten'])",
+					"thong_tin = {\n    'ten': 'Minh',\n    'tuoi': 15\n}\n# Thêm khóa 'so_thich'\n...",
+					"thong_tin = {\n    'ten': 'Hà',\n    'lop': '9B',\n    'tuoi': 14\n}\n# Xóa khóa 'lop'\n..."
+				],
+				"codeen": [
+					"info = {\n    'name': 'Anna',\n    'class': '9A',\n    'school': 'ABC School'\n}\nprint(info['name'])",
+					"info = {\n    'name': 'Mike',\n    'age': 15\n}\n# Add key 'hobby'\n...",
+					"info = {\n    'name': 'Helen',\n    'class': '9B',\n    'age': 14\n}\n# Remove key 'class'\n..."
+				],
+				"correctvi": [
+					[
+						{
+							"type": "static",
+							"text": "Lan"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "thong_tin",
+							"captureAs": "dict"
+						},
+						{
+							"type": "reference",
+							"name": "dict",
+							"from": "dict",
+							"transform": "x => x['so_thich'] ? x : null"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "thong_tin",
+							"captureAs": "dict"
+						},
+						{
+							"type": "reference",
+							"name": "dict",
+							"from": "dict",
+							"transform": "x => !('lop' in x) ? x : null"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "static",
+							"text": "Anna"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "info",
+							"captureAs": "dict"
+						},
+						{
+							"type": "reference",
+							"name": "dict",
+							"from": "dict",
+							"transform": "x => x['hobby'] ? x : null"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "info",
+							"captureAs": "dict"
+						},
+						{
+							"type": "reference",
+							"name": "dict",
+							"from": "dict",
+							"transform": "x => !('class' in x) ? x : null"
+						}
+					]
+				]
+			},
+			"6": {
+				"iconClasses": "fa-solid fa-list",
+				"name": "Các hàm của Dictionary",
+				"codevi": [
+					"thong_tin = {\n    'ten': 'Nam',\n    'tuoi': 15,\n    'lop': '9C'\n}\nprint(thong_tin.keys())",
+					"thong_tin = {\n    'toan': 8,\n    'van': 7,\n    'anh': 9\n}\nprint(thong_tin.values())",
+					"thong_tin = {\n    'ten': 'Linh',\n    'tuoi': 15\n}\nprint(thong_tin.get('email', 'Chưa có'))",
+					"thong_tin = {\n    'ten': 'Minh',\n    'tuoi': 15\n}\n# Cập nhật tuổi thành 16 và thêm khóa 'hoc_luc'\n...",
+					"thong_tin = {\n    'ten': 'Hà',\n    'so_thich': 'đọc sách'\n}\n# Dùng pop để xóa 'so_thich' và in ra giá trị bị xóa\n..."
+				],
+				"codeen": [
+					"info = {\n    'name': 'Tom',\n    'age': 15,\n    'class': '9C'\n}\nprint(info.keys())",
+					"scores = {\n    'math': 8,\n    'english': 7,\n    'science': 9\n}\nprint(scores.values())",
+					"info = {\n    'name': 'Lily',\n    'age': 15\n}\nprint(info.get('email', 'Not available'))",
+					"info = {\n    'name': 'Mike',\n    'age': 15\n}\n# Update age to 16 and add 'level'\n...",
+					"info = {\n    'name': 'Helen',\n    'hobby': 'reading'\n}\n# Use pop to remove 'hobby' and print it\n..."
+				],
+				"correctvi": [
+					[
+						{
+							"type": "static",
+							"text": "dict_keys(['ten', 'tuoi', 'lop'])"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "dict_values([8, 7, 9])"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "Chưa có"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "thong_tin",
+							"captureAs": "dict"
+						},
+						{
+							"type": "reference",
+							"name": "dict",
+							"from": "dict",
+							"transform": "x => x['tuoi'] === 16 && 'hoc_luc' in x ? x : null"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "đọc sách"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "static",
+							"text": "dict_keys(['name', 'age', 'class'])"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "dict_values([8, 7, 9])"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "Not available"
+						}
+					],
+					[
+						{
+							"type": "var",
+							"name": "info",
+							"captureAs": "dict"
+						},
+						{
+							"type": "reference",
+							"name": "dict",
+							"from": "dict",
+							"transform": "x => x['age'] === 16 && 'level' in x ? x : null"
+						}
+					],
+					[
+						{
+							"type": "static",
+							"text": "reading"
+						}
+					]
+				]
+			}
+		},
+
+		"7": {
+			"name": "Chủ đề 7: Các lỗi thường gặp trong Python",
+			"1": {
+				"iconClasses": "fa-solid fa-bug",
+				"name": "Lỗi Cú pháp (Syntax Error)",
+				"codevi": [
+					"ten = \"An\"\nif ten = \"An\"\n    print(\"Đúng tên\")\n    print(\"Xin chào\")\nelse:\n    print(\"Sai tên\")\nprint \"Hoàn tất"
+				],
+				"codeen": [
+					"name = \"An\"\nif name = \"An\"\n    print(\"Correct name\")\n    print(\"Hello\")\nelse:\n    print(\"Wrong name\")\nprint \"Done"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "static",
+							"text": "Đúng tên"
+						},
+						{
+							"type": "static",
+							"text": "Xin chào"
+						},
+						{
+							"type": "static",
+							"text": "Hoàn tất"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "static",
+							"text": "Correct name"
+						},
+						{
+							"type": "static",
+							"text": "Hello"
+						},
+						{
+							"type": "static",
+							"text": "Done"
+						}
+					]
+				]
+			},
+			"2": {
+				"iconClasses": "fa-solid fa-exclamation-triangle",
+				"name": "Các lỗi Runtime thường gặp",
+				"codevi": [
+					"thuc_don = (\"Bánh mì\", \"Phở\")\nthong_tin = {\"ten\": \"An\", \"tuoi\": 15}\nmon_hoc = [\"Toán\", \"Văn\"]\n\nthuc_don[0] = \"Xôi\"\nprint(thuc_don)\nprint(thong_tin[\"truong\"])\nprint(mon_hoc[5])"
+				],
+				"codeen": [
+					"menu = (\"Bread\", \"Pho\")\ninfo = {\"name\": \"An\", \"age\": 15}\nsubjects = [\"Math\", \"Literature\"]\n\nmenu[0] = \"Sticky rice\"\nprint(menu)\nprint(info[\"school\"])\nprint(subjects[5])"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "static",
+							"text": "['Xôi', 'Phở']"
+						},
+						{
+							"type": "regex",
+							"pattern": "An|15"
+						},
+						{
+							"type": "regex",
+							"text": "Toán|Văn"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "static",
+							"text": "['Sticky rice', 'Pho']"
+						},
+						{
+							"type": "regex",
+							"text": "An|15"
+						},
+						{
+							"type": "regex",
+							"text": "Maths|Literature"
+						}
+					]
+				]
+			},
+			"3": {
+				"iconClasses": "fa-solid fa-brain",
+				"name": "Lỗi Logic (Logical Error)",
+				"codevi": [
+					"diem_toan = 8\ndiem_van = 10\nso_mon = 2\ndiem_trung_binh = diem_toan + diem_van / so_mon # LỖI\nprint(\"Điểm trung bình cộng là:\", diem_trung_binh)\ntong_diem = diem_toan * diem_van\nprint(\"Tổng điểm là:\" ,tong_diem)"
+				],
+				"codeen": [
+					"math_score = 8\nliterature_score = 10\nnum_subjects = 2\navg = math_score + literature_score / num_subjects # WRONG\nprint('Average:', avg)\ntotal = math_score * literature_score\nprint('Total:', total)"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "static",
+							"text": "Điểm trung bình cộng là: 9.0"
+						},
+						{
+							"type": "static",
+							"text": "Tổng điểm là: 18"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "static",
+							"text": "Average: 9.0"
+						},
+						{
+							"type": "static",
+							"text": "Total: 18"
+						}
+					]
+				]
+			},
+			"4": {
+				"iconClasses": "fa-solid fa-shield-halved",
+				"name": "Xử lý ngoại lệ (Try - Except)",
+				"codevi": [
+					"keo = int(input('Nhập số kẹo: '))\nnguoi = int(input('Nhập số người: '))\n"
+				],
+				"codeen": [
+					"candies = int(input('Enter candies: '))\npeople = int(input('Enter people: '))\n"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "prompt",
+							"text": "Nhập số kẹo: ",
+							"captureAs": "c"
+						},
+						{
+							"type": "prompt",
+							"text": "Nhập số người: ",
+							"captureAs": "p"
+						},
+						{
+							"type": "regex",
+							"pattern": "^(Mỗi người nhận: .*|Không có ai để chia kẹo cả!)$"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "prompt",
+							"text": "Enter candies: ",
+							"captureAs": "c"
+						},
+						{
+							"type": "prompt",
+							"text": "Enter people: ",
+							"captureAs": "p"
+						},
+						{
+							"type": "regex",
+							"pattern": "^(Each gets: .*|No one to share the candies with!)$"
+						}
+					]
+				]
+			}
+		},
+
+		"8": {
+			"name": "Chủ đề 8: Cấu trúc match-case",
+			"1": {
+				"iconClasses": "fa-solid fa-code-branch",
+				"name": "Giới thiệu về cấu trúc match-case",
+				"codevi": ["so = \nmatch so:"],
+				"codeen": ["num = \nmatch num:"],
+				"correctvi": [
+					[
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "msg"
+						},
+						{
+							"type": "var",
+							"name": "so",
+							"captureAs": "num"
+						},
+						{
+							"type": "reference",
+							"name": "msg",
+							"from": "num",
+							"transform": "x => ['Một', 'Hai', 'Ba'][x - 1]"
+						}
+					]
+				],
+				"correcten": [
+					[
+						{
+							"type": "prompt",
+							"text": "",
+							"captureAs": "msg"
+						},
+						{
+							"type": "var",
+							"name": "num",
+							"captureAs": "num"
+						},
+						{
+							"type": "reference",
+							"name": "msg",
+							"from": "num",
+							"transform": "x => ['One', 'Two', 'Three'][x - 1]"
+						}
+					]
+				]
+			}
+		},
+
+		"9": {
+			"name": "Chủ đề 9: Xử lí chuỗi",
+			"1": {
+				"iconClasses": "fa-solid fa-font",
+				"name": "Giới thiệu về chuỗi",
+				"codevi": [
+					"ten = \nchao = ",
+					"",
+					"\nprint(a + b)",
+					"desc = '''Mình thích đọc sách và lập trình.'''\nprint(desc)",
+					"text = 'Dòng 1\\nDòng 2'\nprint(text)"
+				],
+				"codeen": [
+					"name = \ngreeting = ",
+					"",
+					"\nprint(a + b)",
+					"desc = '''I like reading and coding.'''\nprint(desc)",
+					"text = 'Line 1\\nLine 2'\nprint(text)"
+				],
+				"correctvi": [
+					[
+						{ "type": "var", "name": "ten", "captureAs": "name" },
+						{
+							"type": "var",
+							"name": "chao",
+							"captureAs": "greeting"
+						},
+						{
+							"type": "reference",
+							"name": "greeting",
+							"from": "greeting",
+							"transform": "x => x == 'Chào' ? x : null"
+						}
+					],
+					[{ "type": "regex", "pattern": "^Chào .+$" }],
+					[{ "type": "static", "text": "103" }],
+					[
+						{
+							"type": "regex",
+							"pattern": "^Mình thích đọc sách và lập trình\\.$"
+						}
+					],
+					[
+						{ "type": "static", "text": "Dòng 1" },
+						{ "type": "static", "text": "Dòng 2" }
+					]
+				],
+				"correcten": [
+					[
+						{ "type": "var", "name": "name", "captureAs": "name" },
+						{
+							"type": "var",
+							"name": "greeting",
+							"captureAs": "greeting"
+						},
+						{
+							"type": "reference",
+							"name": "greeting",
+							"from": "greeting",
+							"transform": "x => x == 'Hello' ? x : null"
+						}
+					],
+					[{ "type": "regex", "pattern": "^Hello .+$" }],
+					[{ "type": "static", "text": "103" }],
+					[
+						{
+							"type": "regex",
+							"pattern": "^I like reading and coding\\.$"
+						}
+					],
+					[
+						{ "type": "static", "text": "Line 1" },
+						{ "type": "static", "text": "Line 2" }
+					]
+				]
+			},
+			"2": {
+				"iconClasses": "fa-solid fa-hashtag",
+				"name": "Truy cập ký tự bằng chỉ số",
+				"codevi": [
+					"s = 'Xin chao'\nprint(s[0], s[1], s[2])",
+					"s = 'Xin chao'\nprint(s[-1], s[-2])",
+					"s = 'Hi'\nprint(s[10])",
+					"name = \nprint(name[0])",
+					"s = 'abcdef'\nprint(s[len(s)-1])"
+				],
+				"codeen": [
+					"s = 'Xin chao'\nprint(s[0], s[1], s[2])",
+					"s = 'Xin chao'\nprint(s[-1], s[-2])",
+					"s = 'Hi'\nprint(s[10])",
+					"name = \nprint(name[0])",
+					"s = 'abcdef'\nprint(s[len(s)-1])"
+				],
+				"correctvi": [
+					[{ "type": "static", "text": "X i n" }],
+					[{ "type": "static", "text": "o a" }],
+					[{ "type": "set-error" }],
+					[{ "type": "regex", "pattern": "^.$" }],
+					[{ "type": "regex", "pattern": "^.$" }]
+				],
+				"correcten": [
+					[{ "type": "static", "text": "X i n" }],
+					[{ "type": "static", "text": "o a" }],
+					[{ "type": "set-error" }],
+					[{ "type": "regex", "pattern": "^.$" }],
+					[{ "type": "regex", "pattern": "^.$" }]
+				]
+			},
+			"3": {
+				"iconClasses": "fa-solid fa-cut",
+				"name": "Cắt chuỗi (Slicing)",
+				"codevi": [
+					"s = 'Lap trinh Python'\nprint(s[0:9])",
+					"s = 'abcdefgh'\nprint(s[4:])",
+					"s = '123456789'\nprint(s[0:9:2])",
+					"name = \nprint(name[::-1])",
+					"lst = [1,2,3,4,5]\nprint(lst[:3])"
+				],
+				"codeen": [
+					"s = 'Lap trinh Python'\nprint(s[0:9])",
+					"s = 'abcdefgh'\nprint(s[4:])",
+					"s = '123456789'\nprint(s[0:9:2])",
+					"name = \nprint(name[::-1])",
+					"lst = [1,2,3,4,5]\nprint(lst[:3])"
+				],
+				"correctvi": [
+					[{ "type": "static", "text": "Lap trinh" }],
+					[{ "type": "static", "text": "efgh" }],
+					[{ "type": "static", "text": "13579" }],
+					[{ "type": "regex", "pattern": "^.+$" }],
+					[{ "type": "static", "text": "[1, 2, 3]" }]
+				],
+				"correcten": [
+					[{ "type": "static", "text": "Lap trinh" }],
+					[{ "type": "static", "text": "efgh" }],
+					[{ "type": "static", "text": "13579" }],
+					[{ "type": "regex", "pattern": "^.+$" }],
+					[{ "type": "static", "text": "[1, 2, 3]" }]
+				]
+			},
+			"4": {
+				"iconClasses": "fa-solid fa-wrench",
+				"name": "Phương thức chuỗi",
+				"codevi": [
+					"s = ' Xin CHao '\nprint(s.strip().lower())",
+					"s = 'Toi thich Python'\nprint(s.replace('Python', 'JavaScript'))",
+					"s = 'Lap trinh la niem vui'\nprint(s.count('a'))",
+					"email = 'abc@gmail.com'\nprint(email.endswith('gmail.com'))",
+					"ten = input()\nprint(ten.capitalize())"
+				],
+				"codeen": [
+					"s = ' Xin CHao '\nprint(s.strip().lower())",
+					"s = 'I like Python'\nprint(s.replace('Python', 'JavaScript'))",
+					"s = 'Programming is fun'\nprint(s.count('a'))",
+					"email = 'abc@gmail.com'\nprint(email.endswith('gmail.com'))",
+					"name = input()\nprint(name.capitalize())"
+				],
+				"correctvi": [
+					[{ "type": "static", "text": "xin chao" }],
+					[{ "type": "static", "text": "Toi thich JavaScript" }],
+					[{ "type": "static", "text": "2" }],
+					[{ "type": "static", "text": "True" }],
+					[{ "type": "regex", "pattern": "^.+$" }]
+				],
+				"correcten": [
+					[{ "type": "static", "text": "xin chao" }],
+					[{ "type": "static", "text": "I like JavaScript" }],
+					[{ "type": "static", "text": "0" }],
+					[{ "type": "static", "text": "True" }],
+					[{ "type": "regex", "pattern": "^.+$" }]
+				]
+			},
+			"5": {
+				"iconClasses": "fa-solid fa-link",
+				"name": "Tách và ghép chuỗi (Split & Join)",
+				"codevi": [
+					"s = 'Hoc lap trinh Python rat thu vi'\nprint(s.split())",
+					"s = '3-4-5-6-7'\nprint(s.split('-'))",
+					"lst = ['Python','rat','hay']\nprint('-'.join(lst))",
+					"s = 'nguyen van an'\nprint('-'.join([w.capitalize() for w in s.split()]))",
+					"s = 'a b c d e'\nprint('|'.join(s.split()))"
+				],
+				"codeen": [
+					"s = 'Hoc lap trinh Python rat thu vi'\nprint(s.split())",
+					"s = '3-4-5-6-7'\nprint(s.split('-'))",
+					"lst = ['Python','rat','hay']\nprint('-'.join(lst))",
+					"s = 'nguyen van an'\nprint('-'.join([w.capitalize() for w in s.split()]))",
+					"s = 'a b c d e'\nprint('|'.join(s.split()))"
+				],
+				"correctvi": [
+					[
+						{
+							"type": "static",
+							"text": "['Hoc', 'lap', 'trinh', 'Python', 'rat', 'thu', 'vi']"
+						}
+					],
+					[{ "type": "static", "text": "['3', '4', '5', '6', '7']" }],
+					[{ "type": "static", "text": "Python-rat-hay" }],
+					[{ "type": "static", "text": "Nguyen-Van-An" }],
+					[{ "type": "static", "text": "a|b|c|d|e" }]
+				],
+				"correcten": [
+					[
+						{
+							"type": "static",
+							"text": "['Hoc', 'lap', 'trinh', 'Python', 'rat', 'thu', 'vi']"
+						}
+					],
+					[{ "type": "static", "text": "['3', '4', '5', '6', '7']" }],
+					[{ "type": "static", "text": "Python-rat-hay" }],
+					[{ "type": "static", "text": "Nguyen-Van-An" }],
+					[{ "type": "static", "text": "a|b|c|d|e" }]
+				]
+			},
+			"6": {
+				"iconClasses": "fa-solid fa-repeat",
+				"name": "Duyệt chuỗi bằng vòng lặp",
+				"codevi": [
+					"for ch in 'Python':\n\tprint(ch)",
+					"s = 'PyTHon CoDe'\nprint(''.join([c for c in s if c.isupper()]))",
+					"count = 0\nfor c in 'Hello World':\n\tif c == 'o':\n\t\tcount += 1\nprint(count)",
+					"s = 'ABCDEF'\nfor i in range(len(s)):\n\tprint('Vi tri', i, ':', s[i])",
+					"s = '905-333-882'\nprint(''.join([c for c in s if c.isdigit()]))"
+				],
+				"codeen": [
+					"for ch in 'Python':\n\tprint(ch)",
+					"s = 'PyTHon CoDe'\nprint(''.join([c for c in s if c.isupper()]))",
+					"count = 0\nfor c in 'Hello World':\n\tif c == 'o':\n\t\tcount += 1\nprint(count)",
+					"s = 'ABCDEF'\nfor i in range(len(s)):\n\tprint('Position', i, ':', s[i])",
+					"s = '905-333-882'\nprint(''.join([c for c in s if c.isdigit()]))"
+				],
+				"correctvi": [
+					[
+						{ "type": "static", "text": "P" },
+						{ "type": "static", "text": "y" },
+						{ "type": "static", "text": "t" },
+						{ "type": "static", "text": "h" },
+						{ "type": "static", "text": "o" },
+						{ "type": "static", "text": "n" }
+					],
+					[{ "type": "static", "text": "PTHCD" }],
+					[{ "type": "static", "text": "2" }],
+					[
+						{ "type": "static", "text": "Vi tri 0: A" },
+						{ "type": "static", "text": "Vi tri 1: B" },
+						{ "type": "static", "text": "Vi tri 2: C" },
+						{ "type": "static", "text": "Vi tri 3: D" },
+						{ "type": "static", "text": "Vi tri 4: E" },
+						{ "type": "static", "text": "Vi tri 5: F" }
+					],
+					[{ "type": "static", "text": "905333882" }]
+				],
+				"correcten": [
+					[
+						{ "type": "static", "text": "P" },
+						{ "type": "static", "text": "y" },
+						{ "type": "static", "text": "t" },
+						{ "type": "static", "text": "h" },
+						{ "type": "static", "text": "o" },
+						{ "type": "static", "text": "n" }
+					],
+					[{ "type": "static", "text": "PTHCD" }],
+					[{ "type": "static", "text": "2" }],
+					[
+						{ "type": "static", "text": "Position 0 : A" },
+						{ "type": "static", "text": "Position 1 : B" },
+						{ "type": "static", "text": "Position 2 : C" },
+						{ "type": "static", "text": "Position 3 : D" },
+						{ "type": "static", "text": "Position 4 : E" },
+						{ "type": "static", "text": "Position 5 : F" }
+					],
+					[{ "type": "static", "text": "905333882" }]
+				]
+			},
+			"7": {
+				"iconClasses": "fa-solid fa-search",
+				"name": "Tìm kiếm trong chuỗi",
+				"codevi": [
+					"s = 'lap trinh python'\nprint(s.find('trinh'))",
+					"print('Hello World'.find('o'))",
+					"print('Py' in 'Python')",
+					"print('document.pdf'.endswith('.pdf'))",
+					"s = input()\nprint(' ' in s)"
+				],
+				"codeen": [
+					"s = 'lap trinh python'\nprint(s.find('trinh'))",
+					"print('Hello World'.find('o'))",
+					"print('Py' in 'Python')",
+					"print('document.pdf'.endswith('.pdf'))",
+					"s = input()\nprint(' ' in s)"
+				],
+				"correctvi": [
+					[{ "type": "static", "text": "4" }],
+					[{ "type": "static", "text": "4" }],
+					[{ "type": "static", "text": "True" }],
+					[{ "type": "static", "text": "True" }],
+					[{ "type": "regex", "pattern": "^(True|False)$" }]
+				],
+				"correcten": [
+					[{ "type": "static", "text": "4" }],
+					[{ "type": "static", "text": "4" }],
+					[{ "type": "static", "text": "True" }],
+					[{ "type": "static", "text": "True" }],
+					[{ "type": "regex", "pattern": "^(True|False)$" }]
+				]
 			}
 		}
 	}
