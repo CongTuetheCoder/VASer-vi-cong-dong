@@ -34,10 +34,11 @@ async function fetchUID() {
 		return {
 			currentUnit: user.data.currentUnit,
 			currentLesson: user.data.lesson,
+			xp: user.xp,
 		};
 	} catch (err) {
 		console.error("Failed to fetch user progress:", err);
-		return { currentUnit: 1, currentLesson: 1 }; // fallback
+		return { currentUnit: 1, currentLesson: 1, xp: 0 }; // fallback
 	}
 }
 
@@ -49,7 +50,7 @@ const createButtons = async (unit, lessonsArrange, lessonsData) => {
 	title.id = `section${unit}`;
 	container.appendChild(title);
 
-	const { currentUnit, currentLesson } = await fetchUID();
+	const { currentUnit, currentLesson, xp } = await fetchUID();
 
 	for (let i = 0; i < lessonsArrange.length; i++) {
 		if (lessonsArrange[i] > 4) {
@@ -354,19 +355,38 @@ const drawPathsBetweenButtons = () => {
 	}
 
 	sessionStorage.clear();
+	const xpLabel = document.getElementById("xp-count");
+	const { currentUnit, currentLesson, xp } = await fetchUID();
+	xpLabel.innerText = String(xp);
 
 	try {
 		const response = await fetch("data/lessons.json");
 		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
 		const data = await response.json();
 
-		for (let i = 1; i <= 4; i++) {
+		for (let i = 1; i <= 9; i++) {
 			await createButtons(i, data.lessonsData[i], data.lessons[i]);
 		}
 
 		setTimeout(drawPathsBetweenButtons, 100);
 		document.dispatchEvent(new Event("lessonReady"));
 		window.addEventListener("resize", drawPathsBetweenButtons);
+
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("show");
+				} else if (entry.target.classList.contains("show")) {
+					entry.target.classList.remove("show");
+				}
+			});
+		}, {});
+
+		const elements = Array.from(document.querySelectorAll(".lessonBtn"))
+			.concat(Array.from(document.querySelectorAll("h4")))
+		elements.forEach((el) => {
+			observer.observe(el);
+		});
 	} catch (err) {
 		console.error("Error initializing lessons:", err);
 	}

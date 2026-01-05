@@ -9,28 +9,12 @@ lessonContainer.style.height = codeContainer.style.height;
 
 const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
 
-const COLOURS = {
-	base: {
-		dark: "#1a1b27",
-		base: "#372F8C",
-		light: "#bca9f2",
-	},
-	correct: {
-		dark: "#1a271a",
-		base: "#30694c",
-		light: "#88e1b3",
-	},
-	wrong: {
-		dark: "#271a1a",
-		base: "#693030",
-		light: "#d97a7a",
-	},
-};
-
 if (lesson === null) window.location.href = "home.html";
 else document.title = lesson;
 
 let lessonCounter = 0;
+let correctCount = 0;
+let wrongCount = 0;
 const correctOutputs = JSON.parse(sessionStorage.getItem("correct") || "[]");
 const codeList = JSON.parse(sessionStorage.getItem("filledcode") || "[]");
 
@@ -151,7 +135,7 @@ async function updateUserProgress(
 		nextLesson = 1;
 	}
 
-	if (nextUnit > 4) {
+	if (nextUnit > 9) {
 		console.log("Reached end of course");
 		return null;
 	}
@@ -185,7 +169,7 @@ function initWorker() {
 	}
 }
 
-async function runPython() {
+const runPython = async () => {
 	const code = document.getElementById("editor").value;
 	const out = document.getElementById("output");
 	const runBtn = document.getElementById("runBtn");
@@ -252,9 +236,9 @@ async function runPython() {
 		pythonWorker.addEventListener("message", handler);
 		pythonWorker.postMessage({ type: "run", code });
 	});
-}
+};
 
-function stopPython() {
+const stopPython = () => {
 	if (pythonWorker) {
 		pythonWorker.terminate();
 		pythonWorker = null;
@@ -266,9 +250,9 @@ function stopPython() {
 		runBtn.disabled = false;
 		stopBtn.disabled = true;
 	}
-}
+};
 
-function getUserInputFromOutput(promptText = "") {
+const getUserInputFromOutput = (promptText = "") => {
 	const out = document.getElementById("output");
 	return new Promise((resolve) => {
 		out.contentEditable = "true";
@@ -326,55 +310,29 @@ function getUserInputFromOutput(promptText = "") {
 		moveCaretToEnd();
 		out.focus();
 	});
-}
+};
 
-function changeBgGradient(property = "base") {
-	const gradient = document.getElementsByClassName("gradient")[0];
-	const col1 = COLOURS[property].dark;
-	const col2 = COLOURS[property].base;
-
-	gradient.style.setProperty("--color-stop-1", col1);
-	gradient.style.setProperty("--color-stop-2", col2);
-}
-
-function changeLessonGradient(property = "base") {
-	const col1 = COLOURS[property]["light"];
-	const col2 = COLOURS[property][property === "base" ? "base" : "dark"];
-
-	lessonContainer.style.setProperty("--bg-stop-1", col1);
-
-	const spans = lessonContainer.querySelectorAll("span");
-	spans.forEach((span) => {
-		span.style.backgroundColor = col2;
-	});
-
-	const divs = lessonContainer.querySelectorAll("div");
-	divs.forEach((div) => {
-		div.style.backgroundColor = col2;
-	});
-}
-
-function step() {
+const step = () => {
 	const percentage = ((lessonCounter + 1) / activities) * 100;
 	const bar = document.getElementById("bar");
 	bar.style.setProperty("--progress-width", `${percentage}%`);
-}
+};
 
-function validateOutput(output, pattern) {
+const validateOutput = (output, pattern) => {
 	const out = document.getElementById("output");
-	if (out.style.color === "red") return false; // Error
+	if (out.style.color === "red" && pattern[0].type !== "set-error")
+		return false; // Error
 
 	const normalize = (str) => str.replace(/\r\n/g, "\n").trim();
 	const outLines = normalize(output).split("\n");
 	const userInputs = [];
 	const vars = {};
-	const skipTypes = ["reference", "var"];
+	const skipTypes = ["reference", "var", "rollback", "set-error"];
 
 	let index = 0;
 
 	function matchLine(line, pat) {
 		if (pat.type === "prompt") {
-			// capture user input after prompt
 			if (!line.startsWith(pat.text)) return false;
 
 			const input = line.slice(pat.text.length).trim();
@@ -386,7 +344,14 @@ function validateOutput(output, pattern) {
 
 		if (pat.type === "dynamic") {
 			if (!line.startsWith(pat.text)) return false;
-			if (pat.captureAs) vars[pat.captureAs] = line;
+			if (pat.captureAs) {
+				if (!pat.captureAppend) vars[pat.captureAs] = line;
+				else {
+					if (vars[pat.captureAs]) vars[pat.captureAs].push(line);
+					else vars[pat.captureAs] = [line];
+					console.log(vars[pat.captureAs]);
+				}
+			}
 			return true;
 		}
 
@@ -462,6 +427,29 @@ function validateOutput(output, pattern) {
 			return true;
 		}
 
+		if (pat.type === "rollback" || pat.type === "set-error") return true;
+
+		return false;
+	}
+
+	function evaluateCondition(condition) {
+		if (condition.type === "var-equals") {
+			const varValue = vars[condition.name];
+			return String(varValue).trim() == String(condition.value).trim();
+		}
+		if (condition.type === "var-gt") {
+			const varValue = vars[condition.name];
+			return Number(varValue) > Number(condition.value);
+		}
+		if (condition.type === "var-ge") {
+			const varValue = vars[condition.name];
+			return Number(varValue) >= Number(condition.value);
+		}
+		if (condition.type === "var-exists") {
+			return vars[condition.name] !== undefined;
+		}
+
+		console.error("Unknown condition type:", condition.type);
 		return false;
 	}
 
@@ -510,10 +498,23 @@ function validateOutput(output, pattern) {
 						if (idx === -1 || idx === startIdx) break;
 					}
 				}
+			} else if (pattern.type === "conditional") {
+				const conditionResult = evaluateCondition(pattern.condition);
+				let nextIdx = idx;
+
+				if (conditionResult && pattern.then !== undefined) {
+					nextIdx = matchPattern(lines, pattern.then, idx);
+				} else if (!conditionResult && pattern.else !== undefined) {
+					nextIdx = matchPattern(lines, pattern.else, idx);
+				}
+				if (nextIdx === -1) return -1;
+				idx = nextIdx;
 			} else {
 				if (skipTypes.includes(pattern.type)) idx--;
 				if (idx >= lines.length || !matchLine(lines[idx], pattern)) {
 					console.log("Failed at pattern", pattern);
+					console.log(lines, idx);
+					console.log("Found", lines[idx], "instead.");
 					return -1;
 				}
 				idx++;
@@ -525,16 +526,20 @@ function validateOutput(output, pattern) {
 
 	const result = matchPattern(outLines, pattern, index);
 	return result !== -1;
-}
+};
 
-function validator(outputText) {
+const validator = (outputText) => {
+	const body = document.body;
+
 	if (validateOutput(outputText, correctOutputs[lessonCounter])) {
-		changeBgGradient("correct");
-		changeLessonGradient("correct");
+		correctCount++;
 		timeout = 2500;
 		step();
 
-		setTimeout(() => {
+		body.classList.add("correct");
+
+		setTimeout(async () => {
+			body.classList.remove("correct");
 			if (lessonCounter < activities - 1) {
 				lessonCounter++;
 
@@ -570,38 +575,53 @@ function validator(outputText) {
 				document.getElementById("runBtn").disabled = false;
 				fetchAndUpdateContent();
 			} else {
-				const backArrow = document.getElementById("back");
-				backArrow.innerHTML =
-					'<i class="fa-solid fa-arrow-left fa-beat"></i>';
-				backArrow.style.color = "aqua";
-				backArrow.style.textShadow = "0 0 5px aqua";
+				showResultsDialog();
+				const uid = await fetchUID();
+				const currentUnit = Number(
+					sessionStorage.getItem("lessonID").split(".")[0]
+				);
+				const currentLesson = Number(
+					sessionStorage.getItem("lessonID").split(".")[1]
+				);
+				const lessonsData = await fetchLessonConfig(
+					Number(currentUnit)
+				);
 
-				document.getElementById("runBtn").disabled = false;
+				await updateUserProgress(
+					uid,
+					currentUnit,
+					currentLesson,
+					lessonsData
+				);
+				window.location.href = "home.html";
 			}
 		}, 3500);
 	} else {
-		changeBgGradient("wrong");
-		changeLessonGradient("wrong");
+		wrongCount++;
 		timeout = 1250;
+		body.classList.add("wrong");
 
 		setTimeout(() => {
+			body.classList.remove("wrong");
 			document.getElementById("runBtn").disabled = false;
+			const textarea = document.getElementById("editor");
+			textarea.focus();
 		}, timeout + 1000);
 	}
+};
 
-	setTimeout(() => {
-		changeBgGradient();
-		changeLessonGradient();
-	}, timeout);
-}
+const showResultsDialog = () => {};
 
 // Listeners
 document.getElementById("runBtn").addEventListener("click", async () => {
 	const btn = document.getElementById("runBtn");
 	btn.disabled = true;
-	changeBgGradient();
-	const outputText = await runPython();
-	validator(outputText);
+	try {
+		const outputText = await runPython();
+		validator(outputText);
+	} catch (error) {
+		validator(document.getElementById("output").innerText);
+	}
 });
 
 document.getElementById("stopBtn").addEventListener("click", () => {
@@ -682,20 +702,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	updateHighlight();
 });
 
-document.getElementById("back").addEventListener("click", async () => {
-	if (lessonCounter >= activities - 1) {
-		const uid = await fetchUID();
-		const currentUnit = Number(
-			sessionStorage.getItem("lessonID").split(".")[0]
-		);
-		const currentLesson = Number(
-			sessionStorage.getItem("lessonID").split(".")[1]
-		);
-		const lessonsData = await fetchLessonConfig(Number(currentUnit));
-
-		await updateUserProgress(uid, currentUnit, currentLesson, lessonsData);
-	}
-
+document.getElementById("back").addEventListener("click", () => {
 	window.location.href = "home.html";
 });
 
