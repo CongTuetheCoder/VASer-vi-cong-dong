@@ -12,11 +12,6 @@ const fetchLang = (path) => {
 					const element = document.getElementById(key);
 					if (key == "language-btn") {
 						element.title = data[key];
-					} else if (key == "animated") {
-						element.dataset.value = data[key];
-						element.innerHTML = data[key];
-					} else if (key == "title") {
-						document.title = data[key]
 					} else {
 						element.innerHTML = data[key];
 					}
@@ -26,18 +21,19 @@ const fetchLang = (path) => {
 };
 
 const languageBtn = document.getElementById("language-btn");
+
+if (localStorage.getItem("lang") === "en") {
+	fetchLang("data/lang_en/leaderboard.json");
+} else {
+	fetchLang("data/lang_vi/leaderboard.json");
+}
+
 languageBtn.addEventListener("click", () => {
 	if (localStorage.getItem("lang") === "en") {
 		localStorage.setItem("lang", "vi");
-		fetchLang("data/lang_vi/login.json");
+		fetchLang("data/lang_vi/leaderboard.json");
 	} else {
 		localStorage.setItem("lang", "en");
-		fetchLang("data/lang_en/login.json");
+		fetchLang("data/lang_en/leaderboard.json");
 	}
 });
-
-if (localStorage.getItem("lang") === "en") {
-	fetchLang("data/lang_en/login.json");
-} else {
-	fetchLang("data/lang_vi/login.json");
-}
