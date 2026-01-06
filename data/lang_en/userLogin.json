@@ -1,7 +1,6 @@
 {
 	"home": "<i class=\"fa-solid fa-house\"></i> Home",
 	"register": "<i class=\"fa-solid fa-user-plus\"></i> Sign up",
-	"user-subheading": "Username",
 	"pw-subheading": "Password",
 	"animated": "Account Login",
 	"loginBtn": "<i class=\"fa-solid fa-user\"></i> <span>Log in</span>",

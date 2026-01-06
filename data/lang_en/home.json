@@ -1,8 +1,13 @@
 {
 	"section1": "Topic 1: Introduction to Python",
-	"section2": "Topic 2: Loops and Conditionals",
-	"section3": "Topic 3: Storing Multiple Values",
-	"section4": "Topic 4: Functions and Program Decomposition",
+	"section2": "Topic 2: Loops and conditionals",
+	"section3": "Topic 3: Storing multiple values",
+	"section4": "Topic 4: Functions and program decomposition",
+	"section5": "Topic 5: Programming concepts",
+	"section6": "Topic 6: Tuples, sets, and dictionaries",
+	"section7": "Topic 7: Common bugs",
+	"section8": "Topic 8: Match-case structure",
+	"section9": "Topic 9: String manipulation",
 
 	"lesson11": "Lesson 1.1: First Program",
 	"lesson12": "Lesson 1.2: Storing Information",
@@ -28,6 +33,35 @@
 	"lesson42": "Lesson 4.2: Parameters and return values",
 	"lesson43": "Lesson 4.3: Variable Scopes",
 	"lesson44": "Case Study 2: Making Bills for Circle K",
+
+	"lesson51": "Lesson 5.1: Iteration",
+	"lesson52": "Lesson 5.2: Counting",
+	"lesson53": "Lesson 5.3: Totalling",
+	"lesson54": "Lesson 5.4: Conditionals",
+	"lesson55": "Lesson 5.5: Recursion",
+	"lesson56": "Lesson 5.6: Debugging",
+
+	"lesson61": "Lesson 6.1: Introduction to tuples",
+	"lesson62": "Lesson 6.2: Tuple methods",
+	"lesson63": "Lesson 6.3: Introduction to sets",
+	"lesson64": "Lesson 6.4: Set operations",
+	"lesson65": "Lesson 6.5: Introduction to dictionaries",
+	"lesson66": "Lesson 6.6: Dictionary methods",
+
+	"lesson71": "Lesson 7.1: Syntax errors",
+	"lesson72": "Lesson 7.2: Common runtime errors",
+	"lesson73": "Lesson 7.3: Logical errors",
+	"lesson74": "Lesson 7.4: Handling exceptions",
+
+	"lesson81": "Lesson 8.1: Introducing the match-case structure",
+
+	"lesson91": "Lesson 9.1: Introduction to strings",
+	"lesson92": "Lesson 9.2: Accessing characters",
+	"lesson93": "Lesson 9.3: Slicing strings",
+	"lesson94": "Lesson 9.4: String methods",
+	"lesson95": "Lesson 9.5: Splitting and joining strings",
+	"lesson96": "Lesson 9.6: Looping through strings",
+	"lesson97": "Lesson 9.7: Searching in strings",
 	
 	"language-btn": "Change language"
 }

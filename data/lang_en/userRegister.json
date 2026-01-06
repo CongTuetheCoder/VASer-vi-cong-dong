@@ -1,7 +1,6 @@
 {
 	"home": "<i class=\"fa-solid fa-house\"></i> Home",
 	"login": "<i class=\"fa-solid fa-user-plus\"></i> Log in",
-	"user-subheading": "Username",
 	"pw-subheading": "Password",
 	"confirm-pw-subheading": "Confirm password",
 	"password-strength": "No password.",
