@@ -8,6 +8,10 @@
 			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
 		/>
 		<link
+			href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+			rel="stylesheet"
+		/>
+		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800;900&family=Jaro:wght@300;400;500;600;700;800;900&display=swap"
 			rel="stylesheet"
 		/>
@@ -142,14 +146,13 @@
 				title="Google Login"
 				id="googleLogin"
 				class="loginBtn"
-				onclick="window.location.href = 'home.html';"
 			>
 				<i class="fa-brands fa-google"></i>
 				<span>Đăng nhập bằng Google</span>
 			</button>
 			<button
 				type="button"
-				title="Google Login"
+				title="Account Login"
 				id="accountLogin"
 				class="loginBtn"
 				onclick="window.location.href = 'userLogin.html';"
@@ -167,6 +170,10 @@
 			<p>&copy; 2025 CriticalCode. Built with Python & Passion.</p>
 		</footer>
 
+		<script src="scripts/utils_cookies.js"></script>
+		<script type="module" src="scripts/sdk.js"></script>
+		<script src="scripts/ggLogin.js" defer></script>
+		
 		<script src="scripts/lang/language_login.js"></script>
 		<script src="scripts/lang/language_navbar.js"></script>
 		<script src="scripts/hackerEffect.js"></script>

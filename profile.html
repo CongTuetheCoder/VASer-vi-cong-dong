@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
 		/>
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800;900&family=Jaro:wght@300;400;500;600;700;800;900&display=swap"
@@ -17,7 +17,7 @@
 			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="styles/webstyle.css" />
+		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/profile.css" />
 		<title>CriticalCode Profile</title>
 		<link rel="icon" type="image/x-icon" href="images/icon.png" />
@@ -30,9 +30,11 @@
 		></script>
 
 		<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-			<a class="navbar-brand" id="brand-text"
-				><i class="fa-solid fa-circle-user"></i> Trang cá nhân</a
-			>
+			<div class="logo navbar-brand">
+				<img src="images/white_icon.png" alt="" class="logo-icon" />
+				<div><span class="py-accent">Critical</span>Code</div>
+			</div>
+
 			<button
 				class="navbar-toggler"
 				type="button"
@@ -51,21 +53,39 @@
 				class="collapse navbar-collapse test"
 				id="navbarSupportedContent"
 			>
-				<ul class="navbar-nav mr-auto">
+				<ul class="nav-links navbar-nav mr-auto">
 					<li class="nav-item">
-						<a class="nav-link" href="home.html" id="hub"
-							><i class="fa-solid fa-house"></i> Hub</a
+						<a href="home.html" id="home"
+							><i class="fa-solid fa-house"></i> Home</a
+						>
+					</li>
+					<li class="nav-item">
+						<a href="leaderboard.html" id="leaderboard"
+							><i class="fa-solid fa-ranking-star"></i> Leaderboard</a
+						>
+					</li>
+					<li class="nav-item">
+						<a href="javascript: void(0)" id="profile" class="active"
+							><i class="fa-solid fa-circle-user"></i> Profile</a
+						>
+					</li>
+					<li class="nav-item">
+						<a href="javascript: void(0)" title="" id="user-xp"
+							><i class="fa-solid fa-bolt"></i> <p id="xp-count">0</p></a
 						>
 					</li>
 				</ul>
 			</div>
 		</nav>
 
-		<div class="gradient"></div>
-
 		<div class="container">
 			<br /><br />
-			<h2 id="animated" data-value="user">user</h2>
+			<div class="user-container">
+				<h2 id="animated" data-value="user">user</h2>
+				<button type="button" title="Edit" id="edit-username">
+					<i class="fa-solid fa-pen-to-square"></i>
+				</button>
+			</div>
 			<br /><br />
 			<p id="current-unit-text">
 				Chủ đề hiện tại: <span id="current-unit"></span>
@@ -106,8 +126,25 @@
 			<i class="fa-solid fa-globe"></i>
 		</button>
 
-		<script src="scripts/profile.js"></script>
+		<script type="module" src="scripts/sdk.js"></script>
+		<script src="scripts/utils_cookies.js"></script>
+		<script src="scripts/profile.js" defer></script>
 		<script src="scripts/lang/language_profile.js"></script>
+		<script>
+			languageBtn.addEventListener("click", () => {
+				if (localStorage.getItem("lang") === "en") {
+					fetchLang("data/lang_en/homeNavbar.json");
+				} else {
+					fetchLang("data/lang_vi/homeNavbar.json");
+				}
+			});
+
+			if (localStorage.getItem("lang") === "en") {
+				fetchLang("data/lang_en/homeNavbar.json");
+			} else {
+				fetchLang("data/lang_vi/homeNavbar.json");
+			}
+		</script>
 		<script src="scripts/hackerEffect.js"></script>
 	</body>
 </html>

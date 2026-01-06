@@ -93,9 +93,7 @@
 								<a href="#" id="course4"
 									>Functions and Program Decomposition</a
 								>
-								<a href="#" id="seeMore"
-									>See more...</a
-								>
+								<a href="#" id="seeMore">See more...</a>
 							</div>
 						</div>
 					</li>
@@ -110,7 +108,10 @@
 						>
 					</li>
 					<li class="nav-item">
-						<a href="javascript: void(0)" id="register" class="active"
+						<a
+							href="javascript: void(0)"
+							id="register"
+							class="active"
 							><i class="fa-solid fa-user-plus"></i> Sign up</a
 						>
 					</li>
@@ -127,9 +128,7 @@
 			<h1 id="animated" data-value="Tạo tài khoản">Tạo tài khoản</h1>
 			<div class="form-container">
 				<form class="form-panel">
-					<label id="user-subheading" for="username"
-						>Tên người dùng</label
-					>
+					<label id="user-subheading" for="username">Email</label>
 					<input
 						type="text"
 						class="user-input"
@@ -138,13 +137,10 @@
 						autocomplete="off"
 						autocapitalize="off"
 						autocorrect="off"
-						maxlength="15"
 						autofocus
 						required
 					/>
-					<label id="acc-type-subheading"
-						>Tôi là...</label
-					>
+					<label id="acc-type-subheading">Tôi là...</label>
 					<div class="dropdown" data-dropdown>
 						<button
 							type="button"
@@ -224,8 +220,11 @@
 			<p>&copy; 2025 CriticalCode. Built with Python & Passion.</p>
 		</footer>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
-		<script src="scripts/register.js"></script>
+		<script src="scripts/utils_cookies.js"></script>
+		<script type="module" src="scripts/sdk.js"></script>
+		<script src="scripts/verifyUser.js"></script>
+		<script src="scripts/registerUser.js"></script>
+
 		<script src="scripts/lang/language_userRegister.js"></script>
 		<script src="scripts/lang/language_navbar.js"></script>
 		<script src="scripts/hackerEffect.js"></script>

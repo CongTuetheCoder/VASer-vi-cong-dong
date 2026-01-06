@@ -9,7 +9,7 @@
 		/>
 		<link
 			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
 		/>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -17,7 +17,7 @@
 			integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
 			crossorigin="anonymous"
 		/>
-		<link rel="stylesheet" href="styles/webstyle.css" />
+		<link rel="stylesheet" href="styles/main.css" />
 		<link rel="stylesheet" href="styles/lesson.css" />
 		<link rel="stylesheet" href="styles/prism.css" />
 		<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
@@ -69,7 +69,7 @@
 				</ul>
 			</div>
 		</nav>
-		<div class="gradient"></div>
+
 		<div class="parent">
 			<div id="lesson-content"></div>
 			<div class="container" id="code-container">
@@ -107,9 +107,13 @@
 				<div id="output" title="Output" contenteditable="false"></div>
 			</div>
 		</div>
+
+		<dialog id="results"></dialog>
+
 		<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"></script>
 		<script src="scripts/prism.js"></script>
-		<script src="scripts/lesson.js"></script>
+		<script src="scripts/sdk.js" type="module"></script>
+		<script src="scripts/lesson.js" defer></script>
 	</body>
 </html>

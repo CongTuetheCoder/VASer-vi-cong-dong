@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-		/>
+		<title>CriticalCode</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
 			rel="stylesheet"
 		/>
 		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800;900&family=Jaro:wght@300;400;500;600;700;800;900&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap"
 			rel="stylesheet"
 		/>
 		<link
@@ -22,8 +22,11 @@
 			crossorigin="anonymous"
 		/>
 		<link rel="stylesheet" href="styles/main.css" />
-		<link rel="stylesheet" href="styles/home.css" />
-		<title>CriticalCode Hub</title>
+		<link rel="stylesheet" href="styles/leaderboard.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+		/>
 		<link rel="icon" type="image/x-icon" href="images/icon.png" />
 	</head>
 	<body>
@@ -60,13 +63,17 @@
 			>
 				<ul class="nav-links navbar-nav mr-auto">
 					<li class="nav-item">
-						<a href="javascript: void(0)" id="home" class="active"
+						<a href="home.html" id="home"
 							><i class="fa-solid fa-house"></i> Home</a
 						>
 					</li>
 					<li class="nav-item">
-						<a href="leaderboard.html" id="leaderboard"
-							><i class="fa-solid fa-ranking-star"></i> Leaderboard</a
+						<a
+							href="javascript: void(0)"
+							id="leaderboard"
+							class="active"
+							><i class="fa-solid fa-ranking-star"></i>
+							Leaderboard</a
 						>
 					</li>
 					<li class="nav-item">
@@ -76,25 +83,30 @@
 					</li>
 					<li class="nav-item">
 						<a href="javascript: void(0)" title="" id="user-xp"
-							><i class="fa-solid fa-bolt"></i> <p id="xp-count">0</p></a
+							><i class="fa-solid fa-bolt"></i>
+							<p id="xp-count">0</p></a
 						>
 					</li>
 				</ul>
 			</div>
 		</nav>
 
-		<div class="container lessonDialog"></div>
+		<main>
+			<div class="container">
+				<i class="fa-solid fa-spinner fa-spin-pulse"></i> Loading...
+			</div>
+			<button id="language-btn" title="." type="button">
+				<i class="fa-solid fa-globe"></i>
+			</button>
+		</main>
 
-		<div class="container" id="lessons-container"></div>
+		<footer>
+			<p>&copy; 2025 CriticalCode. Built with Python & Passion.</p>
+		</footer>
 
-		<button id="language-btn" title="Thay đổi ngôn ngữ" type="button">
-			<i class="fa-solid fa-globe"></i>
-		</button>
-		
-		<script type="module" src="scripts/sdk.js"></script>
-		<script src="scripts/home.js" defer></script>
-		
-		<script src="scripts/lang/language_home.js"></script>
-		<script src="scripts/lang/language_homenav.js"></script>
+		<script src="scripts/sdk.js" type="module"></script>
+		<script src="scripts/leaderboard.js" defer></script>
+		<script src="scripts/lang/language_leaderboard.js"></script>
+		<script src="scripts/lang/language_homenavU.js" defer></script>
 	</body>
 </html>
