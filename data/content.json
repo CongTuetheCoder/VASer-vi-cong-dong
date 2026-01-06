@@ -3643,83 +3643,83 @@
 		],
 
 		"9.2": [
-  [
-    {
-      "type": "i",
-      "body": "Trong Python, mỗi ký tự trong chuỗi đều có một <strong>chỉ số (index)</strong> bắt đầu từ <span class='inl-code token number'>0</span>. Nhờ đó, ta có thể truy cập từng ký tự riêng lẻ trong chuỗi."
-    },
-    {
-      "body": "Chuỗi <span class='inl-code token string'>'Xin chao'</span> sẽ có ký tự <span class='inl-code token number'>0</span> là <span class='inl-code token string'>'X'</span>, ký tự <span class='inl-code token number'>1</span> là <span class='inl-code token string'>'i'</span>."
-    },
-    {
-      "type": "br",
-      "body": ""
-    },
-    {
-      "body": "Hãy tạo một biến <span class='inl-code'>chuoi</span> chứa giá trị <span class='inl-code token string'>'Xin chao'</span>, sau đó in ra các ký tự ở vị trí <span class='inl-code token number'>0</span>, <span class='inl-code token number'>1</span> và <span class='inl-code token number'>2</span>."
-    }
-  ],
-  [
-    {
-      "body": "Ngoài chỉ số dương, Python còn hỗ trợ <strong>chỉ số âm</strong> để truy cập chuỗi từ cuối về đầu."
-    },
-    {
-      "body": "Chỉ số <span class='inl-code token number'>-1</span> là ký tự cuối cùng, <span class='inl-code token number'>-2</span> là ký tự đứng ngay trước ký tự cuối."
-    },
-    {
-      "type": "br",
-      "body": ""
-    },
-    {
-      "body": "Với chuỗi <span class='inl-code token string'>'Xin chao'</span>, hãy in ra ký tự cuối cùng và ký tự áp cuối bằng cách dùng chỉ số âm."
-    }
-  ],
-  [
-    {
-      "body": "Nếu bạn truy cập một vị trí <strong>vượt quá độ dài của chuỗi</strong>, Python sẽ báo lỗi <span class='inl-code'>IndexError</span>."
-    },
-    {
-      "body": "Cơ chế này giúp bạn phát hiện sớm các lỗi logic khi xử lý dữ liệu chuỗi."
-    },
-    {
-      "type": "br",
-      "body": ""
-    },
-    {
-      "body": "Hãy thử truy cập một chỉ số không hợp lệ của chuỗi <span class='inl-code token string'>'Python'</span> và quan sát thông báo lỗi mà Python đưa ra."
-    }
-  ],
-  [
-    {
-      "body": "Indexing thường được dùng để trích xuất thông tin quan trọng từ chuỗi, chẳng hạn như ký tự đầu tiên của tên hoặc mã định danh."
-    },
-    {
-      "body": "Điều này rất hữu ích trong các bài toán xử lý dữ liệu văn bản."
-    },
-    {
-      "type": "br",
-      "body": ""
-    },
-    {
-      "body": "Hãy tạo một biến <span class='inl-code'>ten</span> chứa tên của bạn và in ra ký tự đầu tiên của tên đó."
-    }
-  ],
-  [
-    {
-      "body": "Kết hợp hàm <span class='inl-code'><span class='token builtin'>len</span>()</span> với indexing giúp bạn lấy ký tự cuối của chuỗi mà không cần biết trước độ dài."
-    },
-    {
-      "body": "Cách này đặc biệt hữu ích khi làm việc với các chuỗi có độ dài thay đổi."
-    },
-    {
-      "type": "br",
-      "body": ""
-    },
-    {
-      "body": "Hãy tạo một chuỗi bất kỳ, dùng <span class='inl-code'>len()</span> để xác định vị trí ký tự cuối cùng và in ký tự đó ra màn hình."
-    }
-  ]
-],
+			[
+				{
+					"type": "i",
+					"body": "Trong Python, mỗi ký tự trong chuỗi đều có một <strong>chỉ số (index)</strong> bắt đầu từ <span class='inl-code token number'>0</span>. Nhờ đó, ta có thể truy cập từng ký tự riêng lẻ trong chuỗi."
+				},
+				{
+					"body": "Chuỗi <span class='inl-code token string'>'Xin chao'</span> sẽ có ký tự <span class='inl-code token number'>0</span> là <span class='inl-code token string'>'X'</span>, ký tự <span class='inl-code token number'>1</span> là <span class='inl-code token string'>'i'</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy tạo một biến <span class='inl-code'>chuoi</span> chứa giá trị <span class='inl-code token string'>'Xin chao'</span>, sau đó in ra các ký tự ở vị trí <span class='inl-code token number'>0</span>, <span class='inl-code token number'>1</span> và <span class='inl-code token number'>2</span>."
+				}
+			],
+			[
+				{
+					"body": "Ngoài chỉ số dương, Python còn hỗ trợ <strong>chỉ số âm</strong> để truy cập chuỗi từ cuối về đầu."
+				},
+				{
+					"body": "Chỉ số <span class='inl-code token number'>-1</span> là ký tự cuối cùng, <span class='inl-code token number'>-2</span> là ký tự đứng ngay trước ký tự cuối."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Với chuỗi <span class='inl-code token string'>'Xin chao'</span>, hãy in ra ký tự cuối cùng và ký tự áp cuối bằng cách dùng chỉ số âm."
+				}
+			],
+			[
+				{
+					"body": "Nếu bạn truy cập một vị trí <strong>vượt quá độ dài của chuỗi</strong>, Python sẽ báo lỗi <span class='inl-code'>IndexError</span>."
+				},
+				{
+					"body": "Cơ chế này giúp bạn phát hiện sớm các lỗi logic khi xử lý dữ liệu chuỗi."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy thử truy cập một chỉ số không hợp lệ của chuỗi <span class='inl-code token string'>'Python'</span> và quan sát thông báo lỗi mà Python đưa ra."
+				}
+			],
+			[
+				{
+					"body": "Indexing thường được dùng để trích xuất thông tin quan trọng từ chuỗi, chẳng hạn như ký tự đầu tiên của tên hoặc mã định danh."
+				},
+				{
+					"body": "Điều này rất hữu ích trong các bài toán xử lý dữ liệu văn bản."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy tạo một biến <span class='inl-code'>ten</span> chứa tên của bạn và in ra ký tự đầu tiên của tên đó."
+				}
+			],
+			[
+				{
+					"body": "Kết hợp hàm <span class='inl-code'><span class='token builtin'>len</span>()</span> với indexing giúp bạn lấy ký tự cuối của chuỗi mà không cần biết trước độ dài."
+				},
+				{
+					"body": "Cách này đặc biệt hữu ích khi làm việc với các chuỗi có độ dài thay đổi."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Hãy tạo một chuỗi bất kỳ, dùng <span class='inl-code'>len()</span> để xác định vị trí ký tự cuối cùng và in ký tự đó ra màn hình."
+				}
+			]
+		],
 
 		"9.3": [
 			[
@@ -6247,7 +6247,7 @@
 					"body": ""
 				},
 				{
-					"body": "Create a tuple named <span class='inl-code'>integers</span> containing <span class='inl-code token number'>3</span> arbitrary integers."
+					"body": "Create a tuple <span class='inl-code'>so_nguyen</span> containing <span class='inl-code token number'>3</span> arbitrary integers."
 				}
 			],
 			[
@@ -6255,7 +6255,7 @@
 					"body": "Elements in a tuple are indexed starting from <span class='token number'>0</span>, just like in a list."
 				},
 				{
-					"body": "You can access elements in a tuple using the syntax <span class='inl-code'>tuple_name[index]</span>."
+					"body": "You can access an element in a tuple using the syntax <span class='inl-code'>tuple_name[index]</span>."
 				},
 				{
 					"type": "br",
@@ -6303,7 +6303,7 @@
 					"body": ""
 				},
 				{
-					"body": "Create any tuple named <span class='inl-code'>example</span>, then try changing one element and observe the error Python produces."
+					"body": "Create any tuple <span class='inl-code'>example</span>, then try changing one of its elements and observe the error Python produces."
 				}
 			]
 		],
@@ -6311,7 +6311,7 @@
 		"6.2": [
 			[
 				{
-					"body": "When working with tuples, sometimes we need to know how many elements a tuple contains."
+					"body": "When working with tuples, sometimes you need to know how many elements the tuple contains."
 				},
 				{
 					"body": "Python provides the <span class='inl-code'><span class='token builtin'>len</span>()</span> function to count the number of elements in a tuple, similar to how it works with lists."
@@ -6332,7 +6332,7 @@
 					"body": ""
 				},
 				{
-					"body": "Create a tuple <span class='inl-code'>friends</span> containing the names of <span class='inl-code token number'>5</span> friends and print the number of elements in the tuple."
+					"body": "Create a tuple <span class='inl-code'>friends</span> containing the names of <span class='inl-code token number'>5</span> friends and print the number of elements in that tuple."
 				}
 			],
 			[
@@ -6340,7 +6340,7 @@
 					"body": "In a tuple, a value can appear multiple times."
 				},
 				{
-					"body": "To count how many times a specific value appears, we use the <span class='inl-code'><span class='token function'>count</span>()</span> method."
+					"body": "To count how many times a specific value appears, use the <span class='inl-code'><span class='token function'>count</span>()</span> method."
 				},
 				{
 					"type": "br",
@@ -6358,15 +6358,15 @@
 					"body": ""
 				},
 				{
-					"body": "Given a tuple <span class='inl-code'>scores</span> containing test scores, count how many times the score <span class='inl-code token number'>10</span> appears in the tuple."
+					"body": "Given a tuple <span class='inl-code'>scores</span> containing test results, count how many times the score <span class='inl-code token number'>10</span> appears in the tuple."
 				}
 			],
 			[
 				{
-					"body": "Besides counting occurrences, sometimes we need to know the position of a value in a tuple."
+					"body": "Besides counting occurrences, sometimes you need to know the position of a value in a tuple."
 				},
 				{
-					"body": "The <span class='inl-code'><span class='token function'>index</span>()</span> method returns the index of the first occurrence of a given value."
+					"body": "The <span class='inl-code'><span class='token function'>index</span>()</span> method returns the index of the first occurrence of a value."
 				},
 				{
 					"type": "br",
@@ -6392,10 +6392,10 @@
 		"6.3": [
 			[
 				{
-					"body": "In addition to lists and tuples, Python also provides the <strong>set</strong> data type to store multiple values."
+					"body": "Besides lists and tuples, Python also provides the <strong>set</strong> data type to store multiple values."
 				},
 				{
-					"body": "A set can be created using curly braces <span class='inl-code'>{ }</span> or the <span class='inl-code'><span class='token builtin'>set</span>()</span> function."
+					"body": "A set is created using curly braces <span class='inl-code'>{ }</span> or by using the <span class='inl-code'><span class='token builtin'>set</span>()</span> function."
 				},
 				{
 					"type": "br",
@@ -6413,7 +6413,7 @@
 					"body": ""
 				},
 				{
-					"body": "Create a set <span class='inl-code'>collection</span> containing at least <span class='inl-code token number'>4</span> different values (string, float, boolean, etc.)."
+					"body": "Create a set <span class='inl-code'>my_set</span> containing at least <span class='inl-code token number'>4</span> different values (strings, floats, booleans, etc.)."
 				}
 			],
 			[
@@ -6421,7 +6421,7 @@
 					"body": "An important characteristic of a set is that it <strong>does not contain duplicate elements</strong>."
 				},
 				{
-					"body": "If duplicate values are added to a set, Python will automatically remove them."
+					"body": "If you add duplicate values to a set, Python will automatically remove the duplicates."
 				},
 				{
 					"type": "br",
@@ -6439,7 +6439,7 @@
 					"body": ""
 				},
 				{
-					"body": "Given a list <span class='inl-code'>student_names</span> that may contain duplicate names, convert it into a set <span class='inl-code'>unique_students</span> to remove duplicates."
+					"body": "Given a list <span class='inl-code'>student_list</span> containing student names that may include duplicates, convert it into a set <span class='inl-code'>unique_students</span> to remove duplicate names."
 				}
 			],
 			[
@@ -6447,7 +6447,7 @@
 					"body": "Unlike lists or tuples, elements in a set <strong>do not have a fixed order</strong>."
 				},
 				{
-					"body": "Therefore, you cannot access set elements using an index like <span class='inl-code'>set[0]</span>."
+					"body": "Therefore, you cannot access elements in a set using an index such as <span class='inl-code'>set[0]</span>."
 				},
 				{
 					"type": "br",
@@ -6465,7 +6465,7 @@
 					"body": ""
 				},
 				{
-					"body": "Try printing the set <span class='inl-code'>dishes</span> <span class='inl-code token number'>10</span> times using a <span class='inl-code'>for</span> loop and observe whether the order of elements remains the same."
+					"body": "Try printing the given set <span class='inl-code'>foods</span> <span class='inl-code token number'>10</span> times using a <span class='inl-code'>for</span> loop and observe whether the order of elements is always the same."
 				}
 			]
 		],
@@ -6473,7 +6473,7 @@
 		"6.4": [
 			[
 				{
-					"body": "After learning how to create sets, we can manipulate them similarly to mathematical sets."
+					"body": "After learning how to create sets, we can perform operations on sets similar to those in mathematics."
 				},
 				{
 					"body": "The <span class='inl-code'><span class='token builtin'>len</span>()</span> function is used to count the number of elements in a set."
@@ -6494,15 +6494,15 @@
 					"body": ""
 				},
 				{
-					"body": "Create a set <span class='inl-code'>numbers</span> with any values and print the number of elements in the set."
+					"body": "Create a set <span class='inl-code'>number_set</span> containing any numbers and print the number of elements in that set."
 				}
 			],
 			[
 				{
-					"body": "The <span class='inl-code'>in</span> operator checks whether an element exists in a set."
+					"body": "The <span class='inl-code'>in</span> operator is used to check whether an element is present in a set."
 				},
 				{
-					"body": "It returns <span class='inl-code'>True</span> or <span class='inl-code'>False</span>."
+					"body": "The result returned is either <span class='inl-code'>True</span> or <span class='inl-code'>False</span>."
 				},
 				{
 					"type": "br",
@@ -6520,15 +6520,15 @@
 					"body": ""
 				},
 				{
-					"body": "Given a set <span class='inl-code'>subjects</span>, check whether the subject <span class='inl-code token string'>'Math'</span> is in the set."
+					"body": "Given the set <span class='inl-code'>subjects</span>, check whether the subject <span class='inl-code token string'>'Math'</span> is in the set."
 				}
 			],
 			[
 				{
-					"body": "You can iterate over each element in a set using a <span class='inl-code'>for</span> loop."
+					"body": "You can iterate over each element of a set using a <span class='inl-code'>for</span> loop."
 				},
 				{
-					"body": "Because sets are unordered, elements are iterated in an arbitrary order."
+					"body": "Because a set has no order, elements are iterated in an arbitrary order."
 				},
 				{
 					"type": "br",
@@ -6546,18 +6546,18 @@
 					"body": ""
 				},
 				{
-					"body": "Use a <span class='inl-code'>for</span> loop to calculate the sum of elements in the set <span class='inl-code'>sequence</span> and print the result."
+					"body": "Use a <span class='inl-code'>for</span> loop to calculate the sum of the elements in the set <span class='inl-code'>sequence</span> and print the result."
 				}
 			],
 			[
 				{
-					"body": "Sets allow adding and removing elements using specific methods."
+					"body": "A set allows adding and removing elements using specific methods."
 				},
 				{
-					"body": "The <span class='inl-code'>.add()</span> method adds a new element to a set."
+					"body": "The <span class='inl-code'>.add()</span> method is used to add a new element to a set."
 				},
 				{
-					"body": "The <span class='inl-code'>.remove()</span>, <span class='inl-code'>.discard()</span>, and <span class='inl-code'>.pop()</span> methods are used to remove elements."
+					"body": "The methods <span class='inl-code'>.remove()</span>, <span class='inl-code'>.discard()</span>, and <span class='inl-code'>.pop()</span> are used to remove elements."
 				},
 				{
 					"type": "br",
@@ -6575,22 +6575,22 @@
 					"body": ""
 				},
 				{
-					"body": "Given a set <span class='inl-code'>supplies</span>, add <span class='inl-code token string'>'pencil'</span> to the set, then try removing <span class='inl-code token string'>'ruler'</span> using <span class='inl-code'>.remove()</span> or <span class='inl-code'>.discard()</span>. Observe the difference when removing a non-existent element."
+					"body": "Given the set <span class='inl-code'>items</span>, add <span class='inl-code token string'>'pencil'</span> to the set, then try removing <span class='inl-code token string'>'ruler'</span> using <span class='inl-code'>.remove()</span> or <span class='inl-code'>.discard()</span>. Observe the difference when removing a non-existent element."
 				}
 			],
 			[
 				{
-					"body": "The <span class='inl-code'>.clear()</span> method removes all elements from a set."
+					"body": "The <span class='inl-code'>.clear()</span> method is used to remove all elements from a set."
 				},
 				{
-					"body": "After calling <span class='inl-code'>.clear()</span>, the set becomes empty."
+					"body": "After calling <span class='inl-code'>.clear()</span>, the set becomes an empty set."
 				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Create a set <span class='inl-code'>temp_set</span> with a few elements, then use <span class='inl-code'>.clear()</span> and print the set to verify the result."
+					"body": "Create a set <span class='inl-code'>temporary_set</span> with a few elements, then use <span class='inl-code'>.clear()</span> and print the set to check the result."
 				}
 			],
 			[
@@ -6601,7 +6601,7 @@
 					"body": "The <strong>union</strong> operation (<span class='inl-code'>union</span>) returns all elements from both sets."
 				},
 				{
-					"body": "The <strong>intersection</strong> operation (<span class='inl-code'>intersection</span>) returns common elements."
+					"body": "The <strong>intersection</strong> operation (<span class='inl-code'>intersection</span>) returns the common elements."
 				},
 				{
 					"body": "The <strong>difference</strong> operation (<span class='inl-code'>difference</span>) returns elements that exist only in the first set."
@@ -6622,7 +6622,7 @@
 					"body": ""
 				},
 				{
-					"body": "Given two sets <span class='inl-code'>class_10A</span> and <span class='inl-code'>class_10B</span> containing student names, print the set of all students, the set of students in both classes, and the set of students only in <span class='inl-code'>class_10A</span>."
+					"body": "Given two sets <span class='inl-code'>class_10A</span> and <span class='inl-code'>class_10B</span> containing student names, print the set of students from both classes, the set of students common to both classes, and the set of students that are only in <span class='inl-code'>class_10A</span>."
 				}
 			]
 		],
@@ -6630,7 +6630,7 @@
 		"6.5": [
 			[
 				{
-					"body": "A dictionary is a data type used to store data as <strong>key–value</strong> pairs."
+					"body": "A dictionary is a data type used to store data in <strong>key–value</strong> pairs."
 				},
 				{
 					"body": "Each key is unique and is used to access its corresponding value."
@@ -6654,7 +6654,7 @@
 					"body": ""
 				},
 				{
-					"body": "Create a dictionary <span class='inl-code'>info</span> containing the keys <span class='inl-code token string'>'name'</span>, <span class='inl-code token string'>'class'</span>, and <span class='inl-code token string'>'school'</span>, then print the value of the key <span class='inl-code token string'>'name'</span>."
+					"body": "Create a dictionary <span class='inl-code'>info</span> containing the keys <span class='inl-code token string'>'name'</span>, <span class='inl-code token string'>'class'</span>, <span class='inl-code token string'>'school'</span> and print the value of the key <span class='inl-code token string'>'name'</span>."
 				}
 			],
 			[
@@ -6662,7 +6662,7 @@
 					"body": "You can add or update data in a dictionary by assigning a new value to a key."
 				},
 				{
-					"body": "If the key already exists, the value is updated. If it does not exist, a new key–value pair is added."
+					"body": "If the key already exists, its value will be updated. If it does not exist, a new key–value pair will be added."
 				},
 				{
 					"type": "br",
@@ -6688,14 +6688,14 @@
 					"body": "You can remove a key–value pair from a dictionary using the <span class='inl-code'>del</span> statement."
 				},
 				{
-					"body": "After deletion, the key will no longer exist in the dictionary."
+					"body": "After deletion, that key will no longer exist in the dictionary."
 				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Delete the key <span class='inl-code token string'>'class'</span> from the dictionary <span class='inl-code'>info</span> and print the dictionary again to verify."
+					"body": "Remove the key <span class='inl-code token string'>'class'</span> from the dictionary <span class='inl-code'>info</span> and print the dictionary again to check."
 				}
 			]
 		],
@@ -6703,7 +6703,7 @@
 		"6.6": [
 			[
 				{
-					"body": "The <span class='inl-code'>keys()</span> method returns a list of all keys in a dictionary."
+					"body": "The <span class='inl-code'>keys()</span> method returns a list of all keys in the dictionary."
 				},
 				{
 					"type": "br",
@@ -6726,7 +6726,7 @@
 			],
 			[
 				{
-					"body": "The <span class='inl-code'>values()</span> method returns a list of all values in a dictionary."
+					"body": "The <span class='inl-code'>values()</span> method returns a list of values in the dictionary."
 				},
 				{
 					"type": "br",
@@ -6741,7 +6741,7 @@
 					"body": "The <span class='inl-code'>items()</span> method returns <strong>key–value</strong> pairs."
 				},
 				{
-					"body": "This is very useful when you want to iterate through a dictionary using a <span class='inl-code'>for</span> loop."
+					"body": "This is very useful when you want to iterate over a dictionary using a <span class='inl-code'>for</span> loop."
 				},
 				{
 					"type": "br",
@@ -6760,24 +6760,24 @@
 					"body": ""
 				},
 				{
-					"body": "Use <span class='inl-code'>get()</span> to retrieve the value of the key <span class='inl-code token string'>'email'</span> from the dictionary <span class='inl-code'>info</span>, with the default value <span class='inl-code token string'>'Not available'</span>."
+					"body": "Use <span class='inl-code'>get()</span> to retrieve the value of the key <span class='inl-code token string'>'email'</span> in the dictionary <span class='inl-code'>info</span>, with the default value <span class='inl-code token string'>'Not available'</span>."
 				}
 			],
 			[
 				{
-					"body": "The <span class='inl-code'>update()</span> method is used to update or add multiple key–value pairs at once."
+					"body": "The <span class='inl-code'>update()</span> method is used to update or add multiple key–value pairs at the same time."
 				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Use <span class='inl-code'>update()</span> to update the student’s age to <span class='inl-code token number'>16</span> and add the key <span class='inl-code token string'>'academic_level'</span>."
+					"body": "Use <span class='inl-code'>update()</span> to update the student's age to <span class='inl-code token number'>16</span> and add the key <span class='inl-code token string'>'academic_level'</span>."
 				}
 			],
 			[
 				{
-					"body": "The <span class='inl-code'>pop()</span> method removes a key and returns its corresponding value."
+					"body": "The <span class='inl-code'>pop()</span> method is used to remove a key and return its corresponding value."
 				},
 				{
 					"type": "br",
@@ -6792,31 +6792,49 @@
 		"7.1": [
 			[
 				{
-					"type": "i",
-					"body": "Syntax Errors — Syntax errors are like grammar mistakes. Missing punctuation or wrong structure causes Python to raise SyntaxError. Common causes: missing ':' after if/for/while/def, misspelled keywords (e.g. prnt), unclosed parentheses or quotes."
-				}
-			],
-			[
+					"body": "A syntax error is similar to a grammar error in Vietnamese: if punctuation is missing or the structure is written incorrectly, Python will raise a SyntaxError and the program will not run."
+				},
 				{
-					"body": "Example 1: Missing closing quote causes SyntaxError.<br><div class='div-code'>print(\"Hello)</div><br>Fix: <div class='div-code'>print(\"Hello\")</div>"
-				}
-			],
-			[
+					"body": "Common causes include: forgetting the colon (:) after if/for/while/def, misspelling keywords (for example, prnt instead of print), or forgetting to close parentheses."
+				},
 				{
-					"body": "Example 2: Missing colon after if condition.<br><div class='div-code'>x = 5<br>y = 3<br>if x > y<br>   print(x)</div><br>Fix: <div class='div-code'>if x > y:<br>   print(x)</div>"
-				}
-			],
-			[
+					"body": "<strong>Example 1:</strong> Missing a closing quotation mark will cause a SyntaxError."
+				},
+				{
+					"type": "div",
+					"body": "<span class='token builtin'>print</span>(\"Hello)"
+				},
+				{
+					"body": "Corrected version:"
+				},
+				{
+					"type": "div",
+					"body": "<span class='token builtin'>print</span>(<span class='token string'>\"Hello\"</span>)"
+				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Practice: Find the 3 syntax errors in the code below and write the corrected program:"
+					"body": "<strong>Example 2:</strong> Missing a colon at the end of an if statement."
 				},
 				{
 					"type": "div",
-					"body": "name = \"An\"<br>if name = \"An\"<br>&nbsp;&nbsp;&nbsp;&nbsp;print(\"Correct name\")<br>&nbsp;&nbsp;&nbsp;&nbsp;print(\"Hello\")<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(\"Wrong name\")<br>print \"Done\""
+					"body": "x = 5<br>y = 3<br>if x > y<br>&nbsp;&nbsp;&nbsp;&nbsp;print(x)"
+				},
+				{
+					"body": "Corrected version:"
+				},
+				{
+					"type": "div",
+					"body": "if x > y:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(x)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Below is a code snippet with syntax errors. Find <span class='inl-code token number'>4</span> syntax errors and rewrite the program correctly:"
 				}
 			]
 		],
@@ -6824,36 +6842,65 @@
 		"7.2": [
 			[
 				{
-					"type": "i",
-					"body": "Runtime Errors — These happen while the program runs. Syntax may be correct but an operation fails. Common runtime errors: TypeError, IndexError, ZeroDivisionError, KeyError."
-				}
-			],
-			[
+					"body": "A Runtime Error occurs while the program is running: the syntax is correct, but a problem happens during execution."
+				},
 				{
-					"body": "TypeError example: trying to modify a tuple.<br><div class='div-code'>menu = (\"Rice\", \"Pho\")<br>menu[0] = \"Congee\"</div><br>Fix: use a list or recreate tuple."
-				}
-			],
-			[
+					"body": "Some common runtime errors:"
+				},
 				{
-					"body": "IndexError example: accessing an out-of-range index.<br><div class='div-code'>friends = [\"Lan\",\"Nam\"]<br>print(friends[5])</div><br>Fix: use a valid index."
-				}
-			],
-			[
+					"type": "ul",
+					"body": "<li>TypeError (invalid operation on a data type)</li><li>IndexError (accessing a non-existent index)</li><li>ZeroDivisionError (division by zero)</li><li>KeyError (a key does not exist in a dictionary).</li>"
+				},
 				{
-					"body": "ZeroDivisionError example: dividing by zero.<br><div class='div-code'>candies = 10<br>people = 0<br>per_person = candies / people</div><br>Fix: check people != 0 or handle exception."
-				}
-			],
-			[
+					"body": "TypeError example:"
+				},
+				{
+					"type": "div",
+					"body": "menu = (\"Rice\", \"Pho\")<br>menu[0] = \"Porridge\" <span class='code-comment'># modifying an element in a tuple</span>"
+				},
+				{
+					"body": "We can fix this error by using a list or by creating a new tuple."
+				},
+				{
+					"body": "IndexError example:"
+				},
+				{
+					"type": "div",
+					"body": "friends = [\"Lan\", \"Nam\"]<br>print(friends[5])"
+				},
+				{
+					"body": "We can fix this error by using a valid index when accessing the list."
+				},
+				{
+					"body": "ZeroDivisionError example:"
+				},
+				{
+					"type": "div",
+					"body": "candies = 10<br>people = 0<br>each_person = candies / people"
+				},
+				{
+					"body": "We can fix this error by checking whether <span class='inl-code'>people</span> is not 0 using an <span class='inl-code'>if-else</span> statement."
+				},
+				{
+					"body": "KeyError example:"
+				},
+				{
+					"type": "div",
+					"body": "class_size = {<br>&nbsp;&nbsp;&nbsp;&nbsp;'10A': 25,<br>&nbsp;&nbsp;&nbsp;&nbsp;'10B': 22<br>}<br>print(class_size['10C'])"
+				},
+				{
+					"body": "We can fix this error by checking whether the key we want exists in the dictionary using the <span class='inl-code token keyword'>in</span> operator:"
+				},
+				{
+					"type": "div",
+					"body": "class_name = '10C'<br>if class_name in class_size:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(class_size[class_name])<br>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;print('Class', class_name, 'is not in the dictionary!')"
+				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Practice: Identify and fix the errors in the last three lines of the code below:"
-				},
-				{
-					"type": "div",
-					"body": "# Data structures from Chapter 6<br>menu = (\"Bread\", \"Pho\") <br>info = {\"name\": \"An\", \"age\": 15}<br>subjects = [\"Math\", \"Literature\"]<br><br>menu[0] = \"Sticky rice\"<br>print(info[\"school\"]) <br>print(subjects[5])"
+					"body": "To better understand runtime errors, identify the errors in the last 3 lines of the following program and fix them."
 				}
 			]
 		],
@@ -6862,25 +6909,17 @@
 			[
 				{
 					"type": "i",
-					"body": "Logical Errors — The program runs but the result is incorrect due to wrong logic or wrong order of operations. Check formulas, operator precedence, and parentheses."
-				}
-			],
-			[
+					"body": "Logical Error — The program runs but produces incorrect results due to flawed reasoning or incorrect order of operations. For example: using addition instead of multiplication, or missing parentheses that cause division to execute before addition."
+				},
 				{
-					"body": "Example: buying 2 cakes costing 5000 each but writing addition instead of multiplication.<br><div class='div-code'>price = 5000<br>qty = 2<br>total = price + qty<br>print(total)</div><br>Fix: <div class='div-code'>total = price * qty</div>"
-				}
-			],
-			[
+					"body": "Illustrative example: calculating the cost of buying 2 cakes (each costs 5000) but mistakenly using addition:<br><div class='div-code'>cake_price = 5000<br>quantity = 2<br>total_cost = cake_price + quantity<br>print(total_cost)</div><br>Correction: use multiplication: <div class='div-code'>total_cost = cake_price * quantity</div>"
+				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Practice: Fix the code so outputs are correct."
-				},
-				{
-					"type": "div",
-					"body": "math_score = 8<br>literature_score = 10<br>num_subjects = 2<br>avg_score = math_score + literature_score / num_subjects # WRONG<br>print(\"Average score is:\", avg_score)<br>total_score = math_score * literature_score<br>print(\"Wrong total:\", total_score)"
+					"body": "Fix the logical error in the following code so that the result is correct:"
 				}
 			]
 		],
@@ -6888,26 +6927,265 @@
 		"7.4": [
 			[
 				{
-					"type": "i",
-					"body": "Exception Handling (Try - Except) — Use try...except to catch runtime errors and prevent the program from crashing, giving friendly messages instead."
-				}
-			],
-			[
+					"body": "We can use <span class='inl-code'>try...except</span> to catch runtime errors and prevent the program from stopping unexpectedly. <span class='inl-code'>try...except</span> is commonly used to handle KeyError, ZeroDivisionError, ValueError, ..."
+				},
 				{
-					"body": "Example: dictionary lookup with KeyError handling.<br><div class='div-code'>dictionary = {\"apple\": \"fruit\", \"banana\": \"fruit\"}<br>try:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(dictionary[\"orange\"])<br>except KeyError:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(\"Sorry, this word is not in the dictionary!\")<br>print(\"Program continues\")</div>"
-				}
-			],
-			[
+					"body": "Example: looking up a dictionary when the key does not exist:<br><div class='div-code'>dictionary = {\"apple\": \"an apple\", \"banana\": \"a banana\"}<br>try:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(dictionary[\"orange\"])<br>except KeyError:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(\"Sorry, this word is not yet in the dictionary!\")<br>print(\"The program continues running normally...\")</div>"
+				},
 				{
 					"type": "br",
 					"body": ""
 				},
 				{
-					"body": "Practice: Use try...except for dividing candies among people. If number of people is 0, print a friendly message instead of crashing."
+					"body": "Practice: Write a program to divide candies among users using <span class='inl-code'>try...except</span> or <span class='inl-code'>if-else</span>."
+				},
+				{
+					"type": "ul",
+					"body": "<li>If the number of people is 0, print<br><span class='inl-code token string'>'There is no one to share the candies with!'</span></li><li>Otherwise, print<br><span class='inl-code'><span class='token string'>'Each person receives:'</span>, candies / people</span></li>"
+				}
+			]
+		],
+
+		"8.1": [
+			[
+				{
+					"body": "In Python, the <span class='inl-code'>match</span> – <span class='inl-code'>case</span> structure is used to compare a value against multiple different cases."
+				},
+				{
+					"body": "This syntax is similar to <span class='inl-code'>switch</span> in other languages and makes programs easier to read compared to using multiple <span class='inl-code'>if – elif – else</span> statements."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
 				},
 				{
 					"type": "div",
-					"body": "Example hint:<br><div class='div-code'>candies = int(input('Enter candies: '))<br>people = int(input('Enter people: '))<br>try:<br>&nbsp;&nbsp;&nbsp;&nbsp;print('Each gets:', candies / people)<br>except ZeroDivisionError:<br>&nbsp;&nbsp;&nbsp;&nbsp;print('No one to share the candies with!')</div>"
+					"body": "day = <span class='token number'>2</span><br><span class='token keyword'>match</span> day:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> <span class='token number'>2</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Monday'</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> <span class='token number'>3</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Tuesday'</span>)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Given a variable <span class='inl-code'>number</span> with a value of <span class='token number'>1</span>, <span class='token number'>2</span>, or <span class='token number'>3</span>, use <span class='inl-code'>match</span> – <span class='inl-code'>case</span> to print the corresponding word: <span class='inl-code token string'>'One'</span>, <span class='inl-code token string'>'Two'</span>, or <span class='inl-code token string'>'Three'</span>."
+				}
+			],
+			[
+				{
+					"body": "Each <span class='inl-code'>case</span> block is matched sequentially against the value in <span class='inl-code'>match</span>."
+				},
+				{
+					"body": "When a matching <span class='inl-code'>case</span> is found, Python executes the corresponding block and skips the remaining cases."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "score = <span class='token number'>9</span><br><span class='token keyword'>match</span> score:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> <span class='token number'>10</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Excellent'</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> <span class='token number'>9</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Very Good'</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> <span class='token number'>8</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Good'</span>)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Given a variable <span class='inl-code'>month</span> with a value of <span class='token number'>1</span>, <span class='token number'>2</span>, or <span class='token number'>3</span>, use <span class='inl-code'>match</span> – <span class='inl-code'>case</span> to print the corresponding month name."
+				}
+			],
+			[
+				{
+					"body": "In <span class='inl-code'>match</span> – <span class='inl-code'>case</span>, the symbol <span class='inl-code'>_</span> acts like an <span class='inl-code'>else</span> branch or a default case."
+				},
+				{
+					"body": "The <span class='inl-code'>case _</span> block is executed if none of the previous cases match the value."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "choice = <span class='token number'>5</span><br><span class='token keyword'>match</span> choice:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> <span class='token number'>1</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Start'</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> <span class='token number'>2</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Settings'</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> _:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Invalid choice'</span>)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Given a variable <span class='inl-code'>menu</span> with a value of <span class='token number'>1</span>, <span class='token number'>2</span>, or another number, use <span class='inl-code'>match</span> – <span class='inl-code'>case</span> to print <span class='inl-code token string'>'Breakfast'</span> if it is <span class='token number'>1</span>, <span class='inl-code token string'>'Lunch'</span> if it is <span class='token number'>2</span>, and <span class='inl-code token string'>'No selection'</span> for all other cases."
+				}
+			]
+		],
+
+		"8.2": [
+			[
+				{
+					"body": "In addition to matching a single value, <span class='inl-code'>match</span> – <span class='inl-code'>case</span> also allows matching <strong>multiple values at once</strong> using the <span class='inl-code'>|</span> symbol."
+				},
+				{
+					"body": "This syntax is very useful when multiple cases need to be handled with the same action."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "status = <span class='token string'>'yellow'</span><br><span class='token keyword'>match</span> status:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> <span class='token string'>'red'</span> | <span class='token string'>'yellow'</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Be careful!'</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> <span class='token string'>'green'</span>:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Go ahead.'</span>)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Create a variable <span class='inl-code'>traffic_light</span> and assign it the value <span class='inl-code token string'>'yellow'</span>. Use <span class='inl-code'>match</span> – <span class='inl-code'>case</span> to handle the cases <span class='inl-code token string'>'red'</span> or <span class='inl-code token string'>'yellow'</span> in the same way."
+				}
+			],
+			[
+				{
+					"body": "<span class='inl-code'>match</span> – <span class='inl-code'>case</span> can also match <strong>data structures</strong> such as <strong>tuples</strong> or <strong>lists</strong>."
+				},
+				{
+					"body": "In this case, Python will unpack the elements inside and assign them to corresponding variables."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example with a tuple:"
+				},
+				{
+					"type": "div",
+					"body": "command = (<span class='token string'>'run'</span>, <span class='token string'>'right'</span>)<br><span class='token keyword'>match</span> command:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> (<span class='token string'>'move'</span>, direction):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Move command:'</span>, direction)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> (<span class='token string'>'run'</span>, direction):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Run towards:'</span>, direction)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Create a tuple <span class='inl-code'>robot_command</span> in the form <span class='inl-code'>(<span class='token string'>'move'</span>, <span class='token string'>'left'</span>)</span>. Use <span class='inl-code'>match</span> – <span class='inl-code'>case</span> to print the movement direction."
+				}
+			],
+			[
+				{
+					"body": "As in the previous examples, <span class='inl-code'>case _</span> is still used as the default case when no pattern matches."
+				},
+				{
+					"body": "This helps the program safely handle unexpected situations."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "command = (<span class='token string'>'fly'</span>, <span class='token string'>'up'</span>)<br><span class='token keyword'>match</span> command:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> (<span class='token string'>'run'</span>, direction):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Running:'</span>, direction)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> _:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Invalid command.'</span>)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Create any tuple <span class='inl-code'>control_command</span> that does not belong to the tested cases above and observe the result when it falls into <span class='inl-code'>case _</span>."
+				}
+			]
+		],
+
+		"8.3": [
+			[
+				{
+					"body": "In addition to basic data types, <span class='inl-code'>match</span> – <span class='inl-code'>case</span> can also match <strong>dictionaries</strong>."
+				},
+				{
+					"body": "Python allows you to check whether a dictionary contains <strong>specific keys</strong> and simultaneously <strong>capture the values</strong> of those keys into variables."
+				},
+				{
+					"body": "This syntax is very useful when working with well-structured data such as user information, system status, or program configuration."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "access_info = {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token string'>'status'</span>: <span class='token string'>'locked'</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token string'>'expiry_date'</span>: <span class='token string'>'2025-01-01'</span><br>}<br><span class='token keyword'>match</span> access_info:<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> {<span class='token string'>'status'</span>: <span class='token string'>'open'</span>}:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Access granted.'</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> {<span class='token string'>'status'</span>: <span class='token string'>'locked'</span>, <span class='token string'>'expiry_date'</span>: date}:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>f'Access locked. Expires on {date}.'</span>)<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token keyword'>case</span> _:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='token builtin'>print</span>(<span class='token string'>'Unknown access status.'</span>)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Observe how <span class='inl-code'>case</span> checks the <span class='inl-code token string'>'status'</span> key and captures the value of the <span class='inl-code token string'>'expiry_date'</span> key into the variable <span class='inl-code'>date</span>."
+				}
+			],
+			[
+				{
+					"body": "When matching dictionaries, you may only care about <strong>a few important keys</strong> instead of the entire data structure."
+				},
+				{
+					"body": "This makes the program more flexible and easier to extend."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Create a dictionary <span class='inl-code'>product</span> with the keys <span class='inl-code token string'>'name'</span>, <span class='inl-code token string'>'quantity'</span>, and <span class='inl-code token string'>'price'</span>."
+				},
+				{
+					"body": "Suggested values:"
+				},
+				{
+					"type": "div",
+					"body": "product = {<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token string'>'name'</span>: <span class='token string'>'Shirt'</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token string'>'quantity'</span>: <span class='token number'>0</span>,<br>&nbsp;&nbsp;&nbsp;&nbsp;<span class='token string'>'price'</span>: <span class='token number'>200</span><br>}"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Use <span class='inl-code'>match</span> – <span class='inl-code'>case</span> to check if <span class='inl-code token string'>'quantity'</span> equals <span class='inl-code token number'>0</span>, then print a message indicating the product is out of stock."
+				}
+			],
+			[
+				{
+					"body": "In addition to checking specific values, <span class='inl-code'>match</span> – <span class='inl-code'>case</span> also allows you to <strong>capture key values</strong> for further use."
+				},
+				{
+					"body": "This technique is commonly used when you need to extract data from a dictionary for display or further processing."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Extend the previous exercise:"
+				},
+				{
+					"body": "If <span class='inl-code token string'>'quantity'</span> is greater than <span class='inl-code token number'>0</span>, capture the value of the <span class='inl-code token string'>'price'</span> key into the variable <span class='inl-code'>unit_price</span> and print a message indicating the product is in stock along with its price."
+				},
+				{
+					"body": "Use <span class='inl-code'>case _</span> to handle all remaining cases."
 				}
 			]
 		],
@@ -6915,28 +7193,132 @@
 		"9.1": [
 			[
 				{
-					"type": "i",
-					"body": "Introduction to strings — In Python, strings store text like names, greetings, or any written passage. Put the content inside quotes. Create a variable with your name and add a simple greeting."
+					"body": "In Python, a <strong>string</strong> is used to store text such as names, greetings, or any written content."
+				},
+				{
+					"body": "A string is created by placing the content inside single quotes <span class='inl-code'>' '</span> or double quotes <span class='inl-code'>\" \"</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "ten = <span class='token string'>'Nam'</span><br>loi_chao = <span class='token string'>'Hello'</span><br><span class='token builtin'>print</span>(ten)<br><span class='token builtin'>print</span>(loi_chao)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Create a variable <span class='inl-code'>ten</span> that stores your name and a variable <span class='inl-code'>chao</span> that stores the string <span class='inl-code token string'>'Hello'</span>."
 				}
 			],
 			[
 				{
-					"body": "You can concatenate strings with the + operator, useful to build full messages from parts. Concatenate the name and greeting you created to form a complete sentence."
+					"body": "Python allows <strong>string concatenation</strong> using the <span class='inl-code'>+</span> operator."
+				},
+				{
+					"body": "This method is commonly used to create a complete message from multiple smaller strings."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "loi_chao = <span class='token string'>'Hello '</span><br>ten = <span class='token string'>'Lan'</span><br>cau_day_du = loi_chao + ten<br><span class='token builtin'>print</span>(cau_day_du)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Based on the variables you created, concatenate the greeting and your name into a complete sentence and print it."
 				}
 			],
 			[
 				{
-					"body": "In strings, numeric characters are still text. Concatenating \"20\" and \"5\" yields \"205\" rather than adding them. Try concatenating \"20\" and \"5\" to see the result."
+					"body": "In strings, numeric characters are still considered <strong>text</strong>, not numbers for calculation."
+				},
+				{
+					"body": "Therefore, when concatenating two strings that contain numbers, Python joins them instead of adding their values."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "a = <span class='token string'>'20'</span><br>b = <span class='token string'>'5'</span><br><span class='token builtin'>print</span>(a + b) <span class='code-comment'># result: 205</span>"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Create two string variables <span class='inl-code'>so_1</span> and <span class='inl-code'>so_2</span> that store <span class='inl-code token number'>10</span> and <span class='inl-code token number'>3</span> respectively (as strings), then concatenate them and print the result."
 				}
 			],
 			[
 				{
-					"body": "Multiline strings allow tidy long paragraphs and are handy for descriptions. Create a multiline string describing one of your hobbies."
+					"body": "Python supports <strong>multi-line strings</strong>, which are very useful when writing long text or descriptions."
+				},
+				{
+					"body": "Multi-line strings are usually created using three consecutive quotation marks."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "gioi_thieu = <span class='token string'>'''I am a student.<br>I am learning Python.'''</span><br><span class='token builtin'>print</span>(gioi_thieu)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Create a multi-line string that briefly describes your hobbies (at least <span class='inl-code token number'>2</span> lines) and print it."
 				}
 			],
 			[
 				{
-					"body": "Special characters like \\n make line breaks inside the same string. Write two sentences using \\n to separate them into two lines."
+					"body": "In addition to multi-line strings, Python also allows the use of <strong>special characters</strong> such as <span class='inl-code'>\\n</span> to create a new line within a string."
+				},
+				{
+					"body": "This approach is suitable when you only need a quick line break."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Example:"
+				},
+				{
+					"type": "div",
+					"body": "cau = <span class='token string'>'Today the weather is nice\\nI am learning Python'</span><br><span class='token builtin'>print</span>(cau)"
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Write a string containing <span class='inl-code token number'>2</span> sentences and use <span class='inl-code'>\\n</span> to display each sentence on a separate line."
 				}
 			]
 		],
@@ -6945,27 +7327,77 @@
 			[
 				{
 					"type": "i",
-					"body": "Indexing characters — Strings are zero-indexed: first character is 0, then 1, 2, … Use indexing to get specific characters. Get characters 0, 1 and 2 from \"Xin chao\"."
+					"body": "In Python, each character in a string has an <strong>index</strong> starting from <span class='inl-code token number'>0</span>. This allows you to access individual characters within a string."
+				},
+				{
+					"body": "The string <span class='inl-code token string'>'Xin chao'</span> has the character at index <span class='inl-code token number'>0</span> as <span class='inl-code token string'>'X'</span>, and the character at index <span class='inl-code token number'>1</span> as <span class='inl-code token string'>'i'</span>."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Create a variable <span class='inl-code'>chuoi</span> with the value <span class='inl-code token string'>'Xin chao'</span>, then print the characters at positions <span class='inl-code token number'>0</span>, <span class='inl-code token number'>1</span>, and <span class='inl-code token number'>2</span>."
 				}
 			],
 			[
 				{
-					"body": "Python supports negative indexing: -1 is last, -2 is second-last, a quick way to access the end of a string. Get the last and second-last characters of \"Xin chao\"."
+					"body": "In addition to positive indices, Python also supports <strong>negative indices</strong> to access a string from the end toward the beginning."
+				},
+				{
+					"body": "The index <span class='inl-code token number'>-1</span> refers to the last character, while <span class='inl-code token number'>-2</span> refers to the character immediately before the last."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "For the string <span class='inl-code token string'>'Xin chao'</span>, print the last character and the second-to-last character using negative indices."
 				}
 			],
 			[
 				{
-					"body": "Accessing an index outside the string length raises an error — helpful to catch mistakes. Try accessing an out-of-range index to observe the error."
+					"body": "If you access an index <strong>beyond the length of the string</strong>, Python will raise an <span class='inl-code'>IndexError</span>."
+				},
+				{
+					"body": "This mechanism helps you detect logical errors early when processing string data."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Try accessing an invalid index of the string <span class='inl-code token string'>'Python'</span> and observe the error message that Python produces."
 				}
 			],
 			[
 				{
-					"body": "Indexing is used to extract important info like the first letter of a name. Print the first character of your name."
+					"body": "Indexing is commonly used to extract important information from strings, such as the first character of a name or an identifier."
+				},
+				{
+					"body": "This is very useful in text data processing tasks."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Create a variable <span class='inl-code'>ten</span> containing your name and print the first character of that name."
 				}
 			],
 			[
 				{
-					"body": "Combine len() with indexing to get the last character without counting by hand. Use len() to get the last character of any string."
+					"body": "Combining the <span class='inl-code'><span class='token builtin'>len</span>()</span> function with indexing allows you to retrieve the last character of a string without knowing its length in advance."
+				},
+				{
+					"body": "This approach is especially useful when working with strings of varying lengths."
+				},
+				{
+					"type": "br",
+					"body": ""
+				},
+				{
+					"body": "Create any string, use <span class='inl-code'>len()</span> to determine the position of the last character, and print that character."
 				}
 			]
 		],
@@ -7111,180 +7543,6 @@
 			[
 				{
 					"body": "Search helps detect data errors like missing characters or extra spaces. Input any string and check whether it contains a space."
-				}
-			]
-		],
-
-		"10.1": [
-			[
-				{
-					"type": "i",
-					"body": "Module is a collection of functions and tools provided by Python. They help reuse functionality without rewriting code."
-				}
-			],
-			[
-				{
-					"body": "You use a module with the import statement. It loads the module so you can call its functions."
-				}
-			],
-			[
-				{
-					"body": "After importing, call functions with module.function_name to keep code organized."
-				}
-			],
-			[
-				{
-					"body": "Importing keeps large projects readable by separating concerns into modules."
-				}
-			],
-			[
-				{
-					"body": "Python has hundreds of useful modules: number processing, datetime, data, file handling, etc. Familiarity with modules makes you more flexible."
-				}
-			]
-		],
-
-		"10.2": [
-			[
-				{
-					"type": "i",
-					"body": "The math module provides math functions like sqrt, pow and constants such as pi."
-				}
-			],
-			[
-				{
-					"body": "math.sqrt() computes the square root of a number."
-				}
-			],
-			[
-				{
-					"body": "math.pow() computes powers; math.pi and math.e are common constants."
-				}
-			],
-			[
-				{
-					"body": "Combining math functions allows compact solutions for complex problems."
-				}
-			],
-			[
-				{
-					"body": "Example: compute area of a circle given radius using math.pi."
-				}
-			]
-		],
-
-		"10.3": [
-			[
-				{
-					"type": "i",
-					"body": "You can shorten module names with as to make code concise, e.g. import math as m."
-				}
-			],
-			[
-				{
-					"body": "After aliasing, call functions like m.sqrt(25)."
-				}
-			],
-			[
-				{
-					"body": "Aliases keep code short without losing clarity."
-				}
-			],
-			[
-				{
-					"body": "When using multiple modules, aliases help avoid long names and confusion."
-				}
-			],
-			[
-				{
-					"body": "Common libraries like numpy and pandas are typically imported with aliases."
-				}
-			]
-		],
-
-		"10.4": [
-			[
-				{
-					"type": "i",
-					"body": "from module import name lets you import specific functions so you can call them directly."
-				}
-			],
-			[
-				{
-					"body": "Example: from math import sqrt then call sqrt(36)."
-				}
-			],
-			[
-				{
-					"body": "You can import multiple functions with commas: from math import sqrt, pow."
-				}
-			],
-			[
-				{
-					"body": "from math import * imports everything but may cause name collisions; use sparingly."
-				}
-			],
-			[
-				{
-					"body": "This pattern is useful when you only need a few functions from a module."
-				}
-			]
-		],
-
-		"10.5": [
-			[
-				{
-					"type": "i",
-					"body": "The random module generates random numbers, picks random elements, and shuffles lists — useful for games and simulations."
-				}
-			],
-			[
-				{
-					"body": "random.randint(a, b) returns a random integer between a and b (inclusive)."
-				}
-			],
-			[
-				{
-					"body": "random.choice(list) picks a random element from a list."
-				}
-			],
-			[
-				{
-					"body": "random.shuffle(list) shuffles the list in-place."
-				}
-			],
-			[
-				{
-					"body": "Combine random functions to create flexible, unpredictable behaviors in programs."
-				}
-			]
-		],
-
-		"10": [
-			[
-				{
-					"type": "i",
-					"body": "CASE STUDY (EN): Student data normalization and small utilities using modules."
-				}
-			],
-			[
-				{
-					"body": "PART 1: Normalize names: use .strip(), .title(), remove special characters, create a 3-letter id from last name."
-				}
-			],
-			[
-				{
-					"body": "PART 2: Handle score strings: split on '-', convert to integers, compute average."
-				}
-			],
-			[
-				{
-					"body": "PART 3: Use random and math: generate random test IDs, compute sqrt of average, choose a random prize."
-				}
-			],
-			[
-				{
-					"body": "PART 4: Combine everything into a program that prints normalized name, id, scores list, average, sqrt(average), and random prize."
 				}
 			]
 		]

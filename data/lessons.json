@@ -2457,7 +2457,7 @@
 			"name": "Chủ đề 6: Tuple, tập hợp và từ điển",
 			"1": {
 				"iconClasses": "fa-solid fa-ellipsis",
-				"name": "Giới thiệu về tuple",
+				"name": "Làm quen với tuple",
 				"codevi": [
 					"so_nguyen = (...)",
 					"mon_hoc = (...)",
@@ -2587,7 +2587,7 @@
 			},
 			"2": {
 				"iconClasses": "fa-solid fa-bars",
-				"name": "Các hàm liên quan đến tuple",
+				"name": "Các hàm của tuple",
 				"codevi": [
 					"nguoi_ban = \nprint()",
 					"diem_so = (10, 7, 8.5, 6, 9.25, 10, 7, 7.75, 8)\nprint()",
@@ -2898,7 +2898,7 @@
 			},
 			"5": {
 				"iconClasses": "fa-solid fa-book",
-				"name": "Từ điển (Dictionary)",
+				"name": "Làm quen với từ điển",
 				"codevi": [
 					"thong_tin = {\n    'ten': 'Lan',\n    'lop': '9A',\n    'truong': 'THCS ABC'\n}\nprint(thong_tin['ten'])",
 					"thong_tin = {\n    'ten': 'Minh',\n    'tuoi': 15\n}\n# Thêm khóa 'so_thich'\n...",
@@ -2980,7 +2980,7 @@
 			},
 			"6": {
 				"iconClasses": "fa-solid fa-list",
-				"name": "Các hàm của Dictionary",
+				"name": "Các hàm của dictionary",
 				"codevi": [
 					"thong_tin = {\n    'ten': 'Nam',\n    'tuoi': 15,\n    'lop': '9C'\n}\nprint(thong_tin.keys())",
 					"thong_tin = {\n    'toan': 8,\n    'van': 7,\n    'anh': 9\n}\nprint(thong_tin.values())",
@@ -3080,7 +3080,7 @@
 			"name": "Chủ đề 7: Các lỗi thường gặp trong Python",
 			"1": {
 				"iconClasses": "fa-solid fa-bug",
-				"name": "Lỗi Cú pháp (Syntax Error)",
+				"name": "Lỗi cú pháp",
 				"codevi": [
 					"ten = \"An\"\nif ten = \"An\"\n    print(\"Đúng tên\")\n    print(\"Xin chào\")\nelse:\n    print(\"Sai tên\")\nprint \"Hoàn tất"
 				],
@@ -3122,7 +3122,7 @@
 			},
 			"2": {
 				"iconClasses": "fa-solid fa-exclamation-triangle",
-				"name": "Các lỗi Runtime thường gặp",
+				"name": "Các lỗi runtime thường gặp",
 				"codevi": [
 					"thuc_don = (\"Bánh mì\", \"Phở\")\nthong_tin = {\"ten\": \"An\", \"tuoi\": 15}\nmon_hoc = [\"Toán\", \"Văn\"]\n\nthuc_don[0] = \"Xôi\"\nprint(thuc_don)\nprint(thong_tin[\"truong\"])\nprint(mon_hoc[5])"
 				],
@@ -3164,7 +3164,7 @@
 			},
 			"3": {
 				"iconClasses": "fa-solid fa-brain",
-				"name": "Lỗi Logic (Logical Error)",
+				"name": "Lỗi logic",
 				"codevi": [
 					"diem_toan = 8\ndiem_van = 10\nso_mon = 2\ndiem_trung_binh = diem_toan + diem_van / so_mon # LỖI\nprint(\"Điểm trung bình cộng là:\", diem_trung_binh)\ntong_diem = diem_toan * diem_van\nprint(\"Tổng điểm là:\" ,tong_diem)"
 				],
@@ -3198,7 +3198,7 @@
 			},
 			"4": {
 				"iconClasses": "fa-solid fa-shield-halved",
-				"name": "Xử lý ngoại lệ (Try - Except)",
+				"name": "Xử lý ngoại lệ",
 				"codevi": [
 					"keo = int(input('Nhập số kẹo: '))\nnguoi = int(input('Nhập số người: '))\n"
 				],
@@ -3302,16 +3302,16 @@
 				"codevi": [
 					"ten = \nchao = ",
 					"",
-					"\nprint(a + b)",
-					"desc = '''Mình thích đọc sách và lập trình.'''\nprint(desc)",
-					"text = 'Dòng 1\\nDòng 2'\nprint(text)"
+					"\nprint(so1 + so2)",
+					"desc = ...\nprint(desc)",
+					"noi_dung = ''\nprint(noi_dung)"
 				],
 				"codeen": [
 					"name = \ngreeting = ",
 					"",
-					"\nprint(a + b)",
-					"desc = '''I like reading and coding.'''\nprint(desc)",
-					"text = 'Line 1\\nLine 2'\nprint(text)"
+					"\nprint(num1 + num2)",
+					"desc = ...\nprint(desc)",
+					"text = ''\nprint(text)"
 				],
 				"correctvi": [
 					[
@@ -3332,13 +3332,29 @@
 					[{ "type": "static", "text": "103" }],
 					[
 						{
-							"type": "regex",
-							"pattern": "^Mình thích đọc sách và lập trình\\.$"
+							"type": "var",
+							"name": "desc",
+							"captureAs": "content"
+						},
+						{
+							"type": "transform",
+							"name": "content",
+							"from": "content",
+							"transform": "x => x.indexOf(\n) != -1 ? x : null"
 						}
 					],
 					[
-						{ "type": "static", "text": "Dòng 1" },
-						{ "type": "static", "text": "Dòng 2" }
+						{
+							"type": "var",
+							"name": "noi_dung",
+							"captureAs": "content"
+						},
+						{
+							"type": "transform",
+							"name": "content",
+							"from": "content",
+							"transform": "x => x.indexOf(\n) != -1 ? x : null"
+						}
 					]
 				],
 				"correcten": [
@@ -3360,13 +3376,29 @@
 					[{ "type": "static", "text": "103" }],
 					[
 						{
-							"type": "regex",
-							"pattern": "^I like reading and coding\\.$"
+							"type": "var",
+							"name": "desc",
+							"captureAs": "content"
+						},
+						{
+							"type": "transform",
+							"name": "content",
+							"from": "content",
+							"transform": "x => x.indexOf(\n) != -1 ? x : null"
 						}
 					],
 					[
-						{ "type": "static", "text": "Line 1" },
-						{ "type": "static", "text": "Line 2" }
+						{
+							"type": "var",
+							"name": "text",
+							"captureAs": "content"
+						},
+						{
+							"type": "transform",
+							"name": "content",
+							"from": "content",
+							"transform": "x => x.indexOf(\n) != -1 ? x : null"
+						}
 					]
 				]
 			},
@@ -3374,8 +3406,8 @@
 				"iconClasses": "fa-solid fa-hashtag",
 				"name": "Truy cập ký tự bằng chỉ số",
 				"codevi": [
-					"s = 'Xin chao'\nprint(s[0], s[1], s[2])",
-					"s = 'Xin chao'\nprint(s[-1], s[-2])",
+					"s = 'Xin chao'\nprint(...)",
+					"s = 'Xin chao'\nprint(...)",
 					"s = 'Hi'\nprint(s[10])",
 					"name = \nprint(name[0])",
 					"s = 'abcdef'\nprint(s[len(s)-1])"
@@ -3390,21 +3422,27 @@
 				"correctvi": [
 					[{ "type": "static", "text": "X i n" }],
 					[{ "type": "static", "text": "o a" }],
-					[{ "type": "set-error" }],
+					[
+						{ "type": "set-error" },
+						{ "type": "dynamic", "text": "IndexError" }
+					],
 					[{ "type": "regex", "pattern": "^.$" }],
 					[{ "type": "regex", "pattern": "^.$" }]
 				],
 				"correcten": [
 					[{ "type": "static", "text": "X i n" }],
 					[{ "type": "static", "text": "o a" }],
-					[{ "type": "set-error" }],
+					[
+						{ "type": "set-error" },
+						{ "type": "dynamic", "text": "IndexError" }
+					],
 					[{ "type": "regex", "pattern": "^.$" }],
 					[{ "type": "regex", "pattern": "^.$" }]
 				]
 			},
 			"3": {
 				"iconClasses": "fa-solid fa-cut",
-				"name": "Cắt chuỗi (Slicing)",
+				"name": "Cắt chuỗi",
 				"codevi": [
 					"s = 'Lap trinh Python'\nprint(s[0:9])",
 					"s = 'abcdefgh'\nprint(s[4:])",
@@ -3468,7 +3506,7 @@
 			},
 			"5": {
 				"iconClasses": "fa-solid fa-link",
-				"name": "Tách và ghép chuỗi (Split & Join)",
+				"name": "Tách và ghép chuỗi",
 				"codevi": [
 					"s = 'Hoc lap trinh Python rat thu vi'\nprint(s.split())",
 					"s = '3-4-5-6-7'\nprint(s.split('-'))",
