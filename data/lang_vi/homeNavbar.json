@@ -1,12 +1,5 @@
 {
 	"home": "<i class='fa-solid fa-house'></i> Trang chủ",
-	"dropdown": "<i class='fa-solid fa-graduation-cap'></i> Khóa học <svg class='arrow-icon' width='16' height='16' viewBox='0 0 24 24'><path d='M6 9l6 6 6-6' fill='none' stroke='white' stroke-width='2'/></svg>",
-	"aboutUs": "<i class='fa-solid fa-question'></i> Về chúng tôi",
-	"contact": "<i class='fa-solid fa-phone'></i> Liên hệ",
-	"profile": "<i class='fa-solid fa-circle-user'></i> Trang cá nhân",
-	"course1": "Giới thiệu về Python",
-	"course2": "Vòng lặp và điều kiện",
-	"course3": "Lưu trữ nhiều giá trị",
-	"course4": "Hàm và chia nhỏ chương trình",
-	"seeMore": "Tìm hiểu thêm..."
+	"leaderboard": "<i class='fa-solid fa-ranking-star'></i> Bảng xếp hạng",
+	"profile": "<i class='fa-solid fa-circle-user'></i> Trang cá nhân"
 }

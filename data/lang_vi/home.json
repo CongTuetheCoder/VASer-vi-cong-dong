@@ -3,6 +3,11 @@
 	"section2": "Chủ đề 2: Vòng lặp và lệnh điều kiện",
 	"section3": "Chủ đề 3: Lưu trữ nhiều giá trị",
 	"section4": "Chủ đề 4: Hàm và chia nhỏ chương trình",
+	"section5": "Chủ đề 5: Những khái niệm lập trình",
+	"section6": "Chủ đề 6: Tuple, tập hợp và từ điển",
+	"section7": "Chủ đề 7: Các lỗi thường gặp trong Python",
+	"section8": "Chủ đề 8: Cấu trúc match-case",
+	"section9": "Chủ đề 9: Xử lí chuỗi",
 
 	"lesson11": "Bài 1.1: Chương trình đầu tiên",
 	"lesson12": "Bài 1.2: Lưu trữ thông tin",
@@ -28,6 +33,35 @@
 	"lesson42": "Bài 4.2: Truyền tham số và trả về kết quả",
 	"lesson43": "Bài 4.3: Phạm vi biến",
 	"lesson44": "Nghiên cứu tình huống 2: Hóa đơn Circle K",
+
+	"lesson51": "Bài 5.1: Vòng lặp",
+	"lesson52": "Bài 5.2: Đếm",
+	"lesson53": "Bài 5.3: Tính tổng",
+	"lesson54": "Bài 5.4: Chọn lọc",
+	"lesson55": "Bài 5.5: Đệ quy",
+	"lesson56": "Bài 5.6: Sửa lỗi",
+
+	"lesson61": "Bài 6.1: Làm quen với tuple",
+	"lesson62": "Bài 6.2: Các hàm của tuple",
+	"lesson63": "Bài 6.3: Làm quen với tập hợp",
+	"lesson64": "Bài 6.4: Các phép toán tập hợp",
+	"lesson65": "Bài 6.5: Làm quen với từ điển",
+	"lesson66": "Bài 6.6: Các hàm của dictionary",
+
+	"lesson71": "Bài 7.1: Lỗi cú pháp",
+	"lesson72": "Bài 7.2: Các lỗi runtime thường gặp",
+	"lesson73": "Bài 7.3: Lỗi logic",
+	"lesson74": "Bài 7.4: Xử lý ngoại lệ",
+
+	"lesson81": "Bài 8.1: Giới thiệu cấu trúc match-case",
+
+	"lesson91": "Bài 9.1: Giới thiệu về chuỗi",
+	"lesson92": "Bài 9.2: Truy cập ký tự",
+	"lesson93": "Bài 9.3: Cắt chuỗi",
+	"lesson94": "Bài 9.4: Các hàm của chuỗi",
+	"lesson95": "Bài 9.5: Tách và ghép chuỗi",
+	"lesson96": "Bài 9.6: Duyệt chuỗi bằng vòng lặp",
+	"lesson97": "Bài 9.7: Tìm kiếm trong chuỗi",
 	
 	"language-btn": "Thay đổi ngôn ngữ"
 }

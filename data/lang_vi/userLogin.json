@@ -1,7 +1,6 @@
 {
 	"home": "<i class=\"fa-solid fa-house\"></i> Trang chủ",
 	"register": "<i class=\"fa-solid fa-user-plus\"></i> Đăng ký",
-	"user-subheading": "Tên người dùng",
 	"pw-subheading": "Mật khẩu",
 	"animated": "Đăng nhập tài khoản",
 	"loginBtn": "<i class=\"fa-solid fa-user\"></i> <span>Đăng nhập</span>",
