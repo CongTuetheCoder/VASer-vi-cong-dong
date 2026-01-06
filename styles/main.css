@@ -15,6 +15,12 @@
 	--text-dim: #a0a0a0;
 }
 
+@property --bg-gradient {
+	syntax: "<color>";
+	inherits: false;
+	initial-value: #210d33;
+}
+
 footer {
 	text-align: center;
 	padding: 20px;
@@ -34,14 +40,15 @@ footer {
 	border: 2px white solid;
 	background-color: transparent;
 	color: white;
-	transition: background-color 500ms ease, transform 500ms ease, color 500ms ease;
+	transition: background-color 500ms ease, transform 500ms ease,
+		color 500ms ease;
 	z-index: 100;
 }
 
 #language-btn:hover {
 	color: #3c3069;
 	background-color: white;
-	transform: scale(1.2); 
+	transform: scale(1.2);
 	cursor: pointer;
 }
 
@@ -67,7 +74,7 @@ body {
 	font-family: "JetBrains Mono", monospace;
 	background: radial-gradient(
 		circle at center,
-		#210d33 0%,
+		var(--bg-gradient) 0%,
 		var(--bg-dark) 70%
 	);
 	color: var(--text-light);
@@ -76,6 +83,9 @@ body {
 	flex-direction: column;
 	position: relative;
 	overflow-x: hidden;
+
+	/* smoother, explicit transitions for theme changes */
+	transition: --bg-gradient 800ms ease, background 800ms ease, color 500ms ease;
 }
 
 h1,
@@ -193,12 +203,20 @@ header {
 }
 
 .dropdown-content a:not(:last-child)::after {
-	content: ""; /* Required for pseudo-elements to render */
-	display: block; /* Makes it behave like a block-level element */
-	height: 2px; /* Sets the thickness of the line */
-	width: 100%; /* Sets the length of the line */
-	background-color: #333; /* Sets the color of the line */
+	content: "";
+	display: block;
+	height: 2px;
+	width: 100%;
+	background-color: #333;
 	margin: 10px 0;
+}
+
+#user-xp {
+	color: var(--accent-cyan);
+}
+
+#user-xp > * {
+	display: inline;
 }
 
 footer {

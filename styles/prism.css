@@ -1,10 +1,5 @@
 /* PrismJS 1.30.0
 https://prismjs.com/download#themes=prism&languages=python&plugins=line-numbers+highlight-keywords+match-braces */
-#codeEditor > pre {
-	background-color: #000;
-	z-index: 3;
-}
-
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #fff;
@@ -54,7 +49,11 @@ pre[class*="language-"] {
 }
 :not(pre) > code[class*="language-"],
 pre[class*="language-"] {
-	background: #f5f2f0;
+	background: radial-gradient(
+		circle at 0% 50%,
+		rgba(33, 11, 59, 1),
+		rgba(17, 6, 35, 1)
+	);;
 }
 :not(pre) > code[class*="language-"] {
 	padding: 0.1em;
