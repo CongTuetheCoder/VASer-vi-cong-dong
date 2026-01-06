@@ -1,13 +1,8 @@
-// Setup
-
 const lessonContainer = document.getElementById("lesson-content");
 const codeContainer = document.getElementById("code-container");
 const body = document.getElementsByTagName("body")[0];
 const lesson = sessionStorage.getItem("lesson");
-
 lessonContainer.style.height = codeContainer.style.height;
-
-const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
 
 if (lesson === null) window.location.href = "home.html";
 else document.title = lesson;
@@ -19,10 +14,14 @@ const correctOutputs = JSON.parse(sessionStorage.getItem("correct") || "[]");
 const codeList = JSON.parse(sessionStorage.getItem("filledcode") || "[]");
 
 const lessonID = sessionStorage.getItem("lessonID");
-
+const isActivity = lessonID.indexOf(".") === -1;
+const isCaseStudy = isActivity && Number(lessonID) % 2 === 0;
 const activities = codeList.length;
-
 const jsonURL = "data/content.json";
+
+const NORMAL_XP = 5;
+const ACTIVITY_XP = 10;
+const CASE_STUDY_XP = 20;
 
 let pythonWorker;
 
@@ -72,24 +71,6 @@ function fetchAndUpdateContent() {
 		});
 }
 
-async function fetchUID() {
-	try {
-		const response = await fetch(usersAPI);
-		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-		const data = await response.json();
-
-		const username = getCookie("user");
-		const user = data.find((u) => u.username === username);
-
-		if (!user || !user.data) throw new Error("User data missing");
-
-		return user.id;
-	} catch (err) {
-		console.error("Failed to fetch user ID:", err);
-		return "0"; // fallback
-	}
-}
-
 async function fetchLessonConfig(currentUnit) {
 	try {
 		const response = await fetch("data/lessons.json");
@@ -103,19 +84,32 @@ async function fetchLessonConfig(currentUnit) {
 	}
 }
 
-async function updateUserProgress(
-	uid,
-	currentUnit,
-	currentLesson,
-	lessonsData
-) {
+async function updateXP() {
 	try {
-		const response = await fetch(`${usersAPI}/${uid}`);
-		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-		const data = await response.json();
+		const data = await getUserData(auth.currentUser.uid);
+		let storedXP = Number(data.xp);
+
+		storedXP += isCaseStudy
+			? CASE_STUDY_XP
+			: isActivity
+			? ACTIVITY_XP
+			: NORMAL_XP;
+		console.log(storedXP);
+		await window.updateUserXP(auth.currentUser.uid, storedXP);
+	} catch (err) {
+		console.error("Failed to fetch user progress:", err);
+		return null;
+	}
+}
+
+async function updateProgress(currentUnit, currentLesson, lessonsData) {
+	try {
+		const data = await getUserData(auth.currentUser.uid);
+		console.log(data);
+		await updateXP();
 
 		const storedUnit = Number(data.data.currentUnit);
-		const storedLesson = Number(data.data.lesson);
+		const storedLesson = Number(data.data.currentLesson);
 
 		if (
 			storedUnit > currentUnit ||
@@ -129,6 +123,7 @@ async function updateUserProgress(
 
 	let nextUnit = currentUnit;
 	let nextLesson = currentLesson + 1;
+	console.log(lessonsData);
 
 	if (nextLesson > lessonsData.length) {
 		nextUnit++;
@@ -141,22 +136,11 @@ async function updateUserProgress(
 	}
 
 	try {
-		const response = await fetch(`${usersAPI}/${uid}`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify({
-				data: {
-					currentUnit: String(nextUnit),
-					lesson: String(nextLesson),
-				},
-			}),
+		await window.updateUserProgress(auth.currentUser.uid, {
+			currentUnit: String(nextUnit),
+			currentLesson: String(nextLesson),
 		});
-		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-		const userProgress = await response.json();
-		console.log("Updated user progress:", userProgress);
-		return userProgress;
+		window.location.href = "home.html";
 	} catch (err) {
 		console.error("Failed to update user progress:", err);
 		return null;
@@ -576,7 +560,6 @@ const validator = (outputText) => {
 				fetchAndUpdateContent();
 			} else {
 				showResultsDialog();
-				const uid = await fetchUID();
 				const currentUnit = Number(
 					sessionStorage.getItem("lessonID").split(".")[0]
 				);
@@ -587,12 +570,7 @@ const validator = (outputText) => {
 					Number(currentUnit)
 				);
 
-				await updateUserProgress(
-					uid,
-					currentUnit,
-					currentLesson,
-					lessonsData
-				);
+				await updateProgress(currentUnit, currentLesson, lessonsData);
 				window.location.href = "home.html";
 			}
 		}, 3500);

@@ -21,25 +21,27 @@ function getCookie(cname) {
 }
 
 async function fetchUID() {
-	try {
-		const response = await fetch(usersAPI);
-		if (!response.ok) throw new Error(`HTTP error: ${response.status}`);
-		const data = await response.json();
-
-		const username = getCookie("user");
-		const user = data.find((u) => u.username === username);
-
-		if (!user || !user.data) throw new Error("User data missing");
-
-		return {
-			currentUnit: user.data.currentUnit,
-			currentLesson: user.data.lesson,
-			xp: user.xp,
-		};
-	} catch (err) {
-		console.error("Failed to fetch user progress:", err);
-		return { currentUnit: 1, currentLesson: 1, xp: 0 }; // fallback
-	}
+	return new Promise((resolve) => {
+		window.auth.onAuthStateChanged(async (user) => {
+			if (!user) {
+				window.location.href = "index.html";
+				resolve({ currentUnit: 1, currentLesson: 1, xp: 0 });
+				return;
+			}
+			try {
+				const data = await window.getUserData(user.uid);
+				if (!data || !data.data) throw new Error("User data missing");
+				resolve({
+					currentUnit: data.data.currentUnit || 1,
+					currentLesson: data.data.currentLesson || 1,
+					xp: data.xp || 0,
+				});
+			} catch (err) {
+				console.error("Failed to fetch user progress:", err);
+				resolve({ currentUnit: 1, currentLesson: 1, xp: 0 });
+			}
+		});
+	});
 }
 
 const createButtons = async (unit, lessonsArrange, lessonsData) => {
@@ -382,8 +384,9 @@ const drawPathsBetweenButtons = () => {
 			});
 		}, {});
 
-		const elements = Array.from(document.querySelectorAll(".lessonBtn"))
-			.concat(Array.from(document.querySelectorAll("h4")))
+		const elements = Array.from(
+			document.querySelectorAll(".lessonBtn")
+		).concat(Array.from(document.querySelectorAll("h4")));
 		elements.forEach((el) => {
 			observer.observe(el);
 		});

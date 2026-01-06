@@ -1,5 +1,5 @@
 const button = document.getElementById("loginBtn");
-const usernameIn = document.getElementById("username");
+const emailIn = document.getElementById("username");
 const passwordIn = document.getElementById("password");
 const dialog = document.getElementById("wrong-dialog");
 
@@ -10,22 +10,6 @@ function setCookie(name, value, days) {
 	date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
 	const expires = "expires=" + date.toUTCString();
 	document.cookie = name + "=" + value + ";" + expires + ";path=/";
-}
-
-async function verifyPassword(inputPassword, storedSaltHex, storedHashHex) {
-	const salt = CryptoJS.enc.Hex.parse(storedSaltHex);
-
-	// Derive key with same parameters
-	const derivedKey = CryptoJS.PBKDF2(inputPassword, salt, {
-		keySize: 256 / 32, // 256 bits = 32 bytes
-		iterations: 100000,
-		hasher: CryptoJS.algo.SHA256,
-	});
-
-	// Convert derived key to hex string
-	const derivedHex = derivedKey.toString(CryptoJS.enc.Hex);
-
-	return derivedHex === storedHashHex;
 }
 
 function hasDialogSupport() {
@@ -91,44 +75,55 @@ function closeDialog() {
 async function loginUser() {
 	const originalHTML = button.innerHTML;
 	const isVn = (localStorage.getItem("lang") || "en") === "vi";
+
+	// UI Feedback
 	button.innerHTML = '<i class="fa-solid fa-spinner fa-spin-pulse"></i>';
+	button.disabled = true;
 
 	try {
-		const response = await fetch(usersAPI);
-		const data = await response.json();
-
-		const user = data.find((u) => u.username === usernameIn.value);
-
-		if (!user) {
-			showError(isVn ? "Tên người dùng không hợp lệ." : "Username not found.");
-			button.innerHTML = originalHTML;
-			return;
-		}
-
-		const isMatch = await verifyPassword(
-			passwordIn.value,
-			user.salt,
-			user.hash
+		// Authenticate using Firebase Email/Password
+		const userCredential = await window.signInWithEmailAndPassword(
+			window.auth,
+			emailIn.value,
+			passwordIn.value
 		);
 
-		if (isMatch) {
-			setCookie("user", usernameIn.value, 30);
-			window.location.href = "home.html";
-		} else {
-			showError(isVn ? "Mật khẩu không hợp lệ." : "Incorrect password.");
-			button.innerHTML = originalHTML;
-			passwordIn.value = "";
-			passwordIn.focus();
-		}
+		const user = userCredential.user;
+
+		// Set login state
+		setCookie("user", user.displayName || user.email, 30);
+		window.location.href = "home.html";
 	} catch (error) {
-		confirm(`An error occurred: ${error}`);
+		console.error("Login error:", error.code);
+		let errorMessage = isVn
+			? "Đã xảy ra lỗi khi đăng nhập."
+			: "An error occurred during login.";
+
+		// Human-friendly error handling for common Firebase Auth issues
+		if (
+			error.code === "auth/invalid-email" ||
+			error.code === "auth/user-not-found"
+		) {
+			errorMessage = isVn
+				? "Email không hợp lệ hoặc không tồn tại."
+				: "Invalid email or user not found.";
+		} else if (
+			error.code === "auth/wrong-password" ||
+			error.code === "auth/invalid-credential"
+		) {
+			errorMessage = isVn
+				? "Mật khẩu không chính xác."
+				: "Incorrect password.";
+		}
+
+		showError(errorMessage);
 		button.innerHTML = originalHTML;
+		button.disabled = false;
+		passwordIn.value = "";
 	}
 }
 
-button.addEventListener("click", async () => {
-	await loginUser();
-});
+button.addEventListener("click", loginUser);
 
 passwordIn.addEventListener("keydown", async (event) => {
 	if (event.key === "Enter") {
@@ -137,7 +132,7 @@ passwordIn.addEventListener("keydown", async (event) => {
 	}
 });
 
-usernameIn.addEventListener("keydown", async (event) => {
+emailIn.addEventListener("keydown", async (event) => {
 	if (event.key === "Enter") {
 		event.preventDefault();
 		await loginUser();
