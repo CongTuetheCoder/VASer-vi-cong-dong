@@ -23,7 +23,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
 const firebaseConfig = {
-	apiKey: "AIzaSyCcklEOr9gaiuEi07VPUcsLtbRo5TfV2Ys",
+	apiKey: "...",
 	authDomain: "criticalcode-data.firebaseapp.com",
 	projectId: "criticalcode-data",
 	storageBucket: "criticalcode-data.firebasestorage.app",
@@ -134,3 +134,4 @@ window.getDocs = getDocs;
 window.deleteDoc = deleteDoc;
 window.deleteUser = deleteUser;
 window.doc = doc;
+
