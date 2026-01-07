@@ -24,12 +24,12 @@ import {
 
 const firebaseConfig = {
 	apiKey: "...",
-	authDomain: "criticalcode-data.firebaseapp.com",
-	projectId: "criticalcode-data",
-	storageBucket: "criticalcode-data.firebasestorage.app",
-	messagingSenderId: "63538851270",
-	appId: "1:63538851270:web:9d57619eca41fd479796c7",
-	measurementId: "G-EM5M671BJV",
+	authDomain: "...",
+	projectId: "...",
+	storageBucket: "...",
+	messagingSenderId: "...",
+	appId: "...",
+	measurementId: "...",
 };
 
 const app = initializeApp(firebaseConfig);
@@ -134,4 +134,5 @@ window.getDocs = getDocs;
 window.deleteDoc = deleteDoc;
 window.deleteUser = deleteUser;
 window.doc = doc;
+
 
