@@ -6,12 +6,11 @@ const deleteAccBtn = document.getElementById("deleteAccBtn");
 const signOutBtn = document.getElementById("signoutBtn");
 const addClassBtn = document.getElementById("addClassBtn");
 
-const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
-const lessonJSON = "data/lessons.json";
+// Global holder for currently loaded user data to avoid scoping issues
+let currentUserData = null;
+let currentUsername = null;
 
-const usernameText = getCookie("user");
-user.dataset.value = usernameText;
-user.innerHTML = usernameText;
+const lessonJSON = "data/lessons.json";
 
 async function fetchUID() {
 	return new Promise((resolve) => {
@@ -24,6 +23,15 @@ async function fetchUID() {
 			try {
 				const data = await window.getUserData(user.uid);
 				if (!data) throw new Error("User data missing");
+				currentUsername = data.username || null;
+
+				if (currentUsername) {
+					document.getElementById("animated").dataset.value =
+						currentUsername;
+					document.getElementById("animated").innerHTML =
+						currentUsername;
+					applyEffect();
+				}
 				resolve({
 					xp: data.xp,
 				});
@@ -36,29 +44,46 @@ async function fetchUID() {
 }
 
 setInterval(async () => {
-	const userData = await getUserData(auth.currentUser.uid);
-	document.getElementById("current-unit").innerHTML =
-		(localStorage.getItem("lang") == "vi" ? "Chủ đề " : "Unit ") +
-		userData.data.currentUnit.toString();
+	try {
+		const authObj = window.auth ?? auth;
+		const uid = authObj?.currentUser?.uid;
+		if (!uid) return;
 
-	fetch(lessonJSON)
-		.then((secondResponse) => {
-			if (!secondResponse.ok) {
-				throw new Error(`HTTP error: Status: ${secondResponse.status}`);
-			}
-			return secondResponse.json();
-		})
-		.then((lessons) => {
+		const fetchUser = window.getUserData ?? getUserData;
+		const userData = await fetchUser(uid);
+		if (!userData || !userData.data) return;
+
+		currentUserData = userData;
+
+		const unitIndex = userData.data.currentUnit;
+		if (unitIndex != null) {
+			const prefix =
+				localStorage.getItem("lang") == "vi" ? "Chủ đề " : "Unit ";
+			document.getElementById("current-unit").innerHTML =
+				prefix + String(unitIndex);
+		}
+
+		// Update progress safely
+		try {
+			const resp = await fetch(lessonJSON);
+			if (!resp.ok) return;
+			const lessons = await resp.json();
 			const lessonsList =
-				lessons.lessonsData[userData.data.currentUnit.toString()];
-			const totalLessons = lessonsList.length;
-			const currentLesson = Number(userData.data.currentLesson) - 1;
-
+				lessons?.lessonsData?.[String(userData.data.currentUnit)];
+			if (!Array.isArray(lessonsList)) return;
+			const totalLessons = lessonsList.length || 1;
+			const currentLesson =
+				Math.max(0, Number(userData.data.currentLesson) - 1) || 0;
 			const percentage = Math.round(
 				(currentLesson * 100) / totalLessons
 			).toString();
 			document.getElementById("progress").innerHTML = percentage;
-		});
+		} catch (e) {
+			console.error("Failed to update lesson progress:", e);
+		}
+	} catch (e) {
+		console.error("Periodic profile update failed:", e);
+	}
 }, 3000);
 
 deleteAccBtn.addEventListener("click", async () => {
@@ -69,8 +94,28 @@ deleteAccBtn.addEventListener("click", async () => {
 			: "Để xóa tài khoản, vui lòng nhập tên người dùng:";
 	const promptedUser = prompt(msg);
 
-	if (promptedUser === usernameText) {
-		const currentUser = auth.currentUser;
+	// Ensure we have the latest username
+	if (!currentUsername) {
+		try {
+			const authObj = window.auth ?? auth;
+			const uid = authObj?.currentUser?.uid;
+			if (uid) {
+				const fetchUser = window.getUserData ?? getUserData;
+				const ud = await fetchUser(uid);
+				currentUsername =
+					ud?.username || (ud?.data && ud.data.username) || null;
+			}
+		} catch (e) {
+			console.error(
+				"Failed to resolve username before deletion check:",
+				e
+			);
+		}
+	}
+
+	if (promptedUser === currentUsername) {
+		const authObj = window.auth ?? auth;
+		const currentUser = authObj?.currentUser;
 
 		if (!currentUser) {
 			alert("No user is currently signed in.");

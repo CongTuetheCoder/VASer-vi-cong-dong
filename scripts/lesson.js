@@ -1,8 +1,42 @@
+const lessonID = sessionStorage.getItem("lessonID");
+const isActivity = lessonID.indexOf(".") === -1;
+const isCaseStudy = isActivity && Number(lessonID) % 2 === 0;
+const jsonURL = "data/content.json";
+const dataUrl = "data/lessons.json";
+
 const lessonContainer = document.getElementById("lesson-content");
 const codeContainer = document.getElementById("code-container");
 const body = document.getElementsByTagName("body")[0];
 const lesson = sessionStorage.getItem("lesson");
+const isEn = localStorage.getItem("lang") === "en";
 lessonContainer.style.height = codeContainer.style.height;
+
+async function fetchLessonData() {
+	try {
+		const response = await fetch(dataUrl);
+		if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+		const data = await response.json();
+
+		const lang = localStorage.getItem("lang") || "en";
+		let chapter = Number(lessonID.split(".")[0]);
+
+		if (isCaseStudy) chapter *= 2;
+
+		chapter = chapter.toString();
+
+		let lessonIdx;
+		if (!isActivity && !isCaseStudy) lessonIdx = lessonID.split(".")[1];
+		else lessonIdx = data.lessonsData[chapter].length.toString();
+
+		const code = data.lessons[chapter][lessonIdx]["code" + lang];
+		const correctOutputs = data.lessons[chapter][lessonIdx]["correct" + lang];
+
+		return { codeList: code || [], correctOutputs: correctOutputs || [] };
+	} catch (err) {
+		console.error("Failed to fetch lesson data:", err);
+		return { codeList: [], correctOutputs: [] };
+	}
+}
 
 if (lesson === null) window.location.href = "home.html";
 else document.title = lesson;
@@ -10,14 +44,97 @@ else document.title = lesson;
 let lessonCounter = 0;
 let correctCount = 0;
 let wrongCount = 0;
-const correctOutputs = JSON.parse(sessionStorage.getItem("correct") || "[]");
-const codeList = JSON.parse(sessionStorage.getItem("filledcode") || "[]");
+let codeList = [];
+let correctOutputs = [];
+let activities = 0;
 
-const lessonID = sessionStorage.getItem("lessonID");
-const isActivity = lessonID.indexOf(".") === -1;
-const isCaseStudy = isActivity && Number(lessonID) % 2 === 0;
-const activities = codeList.length;
-const jsonURL = "data/content.json";
+// Initialize lesson data asynchronously and run initial UI setup
+(async function initLesson() {
+	try {
+		const data = await fetchLessonData();
+		codeList = data.codeList || [];
+		correctOutputs = data.correctOutputs || [];
+		activities = codeList.length || 0;
+
+		// If DOM already loaded, run the same setup as DOMContentLoaded handler
+		if (document.readyState !== "loading") {
+			const textarea = document.getElementById("editor");
+			const highlight = document.getElementById("highlight");
+			if (textarea && highlight) {
+				const pre = highlight.parentElement;
+
+				function updateHighlight() {
+					let code = textarea.value;
+					const html = code
+						.replace(/&/g, "&amp;")
+						.replace(/</g, "&lt;")
+						.replace(/>/g, "&gt;");
+
+					highlight.innerHTML = html;
+					Prism.highlightElement(highlight);
+
+					pre.scrollTop = textarea.scrollTop;
+					pre.scrollLeft = textarea.scrollLeft;
+				}
+
+				textarea.addEventListener("input", updateHighlight);
+				textarea.addEventListener("scroll", updateHighlight);
+
+				textarea.addEventListener("keydown", (event) => {
+					if (event.key === "Tab") {
+						event.preventDefault();
+						const start = textarea.selectionStart;
+						const end = textarea.selectionEnd;
+
+						textarea.value =
+							textarea.value.substring(0, start) +
+							"\t" +
+							textarea.value.substring(end);
+						textarea.selectionStart = textarea.selectionEnd = start + 1;
+
+						updateHighlight();
+					} else if (event.key === "Enter") {
+						event.preventDefault();
+
+						const start = textarea.selectionStart;
+						const end = textarea.selectionEnd;
+
+						const currentLine = textarea.value
+							.substring(0, start)
+							.split("\n")
+							.pop();
+
+						const indentMatch = currentLine.match(/^\s*/);
+						const indent = indentMatch ? indentMatch[0] : "";
+
+						const insert = "\n" + indent;
+
+						textarea.value =
+							textarea.value.substring(0, start) +
+							insert +
+							textarea.value.substring(end);
+
+						textarea.selectionStart = textarea.selectionEnd =
+							start + insert.length;
+						updateHighlight();
+					}
+				});
+
+				textarea.value =
+					localStorage.getItem("lang") === "vi"
+						? "# Nhập mã ở đây\n"
+						: "# Enter code here\n";
+				textarea.value += codeList[lessonCounter] || "";
+				textarea.focus();
+				updateHighlight();
+			}
+		}
+
+		fetchAndUpdateContent();
+	} catch (err) {
+		console.error("Initialization failed:", err);
+	}
+})();
 
 const NORMAL_XP = 5;
 const ACTIVITY_XP = 10;

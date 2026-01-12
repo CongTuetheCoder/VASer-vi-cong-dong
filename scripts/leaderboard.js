@@ -1,10 +1,6 @@
 async function getTopPlayers() {
 	const usersRef = collection(db, "users");
-	const q = query(
-		usersRef,
-		orderBy("xp", "desc"),
-		limit(10)
-	);
+	const q = query(usersRef, orderBy("xp", "desc"), limit(10));
 
 	const querySnapshot = await getDocs(q);
 	const leaderboardData = [];
@@ -48,12 +44,13 @@ async function createLeaderboard() {
 
 	const topPlayers = await getTopPlayers();
 	container.innerHTML = "";
+	const uData = await window.getUserData(auth.currentUser.uid);
 
 	topPlayers.forEach((player, index) => {
 		const i = index + 1;
 		const wrapper = document.createElement("div");
 		wrapper.classList.add("ranking");
-		if (player.username == auth.currentUser.displayName)
+		if (player.username == uData.username)
 			wrapper.classList.add("current-user");
 		wrapper.id = `place-${i}`;
 
