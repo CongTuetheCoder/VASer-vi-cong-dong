@@ -193,8 +193,10 @@ label {
 }
 
 .signupBtn span::after {
-	content: "\00bb";
+	content: "\f101";
 	position: absolute;
+	font-family: "Font Awesome 7 Free";
+	font-weight: 900;
 	top: -2px;
 	right: -20px;
 	opacity: 0;
@@ -242,6 +244,7 @@ dialog {
 	pointer-events: none;
 	width: 280px;
 	max-width: calc(100vw - 40px);
+	height: 200px;
 	box-sizing: border-box;
 	z-index: 9999;
 	border-radius: 8px;
@@ -257,29 +260,39 @@ dialog[open] {
 	pointer-events: auto;
 	flex-direction: column;
 	align-content: center;
+	gap: 20px;
 	transform: translate(-50%, -50%) scale(1);
 	justify-content: center;
 	text-align: center;
 	border: 2px solid red;
-	box-shadow: 0 0 10px red;
-	background-color: #000000bc;
-	color: red;
+	box-shadow: 0 0 10px #ff9898;
+	background-color: #ff000094;
+	color: white;
 	padding: 10px;
 	font-size: 14px;
 }
 
+dialog p::before {
+	content: "\f071";
+	font-family: "Font Awesome 7 Free";;
+	font-weight: 900;
+	margin-right: 8px;
+	color: #ff9494;
+	text-shadow: 0 0 6px red;
+}
+
 #ok-btn {
 	border-radius: 6px;
-	color: white;
-	border: 1px solid white;
-	background-color: #240964;
+	color: #ffcc00;
+	border: 1px solid #ffcc00;
+	background-color: #640909;
 	padding: 5px;
 	margin: 0 10px;
 	transition: 500ms;
 }
 
 #ok-btn:hover {
-	background-color: #421c9c;
+	background-color: #9c1c1c;
 	box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 

@@ -34,8 +34,10 @@
 }
 
 .signupBtn span::after {
-	content: "\00bb";
+	content: "\f101";
 	position: absolute;
+	font-family: "Font Awesome 7 Free";
+	font-weight: 900;
 	top: -2px;
 	right: -20px;
 	opacity: 0;
