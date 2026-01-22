@@ -128,9 +128,10 @@
 
 		<script type="module" src="scripts/sdk.js"></script>
 		<script src="scripts/utils_cookies.js"></script>
+		<script src="scripts/hackerEffect.js" defer></script>
 		<script src="scripts/profile.js" defer></script>
-		<script src="scripts/lang/language_profile.js"></script>
-		<script>
+		<script src="scripts/lang/language_profile.js" defer></script>
+		<script async="off">
 			languageBtn.addEventListener("click", () => {
 				if (localStorage.getItem("lang") === "en") {
 					fetchLang("data/lang_en/homeNavbar.json");
@@ -145,6 +146,5 @@
 				fetchLang("data/lang_vi/homeNavbar.json");
 			}
 		</script>
-		<script src="scripts/hackerEffect.js"></script>
 	</body>
 </html>
