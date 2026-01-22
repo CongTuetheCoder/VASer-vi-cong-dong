@@ -139,11 +139,8 @@ const createButtons = async (unit, lessonsArrange, lessonsData) => {
 								headerText.startsWith("Case Study") ||
 								headerText.startsWith("Nghiên cứu tình huống");
 
-							let splitIdx = 1;
-							splitIdx += Number(lang == "vi" && isActivity);
-							splitIdx +=
-								Number(isCaseStudy) *
-								(Number(lang == "vi") * 2 + 1);
+							let splitIdx =
+								headerText.split(":")[0].split(" ").length - 1;
 
 							const lessonID = headerText
 								.split(" ")
