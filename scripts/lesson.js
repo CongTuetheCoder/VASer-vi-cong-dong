@@ -48,7 +48,6 @@ let codeList = [];
 let correctOutputs = [];
 let activities = 0;
 
-// Initialize lesson data asynchronously and run initial UI setup
 (async function initLesson() {
 	try {
 		const data = await fetchLessonData();
@@ -56,7 +55,6 @@ let activities = 0;
 		correctOutputs = data.correctOutputs || [];
 		activities = codeList.length || 0;
 
-		// If DOM already loaded, run the same setup as DOMContentLoaded handler
 		if (document.readyState !== "loading") {
 			const textarea = document.getElementById("editor");
 			const highlight = document.getElementById("highlight");
