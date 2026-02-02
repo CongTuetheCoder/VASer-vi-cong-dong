@@ -48,6 +48,21 @@ const weakPasswords = [
 
 const strengthColors = ["#949494", "#ff7575", "#ffdf75", "#7cff75"];
 
+const badWordsAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/badWords";
+
+let badWords;
+
+fetch(badWordsAPI)
+	.then((response) => {
+		if (!response.ok) {
+			console.error(`HTTP error: Status: ${response.status}`);
+		}
+		return response.json();
+	})
+	.then((data) => {
+		badWords = data;
+	});
+
 const passwordStrengthCheck = (password) => {
 	const lowercase = /[a-z]/;
 	const uppercase = /[A-Z]/;
@@ -82,7 +97,10 @@ emailIn.addEventListener("keydown", () => {
 	const emailPat = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
 	const email = emailIn.value;
 	setTimeout(() => {
-		fieldsValid.username = email.length > 0 && emailPat.test(email);
+		fieldsValid.username =
+			email.length > 0 &&
+			emailPat.test(email) &&
+			!badWords.includes(email);
 		updateButton();
 	}, 50);
 });
