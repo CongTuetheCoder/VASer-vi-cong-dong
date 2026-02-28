@@ -29,7 +29,8 @@ async function fetchLessonData() {
 		else lessonIdx = data.lessonsData[chapter].length.toString();
 
 		const code = data.lessons[chapter][lessonIdx]["code" + lang];
-		const correctOutputs = data.lessons[chapter][lessonIdx]["correct" + lang];
+		const correctOutputs =
+			data.lessons[chapter][lessonIdx]["correct" + lang];
 
 		return { codeList: code || [], correctOutputs: correctOutputs || [] };
 	} catch (err) {
@@ -79,18 +80,80 @@ let activities = 0;
 				textarea.addEventListener("scroll", updateHighlight);
 
 				textarea.addEventListener("keydown", (event) => {
+					// Tab: indent/unindent for multi-line selections; support Shift+Tab
 					if (event.key === "Tab") {
 						event.preventDefault();
 						const start = textarea.selectionStart;
 						const end = textarea.selectionEnd;
+						const value = textarea.value;
 
-						textarea.value =
-							textarea.value.substring(0, start) +
-							"\t" +
-							textarea.value.substring(end);
-						textarea.selectionStart = textarea.selectionEnd = start + 1;
+						const getLineStart = (pos) =>
+							value.lastIndexOf("\n", pos - 1) + 1;
+						const getLineEnd = (pos) => {
+							const idx = value.indexOf("\n", pos);
+							return idx === -1 ? value.length : idx;
+						};
 
-						updateHighlight();
+						const selHasNewline =
+							value.substring(start, end).indexOf("\n") !== -1;
+
+						if (event.shiftKey) {
+							// Unindent
+							const lineStart = getLineStart(start);
+							const lineEnd = getLineEnd(end);
+							const block = value.substring(lineStart, lineEnd);
+							const lines = block.split("\n");
+							const newLines = lines.map((ln) => {
+								if (ln.startsWith("\t")) return ln.substring(1);
+								if (ln.startsWith("    "))
+									return ln.substring(4);
+								return ln;
+							});
+							const newBlock = newLines.join("\n");
+
+							textarea.value =
+								value.substring(0, lineStart) +
+								newBlock +
+								value.substring(lineEnd);
+
+							textarea.selectionStart = lineStart;
+							textarea.selectionEnd = lineStart + newBlock.length;
+							updateHighlight();
+						} else {
+							// Indent
+							if (selHasNewline) {
+								const lineStart = getLineStart(start);
+								const lineEnd = getLineEnd(end);
+								const block = value.substring(
+									lineStart,
+									lineEnd,
+								);
+								const lines = block.split("\n");
+								const newBlock = lines
+									.map((ln) => "\t" + ln)
+									.join("\n");
+
+								textarea.value =
+									value.substring(0, lineStart) +
+									newBlock +
+									value.substring(lineEnd);
+
+								textarea.selectionStart = lineStart;
+								textarea.selectionEnd =
+									lineStart + newBlock.length;
+								updateHighlight();
+							} else {
+								// single caret or single-line selection: insert tab at caret
+								textarea.value =
+									value.substring(0, start) +
+									"\t" +
+									value.substring(end);
+								const pos = start + 1;
+								textarea.selectionStart =
+									textarea.selectionEnd = pos;
+								updateHighlight();
+							}
+						}
 					} else if (event.key === "Enter") {
 						event.preventDefault();
 
@@ -207,8 +270,8 @@ async function updateXP() {
 		storedXP += isCaseStudy
 			? CASE_STUDY_XP
 			: isActivity
-			? ACTIVITY_XP
-			: NORMAL_XP;
+				? ACTIVITY_XP
+				: NORMAL_XP;
 		console.log(storedXP);
 		await window.updateUserXP(auth.currentUser.uid, storedXP);
 	} catch (err) {
@@ -499,7 +562,7 @@ const validateOutput = (output, pattern) => {
 					// Wrap in function so `x` is available
 					const f = new Function(
 						"args",
-						`return (${pat.transform})(...args);`
+						`return (${pat.transform})(...args);`,
 					);
 					expected = f(args);
 				} catch (e) {
@@ -674,16 +737,43 @@ const validator = (outputText) => {
 				document.getElementById("runBtn").disabled = false;
 				fetchAndUpdateContent();
 			} else {
-				showResultsDialog();
+				await showResultsDialog();
 				const currentUnit = Number(
-					sessionStorage.getItem("lessonID").split(".")[0]
+					sessionStorage.getItem("lessonID").split(".")[0],
 				);
 				const currentLesson = Number(
-					sessionStorage.getItem("lessonID").split(".")[1]
+					sessionStorage.getItem("lessonID").split(".")[1],
 				);
 				const lessonsData = await fetchLessonConfig(
-					Number(currentUnit)
+					Number(currentUnit),
 				);
+
+				try {
+					const totalAttempts = correctCount + wrongCount;
+					const percentage =
+						totalAttempts > 0
+							? Math.round((correctCount / totalAttempts) * 100)
+							: 0;
+
+					const reportEntry = {
+						lesson: currentLesson || lessonsData.length,
+						unit: currentUnit,
+						percentage: percentage,
+						date: new Date(),
+						correct: correctCount,
+						total: totalAttempts,
+					};
+
+					const userId = window.auth?.currentUser?.uid;
+					if (userId) {
+						const userRef = window.doc(window.db, "users", userId);
+						await window.updateDoc(userRef, {
+							report: window.arrayUnion(reportEntry),
+						});
+					}
+				} catch (e) {
+					console.error("Failed to append report entry:", e);
+				}
 
 				await updateProgress(currentUnit, currentLesson, lessonsData);
 				window.location.href = "home.html";
@@ -703,7 +793,88 @@ const validator = (outputText) => {
 	}
 };
 
-const showResultsDialog = () => {};
+const showResultsDialog = () => {
+	return new Promise((resolve) => {
+		const dlg = document.getElementById("results");
+		if (!dlg) {
+			resolve();
+			return;
+		}
+
+		const totalAttempts = correctCount + wrongCount;
+		const percentage =
+			totalAttempts > 0
+				? Math.round((correctCount / totalAttempts) * 100)
+				: 0;
+
+		const title =
+			localStorage.getItem("lang") === "vi" ? "Kết quả" : "Results";
+		const correctLabel =
+			localStorage.getItem("lang") === "vi" ? "Đúng" : "Correct";
+		const wrongLabel =
+			localStorage.getItem("lang") === "vi" ? "Sai" : "Wrong";
+		const percentLabel =
+			localStorage.getItem("lang") === "vi" ? "Tỷ lệ đúng" : "Percentage";
+		const closeLabel =
+			localStorage.getItem("lang") === "vi" ? "Tiếp tục" : "Continue";
+
+		dlg.innerHTML = `
+			<div class="results-card">
+				<h3 style="margin: 0 0 10px">${title}</h3>
+				<div class="results-row"><span>${correctLabel}:</span><strong>${correctCount}</strong></div>
+				<div class="results-row"><span>${wrongLabel}:</span><strong>${wrongCount}</strong></div>
+				<div class="results-row"><span>${percentLabel}:</span><strong>${percentage}%</strong></div>
+				<button id="results-continue">${closeLabel}</button>
+			</div>
+		`;
+
+		const btn = dlg.querySelector("#results-continue");
+
+		const cleanup = () => {
+			try {
+				dlg.removeEventListener("close", onClose);
+				dlg.removeEventListener("cancel", onClose);
+			} catch (e) {}
+			btn?.removeEventListener("click", onBtn);
+		};
+
+		const onBtn = () => {
+			try {
+				if (typeof dlg.close === "function") dlg.close();
+				else dlg.style.display = "none";
+			} catch (e) {
+				dlg.style.display = "none";
+			}
+		};
+
+		const onClose = () => {
+			cleanup();
+			resolve();
+		};
+
+		btn?.addEventListener("click", onBtn);
+
+		try {
+			if (typeof dlg.showModal === "function") {
+				dlg.addEventListener("close", onClose);
+				dlg.addEventListener("cancel", onClose);
+				dlg.showModal();
+			} else {
+				dlg.style.display = "block";
+				btn?.addEventListener("click", () => {
+					dlg.style.display = "none";
+					onClose();
+				});
+			}
+		} catch (e) {
+			dlg.style.display = "block";
+			btn?.addEventListener("click", () => {
+				dlg.style.display = "none";
+				onClose();
+			});
+		}
+	});
+};
 
 // Listeners
 document.getElementById("runBtn").addEventListener("click", async () => {
@@ -745,46 +916,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	textarea.addEventListener("input", updateHighlight);
 	textarea.addEventListener("scroll", updateHighlight);
-
-	textarea.addEventListener("keydown", (event) => {
-		if (event.key === "Tab") {
-			event.preventDefault();
-			const start = textarea.selectionStart;
-			const end = textarea.selectionEnd;
-
-			textarea.value =
-				textarea.value.substring(0, start) +
-				"\t" +
-				textarea.value.substring(end);
-			textarea.selectionStart = textarea.selectionEnd = start + 1;
-
-			updateHighlight();
-		} else if (event.key === "Enter") {
-			event.preventDefault();
-
-			const start = textarea.selectionStart;
-			const end = textarea.selectionEnd;
-
-			const currentLine = textarea.value
-				.substring(0, start)
-				.split("\n")
-				.pop();
-
-			const indentMatch = currentLine.match(/^\s*/);
-			const indent = indentMatch ? indentMatch[0] : "";
-
-			const insert = "\n" + indent;
-
-			textarea.value =
-				textarea.value.substring(0, start) +
-				insert +
-				textarea.value.substring(end);
-
-			textarea.selectionStart = textarea.selectionEnd =
-				start + insert.length;
-			updateHighlight();
-		}
-	});
 
 	textarea.value =
 		localStorage.getItem("lang") === "vi"
