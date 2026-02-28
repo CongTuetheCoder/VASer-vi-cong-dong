@@ -5,6 +5,22 @@ const confirmPasswordIn = document.getElementById("confirm-password");
 const passwordStrength = document.getElementById("password-strength");
 
 const usersAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/users";
+const badWordsAPI = "https://68ce57d06dc3f350777eb8f9.mockapi.io/badWords";
+
+let badWords;
+
+fetch(badWordsAPI)
+	.then((response) => {
+		if (!response.ok) {
+			console.error(`HTTP error: Status: ${response.status}`);
+		}
+		return response.json();
+	})
+	.then((data) => {
+		badWords = data;
+		console.log(badWords);
+	});
+
 
 function setCookie(name, value, days) {
 	const date = new Date();
@@ -138,7 +154,7 @@ button.addEventListener("click", () => {
 		})
 		.then(async (data) => {
 			const existingUser = data.find(
-				(user) => user.username === usernameIn.value
+				(user) => user.username === usernameIn.value,
 			);
 
 			if (existingUser) {
