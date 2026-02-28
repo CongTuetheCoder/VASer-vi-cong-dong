@@ -1,8 +1,9 @@
 :root {
 	--family: "JetBrains Mono", Consolas, monospace;
 	--checkmark-color: #25976a;
-	--btn-transition: color 500ms ease, background-color 500ms ease,
-		transform 100ms ease-in, box-shadow 100ms ease-in;
+	--btn-transition:
+		color 500ms ease, background-color 500ms ease, transform 100ms ease-in,
+		box-shadow 100ms ease-in;
 }
 
 body.correct {
@@ -249,7 +250,9 @@ pre.codeEdit::before {
 
 	border-radius: 12px;
 	transform: rotate(--gradient-angle);
-	transition: opacity 0.5s ease, scale 0.5s ease;
+	transition:
+		opacity 0.5s ease,
+		scale 0.5s ease;
 	opacity: 0;
 }
 
@@ -461,4 +464,48 @@ pre.codeEdit::before {
 	100% {
 		--gradient-angle: 360deg;
 	}
+}
+
+
+#results {
+	padding: 0;
+	border: none;
+	background: transparent;
+	position: fixed;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+}
+
+#results::backdrop {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+#results .results-card {
+	margin: 0;
+}
+
+#results .results-card {
+	padding: 20px;
+	color: #fff;
+	background: #111;
+	border-radius: 8px;
+	min-width: 260px;
+}
+
+#results .results-row {
+	display: flex;
+	justify-content: space-between;
+	margin: 8px 0;
+}
+
+#results button {
+	margin-top: 12px;
+	padding: 8px 14px;
+	border-radius: 6px;
+	border: none;
+	background: #4caf50;
+	color: #fff;
 }

@@ -8,10 +8,14 @@
 	position: relative;
 	display: flex;
 	width: 100vw;
-	height: 70vh;
+	min-height: 100vh;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+}
+
+body {
+	overflow-y: auto;
 }
 
 .user-container {
@@ -31,8 +35,11 @@
 	color: white;
 	border-radius: 5px;
 	border: 1px solid white;
-	transition: background-color 400ms ease, color 250ms ease,
-		transform 100ms ease-in, box-shadow 100ms ease-in;
+	transition:
+		background-color 400ms ease,
+		color 250ms ease,
+		transform 100ms ease-in,
+		box-shadow 100ms ease-in;
 	box-shadow: 0 10px 0 0 rgba(0, 0, 0, 0.5);
 }
 
@@ -86,7 +93,8 @@
 	right: 0;
 }
 
-.actionButton:active, #addClassBtn:active {
+.actionButton:active,
+#addClassBtn:active {
 	background-color: white;
 	transform: translateY(10px);
 	box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.5);
@@ -113,6 +121,66 @@
 
 #edit-username:hover {
 	opacity: 1;
+}
+
+#classes-section .mb-2 span {
+	opacity: 0.5;
+	position: relative;
+	transition: opacity 300ms ease;
+}
+
+#classes-section .mb-2 span::before {
+	content: "\f0c5";
+	position: absolute;
+	opacity: 0;
+	left: -30px;
+	font-family:
+		"Font Awesome 5 Brands", "Font Awesome 5 Free", "Font Awesome Pro",
+		sans-serif;
+}
+
+#classes-section .mb-2 span:hover {
+	opacity: 1;
+	color: aqua;
+	text-decoration: underline;
+}
+
+#classes-section .mb-2 span:hover::before {
+	opacity: 0.5;
+}
+
+#classes-section,
+#report-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	min-width: 10px;
+}
+
+hr {
+	height: 1px;
+	width: 100%;
+	background-color: white;
+	opacity: 0.5;
+}
+
+.lesson-card {
+	border-radius: 8px;
+	border: 1px solid var(--purple-glow);
+	background-color: #b026ff30;
+	padding: 12px;
+	width: 350px;
+	box-shadow: 0 0px 6px black inset;
+}
+
+#report-list {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 16px;
+	justify-content: center;
+	margin-top: 16px;
 }
 
 @media screen and (max-width: 1200px) {
