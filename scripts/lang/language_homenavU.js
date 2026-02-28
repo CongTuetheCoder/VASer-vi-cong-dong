@@ -4,6 +4,8 @@ languageBtn.addEventListener("click", () => {
 	} else {
 		fetchLang("data/lang_vi/homeNavbar.json");
 	}
+
+	location.reload(true);
 });
 
 if (localStorage.getItem("lang") === "en") {
