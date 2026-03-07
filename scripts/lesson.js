@@ -241,7 +241,7 @@ function fetchAndUpdateContent() {
 
 				let elem = `<${type}`;
 				if (type === "div") elem += ' class="div-code"';
-				else if (type === "i") elem += ' style="color: #00000080"';
+				else if (type === "i") elem += ' class="muted-inline"';
 
 				elem += `>${element.body}</${type}>`;
 				lessonContainer.innerHTML += elem;
@@ -480,6 +480,227 @@ const step = () => {
 	bar.style.setProperty("--progress-width", `${percentage}%`);
 };
 
+// Diagnose why output didn't match a pattern using the same logic as validateOutput
+function diagnoseOutput(output, pattern) {
+	const normalize = (str) => str.replace(/\r\n/g, "\n").trim();
+	const outLines = normalize(output).split("\n");
+	const userInputs = [];
+	const vars = {};
+
+	function lineMsg(line, pat) {
+		if (pat.type === "prompt") {
+			if (!line.startsWith(pat.text))
+				return `Expected prompt starting with "${pat.text}", but got: "${line || "<empty>"}"`;
+			const input = line.slice(pat.text.length).trim();
+			userInputs.push(input);
+			if (pat.captureAs) vars[pat.captureAs] = input;
+			return null;
+		}
+
+		if (pat.type === "dynamic") {
+			if (!line.startsWith(pat.text))
+				return `Expected a dynamic line starting with "${pat.text}", but got: "${line || "<empty>"}"`;
+			if (pat.captureAs) {
+				if (!pat.captureAppend) vars[pat.captureAs] = line;
+				else {
+					if (vars[pat.captureAs]) vars[pat.captureAs].push(line);
+					else vars[pat.captureAs] = [line];
+				}
+			}
+			return null;
+		}
+
+		if (pat.type === "static") {
+			if (line !== pat.text)
+				return `Expected exact text: "${pat.text}", but got: "${line || "<empty>"}"`;
+			return null;
+		}
+
+		if (pat.type === "regex") {
+			const re = new RegExp(pat.pattern);
+			const m = line.match(re);
+			if (m === null)
+				return `Output line did not match expected pattern /${pat.pattern}/; got: "${line || "<empty>"}"`;
+			const captured = m[1] !== undefined ? m[1] : m[0];
+			if (pat.captureAs) {
+				if (pat.captureOnce && vars[pat.captureAs] !== undefined) {
+					if (
+						String(vars[pat.captureAs]).trim() !==
+						String(captured).trim()
+					) {
+						return `Captured value for ${pat.captureAs} differs from previous capture: "${captured}"`;
+					}
+				} else {
+					if (Array.isArray(pat.captureAs)) {
+						pat.captureAs.forEach(
+							(name, i) => (vars[name] = m[i + 1]),
+						);
+					} else vars[pat.captureAs] = captured;
+				}
+			}
+			return null;
+		}
+
+		if (pat.type === "reference") {
+			const refVal = vars[pat.name];
+			const args = Array.isArray(pat.from)
+				? pat.from.map((v) => vars[v])
+				: [vars[pat.from]];
+			if (refVal === undefined)
+				return `Missing captured value '${pat.name}' to compare against expected reference.`;
+			if (args.includes(undefined))
+				return `Missing argument(s) for reference transform: ${JSON.stringify(pat.from)}`;
+			let expected = args;
+			if (pat.transform) {
+				try {
+					const f = new Function(
+						"args",
+						`return (${pat.transform})(...args);`,
+					);
+					expected = f(args);
+				} catch (e) {
+					return `Reference transform failed: ${e && e.message ? e.message : e}`;
+				}
+			}
+			if (refVal != expected)
+				return `Reference mismatch: expected ${expected}, got ${refVal}`;
+			return null;
+		}
+
+		if (pat.type === "var") {
+			const varsFromPython = window.lastPythonVars || {};
+			const value = varsFromPython[pat.name];
+			if (value === undefined)
+				return `Missing Python variable '${pat.name}' in runtime environment.`;
+			if (pat.captureAs) vars[pat.captureAs] = value;
+			if (pat.expected !== undefined) {
+				if (String(value).trim() !== String(pat.expected).trim())
+					return `Variable '${pat.name}' expected '${pat.expected}', got '${value}'`;
+			}
+			return null;
+		}
+
+		if (pat.type === "rollback" || pat.type === "set-error") return null;
+
+		return `Unknown pattern type '${pat.type}'`;
+	}
+
+	function matchPattern(lines, patterns, idx = 0) {
+		for (let k = 0; k < patterns.length; k++) {
+			const pattern = patterns[k];
+			if (pattern.type === "repeat") {
+				let reps = pattern.times;
+				if (pattern.timesInputIndex !== undefined)
+					reps = parseInt(userInputs[pattern.timesInputIndex], 10);
+				if (pattern.untilInput !== undefined) {
+					while (idx < lines.length) {
+						const lastInput = userInputs[userInputs.length - 1];
+						if (lastInput === pattern.untilInput) break;
+						const startIdx = idx;
+						const res = matchPattern(lines, pattern.body, idx);
+						if (res.ok === false) return res;
+						idx = res.idx;
+						if (idx === -1 || idx === startIdx) break;
+					}
+				} else if (pattern.untilValue !== undefined) {
+					while (idx < lines.length) {
+						const currentLine = lines[idx];
+						if (currentLine === undefined) break;
+						if (currentLine.trim() === pattern.untilValue) {
+							idx++;
+							break;
+						}
+						const startIdx = idx;
+						const res = matchPattern(lines, pattern.body, idx);
+						if (res.ok === false) return res;
+						idx = res.idx;
+						if (idx == startIdx) break;
+					}
+				} else if (reps !== undefined) {
+					for (let r = 0; r < reps; r++) {
+						const res = matchPattern(lines, pattern.body, idx);
+						if (res.ok === false) return res;
+						idx = res.idx;
+						if (idx === -1)
+							return {
+								ok: false,
+								message: "Repeat body did not match",
+								idx: -1,
+							};
+					}
+				} else {
+					while (true) {
+						const startIdx = idx;
+						const res = matchPattern(lines, pattern.body, idx);
+						if (res.ok === false) return res;
+						idx = res.idx;
+						if (idx === -1 || idx === startIdx) break;
+					}
+				}
+			} else if (pattern.type === "conditional") {
+				const conditionResult = (function evaluateCondition(condition) {
+					if (condition.type === "var-equals") {
+						const varValue = vars[condition.name];
+						return (
+							String(varValue).trim() ==
+							String(condition.value).trim()
+						);
+					}
+					if (condition.type === "var-gt") {
+						const varValue = vars[condition.name];
+						return Number(varValue) > Number(condition.value);
+					}
+					if (condition.type === "var-ge") {
+						const varValue = vars[condition.name];
+						return Number(varValue) >= Number(condition.value);
+					}
+					if (condition.type === "var-exists") {
+						return vars[condition.name] !== undefined;
+					}
+					return false;
+				})(pattern.condition);
+
+				let nextIdx = idx;
+				if (conditionResult && pattern.then !== undefined) {
+					const res = matchPattern(lines, pattern.then, idx);
+					if (res.ok === false) return res;
+					nextIdx = res.idx;
+				} else if (!conditionResult && pattern.else !== undefined) {
+					const res = matchPattern(lines, pattern.else, idx);
+					if (res.ok === false) return res;
+					nextIdx = res.idx;
+				}
+				idx = nextIdx;
+			} else {
+				const skipTypes = ["reference", "var", "rollback", "set-error"];
+				if (skipTypes.includes(pattern.type)) {
+					// allow to proceed but still test for var/reference later
+				}
+				if (idx >= lines.length)
+					return {
+						ok: false,
+						message: `Missing output line for expected pattern of type '${pattern.type}'`,
+						idx: -1,
+					};
+				const line = lines[idx];
+				const msg = lineMsg(line, pattern);
+				if (msg) {
+					return { ok: false, message: msg, idx };
+				}
+				idx++;
+			}
+		}
+		return { ok: true, idx };
+	}
+
+	const res = matchPattern(outLines, pattern, 0);
+	if (res.ok) return { ok: true };
+	return {
+		ok: false,
+		message: res.message || "Output did not match expected pattern",
+	};
+}
+
 const validateOutput = (output, pattern) => {
 	const out = document.getElementById("output");
 	if (out.style.color === "red" && pattern[0].type !== "set-error")
@@ -690,8 +911,106 @@ const validateOutput = (output, pattern) => {
 	return result !== -1;
 };
 
-const validator = (outputText) => {
+const validator = async (outputText) => {
 	const body = document.body;
+
+	// Helper: escape HTML for safe dialog insertion
+	function escapeHtml(unsafe) {
+		return unsafe
+			.replace(/&/g, "&amp;")
+			.replace(/</g, "&lt;")
+			.replace(/>/g, "&gt;")
+			.replace(/\"/g, "&quot;")
+			.replace(/'/g, "&#039;");
+	}
+
+	// Small robot SVG used in the dialog
+	const robotSVG = `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none"><rect x="8" y="18" width="48" height="34" rx="4" fill="#e6eef8" stroke="#c6d8ee"/><rect x="22" y="8" width="20" height="10" rx="3" fill="#e6eef8" stroke="#c6d8ee"/><circle cx="24" cy="31" r="3" fill="#4caf50"/><circle cx="40" cy="31" r="3" fill="#4caf50"/><rect x="28" y="38" width="8" height="4" rx="1" fill="#c6d8ee"/></svg>`;
+
+	// Show an error dialog with a friendly robot and a suggestion message
+	function showErrorDialog(message) {
+		return new Promise((resolve) => {
+			const lang = localStorage.getItem("lang") === "vi" ? "vi" : "en";
+			const titleText =
+				lang === "vi"
+					? "Ôi không — Tôi phát hiện một lỗi"
+					: "Uh oh — I found a mistake";
+			const dismissText = lang === "vi" ? "Đóng" : "Dismiss";
+			const fixText = lang === "vi" ? "Chỉnh sửa" : "Focus editor";
+
+			let dlg = document.getElementById("error-dialog");
+			if (!dlg) {
+				dlg = document.createElement("dialog");
+				dlg.id = "error-dialog";
+				document.body.appendChild(dlg);
+			}
+
+			// If message is the generic English fallback and user prefers Vietnamese, replace it
+			let shownMessage = String(message || "");
+			const englishDefault =
+				"Output did not match expected result. Check logic and formatting.";
+			const vietnameseDefault =
+				"Kết quả không khớp với kết quả mong đợi. Kiểm tra logic và định dạng.";
+			if (lang === "vi" && shownMessage === englishDefault)
+				shownMessage = vietnameseDefault;
+
+			dlg.innerHTML = `
+					<div class="error-card">
+						<div class="robot-illustration">${robotSVG}</div>
+						<div class="error-content">
+							<h4>${escapeHtml(titleText)}</h4>
+							<p id="error-msg">${escapeHtml(shownMessage)}</p>
+							<div class="error-actions">
+								<button class="dismiss-btn">${escapeHtml(dismissText)}</button>
+								<button class="fix-btn">${escapeHtml(fixText)}</button>
+							</div>
+						</div>
+					</div>`;
+
+			const dismiss = dlg.querySelector(".dismiss-btn");
+			const fix = dlg.querySelector(".fix-btn");
+			function cleanup() {
+				try {
+					if (typeof dlg.close === "function") dlg.close();
+				} catch (e) {}
+				try {
+					if (
+						dismiss &&
+						typeof dismiss.removeEventListener === "function"
+					)
+						dismiss.removeEventListener("click", onDismiss);
+					if (fix && typeof fix.removeEventListener === "function")
+						fix.removeEventListener("click", onFix);
+				} catch (e) {}
+				try {
+					if (dlg && dlg.parentNode) dlg.parentNode.removeChild(dlg);
+				} catch (e) {}
+				resolve();
+			}
+
+			function onDismiss() {
+				cleanup();
+			}
+			function onFix() {
+				cleanup();
+				const ta = document.getElementById("editor");
+				if (ta) {
+					ta.focus();
+					ta.scrollIntoView({ behavior: "smooth", block: "center" });
+				}
+			}
+
+			dismiss.addEventListener("click", onDismiss);
+			fix.addEventListener("click", onFix);
+
+			try {
+				dlg.showModal();
+			} catch (e) {
+				alert(shownMessage);
+				resolve();
+			}
+		});
+	}
 
 	if (validateOutput(outputText, correctOutputs[lessonCounter])) {
 		correctCount++;
@@ -784,6 +1103,22 @@ const validator = (outputText) => {
 		timeout = 1250;
 		body.classList.add("wrong");
 
+		try {
+			const diag = diagnoseOutput(
+				outputText,
+				correctOutputs[lessonCounter],
+			);
+			const lang = localStorage.getItem("lang") === "vi" ? "vi" : "en";
+			const defaultHint =
+				lang === "vi"
+					? "Kết quả không khớp với kết quả mong đợi. Kiểm tra logic và định dạng."
+					: "Output did not match expected result. Check logic and formatting.";
+			const hint = diag.ok ? defaultHint : diag.message;
+			await showErrorDialog(hint);
+		} catch (e) {
+			console.error("Failed to produce diagnostic hint:", e);
+		}
+
 		setTimeout(() => {
 			body.classList.remove("wrong");
 			document.getElementById("runBtn").disabled = false;
@@ -820,7 +1155,7 @@ const showResultsDialog = () => {
 
 		dlg.innerHTML = `
 			<div class="results-card">
-				<h3 style="margin: 0 0 10px">${title}</h3>
+				<h3 class="results-title">${title}</h3>
 				<div class="results-row"><span>${correctLabel}:</span><strong>${correctCount}</strong></div>
 				<div class="results-row"><span>${wrongLabel}:</span><strong>${wrongCount}</strong></div>
 				<div class="results-row"><span>${percentLabel}:</span><strong>${percentage}%</strong></div>
