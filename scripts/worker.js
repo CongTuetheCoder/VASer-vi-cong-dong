@@ -1,78 +1,68 @@
-importScripts(
-	"https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js",
-	"https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js"
-);
+importScripts("https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js");
 
-let currentAbort = null;
-let pendingInputResolve = null;
+let pyodide = null;
+let pyodideReadyPromise = (async () => {
+	pyodide = await loadPyodide();
+	pyodide.setStdout({
+		batched: (text) => self.postMessage({ type: "output", text }),
+	});
+	pyodide.setStderr({
+		batched: (text) => self.postMessage({ type: "error", error: text }),
+	});
+})();
 
 self.onmessage = async (event) => {
-	const { type, code, input, cancel } = event.data;
-
-	if (cancel && currentAbort) {
-		currentAbort.abort();
-		currentAbort = null;
-		self.postMessage({ type: "cancelled" });
-		return;
-	}
+	const { type, code } = event.data;
 
 	if (type === "run") {
-		if (pendingInputResolve && input !== undefined) {
-			pendingInputResolve(input);
-			pendingInputResolve = null;
-			return;
-		}
-
-		currentAbort = new AbortController();
-		const signal = currentAbort.signal;
+		await pyodideReadyPromise;
 
 		try {
-			let output = "";
-
-			Sk.configure({
-				output: (text) => {
-					output += text;
-					self.postMessage({ type: "output", text });
-				},
-				read: (x) => {
-					if (!Sk.builtinFiles || !Sk.builtinFiles["files"][x]) {
-						throw "File not found: '" + x + "'";
-					}
-					return Sk.builtinFiles["files"][x];
-				},
-				inputfun: (promptText) => {
-					self.postMessage({
-						type: "input_request",
-						text: promptText || "",
-					});
-					return new Promise((resolve) => {
-						pendingInputResolve = resolve;
-					});
+			// FIX: Removed 'error: true' to resolve the conflict
+			pyodide.setStdin({
+				stdin: () => {
+					// For a basic implementation, you can return a
+					// pre-defined string or use a synchronous bridge.
+					// Returning a Promise here will NOT work for input().
+					self.postMessage({ type: "input_request" });
+					return ""; // Placeholder: requires SharedArrayBuffer for real-time blocking
 				},
 			});
 
-			await Sk.misceval.asyncToPromise(() =>
-				Sk.importMainWithBody("<stdin>", false, code, true)
-			);
+			await pyodide.runPythonAsync(code);
 
+			// Extract globals safely
+			const globals = pyodide.globals.toJs();
 			const vars = {};
-			if (Sk.globals) {
-				for (const [k, v] of Object.entries(Sk.globals)) {
-					if (typeof k === "string" && !k.startsWith("__")) {
-						vars[k.replace("_$rw$", "")] = Sk.ffi.remapToJs(v);
+
+			for (const [key, value] of globals) {
+				// Ignore internal Python variables
+				if (typeof key === "string" && !key.startsWith("__")) {
+					// Convert PyProxy objects to JS
+					let jsValue =
+						value instanceof pyodide.ffi.PyProxy
+							? value.toJs()
+							: value;
+
+					// Structured Clone cannot handle functions (Python functions/classes become JS functions)
+					if (typeof jsValue !== "function") {
+						try {
+							// Brute-force sanitization: Guarantees the object is strictly data
+							// This strips out un-cloneable properties and handles Proxies safely
+							vars[key] = JSON.parse(JSON.stringify(jsValue));
+						} catch (e) {
+							// If it still can't be serialized (e.g., circular reference), skip it
+							console.warn(
+								`Skipping variable '${key}': could not be serialized.`,
+							);
+						}
 					}
 				}
 			}
 
-			self.postMessage({ type: "done", output, vars });
+			self.postMessage({ type: "done", vars });
 		} catch (err) {
-			if (signal.aborted) {
-				self.postMessage({ type: "cancelled" });
-			} else {
-				self.postMessage({ type: "error", error: err.toString() });
-			}
-		} finally {
-			currentAbort = null;
+			self.postMessage({ type: "error", error: err.message });
 		}
 	}
 };
